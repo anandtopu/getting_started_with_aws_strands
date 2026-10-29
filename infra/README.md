@@ -140,3 +140,7 @@ The local lesson deletes its own registered sessions/preferences; cloud user
 erasure additionally needs record/event discovery, all namespace copies, snapshots
 and backup policy. This isolated lab uses entire-resource deletion for complete
 cloud cleanup rather than claiming that expiry is complete erasure.
+
+## Tier 5 production labs
+
+Five additional [production apps](PRODUCTION.md) cover observability, Lambda, Fargate, Runtime and the AgentCore service suite. Unlike the earlier labs, they include local assets and container builds. Read their separate inventory, live prerequisites, cost estimates and teardown steps.

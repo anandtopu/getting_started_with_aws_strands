@@ -145,3 +145,7 @@ between nodes; a host asyncio.timeout is needed for a strict whole-call deadline
 Cancellation does not reverse completed remote actions or necessarily stop billing.
 The course's partner service only quotes synthetic upgrades. Its loopback process
 and temporary token are closed after each example. No cloud teardown is required.
+
+## Delivered Tier 5 cost controls
+
+The [production cost inventory](PRODUCTION_COSTS.md) prices each added resource, separates always-running Fargate/ALB/IPv4 costs from usage-based hosting, and records the October 2026 Memory pricing change. Managed evaluations start disabled; tools have short session lifetimes; logs have seven-day retention. Follow [the production cleanup sequence](../infra/PRODUCTION.md).

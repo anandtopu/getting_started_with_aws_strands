@@ -16,6 +16,14 @@ from common.config import ROOT, CourseError
 from common.pretty import run_cli
 
 
+def available(module: str) -> bool:
+    """Dotted optional imports can raise when their parent namespace is absent."""
+    try:
+        return importlib.util.find_spec(module) is not None
+    except (ImportError, ModuleNotFoundError):
+        return False
+
+
 def run_examples(*, live: bool = False, require_all: bool = False) -> int:
     # Captured child output is UTF-8; Windows terminals may use a narrower code page.
     # Preserve readable failure diagnostics rather than aborting the entire sweep.
@@ -33,9 +41,7 @@ def run_examples(*, live: bool = False, require_all: bool = False) -> int:
         env["AWS_EC2_METADATA_DISABLED"] = "true"
     env["MEM0_TELEMETRY"] = "false"
     for example in manifest["examples"]:
-        missing = [
-            name for name in example.get("requires", []) if importlib.util.find_spec(name) is None
-        ]
+        missing = [name for name in example.get("requires", []) if not available(name)]
         if missing:
             skipped += 1
             print(

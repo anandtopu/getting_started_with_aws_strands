@@ -806,39 +806,47 @@
         {
           "path": "modules/19_observability/examples/01_agent_metrics.py",
           "features": "AgentResult token/cycle/latency/tool metrics and total cost accounting",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/19_observability/examples/02_local_tracing.py",
           "features": "OpenTelemetry console and OTLP exporter; local Jaeger with Docker",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/19_observability/examples/03_offline_testing.py",
           "features": "Scripted Model interface, tool unit tests, moto/Stubber, deprecations and opt-in live markers",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/19_observability/examples/04_strands_evals.py",
           "features": "Cases, experiments, output and trajectory evaluators, LLM judges and deterministic scoring",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/19_observability/examples/05_evaluation_cli.py",
           "features": "strands-evals run thresholds and nonzero exits as a CI quality gate",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/19_observability/examples/06_cloud_observability.py",
           "features": "CloudWatch and AgentCore telemetry, redaction and retention",
-          "aws_required": "Yes; local console/Jaeger alternative"
+          "aws_required": "Yes; local console/Jaeger alternative",
+          "status": "delivered"
         },
         {
           "path": "modules/19_observability/examples/07_managed_evaluation.py",
           "features": "AgentCore Evaluations as a managed option",
-          "aws_required": "Yes; local Evals alternative"
+          "aws_required": "Yes; local Evals alternative",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "20_deployment",
@@ -851,34 +859,41 @@
         {
           "path": "modules/20_deployment/examples/01_hosting_decision.py",
           "features": "Local/Lambda/Fargate/AgentCore tradeoffs; EKS and EC2 overview",
-          "aws_required": "No; local workload model"
+          "aws_required": "No; local workload model",
+          "status": "delivered"
         },
         {
           "path": "modules/20_deployment/examples/02_agentcore_local.py",
           "features": "BedrockAgentCoreApp, @app.entrypoint and local runtime testing",
-          "aws_required": "No; model can use Ollama"
+          "aws_required": "No; model can use Ollama",
+          "status": "delivered"
         },
         {
           "path": "modules/20_deployment/examples/03_agentcore_runtime.py",
-          "features": "Toolkit/CLI deploy, invoke, streaming and sessions; resource inventory and teardown",
-          "aws_required": "Yes; local runtime alternative"
+          "features": "CDK Runtime deploy path, invocation, streaming and session IDs; resource inventory and teardown",
+          "aws_required": "Yes; local runtime alternative",
+          "status": "delivered"
         },
         {
           "path": "modules/20_deployment/examples/04_lambda_handler.py",
           "features": "Lambda handler, dependency packaging, scoped execution role and CDK app",
-          "aws_required": "Yes for deployment; offline handler alternative"
+          "aws_required": "Yes for deployment; offline handler alternative",
+          "status": "delivered"
         },
         {
           "path": "modules/20_deployment/examples/05_fargate_api.py",
           "features": "FastAPI container, Fargate service/load balancer, logs and explicit idle costs; CDK lifecycle",
-          "aws_required": "Yes for deployment; local container alternative"
+          "aws_required": "Yes for deployment; local container alternative",
+          "status": "delivered"
         },
         {
           "path": "modules/20_deployment/examples/06_runtime_configuration.py",
           "features": "Secrets Manager/SSM, per-environment configuration, roles and cleanup comparison",
-          "aws_required": "Yes; local environment configuration"
+          "aws_required": "Yes; local environment configuration",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "21_agentcore",
@@ -891,49 +906,59 @@
         {
           "path": "modules/21_agentcore/examples/01_memory.py",
           "features": "Short-term events and semantic, preference, summary and episodic strategies; deletion",
-          "aws_required": "Yes; local preference store"
+          "aws_required": "Yes; local preference store",
+          "status": "delivered"
         },
         {
           "path": "modules/21_agentcore/examples/02_gateway.py",
           "features": "Lambda/OpenAPI to MCP, semantic tool search and scoped targets",
-          "aws_required": "Yes; local booking MCP"
+          "aws_required": "Yes; local booking MCP",
+          "status": "delivered"
         },
         {
           "path": "modules/21_agentcore/examples/03_identity.py",
           "features": "Cognito/JWT inbound identity and third-party OAuth outbound identity",
-          "aws_required": "Yes; local authenticated test provider"
+          "aws_required": "Yes; local authenticated test provider",
+          "status": "delivered"
         },
         {
           "path": "modules/21_agentcore/examples/04_code_interpreter.py",
           "features": "AgentCore Code Interpreter tool, sessions, execution limits and cleanup",
-          "aws_required": "Yes; reviewed local computation"
+          "aws_required": "Yes; reviewed local computation",
+          "status": "delivered"
         },
         {
           "path": "modules/21_agentcore/examples/05_browser.py",
           "features": "AgentCore Browser tool, restricted destinations, sessions and cleanup",
-          "aws_required": "Yes; fixture web pages"
+          "aws_required": "Yes; fixture web pages",
+          "status": "delivered"
         },
         {
           "path": "modules/21_agentcore/examples/06_observability.py",
           "features": "Service telemetry, redaction, permissions and retention cleanup",
-          "aws_required": "Yes; local OTLP"
+          "aws_required": "Yes; local OTLP",
+          "status": "delivered"
         },
         {
           "path": "modules/21_agentcore/examples/07_policy.py",
           "features": "Gateway Policy, Cedar, tool-input limits and refusal of excess refunds",
-          "aws_required": "Yes; local typed policy"
+          "aws_required": "Yes; local typed policy",
+          "status": "delivered"
         },
         {
           "path": "modules/21_agentcore/examples/08_evaluations.py",
           "features": "Managed evaluation configuration, scheduled runs, score review and schedule deletion",
-          "aws_required": "Yes; local evaluation runner"
+          "aws_required": "Yes; local evaluation runner",
+          "status": "delivered"
         },
         {
           "path": "modules/21_agentcore/examples/09_integrated_copilot.py",
           "features": "Memory, booking Gateway, sign-in, refund policy and recurring evaluations",
-          "aws_required": "Yes; composed local support app"
+          "aws_required": "Yes; composed local support app",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "bonus/B1_voice",
@@ -1041,5 +1066,5 @@
       ]
     }
   ],
-  "delivered_phase": 6
+  "delivered_phase": 7
 }

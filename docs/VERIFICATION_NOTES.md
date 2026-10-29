@@ -458,3 +458,103 @@ The documentation checker verified 1,032 local/public links with zero failures.
 All 107 default-install script entries passed; 16 entries explicitly skipped
 missing optional dependencies. All pre-commit hooks passed on every file,
 including notebook clearing, IAM actions and sample credential checks.
+
+## Phase 7: production, observability and AgentCore (2026-10-29)
+
+Modules 19–21 add 22 examples, three use cases, nine exercise/solution pairs,
+three notebooks and the Production Readiness checkpoint. The delivered course
+now has 117 examples, 22 use cases, 66 exercise pairs, 22 notebooks and five
+checkpoints. Bonus modules and capstones remain Phase 8 work.
+
+### Versions and API checks
+
+[The dated PyPI inventory](verification/phase7_packages.json) records installed
+versions and current releases. The implementation uses Strands 1.62.0, tools
+0.8.10, Evals 1.7.0, AgentCore SDK 1.25.1, toolkit 0.3.14 and CDK 2.275.0.
+The tested lock retains boto3 1.43.121 and OpenTelemetry 1.45.1; newer patch
+releases 1.43.122 and 1.45.2 were observed but not silently adopted. Python
+3.12 and 3.13 remain the supported course versions. Authoring uses uv 0.12.18;
+the previously verified CI configuration pins uv 0.13.6.
+
+- [Strands Evals](https://strandsagents.com/docs/user-guide/evals-sdk/) supplies
+  actual `Case`, `Experiment`, output and trajectory evaluators. CLI checks run
+  the installed command implementation in a child process and verify exit codes.
+  The twelve-case baseline passes; the deliberately incorrect response fails.
+  Mock judge ratings establish the interface, not real model quality.
+- MCP 2.1.1 provides `MCPServer`; the older `FastMCP` spelling is not used.
+  Local Gateway lessons execute real stdio discovery and calls, with keyword
+  search explicitly distinguished from AWS semantic search.
+- The pinned Code Interpreter service model accepts `executeCode`. An SDK
+  docstring mentioning `execute` is not treated as the API contract. Managed
+  Browser uses signed CDP and fixed synthetic HTML; mocks check its lifecycle
+  without claiming a browser engine executed.
+- CDK's generated OnlineEvaluationConfig signature exposes `resultDestination`,
+  but its CloudFormation schema rejects that property. The template supplies a
+  dedicated output log group and leaves that unsupported option unset.
+- Built-in evaluator ARNs have empty region and account segments, as documented
+  in [AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html).
+  The scheduled role grants only `Builtin.Helpfulness`. Template tests check that
+  permission and the exact `amount_cents` property shared by Gateway and Cedar.
+- [On-demand evaluation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/getting-started-on-demand.html)
+  returns normalized scores (for example, 0.83 for Very Helpful). The scheduled
+  gate rejects absent, partial, nonnumeric, nonfinite and out-of-range results,
+  and scores below 0.8. This is separate from the local Evals regression gate.
+- [AWS's OTLP endpoint](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLPEndpoint.html)
+  accepts signed protobuf over HTTP. The course projects numeric usage before
+  export, tests SigV4 signing, and treats HTTP failure, malformed responses and
+  rejected spans as failures. Prompts and tool content are not exported.
+- Containers omit `AWS_PROFILE`: setting it to an empty string still makes
+  boto3 look for an unnamed profile. Role credentials use the normal chain.
+  The scheduled judge ships the locked SDK rather than relying on the version
+  bundled in Lambda's base runtime. Image contexts use an explicit file allow-list.
+
+### Verification scope and remaining live checks
+
+All 150 finite manifest entries passed with every optional group installed and
+external networking blocked. The full optional-dependency test run passed 463
+tests, skipping the one explicit live-model test. The four infrastructure tests
+were rerun successfully after correcting the Gateway schema and evaluator ARN.
+The only Python deprecation warning came from AgentCore's runtime timestamp
+implementation (`datetime.utcnow`), not Strands. It is recorded, not suppressed.
+
+Local tests exercise actual Strands loops, HTTP adapters, MCP subprocesses,
+structured Evals results, failure exit codes, JWT signatures and public policy
+retrieval. AWS Stubber tests validate request shapes and cleanup, not cloud
+service behavior. Mock timings are not AWS performance measurements.
+
+No AWS resources were deployed or torn down. Live model quality, hosted sign-in,
+partner OAuth consent, managed Memory extraction, Cedar enforcement, remote
+Browser/Code Interpreter execution, managed judge quality and cloud telemetry
+delivery remain unverified. Full managed observability needs separately reviewed
+instrumentation and Transaction Search configuration. The online evaluation and
+daily schedule start disabled. The OpenAPI lesson validates a target request for
+an existing API; it does not create an API server.
+
+Docker is installed but its engine was unavailable. Container image builds,
+ARM64 execution and the Jaeger container UI therefore remain unverified. Source
+contexts, hash-locked dependencies and local hosting adapters were checked.
+Remote GitHub CI and actual AWS deployment/teardown are not claimed as passing.
+See [the deployment guide](../infra/PRODUCTION.md) and
+[dated resource costs](PRODUCTION_COSTS.md) for the outstanding account checks.
+
+All 22 notebooks executed successfully into the ignored output directory; the
+committed originals retain no outputs. All nine CDK apps synthesized with
+`--no-lookups`, without building images or deploying. The five new apps enable
+CloudFormation schema validation. CDK reported only unconfigured-feature-flag
+advisories. A separate 59-package deployment environment ran the copied support
+core and both HTTP adapters successfully; the exported dependency hashes match
+`uv.lock` exactly. This does not replace Linux container testing.
+
+The documentation checker examined 1,185 local/public links. Five public URLs
+initially timed out and all five passed a focused retry. Ruff lint and formatting
+checks passed for 534 files. Frozen resolution validated 307 lockfile entries;
+all 302 installed optional-environment distributions were compatible.
+
+Windows Python 3.12.13 and 3.13.13 default installations each passed 438 tests
+with 26 explicit skips (optional dependencies or live services). The default
+Python 3.12 example sweep passed 124 entries and explicitly skipped 26 requiring
+optional packages; no entry failed. The default environment's 110 installed
+distributions passed dependency consistency checks. All pre-commit hooks passed,
+including normalization of the new notebooks' cell IDs, output clearing, IAM
+actions and sample credential checks. The workspace was returned to the normal
+`uv sync --frozen` dependency set after optional verification.

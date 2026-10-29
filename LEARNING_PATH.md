@@ -1,6 +1,6 @@
 # Learning path: build the Nimbus assistant
 
-Tiers 1–4 delivered; later tiers planned · October 29, 2026
+Tiers 1–5 delivered; bonus modules and capstones planned · October 29, 2026
 
 Start with basic Python, terminal use, and git. You do not need prior agent or AWS knowledge. The core course is approximately 58 hours, including checkpoint practice; capstones and optional cloud/voice extensions take additional time. Modules 00–18 and their four checkpoints are implemented; later tiers remain planned. See the [implementation plan](docs/IMPLEMENTATION_PLAN.md) and [feature map](docs/FEATURE_MAP.md).
 
@@ -150,3 +150,7 @@ Each capstone includes user stories, acceptance criteria, a Mermaid architecture
 ## Habits to carry through every tier
 
 Read expected output before running a script. Try the exercise before its solution. Keep a record of failures and the evidence that explains each fix. Check costs before live calls. Treat model output and retrieved documents as untrusted inputs. End optional AWS work with teardown and a scan that identifies which regions and services were actually checked.
+
+## Tier 5 delivery and checkpoint
+
+The [production lab guide](infra/PRODUCTION.md) includes nine total course CDK apps, with five new production stacks. Run [Production Readiness](checkpoints/05_production_readiness/README.md) after Modules 19–21. Local gates do not prove image builds, live IAM, regional deployment or teardown.

@@ -2,7 +2,7 @@
 
 A hands-on course for Python learners building their first AI agent. You will build the **Nimbus assistant** for a fictional travel company, then add tools, retrieval, memory, approvals, evaluation and AWS deployment.
 
-**Delivery status: Phase 6 / Tiers 1–4 delivered.** Modules 00–18 include 95 focused examples, 19 use cases, 57 exercises with solutions, 19 notebooks, quizzes and tests. Complete the [Booking Helper](checkpoints/01_booking_helper/README.md) and [Policy & Preferences](checkpoints/02_policy_preferences/README.md) checkpoints. The [Safe Support Agent](checkpoints/03_safe_support/README.md) integrates Tier 3. The [Trip Planning Crew](checkpoints/04_trip_planning_crew/README.md) integrates Tier 4. Modules 19–21, bonus modules and capstones remain planned. See the [verification record](docs/VERIFICATION_NOTES.md) for executed checks and remaining live-service gaps.
+**Delivery status: Phase 7 / all five core tiers delivered.** Modules 00–21 include 117 focused examples, 22 use cases, 66 exercises with solutions, 22 notebooks, quizzes and tests. Five checkpoints end with [Production Readiness](checkpoints/05_production_readiness/README.md). Tier 5 adds support evaluation, hosting adapters and AgentCore service contracts plus five CDK apps. Bonus modules and capstones remain for Phase 8. See the [verification record](docs/VERIFICATION_NOTES.md) for executed checks and live-service gaps.
 
 ```mermaid
 flowchart LR

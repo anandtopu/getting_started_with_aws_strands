@@ -1,0 +1,296 @@
+[
+  {
+    "module": "19_observability",
+    "exercises": [
+      {
+        "file": "01_redact.py",
+        "task": "Project telemetry onto numeric usage only; booleans are not counters.",
+        "cases": [
+          {
+            "input": {
+              "gen_ai.usage.input_tokens": 100,
+              "prompt": "private",
+              "gen_ai.usage.flag": true
+            },
+            "expected": {
+              "gen_ai.usage.input_tokens": 100
+            }
+          },
+          {
+            "input": {},
+            "expected": {}
+          }
+        ]
+      },
+      {
+        "file": "02_gate.py",
+        "task": "Fail closed when any evaluation failed, is missing, or scored below 0.8.",
+        "cases": [
+          {
+            "input": [
+              {
+                "passed": true,
+                "score": 0.8
+              }
+            ],
+            "expected": true
+          },
+          {
+            "input": [],
+            "expected": false
+          },
+          {
+            "input": [
+              {
+                "passed": false,
+                "score": 1
+              }
+            ],
+            "expected": false
+          },
+          {
+            "input": [
+              {
+                "passed": true
+              }
+            ],
+            "expected": false
+          },
+          {
+            "input": [
+              {
+                "passed": true,
+                "score": 0.79
+              }
+            ],
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_cost.py",
+        "task": "Compute dollars from token counts and per-million prices without rounding each call.",
+        "cases": [
+          {
+            "input": {
+              "input": 1000,
+              "output": 100,
+              "input_rate": 1,
+              "output_rate": 5
+            },
+            "expected": 0.0015
+          },
+          {
+            "input": {
+              "input": 0,
+              "output": 0,
+              "input_rate": 1,
+              "output_rate": 5
+            },
+            "expected": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "20_deployment",
+    "exercises": [
+      {
+        "file": "01_host.py",
+        "task": "Choose local, then managed sessions, then streaming/over-900s Fargate, otherwise Lambda.",
+        "cases": [
+          {
+            "input": {
+              "local": true,
+              "sessions": false,
+              "streaming": false,
+              "seconds": 5
+            },
+            "expected": "local"
+          },
+          {
+            "input": {
+              "local": false,
+              "sessions": true,
+              "streaming": true,
+              "seconds": 300
+            },
+            "expected": "AgentCore Runtime"
+          },
+          {
+            "input": {
+              "local": false,
+              "sessions": false,
+              "streaming": true,
+              "seconds": 60
+            },
+            "expected": "Fargate"
+          },
+          {
+            "input": {
+              "local": false,
+              "sessions": false,
+              "streaming": false,
+              "seconds": 900
+            },
+            "expected": "Lambda"
+          }
+        ]
+      },
+      {
+        "file": "02_payload.py",
+        "task": "Accept only one nonempty string prompt no longer than 2000 characters.",
+        "cases": [
+          {
+            "input": {
+              "prompt": "Refund time?"
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "prompt": "x",
+              "token": "private"
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "prompt": ""
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "prompt": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "prompt": 42
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_idle.py",
+        "task": "Sum hourly task, ALB and IPv4 rates, then multiply by hours.",
+        "cases": [
+          {
+            "input": {
+              "task": 0.01,
+              "alb": 0.02,
+              "ip_count": 3,
+              "ip_rate": 0.005,
+              "hours": 10
+            },
+            "expected": 0.44999999999999996
+          },
+          {
+            "input": {
+              "task": 0.01,
+              "alb": 0.02,
+              "ip_count": 3,
+              "ip_rate": 0.005,
+              "hours": 0
+            },
+            "expected": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "21_agentcore",
+    "exercises": [
+      {
+        "file": "01_actor.py",
+        "task": "Bind Memory actor to the verified token subject; ignore requested actor IDs.",
+        "cases": [
+          {
+            "input": {
+              "verified_sub": "traveler-a",
+              "requested_actor": "traveler-b"
+            },
+            "expected": "traveler-a"
+          }
+        ]
+      },
+      {
+        "file": "02_refund.py",
+        "task": "Allow only strict integer positive cents up to and including 50000.",
+        "cases": [
+          {
+            "input": 1,
+            "expected": true
+          },
+          {
+            "input": 50000,
+            "expected": true
+          },
+          {
+            "input": 50001,
+            "expected": false
+          },
+          {
+            "input": 0,
+            "expected": false
+          },
+          {
+            "input": -1,
+            "expected": false
+          },
+          {
+            "input": true,
+            "expected": false
+          },
+          {
+            "input": 500.0,
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_schedule.py",
+        "task": "Enable a schedule only after traces are reviewed and the cost owner explicitly enables it.",
+        "cases": [
+          {
+            "input": {
+              "enabled": true,
+              "reviewed": true,
+              "synthetic": true
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "enabled": false,
+              "reviewed": true,
+              "synthetic": true
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "enabled": true,
+              "reviewed": false,
+              "synthetic": true
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "enabled": true,
+              "reviewed": true,
+              "synthetic": false
+            },
+            "expected": false
+          }
+        ]
+      }
+    ]
+  }
+]

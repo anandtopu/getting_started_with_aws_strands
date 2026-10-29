@@ -1,8 +1,8 @@
 # Feature map: course coverage contract
 
-Phase 6 Tiers 1–4 edition · October 29, 2026
+Phase 7 Tiers 1–5 edition · October 29, 2026
 
-Modules 00–18 and the first four checkpoints are delivered. Their paths below link to existing files. Modules 19–21, bonus modules and capstones remain planned; their paths stay plain code text. The final audit will reject missing files or unimplemented coverage.
+Modules 00–21 and all five checkpoints are delivered. Their paths below link to existing files. Bonus modules and capstones remain planned; their paths stay plain code text. The final audit will reject missing files or unimplemented coverage.
 
 ## Delivered foundation
 
@@ -251,46 +251,46 @@ Assistant v10 · use case: [modules/18_a2a/use_case/partner_upgrade.py](../modul
 
 ## 19_observability: Observability, testing and evaluation
 
-Assistant v10 · use case: `modules/19_observability/use_case/support_quality_gate.py`
+Assistant v10 · use case: [modules/19_observability/use_case/support_quality_gate.py](../modules/19_observability/use_case/support_quality_gate.py)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| AgentResult token/cycle/latency/tool metrics and total cost accounting | `modules/19_observability/examples/01_agent_metrics.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-| OpenTelemetry console and OTLP exporter; local Jaeger with Docker | `modules/19_observability/examples/02_local_tracing.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-| Scripted Model interface, tool unit tests, moto/Stubber, deprecations and opt-in live markers | `modules/19_observability/examples/03_offline_testing.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-| Cases, experiments, output and trajectory evaluators, LLM judges and deterministic scoring | `modules/19_observability/examples/04_strands_evals.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-| strands-evals run thresholds and nonzero exits as a CI quality gate | `modules/19_observability/examples/05_evaluation_cli.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-| CloudWatch and AgentCore telemetry, redaction and retention | `modules/19_observability/examples/06_cloud_observability.py` | Yes; local console/Jaeger alternative | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-| AgentCore Evaluations as a managed option | `modules/19_observability/examples/07_managed_evaluation.py` | Yes; local Evals alternative | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| AgentResult token/cycle/latency/tool metrics and total cost accounting | [modules/19_observability/examples/01_agent_metrics.py](../modules/19_observability/examples/01_agent_metrics.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| OpenTelemetry console and OTLP exporter; local Jaeger with Docker | [modules/19_observability/examples/02_local_tracing.py](../modules/19_observability/examples/02_local_tracing.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| Scripted Model interface, tool unit tests, moto/Stubber, deprecations and opt-in live markers | [modules/19_observability/examples/03_offline_testing.py](../modules/19_observability/examples/03_offline_testing.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| Cases, experiments, output and trajectory evaluators, LLM judges and deterministic scoring | [modules/19_observability/examples/04_strands_evals.py](../modules/19_observability/examples/04_strands_evals.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| strands-evals run thresholds and nonzero exits as a CI quality gate | [modules/19_observability/examples/05_evaluation_cli.py](../modules/19_observability/examples/05_evaluation_cli.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| CloudWatch and AgentCore telemetry, redaction and retention | [modules/19_observability/examples/06_cloud_observability.py](../modules/19_observability/examples/06_cloud_observability.py) | Yes; local console/Jaeger alternative | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| AgentCore Evaluations as a managed option | [modules/19_observability/examples/07_managed_evaluation.py](../modules/19_observability/examples/07_managed_evaluation.py) | Yes; local Evals alternative | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
 
 ## 20_deployment: Deploying to AWS
 
-Assistant v10 · use case: `modules/20_deployment/use_case/deployment_comparison.py`
+Assistant v10 · use case: [modules/20_deployment/use_case/deployment_comparison.py](../modules/20_deployment/use_case/deployment_comparison.py)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Local/Lambda/Fargate/AgentCore tradeoffs; EKS and EC2 overview | `modules/20_deployment/examples/01_hosting_decision.py` | No; local workload model | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
-| BedrockAgentCoreApp, @app.entrypoint and local runtime testing | `modules/20_deployment/examples/02_agentcore_local.py` | No; model can use Ollama | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
-| Toolkit/CLI deploy, invoke, streaming and sessions; resource inventory and teardown | `modules/20_deployment/examples/03_agentcore_runtime.py` | Yes; local runtime alternative | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
-| Lambda handler, dependency packaging, scoped execution role and CDK app | `modules/20_deployment/examples/04_lambda_handler.py` | Yes for deployment; offline handler alternative | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
-| FastAPI container, Fargate service/load balancer, logs and explicit idle costs; CDK lifecycle | `modules/20_deployment/examples/05_fargate_api.py` | Yes for deployment; local container alternative | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
-| Secrets Manager/SSM, per-environment configuration, roles and cleanup comparison | `modules/20_deployment/examples/06_runtime_configuration.py` | Yes; local environment configuration | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
+| Local/Lambda/Fargate/AgentCore tradeoffs; EKS and EC2 overview | [modules/20_deployment/examples/01_hosting_decision.py](../modules/20_deployment/examples/01_hosting_decision.py) | No; local workload model | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
+| BedrockAgentCoreApp, @app.entrypoint and local runtime testing | [modules/20_deployment/examples/02_agentcore_local.py](../modules/20_deployment/examples/02_agentcore_local.py) | No; model can use Ollama | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
+| CDK Runtime deploy, invoke, streaming and sessions; resource inventory and teardown | [modules/20_deployment/examples/03_agentcore_runtime.py](../modules/20_deployment/examples/03_agentcore_runtime.py) | Yes; local runtime alternative | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
+| Lambda handler, dependency packaging, scoped execution role and CDK app | [modules/20_deployment/examples/04_lambda_handler.py](../modules/20_deployment/examples/04_lambda_handler.py) | Yes for deployment; offline handler alternative | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
+| FastAPI container, Fargate service/load balancer, logs and explicit idle costs; CDK lifecycle | [modules/20_deployment/examples/05_fargate_api.py](../modules/20_deployment/examples/05_fargate_api.py) | Yes for deployment; local container alternative | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
+| Secrets Manager/SSM, per-environment configuration, roles and cleanup comparison | [modules/20_deployment/examples/06_runtime_configuration.py](../modules/20_deployment/examples/06_runtime_configuration.py) | Yes; local environment configuration | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
 
 ## 21_agentcore: Amazon Bedrock AgentCore services
 
-Assistant v11 · use case: `modules/21_agentcore/use_case/production_copilot.py`
+Assistant v11 · use case: [modules/21_agentcore/use_case/production_copilot.py](../modules/21_agentcore/use_case/production_copilot.py)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Short-term events and semantic, preference, summary and episodic strategies; deletion | `modules/21_agentcore/examples/01_memory.py` | Yes; local preference store | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| Lambda/OpenAPI to MCP, semantic tool search and scoped targets | `modules/21_agentcore/examples/02_gateway.py` | Yes; local booking MCP | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| Cognito/JWT inbound identity and third-party OAuth outbound identity | `modules/21_agentcore/examples/03_identity.py` | Yes; local authenticated test provider | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| AgentCore Code Interpreter tool, sessions, execution limits and cleanup | `modules/21_agentcore/examples/04_code_interpreter.py` | Yes; reviewed local computation | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| AgentCore Browser tool, restricted destinations, sessions and cleanup | `modules/21_agentcore/examples/05_browser.py` | Yes; fixture web pages | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| Service telemetry, redaction, permissions and retention cleanup | `modules/21_agentcore/examples/06_observability.py` | Yes; local OTLP | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| Gateway Policy, Cedar, tool-input limits and refusal of excess refunds | `modules/21_agentcore/examples/07_policy.py` | Yes; local typed policy | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| Managed evaluation configuration, scheduled runs, score review and schedule deletion | `modules/21_agentcore/examples/08_evaluations.py` | Yes; local evaluation runner | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| Memory, booking Gateway, sign-in, refund policy and recurring evaluations | `modules/21_agentcore/examples/09_integrated_copilot.py` | Yes; composed local support app | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Short-term events and semantic, preference, summary and episodic strategies; deletion | [modules/21_agentcore/examples/01_memory.py](../modules/21_agentcore/examples/01_memory.py) | Yes; local preference store | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Lambda/OpenAPI to MCP, semantic tool search and scoped targets | [modules/21_agentcore/examples/02_gateway.py](../modules/21_agentcore/examples/02_gateway.py) | Yes; local booking MCP | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Cognito/JWT inbound identity and third-party OAuth outbound identity | [modules/21_agentcore/examples/03_identity.py](../modules/21_agentcore/examples/03_identity.py) | Yes; local authenticated test provider | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| AgentCore Code Interpreter tool, sessions, execution limits and cleanup | [modules/21_agentcore/examples/04_code_interpreter.py](../modules/21_agentcore/examples/04_code_interpreter.py) | Yes; reviewed local computation | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| AgentCore Browser tool, restricted destinations, sessions and cleanup | [modules/21_agentcore/examples/05_browser.py](../modules/21_agentcore/examples/05_browser.py) | Yes; fixture web pages | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Service telemetry, redaction, permissions and retention cleanup | [modules/21_agentcore/examples/06_observability.py](../modules/21_agentcore/examples/06_observability.py) | Yes; local OTLP | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Gateway Policy, Cedar, tool-input limits and refusal of excess refunds | [modules/21_agentcore/examples/07_policy.py](../modules/21_agentcore/examples/07_policy.py) | Yes; local typed policy | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Managed evaluation configuration, scheduled runs, score review and schedule deletion | [modules/21_agentcore/examples/08_evaluations.py](../modules/21_agentcore/examples/08_evaluations.py) | Yes; local evaluation runner | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Memory, booking Gateway, sign-in, refund policy and recurring evaluations | [modules/21_agentcore/examples/09_integrated_copilot.py](../modules/21_agentcore/examples/09_integrated_copilot.py) | Yes; composed local support app | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
 
 ## bonus/B1_voice: Voice agents
 
@@ -373,3 +373,7 @@ Tier 2 verification: [retrieval comparison](verification/tier2_retrieval_report.
 Tier 3 adds [batch interrupts](../modules/12_interrupts/examples/05_batch_interrupt.py), [boundary tests](../tests/test_tier3_boundaries.py), [real MCP integration](../tests/test_tier3_mcp.py), [Streamlit widget tests](../tests/test_tier3_ui.py), and the [Safe Support checkpoint](../checkpoints/03_safe_support/README.md). The current MCP server class is MCPServer; direct call names remain unprefixed.
 
 Tier 4 verification: [coordination and approval tests](../tests/test_tier4_coordination.py), [real authenticated A2A and LangGraph tests](../tests/test_tier4_a2a.py), and [Trip Planning Crew](../checkpoints/04_trip_planning_crew/README.md). The workflow comparison executes metadata lifecycle only; A2A uses protocol 0.3.0 with the pinned compatible SDK.
+
+## Production implementation boundaries
+
+See the [production resource inventory](../infra/PRODUCTION.md). Gateway Lambda targets, local MCP and signed JWT validation are implemented. The OpenAPI lesson validates a real registration request for an existing IAM-protected API; it does not deploy another API server. The Browser mock checks lifecycle contracts and explicitly does not execute a browser engine. Full managed dashboard setup and partner OAuth registration are documented external prerequisites. The [Production Readiness checkpoint](../checkpoints/05_production_readiness/README.md) distinguishes local evidence from unverified live operations.

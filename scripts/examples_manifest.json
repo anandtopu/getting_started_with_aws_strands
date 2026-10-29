@@ -1,5 +1,5 @@
 {
-  "phase": 5,
+  "phase": 7,
   "examples": [
     {
       "path": "scripts/foundation_demo.py",
@@ -1177,6 +1177,315 @@
       "live_args": [],
       "timeout_seconds": 150,
       "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/19_observability/examples/01_agent_metrics.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/19_observability/examples/02_local_tracing.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "opentelemetry.exporter.otlp.proto.http"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "modules/19_observability/examples/03_offline_testing.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "moto"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "modules/19_observability/examples/04_strands_evals.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "strands_evals"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "modules/19_observability/examples/05_evaluation_cli.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "strands_evals"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "modules/19_observability/examples/06_cloud_observability.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/19_observability/examples/07_managed_evaluation.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/19_observability/use_case/support_quality_gate.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "strands_evals"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "modules/20_deployment/examples/01_hosting_decision.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/20_deployment/examples/02_agentcore_local.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "bedrock_agentcore",
+        "fastapi"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "modules/20_deployment/examples/03_agentcore_runtime.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/20_deployment/examples/04_lambda_handler.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/20_deployment/examples/05_fargate_api.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "bedrock_agentcore",
+        "fastapi"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "modules/20_deployment/examples/06_runtime_configuration.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/20_deployment/use_case/deployment_comparison.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "bedrock_agentcore",
+        "fastapi"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "modules/21_agentcore/examples/01_memory.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/21_agentcore/examples/02_gateway.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/21_agentcore/examples/03_identity.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "jwt"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "modules/21_agentcore/examples/04_code_interpreter.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "bedrock_agentcore"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "modules/21_agentcore/examples/05_browser.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "websockets"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "modules/21_agentcore/examples/06_observability.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/21_agentcore/examples/07_policy.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/21_agentcore/examples/08_evaluations.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/21_agentcore/examples/09_integrated_copilot.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "jwt"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "modules/21_agentcore/use_case/production_copilot.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "jwt"
+      ],
+      "install_hint": "uv sync --group aws --group apps --group evals --group observability --group identity"
+    },
+    {
+      "path": "checkpoints/05_production_readiness/starter.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [
+        "--mock"
+      ],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "checkpoints/05_production_readiness/solution.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [
+        "--mock"
+      ],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "strands_evals",
+        "bedrock_agentcore",
+        "fastapi",
+        "jwt"
+      ],
+      "install_hint": "uv sync --all-groups"
     }
   ]
 }

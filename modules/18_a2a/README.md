@@ -257,4 +257,4 @@ rollback. No script in this module books travel, sends email or charges a custom
 ## Next: Module 19
 
 
-Complete the [Trip Planning Crew checkpoint](../../checkpoints/04_trip_planning_crew/README.md). Module 19, observability and evaluation, is planned for Phase 7.
+Complete the [Trip Planning Crew checkpoint](../../checkpoints/04_trip_planning_crew/README.md). Continue to [Module 19: Observability and evaluation](../19_observability/README.md).
