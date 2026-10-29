@@ -1,0 +1,20 @@
+{"id": "TKT-081", "input": "Hello, thank you for helping. Please refund my booking. I cancelled within 24 hours and departure was 20 days away. FAKE PII: Demo Person 080, demo080@example.com, passport DEMO-PASSPORT-000080, card DEMO-CARD-0000-0000-0080.", "expected": {"category": "refund", "urgency": "normal"}}
+{"id": "TKT-082", "input": "I am upset by the delay. Can I change my standard flight to a fare $40 higher?", "expected": {"category": "change", "urgency": "normal"}}
+{"id": "TKT-083", "input": "Quick request: What does a first 23 kg checked bag cost?", "expected": {"category": "baggage", "urgency": "normal"}}
+{"id": "TKT-084", "input": "I'm worried about my plans. Please look up my booking and confirm its status.", "expected": {"category": "booking", "urgency": "normal"}}
+{"id": "TKT-085", "input": "Hello, thank you for helping. Please delete my stored travel preferences. My departure is in 18 hours and this blocks my trip.", "expected": {"category": "privacy", "urgency": "high"}}
+{"id": "TKT-086", "input": "I am upset by the delay. Please refund my booking. I cancelled within 24 hours and departure was 20 days away.", "expected": {"category": "refund", "urgency": "normal"}}
+{"id": "TKT-087", "input": "Quick request: Can I change my standard flight to a fare $40 higher?", "expected": {"category": "change", "urgency": "normal"}}
+{"id": "TKT-088", "input": "I'm worried about my plans. What does a first 23 kg checked bag cost?", "expected": {"category": "baggage", "urgency": "normal"}}
+{"id": "TKT-089", "input": "Hello, thank you for helping. Please look up my booking and confirm its status.", "expected": {"category": "booking", "urgency": "normal"}}
+{"id": "TKT-090", "input": "I am upset by the delay. Please delete my stored travel preferences.", "expected": {"category": "privacy", "urgency": "normal"}}
+{"id": "TKT-091", "input": "Quick request: Please refund my booking. I cancelled within 24 hours and departure was 20 days away. FAKE PII: Demo Person 090, demo090@example.com, passport DEMO-PASSPORT-000090, card DEMO-CARD-0000-0000-0090.", "expected": {"category": "refund", "urgency": "normal"}}
+{"id": "TKT-092", "input": "I'm worried about my plans. Can I change my standard flight to a fare $40 higher? My departure is in 18 hours and this blocks my trip.", "expected": {"category": "change", "urgency": "high"}}
+{"id": "TKT-093", "input": "Hello, thank you for helping. What does a first 23 kg checked bag cost?", "expected": {"category": "baggage", "urgency": "normal"}}
+{"id": "TKT-094", "input": "I am upset by the delay. Please look up my booking and confirm its status.", "expected": {"category": "booking", "urgency": "normal"}}
+{"id": "TKT-095", "input": "Quick request: Please delete my stored travel preferences.", "expected": {"category": "privacy", "urgency": "normal"}}
+{"id": "TKT-096", "input": "I'm worried about my plans. Please refund my booking. I cancelled within 24 hours and departure was 20 days away.", "expected": {"category": "refund", "urgency": "normal"}}
+{"id": "TKT-097", "input": "Hello, thank you for helping. Can I change my standard flight to a fare $40 higher?", "expected": {"category": "change", "urgency": "normal"}}
+{"id": "TKT-098", "input": "I am upset by the delay. What does a first 23 kg checked bag cost?", "expected": {"category": "baggage", "urgency": "normal"}}
+{"id": "TKT-099", "input": "Quick request: Please look up my booking and confirm its status. My departure is in 18 hours and this blocks my trip.", "expected": {"category": "booking", "urgency": "high"}}
+{"id": "TKT-100", "input": "I'm worried about my plans. Please delete my stored travel preferences.", "expected": {"category": "privacy", "urgency": "normal"}}

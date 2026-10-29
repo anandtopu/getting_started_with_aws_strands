@@ -1,0 +1,21 @@
+{
+  "incidents": [
+    {
+      "date": "2027-01-07",
+      "kind": "latency_spike"
+    },
+    {
+      "date": "2027-01-15",
+      "kind": "deployment_error_burst"
+    },
+    {
+      "date": "2027-01-23",
+      "kind": "dependency_timeout"
+    }
+  ],
+  "cost_anomalies": [
+    "nat-demo-idle",
+    "instance-demo-oversized",
+    "function-demo-runaway"
+  ]
+}

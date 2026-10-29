@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "v1.7.0",
+    "url": "https://github.com/strands-agents/evals/releases/tag/v1.7.0",
+    "published": "2026-10-21T20:53:30Z",
+    "body": "## v1.7.0\n\n_Auto-drafted from commits in `v1.6.0..v1.7.0`, grouped by conventional-commit type. Edit on the release page after publish if you want a polished writeup; the canonical release notes live on the website._\n\n### \ud83d\ude80 Features\n\n- feat(redteam)!: graduate red teaming out of experimental (#465) (064a5e5)\n\n### \ud83d\udc1b Fixes\n\n- fix: judge EventLoopException by its original cause (#464) (b59a389)\n- fix: replace retired Sonnet 4 model ID in integ tests (#441) (7e7a23e)\n"
+  },
+  {
+    "tag": "v1.6.0",
+    "url": "https://github.com/strands-agents/evals/releases/tag/v1.6.0",
+    "published": "2026-10-14T21:57:36Z",
+    "body": "## v1.6.0\n\n_Auto-drafted from commits in `v1.5.0..v1.6.0`, grouped by conventional-commit type. Edit on the release page after publish if you want a polished writeup; the canonical release notes live on the website._\n\n### \ud83d\ude80 Features\n\n- feat(redteam): reframe attacker prompts to survive aligned attacker models (#298) (ac52c39)\n- feat: add StructuredOutputSimilarity evaluator (stickler extra) (#400) (b5e859d)\n\n### \ud83d\udc1b Fixes\n\n- fix(redteam): separate errored attacks from breaches in ASR (#296) (9de7900)\n- fix(deps): move rich pin to >=15.0.0,<16.0.0 (#413) (6720846)\n"
+  },
+  {
+    "tag": "v1.5.0",
+    "url": "https://github.com/strands-agents/evals/releases/tag/v1.5.0",
+    "published": "2026-10-08T13:40:10Z",
+    "body": "## v1.5.0\n\n_Auto-drafted from commits in `v1.4.0..v1.5.0`, grouped by conventional-commit type. Edit on the release page after publish if you want a polished writeup; the canonical release notes live on the website._\n\n### \ud83d\udc1b Fixes\n\n- fix(mappers): skip ADK relayed agent messages when extracting user_pr\u2026 (#414) (7946fdf)\n- fix: blank user query in CorrectnessEvaluator reference mode (#405) (8ad35ad)\n- fix: improve root cause detector parsing returned json (#401) (34a8b5c)\n\n### \ud83d\udd27 Chores\n\n- chore(report): support ReportT (#406) (80f13d8)\n"
+  }
+]

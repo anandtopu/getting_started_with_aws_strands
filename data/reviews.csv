@@ -1,0 +1,301 @@
+review_id,hotel_id,rating,text
+REV-001,HTL-001,2,The room was small but clean.
+REV-002,HTL-002,3,An average stay with a useful desk.
+REV-003,HTL-003,4,Friendly welcome and good breakfast.
+REV-004,HTL-004,5,Quiet room and a smooth arrival.
+REV-005,HTL-005,1,Noisy room and a slow check-in.
+REV-006,HTL-006,2,The room was small but clean.
+REV-007,HTL-007,3,An average stay with a useful desk.
+REV-008,HTL-008,4,Friendly welcome and good breakfast.
+REV-009,HTL-009,5,Quiet room and a smooth arrival.
+REV-010,HTL-010,1,Noisy room and a slow check-in.
+REV-011,HTL-011,2,The room was small but clean.
+REV-012,HTL-012,3,An average stay with a useful desk.
+REV-013,HTL-013,4,Friendly welcome and good breakfast.
+REV-014,HTL-014,5,Quiet room and a smooth arrival.
+REV-015,HTL-015,1,Noisy room and a slow check-in.
+REV-016,HTL-016,2,The room was small but clean.
+REV-017,HTL-017,3,An average stay with a useful desk.
+REV-018,HTL-018,4,Friendly welcome and good breakfast.
+REV-019,HTL-019,5,Quiet room and a smooth arrival.
+REV-020,HTL-020,1,Noisy room and a slow check-in.
+REV-021,HTL-021,2,The room was small but clean.
+REV-022,HTL-022,3,An average stay with a useful desk.
+REV-023,HTL-023,4,Friendly welcome and good breakfast.
+REV-024,HTL-024,5,Quiet room and a smooth arrival.
+REV-025,HTL-025,1,Noisy room and a slow check-in.
+REV-026,HTL-026,2,The room was small but clean.
+REV-027,HTL-027,3,An average stay with a useful desk.
+REV-028,HTL-028,4,Friendly welcome and good breakfast.
+REV-029,HTL-029,5,Quiet room and a smooth arrival.
+REV-030,HTL-030,1,Noisy room and a slow check-in.
+REV-031,HTL-031,2,The room was small but clean.
+REV-032,HTL-032,3,An average stay with a useful desk.
+REV-033,HTL-033,4,Friendly welcome and good breakfast.
+REV-034,HTL-034,5,Quiet room and a smooth arrival.
+REV-035,HTL-035,1,Noisy room and a slow check-in.
+REV-036,HTL-036,2,The room was small but clean.
+REV-037,HTL-037,3,An average stay with a useful desk.
+REV-038,HTL-038,4,Friendly welcome and good breakfast.
+REV-039,HTL-039,5,Quiet room and a smooth arrival.
+REV-040,HTL-040,1,Noisy room and a slow check-in.
+REV-041,HTL-041,2,The room was small but clean.
+REV-042,HTL-042,3,An average stay with a useful desk.
+REV-043,HTL-043,4,Friendly welcome and good breakfast.
+REV-044,HTL-044,5,Quiet room and a smooth arrival.
+REV-045,HTL-045,1,Noisy room and a slow check-in.
+REV-046,HTL-046,2,The room was small but clean.
+REV-047,HTL-047,3,An average stay with a useful desk.
+REV-048,HTL-048,4,Friendly welcome and good breakfast.
+REV-049,HTL-049,5,Quiet room and a smooth arrival.
+REV-050,HTL-050,1,Noisy room and a slow check-in.
+REV-051,HTL-051,2,The room was small but clean.
+REV-052,HTL-052,3,An average stay with a useful desk.
+REV-053,HTL-053,4,Friendly welcome and good breakfast.
+REV-054,HTL-054,5,Quiet room and a smooth arrival.
+REV-055,HTL-055,1,Noisy room and a slow check-in.
+REV-056,HTL-056,2,The room was small but clean.
+REV-057,HTL-057,3,An average stay with a useful desk.
+REV-058,HTL-058,4,Friendly welcome and good breakfast.
+REV-059,HTL-059,5,Quiet room and a smooth arrival.
+REV-060,HTL-060,1,Noisy room and a slow check-in.
+REV-061,HTL-061,2,The room was small but clean.
+REV-062,HTL-062,3,An average stay with a useful desk.
+REV-063,HTL-063,4,Friendly welcome and good breakfast.
+REV-064,HTL-064,5,Quiet room and a smooth arrival.
+REV-065,HTL-065,1,Noisy room and a slow check-in.
+REV-066,HTL-066,2,The room was small but clean.
+REV-067,HTL-067,3,An average stay with a useful desk.
+REV-068,HTL-068,4,Friendly welcome and good breakfast.
+REV-069,HTL-069,5,Quiet room and a smooth arrival.
+REV-070,HTL-070,1,Noisy room and a slow check-in.
+REV-071,HTL-071,2,The room was small but clean.
+REV-072,HTL-072,3,An average stay with a useful desk.
+REV-073,HTL-073,4,Friendly welcome and good breakfast.
+REV-074,HTL-074,5,Quiet room and a smooth arrival.
+REV-075,HTL-075,1,Noisy room and a slow check-in.
+REV-076,HTL-076,2,The room was small but clean.
+REV-077,HTL-077,3,An average stay with a useful desk.
+REV-078,HTL-078,4,Friendly welcome and good breakfast.
+REV-079,HTL-079,5,Quiet room and a smooth arrival.
+REV-080,HTL-080,1,Noisy room and a slow check-in.
+REV-081,HTL-081,2,The room was small but clean.
+REV-082,HTL-082,3,An average stay with a useful desk.
+REV-083,HTL-083,4,Friendly welcome and good breakfast.
+REV-084,HTL-084,5,Quiet room and a smooth arrival.
+REV-085,HTL-085,1,Noisy room and a slow check-in.
+REV-086,HTL-086,2,The room was small but clean.
+REV-087,HTL-087,3,An average stay with a useful desk.
+REV-088,HTL-088,4,Friendly welcome and good breakfast.
+REV-089,HTL-089,5,Quiet room and a smooth arrival.
+REV-090,HTL-090,1,Noisy room and a slow check-in.
+REV-091,HTL-091,2,The room was small but clean.
+REV-092,HTL-092,3,An average stay with a useful desk.
+REV-093,HTL-093,4,Friendly welcome and good breakfast.
+REV-094,HTL-094,5,Quiet room and a smooth arrival.
+REV-095,HTL-095,1,Noisy room and a slow check-in.
+REV-096,HTL-096,2,The room was small but clean.
+REV-097,HTL-097,3,An average stay with a useful desk.
+REV-098,HTL-098,4,Friendly welcome and good breakfast.
+REV-099,HTL-099,5,Quiet room and a smooth arrival.
+REV-100,HTL-100,1,Noisy room and a slow check-in.
+REV-101,HTL-101,2,The room was small but clean.
+REV-102,HTL-102,3,An average stay with a useful desk.
+REV-103,HTL-103,4,Friendly welcome and good breakfast.
+REV-104,HTL-104,5,Quiet room and a smooth arrival.
+REV-105,HTL-105,1,Noisy room and a slow check-in.
+REV-106,HTL-106,2,The room was small but clean.
+REV-107,HTL-107,3,An average stay with a useful desk.
+REV-108,HTL-108,4,Friendly welcome and good breakfast.
+REV-109,HTL-109,5,Quiet room and a smooth arrival.
+REV-110,HTL-110,1,Noisy room and a slow check-in.
+REV-111,HTL-111,2,The room was small but clean.
+REV-112,HTL-112,3,An average stay with a useful desk.
+REV-113,HTL-113,4,Friendly welcome and good breakfast.
+REV-114,HTL-114,5,Quiet room and a smooth arrival.
+REV-115,HTL-115,1,Noisy room and a slow check-in.
+REV-116,HTL-116,2,The room was small but clean.
+REV-117,HTL-117,3,An average stay with a useful desk.
+REV-118,HTL-118,4,Friendly welcome and good breakfast.
+REV-119,HTL-119,5,Quiet room and a smooth arrival.
+REV-120,HTL-120,1,Noisy room and a slow check-in.
+REV-121,HTL-121,2,The room was small but clean.
+REV-122,HTL-122,3,An average stay with a useful desk.
+REV-123,HTL-123,4,Friendly welcome and good breakfast.
+REV-124,HTL-124,5,Quiet room and a smooth arrival.
+REV-125,HTL-125,1,Noisy room and a slow check-in.
+REV-126,HTL-126,2,The room was small but clean.
+REV-127,HTL-127,3,An average stay with a useful desk.
+REV-128,HTL-128,4,Friendly welcome and good breakfast.
+REV-129,HTL-129,5,Quiet room and a smooth arrival.
+REV-130,HTL-130,1,Noisy room and a slow check-in.
+REV-131,HTL-131,2,The room was small but clean.
+REV-132,HTL-132,3,An average stay with a useful desk.
+REV-133,HTL-133,4,Friendly welcome and good breakfast.
+REV-134,HTL-134,5,Quiet room and a smooth arrival.
+REV-135,HTL-135,1,Noisy room and a slow check-in.
+REV-136,HTL-136,2,The room was small but clean.
+REV-137,HTL-137,3,An average stay with a useful desk.
+REV-138,HTL-138,4,Friendly welcome and good breakfast.
+REV-139,HTL-139,5,Quiet room and a smooth arrival.
+REV-140,HTL-140,1,Noisy room and a slow check-in.
+REV-141,HTL-141,2,The room was small but clean.
+REV-142,HTL-142,3,An average stay with a useful desk.
+REV-143,HTL-143,4,Friendly welcome and good breakfast.
+REV-144,HTL-144,5,Quiet room and a smooth arrival.
+REV-145,HTL-145,1,Noisy room and a slow check-in.
+REV-146,HTL-146,2,The room was small but clean.
+REV-147,HTL-147,3,An average stay with a useful desk.
+REV-148,HTL-148,4,Friendly welcome and good breakfast.
+REV-149,HTL-149,5,Quiet room and a smooth arrival.
+REV-150,HTL-150,1,Noisy room and a slow check-in.
+REV-151,HTL-001,2,The room was small but clean.
+REV-152,HTL-002,3,An average stay with a useful desk.
+REV-153,HTL-003,4,Friendly welcome and good breakfast.
+REV-154,HTL-004,5,Quiet room and a smooth arrival.
+REV-155,HTL-005,1,Noisy room and a slow check-in.
+REV-156,HTL-006,2,The room was small but clean.
+REV-157,HTL-007,3,An average stay with a useful desk.
+REV-158,HTL-008,4,Friendly welcome and good breakfast.
+REV-159,HTL-009,5,Quiet room and a smooth arrival.
+REV-160,HTL-010,1,Noisy room and a slow check-in.
+REV-161,HTL-011,2,The room was small but clean.
+REV-162,HTL-012,3,An average stay with a useful desk.
+REV-163,HTL-013,4,Friendly welcome and good breakfast.
+REV-164,HTL-014,5,Quiet room and a smooth arrival.
+REV-165,HTL-015,1,Noisy room and a slow check-in.
+REV-166,HTL-016,2,The room was small but clean.
+REV-167,HTL-017,3,An average stay with a useful desk.
+REV-168,HTL-018,4,Friendly welcome and good breakfast.
+REV-169,HTL-019,5,Quiet room and a smooth arrival.
+REV-170,HTL-020,1,Noisy room and a slow check-in.
+REV-171,HTL-021,2,The room was small but clean.
+REV-172,HTL-022,3,An average stay with a useful desk.
+REV-173,HTL-023,4,Friendly welcome and good breakfast.
+REV-174,HTL-024,5,Quiet room and a smooth arrival.
+REV-175,HTL-025,1,Noisy room and a slow check-in.
+REV-176,HTL-026,2,The room was small but clean.
+REV-177,HTL-027,3,An average stay with a useful desk.
+REV-178,HTL-028,4,Friendly welcome and good breakfast.
+REV-179,HTL-029,5,Quiet room and a smooth arrival.
+REV-180,HTL-030,1,Noisy room and a slow check-in.
+REV-181,HTL-031,2,The room was small but clean.
+REV-182,HTL-032,3,An average stay with a useful desk.
+REV-183,HTL-033,4,Friendly welcome and good breakfast.
+REV-184,HTL-034,5,Quiet room and a smooth arrival.
+REV-185,HTL-035,1,Noisy room and a slow check-in.
+REV-186,HTL-036,2,The room was small but clean.
+REV-187,HTL-037,3,An average stay with a useful desk.
+REV-188,HTL-038,4,Friendly welcome and good breakfast.
+REV-189,HTL-039,5,Quiet room and a smooth arrival.
+REV-190,HTL-040,1,Noisy room and a slow check-in.
+REV-191,HTL-041,2,The room was small but clean.
+REV-192,HTL-042,3,An average stay with a useful desk.
+REV-193,HTL-043,4,Friendly welcome and good breakfast.
+REV-194,HTL-044,5,Quiet room and a smooth arrival.
+REV-195,HTL-045,1,Noisy room and a slow check-in.
+REV-196,HTL-046,2,The room was small but clean.
+REV-197,HTL-047,3,An average stay with a useful desk.
+REV-198,HTL-048,4,Friendly welcome and good breakfast.
+REV-199,HTL-049,5,Quiet room and a smooth arrival.
+REV-200,HTL-050,1,Noisy room and a slow check-in.
+REV-201,HTL-051,2,The room was small but clean.
+REV-202,HTL-052,3,An average stay with a useful desk.
+REV-203,HTL-053,4,Friendly welcome and good breakfast.
+REV-204,HTL-054,5,Quiet room and a smooth arrival.
+REV-205,HTL-055,1,Noisy room and a slow check-in.
+REV-206,HTL-056,2,The room was small but clean.
+REV-207,HTL-057,3,An average stay with a useful desk.
+REV-208,HTL-058,4,Friendly welcome and good breakfast.
+REV-209,HTL-059,5,Quiet room and a smooth arrival.
+REV-210,HTL-060,1,Noisy room and a slow check-in.
+REV-211,HTL-061,2,The room was small but clean.
+REV-212,HTL-062,3,An average stay with a useful desk.
+REV-213,HTL-063,4,Friendly welcome and good breakfast.
+REV-214,HTL-064,5,Quiet room and a smooth arrival.
+REV-215,HTL-065,1,Noisy room and a slow check-in.
+REV-216,HTL-066,2,The room was small but clean.
+REV-217,HTL-067,3,An average stay with a useful desk.
+REV-218,HTL-068,4,Friendly welcome and good breakfast.
+REV-219,HTL-069,5,Quiet room and a smooth arrival.
+REV-220,HTL-070,1,Noisy room and a slow check-in.
+REV-221,HTL-071,2,The room was small but clean.
+REV-222,HTL-072,3,An average stay with a useful desk.
+REV-223,HTL-073,4,Friendly welcome and good breakfast.
+REV-224,HTL-074,5,Quiet room and a smooth arrival.
+REV-225,HTL-075,1,Noisy room and a slow check-in.
+REV-226,HTL-076,2,The room was small but clean.
+REV-227,HTL-077,3,An average stay with a useful desk.
+REV-228,HTL-078,4,Friendly welcome and good breakfast.
+REV-229,HTL-079,5,Quiet room and a smooth arrival.
+REV-230,HTL-080,1,Noisy room and a slow check-in.
+REV-231,HTL-081,2,The room was small but clean.
+REV-232,HTL-082,3,An average stay with a useful desk.
+REV-233,HTL-083,4,Friendly welcome and good breakfast.
+REV-234,HTL-084,5,Quiet room and a smooth arrival.
+REV-235,HTL-085,1,Noisy room and a slow check-in.
+REV-236,HTL-086,2,The room was small but clean.
+REV-237,HTL-087,3,An average stay with a useful desk.
+REV-238,HTL-088,4,Friendly welcome and good breakfast.
+REV-239,HTL-089,5,Quiet room and a smooth arrival.
+REV-240,HTL-090,1,Noisy room and a slow check-in.
+REV-241,HTL-091,2,The room was small but clean.
+REV-242,HTL-092,3,An average stay with a useful desk.
+REV-243,HTL-093,4,Friendly welcome and good breakfast.
+REV-244,HTL-094,5,Quiet room and a smooth arrival.
+REV-245,HTL-095,1,Noisy room and a slow check-in.
+REV-246,HTL-096,2,The room was small but clean.
+REV-247,HTL-097,3,An average stay with a useful desk.
+REV-248,HTL-098,4,Friendly welcome and good breakfast.
+REV-249,HTL-099,5,Quiet room and a smooth arrival.
+REV-250,HTL-100,1,Noisy room and a slow check-in.
+REV-251,HTL-101,2,The room was small but clean.
+REV-252,HTL-102,3,An average stay with a useful desk.
+REV-253,HTL-103,4,Friendly welcome and good breakfast.
+REV-254,HTL-104,5,Quiet room and a smooth arrival.
+REV-255,HTL-105,1,Noisy room and a slow check-in.
+REV-256,HTL-106,2,The room was small but clean.
+REV-257,HTL-107,3,An average stay with a useful desk.
+REV-258,HTL-108,4,Friendly welcome and good breakfast.
+REV-259,HTL-109,5,Quiet room and a smooth arrival.
+REV-260,HTL-110,1,Noisy room and a slow check-in.
+REV-261,HTL-111,2,The room was small but clean.
+REV-262,HTL-112,3,An average stay with a useful desk.
+REV-263,HTL-113,4,Friendly welcome and good breakfast.
+REV-264,HTL-114,5,Quiet room and a smooth arrival.
+REV-265,HTL-115,1,Noisy room and a slow check-in.
+REV-266,HTL-116,2,The room was small but clean.
+REV-267,HTL-117,3,An average stay with a useful desk.
+REV-268,HTL-118,4,Friendly welcome and good breakfast.
+REV-269,HTL-119,5,Quiet room and a smooth arrival.
+REV-270,HTL-120,1,Noisy room and a slow check-in.
+REV-271,HTL-121,2,The room was small but clean.
+REV-272,HTL-122,3,An average stay with a useful desk.
+REV-273,HTL-123,4,Friendly welcome and good breakfast.
+REV-274,HTL-124,5,Quiet room and a smooth arrival.
+REV-275,HTL-125,1,Noisy room and a slow check-in.
+REV-276,HTL-126,2,The room was small but clean.
+REV-277,HTL-127,3,An average stay with a useful desk.
+REV-278,HTL-128,4,Friendly welcome and good breakfast.
+REV-279,HTL-129,5,Quiet room and a smooth arrival.
+REV-280,HTL-130,1,Noisy room and a slow check-in.
+REV-281,HTL-131,2,The room was small but clean.
+REV-282,HTL-132,3,An average stay with a useful desk.
+REV-283,HTL-133,4,Friendly welcome and good breakfast.
+REV-284,HTL-134,5,Quiet room and a smooth arrival.
+REV-285,HTL-135,1,Noisy room and a slow check-in.
+REV-286,HTL-136,2,The room was small but clean.
+REV-287,HTL-137,3,An average stay with a useful desk.
+REV-288,HTL-138,4,Friendly welcome and good breakfast.
+REV-289,HTL-139,5,Quiet room and a smooth arrival.
+REV-290,HTL-140,1,Noisy room and a slow check-in.
+REV-291,HTL-141,2,The room was small but clean.
+REV-292,HTL-142,3,An average stay with a useful desk.
+REV-293,HTL-143,4,Friendly welcome and good breakfast.
+REV-294,HTL-144,5,Quiet room and a smooth arrival.
+REV-295,HTL-145,1,Noisy room and a slow check-in.
+REV-296,HTL-146,2,The room was small but clean.
+REV-297,HTL-147,3,An average stay with a useful desk.
+REV-298,HTL-148,4,Friendly welcome and good breakfast.
+REV-299,HTL-149,5,Quiet room and a smooth arrival.
+REV-300,HTL-150,1,Noisy room and a slow check-in.

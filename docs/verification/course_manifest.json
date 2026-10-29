@@ -1,0 +1,911 @@
+{
+  "status": "planned",
+  "checked_on": "2026-10-29",
+  "modules": [
+    {
+      "slug": "00_setup",
+      "title": "Setup and orientation",
+      "minutes": 90,
+      "assistant_version": 0,
+      "use_case": "modules/00_setup/use_case/orientation.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/agents/",
+      "examples": [
+        {
+          "path": "modules/00_setup/examples/01_agent_or_workflow.py",
+          "features": "Model-driven agents versus fixed workflows; tokens; ecosystem map (Python, TypeScript, tools, Evals, builder, Bedrock, AgentCore, MCP, A2A)",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/00_setup/examples/02_local_readiness.py",
+          "features": "Python, uv, pip/venv fallback, Ollama tool-capable model and configuration checks",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/00_setup/examples/03_aws_readiness.py",
+          "features": "Identity Center, CLI v2 SSO, budget-before-billing gate, region and model-access checks",
+          "aws_required": "Yes; local readiness instead"
+        },
+        {
+          "path": "modules/00_setup/examples/04_first_call_metrics.py",
+          "features": "First configured agent call and token/latency inspection",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "01_first_agent",
+      "title": "Your first agent",
+      "minutes": 60,
+      "assistant_version": 1,
+      "use_case": "modules/01_first_agent/use_case/faq_responder.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/agents/",
+      "examples": [
+        {
+          "path": "modules/01_first_agent/examples/01_hello_agent.py",
+          "features": "Agent defaults inspected safely; configured Agent, system_prompt and synchronous invocation",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/01_first_agent/examples/02_result_and_messages.py",
+          "features": "AgentResult message, stop_reason, metrics, and agent.messages",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/01_first_agent/examples/03_callbacks.py",
+          "features": "Default printing, null_callback_handler, and custom callback handler",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/01_first_agent/examples/04_async_call.py",
+          "features": "Async/await primer and invoke_async",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/01_first_agent/examples/05_follow_the_loop.py",
+          "features": "Agent/event loop; model decision, tool execution, continuation and stop",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "02_model_providers",
+      "title": "Model providers",
+      "minutes": 90,
+      "assistant_version": 1,
+      "use_case": "modules/02_model_providers/use_case/provider_comparison.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/model-providers/",
+      "examples": [
+        {
+          "path": "modules/02_model_providers/examples/01_bedrock_settings.py",
+          "features": "BedrockModel; model ID, region, boto3 profile/session, temperature, max tokens and inference profiles",
+          "aws_required": "Yes; other providers instead"
+        },
+        {
+          "path": "modules/02_model_providers/examples/02_provider_switch.py",
+          "features": "Anthropic, OpenAI, Ollama and LiteLLM; overview of other supported providers",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/02_model_providers/examples/03_runtime_settings_and_cost.py",
+          "features": "Runtime configuration changes; token usage to dated cost estimate",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/02_model_providers/examples/04_custom_model.py",
+          "features": "Build it yourself: Model interface with scripted text and tool events",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/02_model_providers/examples/05_prompt_cache.py",
+          "features": "CacheConfig and supported Bedrock prompt-cache settings",
+          "aws_required": "Yes; uncached local comparison"
+        },
+        {
+          "path": "modules/02_model_providers/examples/06_reasoning.py",
+          "features": "Model-specific reasoning configuration and capability validation",
+          "aws_required": "Optional; capable local model"
+        }
+      ]
+    },
+    {
+      "slug": "03_conversations",
+      "title": "Conversations, messages and multimodal input",
+      "minutes": 90,
+      "assistant_version": 2,
+      "use_case": "modules/03_conversations/use_case/trip_chat.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/",
+      "examples": [
+        {
+          "path": "modules/03_conversations/examples/01_multi_turn.py",
+          "features": "Text content blocks, agent.messages, multi-turn state and role/constraints/tone/output prompts",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/03_conversations/examples/02_conversation_windows.py",
+          "features": "SlidingWindowConversationManager, SummarizingConversationManager, NullConversationManager and overflow",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/03_conversations/examples/03_receipt_image.py",
+          "features": "Image content blocks and vision capability checks on a synthetic receipt",
+          "aws_required": "No; vision model needed"
+        },
+        {
+          "path": "modules/03_conversations/examples/04_policy_document.py",
+          "features": "Document blocks on supported models; local PDF text extraction with page provenance",
+          "aws_required": "Optional; local extraction"
+        }
+      ]
+    },
+    {
+      "slug": "04_structured_output",
+      "title": "Structured output",
+      "minutes": 75,
+      "assistant_version": 3,
+      "use_case": "modules/04_structured_output/use_case/ticket_triage.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/",
+      "examples": [
+        {
+          "path": "modules/04_structured_output/examples/01_typed_ticket.py",
+          "features": "Pydantic primer; structured_output_model on Agent/call and result.structured_output",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/04_structured_output/examples/02_nested_itinerary.py",
+          "features": "Nested schemas, enums and optional fields; extract a confirmation email",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/04_structured_output/examples/03_validation_retry.py",
+          "features": "Validation failure, correction, retry limits and malformed output tests",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/04_structured_output/examples/04_structure_with_tools.py",
+          "features": "Structured answers after tool use; labelled ticket accuracy and CSV export",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "05_building_tools",
+      "title": "Building tools",
+      "minutes": 120,
+      "assistant_version": 4,
+      "use_case": "modules/05_building_tools/use_case/booking_assistant.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/",
+      "examples": [
+        {
+          "path": "modules/05_building_tools/examples/01_typed_search.py",
+          "features": "@tool; docstrings, parameter descriptions and type hints becoming tool specifications",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/05_building_tools/examples/02_results_and_errors.py",
+          "features": "toolUse, toolResult, status and tool exception feedback",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/05_building_tools/examples/03_tool_context.py",
+          "features": "@tool(context=True), ToolContext, private agent state and invocation state",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/05_building_tools/examples/04_async_progress.py",
+          "features": "Async tools, streamed tool progress and consumption",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/05_building_tools/examples/05_resource_sharing.py",
+          "features": "Class-based tools sharing a database connection; read-only queries",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/05_building_tools/examples/06_module_tools.py",
+          "features": "TOOL_SPEC modules and direct agent.tool calls",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/05_building_tools/examples/07_tool_executors.py",
+          "features": "Sequential and concurrent execution; race and resource limits",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/05_building_tools/examples/08_tool_directory.py",
+          "features": "Trusted folder loading, hot reload and review before registration",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/05_building_tools/examples/09_manual_converse_loop.py",
+          "features": "Build it yourself: bounded boto3 Converse loop with toolConfig/toolUse/toolResult, then Strands equivalent",
+          "aws_required": "Yes; offline Stubber replay"
+        }
+      ]
+    },
+    {
+      "slug": "06_community_tools",
+      "title": "Community and vended tools",
+      "minutes": 75,
+      "assistant_version": 4,
+      "use_case": "modules/06_community_tools/use_case/travel_day_helper.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/",
+      "examples": [
+        {
+          "path": "modules/06_community_tools/examples/01_calculator_time_weather.py",
+          "features": "calculator, current_time, http_request and Open-Meteo; recorded offline weather",
+          "aws_required": "No; live weather needs internet"
+        },
+        {
+          "path": "modules/06_community_tools/examples/02_files_and_consent.py",
+          "features": "file_read, file_write, editor and shell with explicit consent and path restrictions",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/06_community_tools/examples/03_python_with_consent.py",
+          "features": "Vended python_repl replacement, consent gate and BYPASS_TOOL_CONSENT explanation",
+          "aws_required": "No; execution environment capability check"
+        },
+        {
+          "path": "modules/06_community_tools/examples/04_tool_catalog.py",
+          "features": "retrieve, memory, think, use_llm, image_reader, journal, handoff_to_user; mix with custom tools",
+          "aws_required": "Optional; AWS tool adapters use fixtures locally"
+        },
+        {
+          "path": "modules/06_community_tools/examples/05_read_only_aws.py",
+          "features": "use_aws with scoped read-only role; denied write demonstration",
+          "aws_required": "Yes; recorded contract locally"
+        }
+      ]
+    },
+    {
+      "slug": "07_rag",
+      "title": "Retrieval-augmented generation",
+      "minutes": 210,
+      "assistant_version": 5,
+      "use_case": "modules/07_rag/use_case/ask_nimbus.py",
+      "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "examples": [
+        {
+          "path": "modules/07_rag/examples/01_load_and_chunk.py",
+          "features": "Markdown/PDF loading, chunk boundaries and source/page metadata",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/07_rag/examples/02_embeddings_by_hand.py",
+          "features": "Embedding primer, cosine similarity by hand, 2D projection and its limits",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/07_rag/examples/03_local_index.py",
+          "features": "Chroma persistence and Ollama embeddings; offline deterministic embedding fixture",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/07_rag/examples/04_cited_search.py",
+          "features": "search_policies tool, agentic retrieval, citations, grounding and abstention",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/07_rag/examples/05_knowledge_base.py",
+          "features": "Optional Bedrock Knowledge Base, S3 Vectors, retrieve tool and metadata filters; infrastructure and teardown",
+          "aws_required": "Yes; local Chroma alternative"
+        },
+        {
+          "path": "modules/07_rag/examples/06_bedrock_embeddings.py",
+          "features": "Titan Text Embeddings or verified equivalent; embedding-specific API versus Converse",
+          "aws_required": "Yes; Ollama alternative"
+        }
+      ]
+    },
+    {
+      "slug": "08_advanced_rag",
+      "title": "Advanced retrieval and evaluation",
+      "minutes": 180,
+      "assistant_version": 5,
+      "use_case": "modules/08_advanced_rag/use_case/retrieval_comparison.py",
+      "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "examples": [
+        {
+          "path": "modules/08_advanced_rag/examples/01_query_rewriting.py",
+          "features": "Agent query rewrite and multi-query retrieval with a query budget",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/08_advanced_rag/examples/02_hybrid_search.py",
+          "features": "BM25 plus vector search and deduplication",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/08_advanced_rag/examples/03_reranking.py",
+          "features": "Local reranking and optional Bedrock reranking with supported model/region",
+          "aws_required": "Optional; local scoring alternative"
+        },
+        {
+          "path": "modules/08_advanced_rag/examples/04_filters_multihop.py",
+          "features": "Metadata filters and bounded multi-hop retrieval",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/08_advanced_rag/examples/05_evaluate_retrieval.py",
+          "features": "Hit rate, faithfulness, correctness, held-out golden sets and LLM-as-judge limitations",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/08_advanced_rag/examples/06_failure_gallery.py",
+          "features": "Before/after results for missing facts, irrelevant chunks, false citations and injection",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "09_memory",
+      "title": "Memory, state and sessions",
+      "minutes": 210,
+      "assistant_version": 6,
+      "use_case": "modules/09_memory/use_case/preferences_assistant.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/agents/session-management/",
+      "examples": [
+        {
+          "path": "modules/09_memory/examples/01_state_and_messages.py",
+          "features": "Stateless model versus messages and agent.state; explicitly exposing private state when needed",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/09_memory/examples/02_file_sessions.py",
+          "features": "FileSessionManager, session IDs, resume and user isolation",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/09_memory/examples/03_s3_sessions.py",
+          "features": "S3SessionManager; moto tests and optional tagged bucket teardown",
+          "aws_required": "Yes; file sessions alternative"
+        },
+        {
+          "path": "modules/09_memory/examples/04_local_preferences.py",
+          "features": "Preference storage, retention, retrieval and complete user deletion",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/09_memory/examples/05_agentcore_memory.py",
+          "features": "AgentCoreMemorySessionManager integration; live service deferred/optional before Tier 5",
+          "aws_required": "Yes; local preferences alternative"
+        },
+        {
+          "path": "modules/09_memory/examples/06_mem0_store.py",
+          "features": "Mem0MemoryStore via mem0-strands and MemoryManager; replace deprecated mem0_memory tool; deletion through backend API",
+          "aws_required": "No; Ollama-backed configuration"
+        }
+      ]
+    },
+    {
+      "slug": "10_streaming",
+      "title": "Streaming and async",
+      "minutes": 150,
+      "assistant_version": 6,
+      "use_case": "modules/10_streaming/use_case/streaming_trip_planner.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/",
+      "examples": [
+        {
+          "path": "modules/10_streaming/examples/01_stream_events.py",
+          "features": "stream_async text deltas, reasoning if exposed, tool and lifecycle events versus callbacks",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/10_streaming/examples/02_concurrency_and_cancel.py",
+          "features": "Concurrent agents, timeouts, cancellation and bounded resource use",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/10_streaming/examples/03_fastapi_sse.py",
+          "features": "FastAPI SSE framing, client disconnect and cancellation propagation",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/10_streaming/examples/04_streamlit_chat.py",
+          "features": "Streamlit chat, per-user sessions and streamed responses",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "11_hooks",
+      "title": "Hooks and lifecycle",
+      "minutes": 120,
+      "assistant_version": 7,
+      "use_case": "modules/11_hooks/use_case/audited_booking.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/",
+      "examples": [
+        {
+          "path": "modules/11_hooks/examples/01_lifecycle_hooks.py",
+          "features": "HookProvider, HookRegistry; AgentInitializedEvent, Before/AfterInvocationEvent, Before/AfterModelCallEvent",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/11_hooks/examples/02_tool_hooks.py",
+          "features": "Before/AfterToolCallEvent, Before/AfterToolsEvent; block or modify inputs and rewrite results",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/11_hooks/examples/03_message_hooks.py",
+          "features": "MessageAddedEvent and MessageUpdatedEvent; redaction before persistence/logging",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/11_hooks/examples/04_audit_budget.py",
+          "features": "Invocation state, structured audit trail, booking budget enforcement and metrics",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "12_interrupts",
+      "title": "Human approval with interrupts",
+      "minutes": 150,
+      "assistant_version": 8,
+      "use_case": "modules/12_interrupts/use_case/refund_approval.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/interrupts/",
+      "examples": [
+        {
+          "path": "modules/12_interrupts/examples/01_hook_interrupt.py",
+          "features": "Interrupt an individual call or batch from supported hooks; capture identifiers",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/12_interrupts/examples/02_tool_interrupt.py",
+          "features": "Interrupt from ToolContext and resume with matched human response",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/12_interrupts/examples/03_approval_cli.py",
+          "features": "Approve/reject/expire refunds over $500 and non-refundable changes; handoff_to_user comparison",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/12_interrupts/examples/04_approval_web.py",
+          "features": "Authenticated approval state, web approve/reject, audit trail and replay-safe mutation",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "13_guardrails",
+      "title": "Guardrails and safety",
+      "minutes": 150,
+      "assistant_version": 9,
+      "use_case": "modules/13_guardrails/use_case/hardened_support.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/",
+      "examples": [
+        {
+          "path": "modules/13_guardrails/examples/01_local_guardrails.py",
+          "features": "Provider-independent hook checks and typed business policy",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/13_guardrails/examples/02_prompt_injection.py",
+          "features": "Poisoned document attack, untrusted content boundary, tool authorization and regression cases",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/13_guardrails/examples/03_least_privilege.py",
+          "features": "Read-only SQLite, tool allow-lists and restricted use_aws role",
+          "aws_required": "Optional; local tools alternative"
+        },
+        {
+          "path": "modules/13_guardrails/examples/04_limits.py",
+          "features": "Current invocation limits, tool budgets and wall-clock timeouts",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/13_guardrails/examples/05_bedrock_guardrails.py",
+          "features": "Content filters, denied topics, PII masking, grounding checks, BedrockModel attachment and trace; CDK lifecycle",
+          "aws_required": "Yes; local policy checks with narrower coverage"
+        }
+      ]
+    },
+    {
+      "slug": "14_mcp",
+      "title": "Model Context Protocol",
+      "minutes": 150,
+      "assistant_version": 9,
+      "use_case": "modules/14_mcp/use_case/mcp_booking_assistant.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/",
+      "examples": [
+        {
+          "path": "modules/14_mcp/examples/01_stdio_client.py",
+          "features": "MCPClient stdio transport and managed/context-manager lifecycle",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/14_mcp/examples/02_http_client.py",
+          "features": "Streamable HTTP transport, lifetime, authentication and shutdown",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/14_mcp/examples/03_booking_server.py",
+          "features": "Official mcp SDK server exposing Nimbus booking tools",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/14_mcp/examples/04_aws_servers.py",
+          "features": "Pinned AWS Documentation and AWS Pricing MCP servers via uvx; trust and access review",
+          "aws_required": "Optional; Pricing requires credentials, fixture alternative"
+        },
+        {
+          "path": "modules/14_mcp/examples/05_tool_filtering.py",
+          "features": "Filter/namespace tools, combine servers and reject unexpected capabilities",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "15_agents_as_tools",
+      "title": "Agents as tools",
+      "minutes": 150,
+      "assistant_version": 10,
+      "use_case": "modules/15_agents_as_tools/use_case/nimbus_concierge.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/",
+      "examples": [
+        {
+          "path": "modules/15_agents_as_tools/examples/01_specialist_tools.py",
+          "features": "Flight, hotel and policy agents wrapped as tools",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/15_agents_as_tools/examples/02_context_boundaries.py",
+          "features": "Minimum specialist context, output validation and authority boundaries",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/15_agents_as_tools/examples/03_delegation_cost.py",
+          "features": "Compare single-agent and delegated quality, latency and total token cost",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "16_swarms",
+      "title": "Swarms",
+      "minutes": 180,
+      "assistant_version": 10,
+      "use_case": "modules/16_swarms/use_case/itinerary_swarm.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/",
+      "examples": [
+        {
+          "path": "modules/16_swarms/examples/01_handoffs.py",
+          "features": "Swarm, entry point, agent handoffs and shared context",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/16_swarms/examples/02_swarm_limits.py",
+          "features": "max_handoffs, max_iterations, execution_timeout, node_timeout and repetitive handoff detection",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/16_swarms/examples/03_swarm_results.py",
+          "features": "Result status, node outcomes, execution order and failure diagnosis",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/16_swarms/examples/04_itinerary_team.py",
+          "features": "Researcher, budget planner, itinerary writer and reviewer collaboration",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "17_graphs",
+      "title": "Graphs and workflows",
+      "minutes": 240,
+      "assistant_version": 10,
+      "use_case": "modules/17_graphs/use_case/group_trip_pipeline.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/",
+      "examples": [
+        {
+          "path": "modules/17_graphs/examples/01_graph_basics.py",
+          "features": "GraphBuilder nodes, edges, entry point and per-node results",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/17_graphs/examples/02_parallel_search.py",
+          "features": "Parallel flight/hotel branches and single fan-in after completion",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/17_graphs/examples/03_conditional_budget.py",
+          "features": "Conditional edges and bounded loops using set_max_node_executions/timeouts",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/17_graphs/examples/04_nested_patterns.py",
+          "features": "Nested graph/swarm nodes and aggregate limits",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/17_graphs/examples/05_workflow_comparison.py",
+          "features": "Existing workflow tool versus Graph and deterministic orchestration",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/17_graphs/examples/06_approval_pipeline.py",
+          "features": "Parse, parallel search, budget branch, approval, and confirmation draft",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "18_a2a",
+      "title": "Agent-to-Agent protocol",
+      "minutes": 150,
+      "assistant_version": 10,
+      "use_case": "modules/18_a2a/use_case/partner_upgrade.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/",
+      "examples": [
+        {
+          "path": "modules/18_a2a/examples/01_partner_server.py",
+          "features": "A2A protocol, Strands A2AServer and agent cards",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/18_a2a/examples/02_remote_agent.py",
+          "features": "A2AAgent endpoint, invoke_async and streamed remote results",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/18_a2a/examples/03_authenticated_client.py",
+          "features": "client_config authenticated transport, card discovery and credential boundaries",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/18_a2a/examples/04_framework_interop.py",
+          "features": "Protocol contracts for a partner in another framework; full LangGraph implementation in capstone",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "19_observability",
+      "title": "Observability, testing and evaluation",
+      "minutes": 240,
+      "assistant_version": 10,
+      "use_case": "modules/19_observability/use_case/support_quality_gate.py",
+      "source": "https://strandsagents.com/docs/user-guide/evals-sdk/",
+      "examples": [
+        {
+          "path": "modules/19_observability/examples/01_agent_metrics.py",
+          "features": "AgentResult token/cycle/latency/tool metrics and total cost accounting",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/19_observability/examples/02_local_tracing.py",
+          "features": "OpenTelemetry console and OTLP exporter; local Jaeger with Docker",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/19_observability/examples/03_offline_testing.py",
+          "features": "Scripted Model interface, tool unit tests, moto/Stubber, deprecations and opt-in live markers",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/19_observability/examples/04_strands_evals.py",
+          "features": "Cases, experiments, output and trajectory evaluators, LLM judges and deterministic scoring",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/19_observability/examples/05_evaluation_cli.py",
+          "features": "strands-evals run thresholds and nonzero exits as a CI quality gate",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/19_observability/examples/06_cloud_observability.py",
+          "features": "CloudWatch and AgentCore telemetry, redaction and retention",
+          "aws_required": "Yes; local console/Jaeger alternative"
+        },
+        {
+          "path": "modules/19_observability/examples/07_managed_evaluation.py",
+          "features": "AgentCore Evaluations as a managed option",
+          "aws_required": "Yes; local Evals alternative"
+        }
+      ]
+    },
+    {
+      "slug": "20_deployment",
+      "title": "Deploying to AWS",
+      "minutes": 300,
+      "assistant_version": 10,
+      "use_case": "modules/20_deployment/use_case/deployment_comparison.py",
+      "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html",
+      "examples": [
+        {
+          "path": "modules/20_deployment/examples/01_hosting_decision.py",
+          "features": "Local/Lambda/Fargate/AgentCore tradeoffs; EKS and EC2 overview",
+          "aws_required": "No; local workload model"
+        },
+        {
+          "path": "modules/20_deployment/examples/02_agentcore_local.py",
+          "features": "BedrockAgentCoreApp, @app.entrypoint and local runtime testing",
+          "aws_required": "No; model can use Ollama"
+        },
+        {
+          "path": "modules/20_deployment/examples/03_agentcore_runtime.py",
+          "features": "Toolkit/CLI deploy, invoke, streaming and sessions; resource inventory and teardown",
+          "aws_required": "Yes; local runtime alternative"
+        },
+        {
+          "path": "modules/20_deployment/examples/04_lambda_handler.py",
+          "features": "Lambda handler, dependency packaging, scoped execution role and CDK app",
+          "aws_required": "Yes for deployment; offline handler alternative"
+        },
+        {
+          "path": "modules/20_deployment/examples/05_fargate_api.py",
+          "features": "FastAPI container, Fargate service/load balancer, logs and explicit idle costs; CDK lifecycle",
+          "aws_required": "Yes for deployment; local container alternative"
+        },
+        {
+          "path": "modules/20_deployment/examples/06_runtime_configuration.py",
+          "features": "Secrets Manager/SSM, per-environment configuration, roles and cleanup comparison",
+          "aws_required": "Yes; local environment configuration"
+        }
+      ]
+    },
+    {
+      "slug": "21_agentcore",
+      "title": "Amazon Bedrock AgentCore services",
+      "minutes": 300,
+      "assistant_version": 11,
+      "use_case": "modules/21_agentcore/use_case/production_copilot.py",
+      "source": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+      "examples": [
+        {
+          "path": "modules/21_agentcore/examples/01_memory.py",
+          "features": "Short-term events and semantic, preference, summary and episodic strategies; deletion",
+          "aws_required": "Yes; local preference store"
+        },
+        {
+          "path": "modules/21_agentcore/examples/02_gateway.py",
+          "features": "Lambda/OpenAPI to MCP, semantic tool search and scoped targets",
+          "aws_required": "Yes; local booking MCP"
+        },
+        {
+          "path": "modules/21_agentcore/examples/03_identity.py",
+          "features": "Cognito/JWT inbound identity and third-party OAuth outbound identity",
+          "aws_required": "Yes; local authenticated test provider"
+        },
+        {
+          "path": "modules/21_agentcore/examples/04_code_interpreter.py",
+          "features": "AgentCore Code Interpreter tool, sessions, execution limits and cleanup",
+          "aws_required": "Yes; reviewed local computation"
+        },
+        {
+          "path": "modules/21_agentcore/examples/05_browser.py",
+          "features": "AgentCore Browser tool, restricted destinations, sessions and cleanup",
+          "aws_required": "Yes; fixture web pages"
+        },
+        {
+          "path": "modules/21_agentcore/examples/06_observability.py",
+          "features": "Service telemetry, redaction, permissions and retention cleanup",
+          "aws_required": "Yes; local OTLP"
+        },
+        {
+          "path": "modules/21_agentcore/examples/07_policy.py",
+          "features": "Gateway Policy, Cedar, tool-input limits and refusal of excess refunds",
+          "aws_required": "Yes; local typed policy"
+        },
+        {
+          "path": "modules/21_agentcore/examples/08_evaluations.py",
+          "features": "Managed evaluation configuration, scheduled runs, score review and schedule deletion",
+          "aws_required": "Yes; local evaluation runner"
+        },
+        {
+          "path": "modules/21_agentcore/examples/09_integrated_copilot.py",
+          "features": "Memory, booking Gateway, sign-in, refund policy and recurring evaluations",
+          "aws_required": "Yes; composed local support app"
+        }
+      ]
+    },
+    {
+      "slug": "bonus/B1_voice",
+      "title": "Voice agents",
+      "minutes": 120,
+      "assistant_version": 11,
+      "use_case": "modules/bonus/B1_voice/use_case/voice_booking.py",
+      "source": "https://strandsagents.com/docs/user-guide/sdk/bidi/agent/",
+      "examples": [
+        {
+          "path": "modules/bonus/B1_voice/examples/01_voice_session.py",
+          "features": "Stable strands.bidi.BidiAgent and compatible Nova Sonic voice session",
+          "aws_required": "Yes for Nova; optional non-AWS voice provider"
+        },
+        {
+          "path": "modules/bonus/B1_voice/examples/02_barge_in.py",
+          "features": "Bidirectional audio, barge-in and cancellation boundaries",
+          "aws_required": "Yes for Nova; recorded audio events locally"
+        },
+        {
+          "path": "modules/bonus/B1_voice/examples/03_voice_approval.py",
+          "features": "Voice tool approval and session cleanup; Experimental OpenAI Live excluded from core",
+          "aws_required": "Yes for Nova; offline approval fixture"
+        }
+      ]
+    },
+    {
+      "slug": "bonus/B2_typescript",
+      "title": "Strands in TypeScript",
+      "minutes": 120,
+      "assistant_version": 1,
+      "use_case": "modules/bonus/B2_typescript/use_case/typescript_booking.ts",
+      "source": "https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.22.0",
+      "examples": [
+        {
+          "path": "modules/bonus/B2_typescript/examples/01_first_agent.ts",
+          "features": "TypeScript primer and first agent with environment model selection",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/bonus/B2_typescript/examples/02_typed_tool.ts",
+          "features": "Typed Nimbus booking tools and validation",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/bonus/B2_typescript/examples/03_provider_and_result.ts",
+          "features": "Provider choice, async invocation and result comparison with Python",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "bonus/B3_self_extending",
+      "title": "Self-extending agents",
+      "minutes": 120,
+      "assistant_version": 11,
+      "use_case": "modules/bonus/B3_self_extending/use_case/reviewed_tool_builder.py",
+      "source": "https://github.com/strands-agents/agent-builder",
+      "examples": [
+        {
+          "path": "modules/bonus/B3_self_extending/examples/01_builder.py",
+          "features": "Current SDK tool-generation builder with constrained inventory; archived agent-builder explained as historical context",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/bonus/B3_self_extending/examples/02_review_generated_tool.py",
+          "features": "Generated source is untrusted; review, test and explicitly approve before loading",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/bonus/B3_self_extending/examples/03_trusted_reload.py",
+          "features": "Approved tools in an allow-listed directory, hot reload and audit history",
+          "aws_required": "No"
+        }
+      ]
+    },
+    {
+      "slug": "bonus/B4_whats_new",
+      "title": "What is new in the pinned release",
+      "minutes": 120,
+      "assistant_version": 11,
+      "use_case": "modules/bonus/B4_whats_new/use_case/release_feature_lab.py",
+      "source": "https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.62.0",
+      "examples": [
+        {
+          "path": "modules/bonus/B4_whats_new/examples/01_cancel_and_limits.py",
+          "features": "agent.cancel and whole-agent-tree invocation limits",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/bonus/B4_whats_new/examples/02_public_middleware.py",
+          "features": "Public middleware composition and behavior tests",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/bonus/B4_whats_new/examples/03_stable_redteam.py",
+          "features": "Stable Evals red teaming and held-out attack corpus; replace experimental imports",
+          "aws_required": "No"
+        },
+        {
+          "path": "modules/bonus/B4_whats_new/examples/04_experimental_config.py",
+          "features": "Experimental AgentConfig opt-in demonstration, isolated from the core route",
+          "aws_required": "No"
+        }
+      ]
+    }
+  ]
+}

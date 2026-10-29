@@ -1,0 +1,151 @@
+hotel_id,name,city,star_rating,nightly_price_usd,amenities,cancellation_terms
+HTL-001,Nimbus Demo Stay 001,Chicago,2,141.00,wifi;desk;laundry,non-refundable
+HTL-002,Nimbus Demo Stay 002,Seattle,3,124.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-003,Nimbus Demo Stay 003,Boston,4,74.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-004,Nimbus Demo Stay 004,Austin,5,225.00,wifi;breakfast,non-refundable
+HTL-005,Nimbus Demo Stay 005,Denver,2,78.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-006,Nimbus Demo Stay 006,Portland,3,82.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-007,Nimbus Demo Stay 007,Toronto,4,211.00,wifi;desk;laundry,non-refundable
+HTL-008,Nimbus Demo Stay 008,Vancouver,5,275.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-009,Nimbus Demo Stay 009,Montreal,2,236.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-010,Nimbus Demo Stay 010,Mexico City,3,279.00,wifi;breakfast,non-refundable
+HTL-011,Nimbus Demo Stay 011,Lisbon,4,271.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-012,Nimbus Demo Stay 012,Porto,5,265.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-013,Nimbus Demo Stay 013,Madrid,2,138.00,wifi;desk;laundry,non-refundable
+HTL-014,Nimbus Demo Stay 014,Barcelona,3,108.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-015,Nimbus Demo Stay 015,Paris,4,106.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-016,Nimbus Demo Stay 016,Lyon,5,252.00,wifi;breakfast,non-refundable
+HTL-017,Nimbus Demo Stay 017,Rome,2,171.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-018,Nimbus Demo Stay 018,Florence,3,99.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-019,Nimbus Demo Stay 019,Berlin,4,92.00,wifi;desk;laundry,non-refundable
+HTL-020,Nimbus Demo Stay 020,Munich,5,93.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-021,Nimbus Demo Stay 021,Amsterdam,2,96.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-022,Nimbus Demo Stay 022,Copenhagen,3,167.00,wifi;breakfast,non-refundable
+HTL-023,Nimbus Demo Stay 023,Stockholm,4,217.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-024,Nimbus Demo Stay 024,Oslo,5,239.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-025,Nimbus Demo Stay 025,Tokyo,2,61.00,wifi;desk;laundry,non-refundable
+HTL-026,Nimbus Demo Stay 026,Kyoto,3,219.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-027,Nimbus Demo Stay 027,Seoul,4,85.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-028,Nimbus Demo Stay 028,Sydney,5,119.00,wifi;breakfast,non-refundable
+HTL-029,Nimbus Demo Stay 029,Melbourne,2,197.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-030,Nimbus Demo Stay 030,Auckland,3,161.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-031,Nimbus Demo Stay 031,Chicago,4,149.00,wifi;desk;laundry,non-refundable
+HTL-032,Nimbus Demo Stay 032,Seattle,5,182.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-033,Nimbus Demo Stay 033,Boston,2,208.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-034,Nimbus Demo Stay 034,Austin,3,196.00,wifi;breakfast,non-refundable
+HTL-035,Nimbus Demo Stay 035,Denver,4,253.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-036,Nimbus Demo Stay 036,Portland,5,86.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-037,Nimbus Demo Stay 037,Toronto,2,251.00,wifi;desk;laundry,non-refundable
+HTL-038,Nimbus Demo Stay 038,Vancouver,3,214.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-039,Nimbus Demo Stay 039,Montreal,4,65.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-040,Nimbus Demo Stay 040,Mexico City,5,146.00,wifi;breakfast,non-refundable
+HTL-041,Nimbus Demo Stay 041,Lisbon,2,142.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-042,Nimbus Demo Stay 042,Porto,3,232.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-043,Nimbus Demo Stay 043,Madrid,4,192.00,wifi;desk;laundry,non-refundable
+HTL-044,Nimbus Demo Stay 044,Barcelona,5,221.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-045,Nimbus Demo Stay 045,Paris,2,192.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-046,Nimbus Demo Stay 046,Lyon,3,278.00,wifi;breakfast,non-refundable
+HTL-047,Nimbus Demo Stay 047,Rome,4,134.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-048,Nimbus Demo Stay 048,Florence,5,215.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-049,Nimbus Demo Stay 049,Berlin,2,188.00,wifi;desk;laundry,non-refundable
+HTL-050,Nimbus Demo Stay 050,Munich,3,257.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-051,Nimbus Demo Stay 051,Amsterdam,4,107.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-052,Nimbus Demo Stay 052,Copenhagen,5,96.00,wifi;breakfast,non-refundable
+HTL-053,Nimbus Demo Stay 053,Stockholm,2,149.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-054,Nimbus Demo Stay 054,Oslo,3,96.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-055,Nimbus Demo Stay 055,Tokyo,4,85.00,wifi;desk;laundry,non-refundable
+HTL-056,Nimbus Demo Stay 056,Kyoto,5,161.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-057,Nimbus Demo Stay 057,Seoul,2,118.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-058,Nimbus Demo Stay 058,Sydney,3,148.00,wifi;breakfast,non-refundable
+HTL-059,Nimbus Demo Stay 059,Melbourne,4,105.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-060,Nimbus Demo Stay 060,Auckland,5,51.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-061,Nimbus Demo Stay 061,Chicago,2,201.00,wifi;desk;laundry,non-refundable
+HTL-062,Nimbus Demo Stay 062,Seattle,3,182.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-063,Nimbus Demo Stay 063,Boston,4,172.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-064,Nimbus Demo Stay 064,Austin,5,122.00,wifi;breakfast,non-refundable
+HTL-065,Nimbus Demo Stay 065,Denver,2,76.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-066,Nimbus Demo Stay 066,Portland,3,109.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-067,Nimbus Demo Stay 067,Toronto,4,227.00,wifi;desk;laundry,non-refundable
+HTL-068,Nimbus Demo Stay 068,Vancouver,5,73.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-069,Nimbus Demo Stay 069,Montreal,2,126.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-070,Nimbus Demo Stay 070,Mexico City,3,222.00,wifi;breakfast,non-refundable
+HTL-071,Nimbus Demo Stay 071,Lisbon,4,259.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-072,Nimbus Demo Stay 072,Porto,5,239.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-073,Nimbus Demo Stay 073,Madrid,2,72.00,wifi;desk;laundry,non-refundable
+HTL-074,Nimbus Demo Stay 074,Barcelona,3,116.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-075,Nimbus Demo Stay 075,Paris,4,201.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-076,Nimbus Demo Stay 076,Lyon,5,177.00,wifi;breakfast,non-refundable
+HTL-077,Nimbus Demo Stay 077,Rome,2,196.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-078,Nimbus Demo Stay 078,Florence,3,153.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-079,Nimbus Demo Stay 079,Berlin,4,190.00,wifi;desk;laundry,non-refundable
+HTL-080,Nimbus Demo Stay 080,Munich,5,259.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-081,Nimbus Demo Stay 081,Amsterdam,2,156.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-082,Nimbus Demo Stay 082,Copenhagen,3,229.00,wifi;breakfast,non-refundable
+HTL-083,Nimbus Demo Stay 083,Stockholm,4,213.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-084,Nimbus Demo Stay 084,Oslo,5,230.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-085,Nimbus Demo Stay 085,Tokyo,2,66.00,wifi;desk;laundry,non-refundable
+HTL-086,Nimbus Demo Stay 086,Kyoto,3,115.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-087,Nimbus Demo Stay 087,Seoul,4,55.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-088,Nimbus Demo Stay 088,Sydney,5,69.00,wifi;breakfast,non-refundable
+HTL-089,Nimbus Demo Stay 089,Melbourne,2,228.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-090,Nimbus Demo Stay 090,Auckland,3,200.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-091,Nimbus Demo Stay 091,Chicago,4,77.00,wifi;desk;laundry,non-refundable
+HTL-092,Nimbus Demo Stay 092,Seattle,5,68.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-093,Nimbus Demo Stay 093,Boston,2,241.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-094,Nimbus Demo Stay 094,Austin,3,83.00,wifi;breakfast,non-refundable
+HTL-095,Nimbus Demo Stay 095,Denver,4,78.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-096,Nimbus Demo Stay 096,Portland,5,113.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-097,Nimbus Demo Stay 097,Toronto,2,156.00,wifi;desk;laundry,non-refundable
+HTL-098,Nimbus Demo Stay 098,Vancouver,3,183.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-099,Nimbus Demo Stay 099,Montreal,4,181.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-100,Nimbus Demo Stay 100,Mexico City,5,235.00,wifi;breakfast,non-refundable
+HTL-101,Nimbus Demo Stay 101,Lisbon,2,161.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-102,Nimbus Demo Stay 102,Porto,3,233.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-103,Nimbus Demo Stay 103,Madrid,4,117.00,wifi;desk;laundry,non-refundable
+HTL-104,Nimbus Demo Stay 104,Barcelona,5,246.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-105,Nimbus Demo Stay 105,Paris,2,90.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-106,Nimbus Demo Stay 106,Lyon,3,167.00,wifi;breakfast,non-refundable
+HTL-107,Nimbus Demo Stay 107,Rome,4,161.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-108,Nimbus Demo Stay 108,Florence,5,97.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-109,Nimbus Demo Stay 109,Berlin,2,81.00,wifi;desk;laundry,non-refundable
+HTL-110,Nimbus Demo Stay 110,Munich,3,265.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-111,Nimbus Demo Stay 111,Amsterdam,4,87.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-112,Nimbus Demo Stay 112,Copenhagen,5,155.00,wifi;breakfast,non-refundable
+HTL-113,Nimbus Demo Stay 113,Stockholm,2,80.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-114,Nimbus Demo Stay 114,Oslo,3,55.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-115,Nimbus Demo Stay 115,Tokyo,4,237.00,wifi;desk;laundry,non-refundable
+HTL-116,Nimbus Demo Stay 116,Kyoto,5,84.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-117,Nimbus Demo Stay 117,Seoul,2,51.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-118,Nimbus Demo Stay 118,Sydney,3,260.00,wifi;breakfast,non-refundable
+HTL-119,Nimbus Demo Stay 119,Melbourne,4,82.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-120,Nimbus Demo Stay 120,Auckland,5,215.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-121,Nimbus Demo Stay 121,Chicago,2,116.00,wifi;desk;laundry,non-refundable
+HTL-122,Nimbus Demo Stay 122,Seattle,3,108.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-123,Nimbus Demo Stay 123,Boston,4,124.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-124,Nimbus Demo Stay 124,Austin,5,106.00,wifi;breakfast,non-refundable
+HTL-125,Nimbus Demo Stay 125,Denver,2,56.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-126,Nimbus Demo Stay 126,Portland,3,117.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-127,Nimbus Demo Stay 127,Toronto,4,99.00,wifi;desk;laundry,non-refundable
+HTL-128,Nimbus Demo Stay 128,Vancouver,5,109.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-129,Nimbus Demo Stay 129,Montreal,2,121.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-130,Nimbus Demo Stay 130,Mexico City,3,107.00,wifi;breakfast,non-refundable
+HTL-131,Nimbus Demo Stay 131,Lisbon,4,244.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-132,Nimbus Demo Stay 132,Porto,5,86.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-133,Nimbus Demo Stay 133,Madrid,2,215.00,wifi;desk;laundry,non-refundable
+HTL-134,Nimbus Demo Stay 134,Barcelona,3,164.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-135,Nimbus Demo Stay 135,Paris,4,85.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-136,Nimbus Demo Stay 136,Lyon,5,154.00,wifi;breakfast,non-refundable
+HTL-137,Nimbus Demo Stay 137,Rome,2,154.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-138,Nimbus Demo Stay 138,Florence,3,196.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-139,Nimbus Demo Stay 139,Berlin,4,77.00,wifi;desk;laundry,non-refundable
+HTL-140,Nimbus Demo Stay 140,Munich,5,102.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-141,Nimbus Demo Stay 141,Amsterdam,2,218.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-142,Nimbus Demo Stay 142,Copenhagen,3,175.00,wifi;breakfast,non-refundable
+HTL-143,Nimbus Demo Stay 143,Stockholm,4,190.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-144,Nimbus Demo Stay 144,Oslo,5,259.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-145,Nimbus Demo Stay 145,Tokyo,2,180.00,wifi;desk;laundry,non-refundable
+HTL-146,Nimbus Demo Stay 146,Kyoto,3,191.00,wifi;breakfast,flexible: free until 48 hours before check-in
+HTL-147,Nimbus Demo Stay 147,Seoul,4,115.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-148,Nimbus Demo Stay 148,Sydney,5,272.00,wifi;breakfast,non-refundable
+HTL-149,Nimbus Demo Stay 149,Melbourne,2,153.00,wifi;desk;laundry,flexible: free until 48 hours before check-in
+HTL-150,Nimbus Demo Stay 150,Auckland,3,245.00,wifi;breakfast,flexible: free until 48 hours before check-in

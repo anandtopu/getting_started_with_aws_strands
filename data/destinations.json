@@ -1,0 +1,542 @@
+[
+  {
+    "id": "DST-01",
+    "city": "Chicago",
+    "country": "United States",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 80,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-02",
+    "city": "Seattle",
+    "country": "United States",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 90,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-03",
+    "city": "Boston",
+    "country": "United States",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 60,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-04",
+    "city": "Austin",
+    "country": "United States",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 180,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-05",
+    "city": "Denver",
+    "country": "United States",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 200,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-06",
+    "city": "Portland",
+    "country": "United States",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 90,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-07",
+    "city": "Toronto",
+    "country": "Canada",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 220,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-08",
+    "city": "Vancouver",
+    "country": "Canada",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 180,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-09",
+    "city": "Montreal",
+    "country": "Canada",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 140,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-10",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 220,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-11",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 140,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-12",
+    "city": "Porto",
+    "country": "Portugal",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 140,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-13",
+    "city": "Madrid",
+    "country": "Spain",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 90,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-14",
+    "city": "Barcelona",
+    "country": "Spain",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 180,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-15",
+    "city": "Paris",
+    "country": "France",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 60,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-16",
+    "city": "Lyon",
+    "country": "France",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 200,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-17",
+    "city": "Rome",
+    "country": "Italy",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 120,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-18",
+    "city": "Florence",
+    "country": "Italy",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 140,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-19",
+    "city": "Berlin",
+    "country": "Germany",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 160,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-20",
+    "city": "Munich",
+    "country": "Germany",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 200,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-21",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 190,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-22",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 140,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-23",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 220,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-24",
+    "city": "Oslo",
+    "country": "Norway",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 90,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-25",
+    "city": "Tokyo",
+    "country": "Japan",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 150,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-26",
+    "city": "Kyoto",
+    "country": "Japan",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 140,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-27",
+    "city": "Seoul",
+    "country": "South Korea",
+    "best_months": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "typical_daily_cost_usd": 160,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-28",
+    "city": "Sydney",
+    "country": "Australia",
+    "best_months": [
+      2,
+      3,
+      10,
+      11
+    ],
+    "typical_daily_cost_usd": 200,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-29",
+    "city": "Melbourne",
+    "country": "Australia",
+    "best_months": [
+      2,
+      3,
+      10,
+      11
+    ],
+    "typical_daily_cost_usd": 140,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  },
+  {
+    "id": "DST-30",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "best_months": [
+      2,
+      3,
+      10,
+      11
+    ],
+    "typical_daily_cost_usd": 70,
+    "highlights": [
+      "neighborhood walks",
+      "local food",
+      "museums"
+    ],
+    "note": "Synthetic travel-planning assumptions, not live prices or forecasts."
+  }
+]

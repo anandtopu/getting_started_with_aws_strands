@@ -1,0 +1,33 @@
+{
+  "checked_on": "2026-10-29",
+  "phase": "foundation",
+  "platform": "Windows",
+  "uv_version_local": "0.12.18",
+  "locked_packages_all_groups": 307,
+  "installed_packages_default_windows": 110,
+  "tests": [
+    {"python": "3.12.13", "groups": "all", "passed": 30, "skipped": 0},
+    {"python": "3.12.13", "groups": "default", "passed": 27, "skipped": 3},
+    {"python": "3.13.13", "groups": "default", "passed": 27, "skipped": 3}
+  ],
+  "skips": "Anthropic, OpenAI and LiteLLM constructor tests require the providers group",
+  "delivered_examples_passed": 1,
+  "ruff_check": "passed",
+  "ruff_format_check": "passed",
+  "uv_lock_check": "passed",
+  "uv_pip_check_default": "passed",
+  "fixture_files_hashed": 45,
+  "pdf_pages_visually_reviewed": 10,
+  "receipt_images_visually_reviewed": 20,
+  "fixture_regeneration": "text hashes and binary semantic content passed",
+  "markdown_links": "local and public URL checks passed",
+  "aws_stub_contracts": "budget creation shape, inventory pagination, children and access denial",
+  "moto_contract": "S3 object round-trip and cleanup",
+  "cdk_apps_delivered": 0,
+  "cdk_synthesis": "not applicable in Phase 2",
+  "remote_ci": "not run",
+  "live_model_calls": 0,
+  "aws_resources_created": 0,
+  "public_repository_published": false,
+  "next_phase": "Tier 1: modules 00 through 06"
+}

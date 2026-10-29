@@ -1,0 +1,483 @@
+{
+  "checked_on": "2026-10-29",
+  "phase": "planning_only",
+  "core_module_count": 22,
+  "bonus_module_count": 4,
+  "planned_example_count": 129,
+  "unique_example_paths": 129,
+  "minimum_examples_per_module": 3,
+  "core_minutes": 3480,
+  "local_link_errors": [],
+  "external_link_results": [
+    {
+      "url": "https://aws.amazon.com/s3/pricing/",
+      "status": 200,
+      "final_url": "https://aws.amazon.com/s3/pricing/"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/models/gpt-5-mini",
+      "status": 200,
+      "final_url": "https://developers.openai.com/api/docs/models/gpt-5-mini"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-integration.html",
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-integration.html"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-regions.html",
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-regions.html"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html",
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html",
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html",
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-2-lite.html",
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-2-lite.html"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html",
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/rerank-supported.html",
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/rerank-supported.html"
+    },
+    {
+      "url": "https://docs.mem0.ai/integrations/strands",
+      "status": 200,
+      "final_url": "https://docs.mem0.ai/integrations/strands"
+    },
+    {
+      "url": "https://github.com/strands-agents/agent-builder",
+      "status": 200,
+      "final_url": "https://github.com/strands-agents/agent-builder"
+    },
+    {
+      "url": "https://github.com/strands-agents/evals/releases/tag/v1.7.0",
+      "status": 200,
+      "final_url": "https://github.com/strands-agents/evals/releases/tag/v1.7.0"
+    },
+    {
+      "url": "https://github.com/strands-agents/harness-sdk/blob/python/v1.62.0/strands-py/tests/fixtures/mocked_model_provider.py",
+      "status": 200,
+      "final_url": "https://github.com/strands-agents/harness-sdk/blob/python/v1.62.0/strands-py/tests/fixtures/mocked_model_provider.py"
+    },
+    {
+      "url": "https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.62.0",
+      "status": 200,
+      "final_url": "https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.62.0"
+    },
+    {
+      "url": "https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.22.0",
+      "status": 200,
+      "final_url": "https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.22.0"
+    },
+    {
+      "url": "https://github.com/strands-agents/tools/releases/tag/v0.8.10",
+      "status": 200,
+      "final_url": "https://github.com/strands-agents/tools/releases/tag/v0.8.10"
+    },
+    {
+      "url": "https://ollama.com/library/qwen3-vl:4b",
+      "status": 200,
+      "final_url": "https://ollama.com/library/qwen3-vl:4b"
+    },
+    {
+      "url": "https://ollama.com/library/qwen3:4b",
+      "status": 200,
+      "final_url": "https://ollama.com/library/qwen3:4b"
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/models/overview",
+      "status": 200,
+      "final_url": "https://platform.claude.com/docs/en/models/overview"
+    },
+    {
+      "url": "https://pypi.org/project/a2a-sdk/0.3.26/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/a2a-sdk/0.3.26/"
+    },
+    {
+      "url": "https://pypi.org/project/anthropic/0.125.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/anthropic/0.125.0/"
+    },
+    {
+      "url": "https://pypi.org/project/aws-cdk-lib/2.275.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/aws-cdk-lib/2.275.0/"
+    },
+    {
+      "url": "https://pypi.org/project/awslabs.aws-documentation-mcp-server/1.2.3/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/awslabs.aws-documentation-mcp-server/1.2.3/"
+    },
+    {
+      "url": "https://pypi.org/project/awslabs.aws-pricing-mcp-server/1.1.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/awslabs.aws-pricing-mcp-server/1.1.1/"
+    },
+    {
+      "url": "https://pypi.org/project/bedrock-agentcore-starter-toolkit/0.3.14/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/bedrock-agentcore-starter-toolkit/0.3.14/"
+    },
+    {
+      "url": "https://pypi.org/project/bedrock-agentcore/1.25.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/bedrock-agentcore/1.25.1/"
+    },
+    {
+      "url": "https://pypi.org/project/boto3/1.43.121/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/boto3/1.43.121/"
+    },
+    {
+      "url": "https://pypi.org/project/chromadb/1.5.9/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/chromadb/1.5.9/"
+    },
+    {
+      "url": "https://pypi.org/project/constructs/10.8.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/constructs/10.8.1/"
+    },
+    {
+      "url": "https://pypi.org/project/fastapi/0.162.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/fastapi/0.162.0/"
+    },
+    {
+      "url": "https://pypi.org/project/hatchling/1.33.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/hatchling/1.33.0/"
+    },
+    {
+      "url": "https://pypi.org/project/httpx/0.28.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/httpx/0.28.1/"
+    },
+    {
+      "url": "https://pypi.org/project/jupyter/1.1.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/jupyter/1.1.1/"
+    },
+    {
+      "url": "https://pypi.org/project/langgraph/1.2.18/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/langgraph/1.2.18/"
+    },
+    {
+      "url": "https://pypi.org/project/litellm/1.106.6/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/litellm/1.106.6/"
+    },
+    {
+      "url": "https://pypi.org/project/matplotlib/3.11.2/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/matplotlib/3.11.2/"
+    },
+    {
+      "url": "https://pypi.org/project/mcp/2.1.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/mcp/2.1.1/"
+    },
+    {
+      "url": "https://pypi.org/project/mem0-strands/0.1.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/mem0-strands/0.1.1/"
+    },
+    {
+      "url": "https://pypi.org/project/mem0ai/2.2.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/mem0ai/2.2.1/"
+    },
+    {
+      "url": "https://pypi.org/project/moto/5.2.5/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/moto/5.2.5/"
+    },
+    {
+      "url": "https://pypi.org/project/nbclient/0.11.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/nbclient/0.11.0/"
+    },
+    {
+      "url": "https://pypi.org/project/nbstripout/0.9.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/nbstripout/0.9.1/"
+    },
+    {
+      "url": "https://pypi.org/project/ollama/0.6.3/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/ollama/0.6.3/"
+    },
+    {
+      "url": "https://pypi.org/project/openai/2.54.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/openai/2.54.0/"
+    },
+    {
+      "url": "https://pypi.org/project/opentelemetry-exporter-otlp/1.45.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/opentelemetry-exporter-otlp/1.45.1/"
+    },
+    {
+      "url": "https://pypi.org/project/opentelemetry-sdk/1.45.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/opentelemetry-sdk/1.45.1/"
+    },
+    {
+      "url": "https://pypi.org/project/pillow/12.3.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/pillow/12.3.0/"
+    },
+    {
+      "url": "https://pypi.org/project/pre-commit/4.7.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/pre-commit/4.7.0/"
+    },
+    {
+      "url": "https://pypi.org/project/pydantic/2.14.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/pydantic/2.14.1/"
+    },
+    {
+      "url": "https://pypi.org/project/pypdf/6.21.4/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/pypdf/6.21.4/"
+    },
+    {
+      "url": "https://pypi.org/project/pytest-asyncio/1.4.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/pytest-asyncio/1.4.1/"
+    },
+    {
+      "url": "https://pypi.org/project/pytest-socket/0.8.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/pytest-socket/0.8.1/"
+    },
+    {
+      "url": "https://pypi.org/project/pytest/9.2.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/pytest/9.2.0/"
+    },
+    {
+      "url": "https://pypi.org/project/python-dotenv/1.2.4/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/python-dotenv/1.2.4/"
+    },
+    {
+      "url": "https://pypi.org/project/rank-bm25/0.2.2/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/rank-bm25/0.2.2/"
+    },
+    {
+      "url": "https://pypi.org/project/reportlab/5.1.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/reportlab/5.1.0/"
+    },
+    {
+      "url": "https://pypi.org/project/rich/15.0.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/rich/15.0.0/"
+    },
+    {
+      "url": "https://pypi.org/project/ruff/0.17.3/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/ruff/0.17.3/"
+    },
+    {
+      "url": "https://pypi.org/project/strands-agents-builder/0.1.10/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/strands-agents-builder/0.1.10/"
+    },
+    {
+      "url": "https://pypi.org/project/strands-agents-evals/1.7.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/strands-agents-evals/1.7.0/"
+    },
+    {
+      "url": "https://pypi.org/project/strands-agents-tools/0.8.10/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/strands-agents-tools/0.8.10/"
+    },
+    {
+      "url": "https://pypi.org/project/strands-agents/1.62.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/strands-agents/1.62.0/"
+    },
+    {
+      "url": "https://pypi.org/project/streamlit/1.66.1/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/streamlit/1.66.1/"
+    },
+    {
+      "url": "https://pypi.org/project/uv/0.13.6/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/uv/0.13.6/"
+    },
+    {
+      "url": "https://pypi.org/project/uvicorn/0.54.0/",
+      "status": 200,
+      "final_url": "https://pypi.org/project/uvicorn/0.54.0/"
+    },
+    {
+      "url": "https://registry.npmjs.org/@strands-agents/sdk/latest",
+      "status": 200,
+      "final_url": "https://registry.npmjs.org/@strands-agents/sdk/latest"
+    },
+    {
+      "url": "https://registry.npmjs.org/aws-cdk/latest",
+      "status": 200,
+      "final_url": "https://registry.npmjs.org/aws-cdk/latest"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/evals-sdk/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/evals-sdk/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/evals-sdk/cli/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/evals-sdk/cli/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/agents/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/agents/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/agents/session-management/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/agents/session-management/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/bidi/agent/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/bidi/agent/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/interrupts/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/interrupts/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/model-providers/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/model-providers/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/tools/mcp-transports/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/tools/mcp-transports/"
+    },
+    {
+      "url": "https://strandsagents.com/docs/user-guide/sdk/tools/vended-tools/",
+      "status": 200,
+      "final_url": "https://strandsagents.com/docs/user-guide/sdk/tools/vended-tools/"
+    }
+  ],
+  "not_run": [
+    "dependency_resolution",
+    "pytest",
+    "ruff",
+    "cdk_synth",
+    "example_execution",
+    "model_calls",
+    "AWS_deployment",
+    "GitHub_CI"
+  ],
+  "notes": [
+    "Planning paths are not implementation claims.",
+    "Replaced a generic Runtime redirect with the official framework integration page.",
+    "All linked local documents exist; all 91 linked external sources returned HTTP 200."
+  ]
+}

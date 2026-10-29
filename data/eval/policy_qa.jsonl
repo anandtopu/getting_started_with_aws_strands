@@ -1,0 +1,12 @@
+{"id": "QA-01", "input": "What are both conditions for a full cancellation refund?", "expected_terms": ["24 hours", "7 days"], "source": "policies/cancellation.md", "pdf_page": 2, "expected_tools": ["search_policies"]}
+{"id": "QA-02", "input": "What is the fee for a standard flight change?", "expected_terms": ["$75", "fare difference"], "source": "policies/change_fee.md", "pdf_page": 4, "expected_tools": ["search_policies"]}
+{"id": "QA-03", "input": "How long does an approved refund take?", "expected_terms": ["5 to 10 business days"], "source": "policies/refund.md", "pdf_page": 3, "expected_tools": ["search_policies"]}
+{"id": "QA-04", "input": "Does a $501 refund need supervisor approval?", "expected_terms": ["yes"], "source": "policies/refund.md", "pdf_page": 3, "expected_tools": ["search_policies"]}
+{"id": "QA-05", "input": "What is the first checked bag price and limit?", "expected_terms": ["$30", "23 kg"], "source": "policies/baggage.md", "pdf_page": 5, "expected_tools": ["search_policies"]}
+{"id": "QA-06", "input": "How long are preferences retained?", "expected_terms": ["90 days"], "source": "policies/privacy.md", "pdf_page": 7, "expected_tools": ["search_policies"]}
+{"id": "QA-07", "input": "How long is an approval valid?", "expected_terms": ["30 minutes"], "source": "policies/refund.md", "pdf_page": 3, "expected_tools": ["search_policies"]}
+{"id": "QA-08", "input": "How late can I request a flight change?", "expected_terms": ["12 hours"], "source": "policies/change_fee.md", "pdf_page": 4, "expected_tools": ["search_policies"]}
+{"id": "QA-09", "input": "What does the fictional protection add-on cost?", "expected_terms": ["$18"], "source": "policies/travel_insurance.md", "pdf_page": 6, "expected_tools": ["search_policies"]}
+{"id": "QA-10", "input": "What is the hotel flexible cancellation deadline?", "expected_terms": ["48 hours"], "source": "policies/cancellation.md", "pdf_page": 2, "expected_tools": ["search_policies"]}
+{"id": "QA-11", "input": "How long are audit logs retained?", "expected_terms": ["7 days"], "source": "policies/privacy.md", "pdf_page": 7, "expected_tools": ["search_policies"]}
+{"id": "QA-12", "input": "Which visa do I need?", "expected_behavior": "abstain", "expected_tools": ["search_policies"]}

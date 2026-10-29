@@ -1,0 +1,16 @@
+{
+  "@strands-agents/sdk": {
+    "version": "1.22.0",
+    "engines": {
+      "node": ">=22.0.0"
+    },
+    "source": "https://registry.npmjs.org/@strands-agents/sdk/latest"
+  },
+  "aws-cdk": {
+    "version": "2.1146.1",
+    "engines": {
+      "node": ">= 18.0.0"
+    },
+    "source": "https://registry.npmjs.org/aws-cdk/latest"
+  }
+}

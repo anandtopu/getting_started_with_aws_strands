@@ -1,0 +1,361 @@
+date,service,resource_id,cost_usd,cpu_percent,data_processed_gb,invocations,currency,project
+2027-01-01,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-01,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-01,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-01,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-02,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-02,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-02,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-02,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-03,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-03,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-03,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-03,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-04,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-04,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-04,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-04,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-05,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-05,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-05,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-05,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-06,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-06,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-06,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-06,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-07,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-07,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-07,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-07,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-08,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-08,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-08,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-08,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-09,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-09,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-09,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-09,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-10,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-10,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-10,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-10,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-11,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-11,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-11,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-11,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-12,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-12,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-12,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-12,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-13,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-13,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-13,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-13,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-14,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-14,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-14,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-14,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-15,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-15,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-15,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-15,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-16,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-16,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-16,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-16,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-17,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-17,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-17,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-17,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-18,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-18,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-18,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-18,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-19,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-19,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-19,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-19,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-20,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-20,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-20,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-20,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-21,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-21,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-21,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-21,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-22,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-22,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-22,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-22,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-23,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-23,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-23,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-23,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-24,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-24,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-24,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-24,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-25,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-25,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-25,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-25,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-26,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-26,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-26,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-26,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-27,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-27,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-27,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-27,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-28,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-28,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-28,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-28,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-29,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-29,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-29,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-29,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-30,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-30,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-30,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-30,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-01-31,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-01-31,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-01-31,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-01-31,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-01,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-01,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-01,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-01,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-02,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-02,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-02,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-02,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-03,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-03,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-03,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-03,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-04,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-04,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-04,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-04,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-05,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-05,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-05,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-05,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-06,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-06,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-06,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-06,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-07,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-07,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-07,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-07,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-08,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-08,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-08,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-08,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-09,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-09,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-09,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-09,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-10,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-10,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-10,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-10,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-11,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-11,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-11,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-11,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-12,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-12,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-12,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-12,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-13,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-13,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-13,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-13,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-14,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-14,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-14,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-14,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-15,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-15,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-15,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-15,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-16,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-16,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-16,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-16,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-17,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-17,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-17,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-17,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-18,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-18,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-18,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-18,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-19,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-19,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-19,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-19,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-20,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-20,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-20,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-20,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-21,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-21,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-21,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-21,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-22,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-22,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-22,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-22,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-23,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-23,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-23,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-23,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-24,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-24,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-24,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-24,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-25,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-25,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-25,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-25,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-26,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-26,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-26,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-26,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-27,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-27,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-27,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-27,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-02-28,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-02-28,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-02-28,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-02-28,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-01,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-01,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-01,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-01,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-02,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-02,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-02,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-02,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-03,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-03,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-03,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-03,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-04,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-04,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-04,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-04,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-05,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-05,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-05,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-05,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-06,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-06,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-06,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-06,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-07,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-07,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-07,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-07,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-08,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-08,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-08,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-08,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-09,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-09,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-09,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-09,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-10,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-10,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-10,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-10,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-11,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-11,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-11,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-11,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-12,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-12,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-12,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-12,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-13,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-13,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-13,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-13,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-14,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-14,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-14,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-14,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-15,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-15,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-15,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-15,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-16,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-16,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-16,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-16,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-17,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-17,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-17,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-17,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-18,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-18,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-18,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-18,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-19,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-19,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-19,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-19,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-20,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-20,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-20,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-20,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-21,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-21,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-21,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-21,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-22,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-22,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-22,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-22,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-23,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-23,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-23,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-23,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-24,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-24,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-24,Lambda,function-demo-runaway,0.250,,,10000,USD,getting-started-with-aws-strands
+2027-03-24,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-25,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-25,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-25,Lambda,function-demo-runaway,45.250,,,20000000,USD,getting-started-with-aws-strands
+2027-03-25,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-26,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-26,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-26,Lambda,function-demo-runaway,45.250,,,20000000,USD,getting-started-with-aws-strands
+2027-03-26,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-27,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-27,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-27,Lambda,function-demo-runaway,45.250,,,20000000,USD,getting-started-with-aws-strands
+2027-03-27,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-28,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-28,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-28,Lambda,function-demo-runaway,45.250,,,20000000,USD,getting-started-with-aws-strands
+2027-03-28,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-29,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-29,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-29,Lambda,function-demo-runaway,45.250,,,20000000,USD,getting-started-with-aws-strands
+2027-03-29,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-30,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-30,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-30,Lambda,function-demo-runaway,45.250,,,20000000,USD,getting-started-with-aws-strands
+2027-03-30,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands
+2027-03-31,NAT Gateway,nat-demo-idle,1.080,,0,,USD,getting-started-with-aws-strands
+2027-03-31,EC2,instance-demo-oversized,4.608,3,,,USD,getting-started-with-aws-strands
+2027-03-31,Lambda,function-demo-runaway,45.250,,,20000000,USD,getting-started-with-aws-strands
+2027-03-31,S3,bucket-demo-data,0.080,,,,USD,getting-started-with-aws-strands

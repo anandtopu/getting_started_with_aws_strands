@@ -1,0 +1,12 @@
+{
+  "phase": 2,
+  "examples": [
+    {
+      "path": "scripts/foundation_demo.py",
+      "mock_args": ["--mock"],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "POL-REF-001"
+    }
+  ]
+}

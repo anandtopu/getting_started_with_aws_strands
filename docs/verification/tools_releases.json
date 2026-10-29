@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "v0.8.10",
+    "url": "https://github.com/strands-agents/tools/releases/tag/v0.8.10",
+    "published": "2026-10-21T21:08:43Z",
+    "body": "## v0.8.10\n\n_Auto-drafted from commits in `v0.8.9..v0.8.10`, grouped by conventional-commit type. Edit on the release page after publish if you want a polished writeup; the canonical release notes live on the website._\n\n### \ud83d\ude80 Features\n\n- feat: deprecate python_repl, a2a_client, mcp_client, and mem0_memory tools (#621) (f3c06ad)\n\n### \ud83d\udc1b Fixes\n\n- fix(ci): pin strands command runs to the commit the command was issued against (#608) (29ffbeb)\n\n### \ud83d\udcda Documentation\n\n- docs: refresh README with the Strands wordmark (#610) (8c82c29)\n\n### \ud83d\udc77 CI\n\n- ci: update bedrock-agentcore requirement from <1.23.0,>=1.1.0 to >=1.1.0,<1.24.0 (#605) (1dd0465)\n"
+  },
+  {
+    "tag": "v0.8.9",
+    "url": "https://github.com/strands-agents/tools/releases/tag/v0.8.9",
+    "published": "2026-09-15T22:26:50Z",
+    "body": "## v0.8.9\n\n_Auto-drafted from commits in `v0.8.8..v0.8.9`, grouped by conventional-commit type. Edit on the release page after publish if you want a polished writeup; the canonical release notes live on the website._\n\n### \ud83d\ude80 Features\n\n- feat: deprecate tavily, exa, video, and journal tools (#604) (00251ae)\n- feat: deprecate bright_data tool (#603) (2533297)\n- feat: deprecate http_request tool (#602) (2921d64)\n\n### \ud83d\udc1b Fixes\n\n- fix: point deprecated tool migrations to shell (#600) (5873303)\n- fix: update mcp_client tool to use MCP 2.x client (#601) (a64f773)\n"
+  },
+  {
+    "tag": "v0.8.8",
+    "url": "https://github.com/strands-agents/tools/releases/tag/v0.8.8",
+    "published": "2026-09-04T14:56:09Z",
+    "body": "## v0.8.8\n\n_Auto-drafted from commits in `v0.8.7..v0.8.8`, grouped by conventional-commit type. Edit on the release page after publish if you want a polished writeup; the canonical release notes live on the website._\n\n### \ud83d\udc1b Fixes\n\n- fix(mem0): make memory_id ownership check fail-closed  (#596) (fd4feb0)\n- fix(http_request): strip non-standard headers on cross-host redirects (#595) (64db9d7)\n"
+  }
+]

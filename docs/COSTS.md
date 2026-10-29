@@ -1,0 +1,90 @@
+# Costs and cleanup
+
+Planning date: **October 29, 2026**. Currency: USD, before tax. Region: `us-east-1` unless the selected service says otherwise. These are workload estimates, not measured invoices or spending limits. Later phases must replace planning assumptions with the delivered example's token counts and resource inventory.
+
+The foundation's default tests, data generation and mock demo cost **$0 in cloud charges**. Ollama has no hosted-model charge; electricity, hardware and downloads still have costs. Installing Python dependencies requires network access.
+
+## Calculate inference cost
+
+For uncached text inference:
+
+```text
+cost = input_tokens / 1,000,000 * input_price
+     + output_tokens / 1,000,000 * output_price
+```
+
+Count **all** agent turns, including repeated conversation history, tool results, retries and model judges. Image, audio, caching, batch and regional rates may differ. Temperature zero does not guarantee identical output. Reasoning tokens may add output charges.
+
+The planning rate for Nova 2 Lite is **$0.30 input / $2.50 output per million tokens**, as used in this [AWS worked example](https://aws.amazon.com/blogs/big-data/build-rag-ready-indexes-from-amazon-s3-with-amazon-opensearch-intelligent-ingestion/). Confirm the chosen deployment mode on the [Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/) before running. A planning call of 2,000 input and 500 output tokens costs **$0.00185**. Ten such calls cost $0.0185. This deliberately includes more output than the short foundation demo normally needs.
+
+Set `MODEL_INPUT_USD_PER_MILLION=0.30` and `MODEL_OUTPUT_USD_PER_MILLION=2.50` in `.env` only after confirming those rates for your model. The display reports an unknown hosted price when rates are absent; it never silently labels an unpriced cloud call free. Change both values when changing provider. [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna) and [Claude model prices](https://platform.claude.com/docs/en/models/overview) have their own rates and conditions.
+
+## Every module's planning allowance
+
+The call counts below budget one pass through examples and a small exercise attempt. Each call uses the 2,000/500-token assumption above; output ceilings and retry limits must be checked in the eventual lesson. Optional services are **additional** to this table. No future module has been live-benchmarked.
+
+| Module | Calls | Nova text estimate | Additional branch costs |
+|---|---:|---:|---|
+| 00 Setup | 5 | $0.0093 | Budget monitoring/email free; no Budget Actions |
+| 01 First agent | 10 | $0.0185 | None |
+| 02 Providers | 15 | $0.0278 | Other providers use their own prices |
+| 03 Conversations and images | 15 | $0.0278 | Image token counts vary; this is text-only |
+| 04 Structured output | 15 | $0.0278 | Validation retries included in allowance |
+| 05 Building tools | 20 | $0.0370 | Local tools free |
+| 06 Community tools | 20 | $0.0370 | Optional remote APIs priced separately |
+| 07 RAG | 20 | $0.0370 | Local embeddings free; hosted embeddings extra |
+| 08 Advanced RAG | 30 | $0.0555 | Optional Knowledge Base/vector storage, reranking |
+| 09 Memory | 20 | $0.0370 | Optional S3/AgentCore/hosted memory |
+| 10 Streaming | 15 | $0.0278 | None for local application hosting |
+| 11 Hooks | 15 | $0.0278 | None |
+| 12 Approvals | 20 | $0.0370 | Interrupted/repeated turns consume tokens |
+| 13 Safety | 25 | $0.0463 | Optional Bedrock Guardrails policy checks |
+| 14 MCP | 25 | $0.0463 | Server-specific API charges |
+| 15 Agents as tools | 30 | $0.0555 | All child calls count |
+| 16 Swarms | 40 | $0.0740 | Set iteration and token limits |
+| 17 Graphs | 40 | $0.0740 | Parallel branches multiply usage |
+| 18 A2A | 30 | $0.0555 | Remote partner hosting if enabled |
+| 19 Observability and evaluation | 60 | $0.1110 | Model judges, trace storage and logging |
+| 20 Deployment | 30 | $0.0555 | Lambda/Fargate/Runtime, networking, logs, images |
+| 21 AgentCore | 50 | $0.0925 | Service charges listed below |
+| B1 Voice | Not text-equivalent | Price separately | Audio input/output and active sessions |
+| B2 TypeScript | 15 | $0.0278 | None locally |
+| B3 Self-extending agents | 20 | $0.0370 | Isolated execution if hosted |
+| B4 New features | 25 | $0.0463 | Depends on the confirmed feature set |
+
+The 22 core modules total 550 planning calls, approximately **$1.02 in text inference**. This excludes optional AWS services, repeats, larger contexts and all capstones. Budgeting $5–$10 for exploratory text work leaves room for retries but is not a guarantee. A 100-call capstone experiment at the same token sizes adds $0.185; real RAG/crew capstones often use larger contexts. Audio needs a separate estimate when B1 is implemented.
+
+## Hosted infrastructure changes the bill
+
+Recheck each region and service generation before deployment. The [AgentCore price sheet](https://aws.amazon.com/bedrock/agentcore/pricing/) currently lists Runtime v1 at $0.0895/vCPU-hour and $0.00945/GB-hour; v2 at $0.1276 and $0.0169 respectively. Memory allocation and idle-session behavior matter. Gateway tool calls start at $0.005/1,000 calls; search, indexing and model inference are separate. Short-term memory pricing is volume-based: $1/GB ingested, $0.20/GB retrieved and $0.10/GB-month stored. Long-term memory, evaluation, identity and policy have separate meters. Do not use the retired event-count estimate for short-term memory.
+
+For illustration, **0.25 active vCPU-hour and 0.25 GB-hour** at Runtime v1 rates cost about $0.0247 before inference/logging. This is a unit-cost calculation, not a promised runtime footprint. Resource sizes and retained sessions must be measured in the deployment lesson.
+
+An [Application Load Balancer](https://aws.amazon.com/elasticloadbalancing/pricing/) in the US-East example is $0.0225/hour plus capacity charges, so even before traffic it is about $16.20 for 720 hours. [Fargate](https://aws.amazon.com/fargate/pricing/) compute, public IPv4 addresses, NAT gateways and outbound data can add substantially more. Destroy a practice deployment the same day; do not leave a load balancer running for a month to save a few token cents.
+
+Use these official pages for optional components: [Lambda](https://aws.amazon.com/lambda/pricing/), [S3 and S3 Vectors](https://aws.amazon.com/s3/pricing/), [DynamoDB](https://aws.amazon.com/dynamodb/pricing/), [CloudWatch](https://aws.amazon.com/cloudwatch/pricing/), [ECR](https://aws.amazon.com/ecr/pricing/), [VPC/networking](https://aws.amazon.com/vpc/pricing/), and [Bedrock Guardrails/Knowledge Bases](https://aws.amazon.com/bedrock/pricing/). Do not assume a free tier, trial credits or a universally cheapest vector store. Each later infrastructure lesson must provide a concrete region, duration, request/storage allowance and calculator estimate before a deployment command is offered.
+
+## Budget before billing
+
+Follow [AWS setup](AWS_SETUP.md) to create a $10 monthly account-wide budget with 50%, 80% and 100% alerts. [Budget monitoring and notifications](https://aws.amazon.com/aws-cost-management/aws-budgets/pricing/) are free; Budget Actions and reports have separate pricing. This course's helper enables neither. Alerts can arrive after usage has occurred and cannot enforce a hard cap. Review the account's other workloads before choosing this amount.
+
+## Teardown checklist
+
+Phase 2 deploys nothing. A learner who creates the optional budget can remove only that budget with `uv run python scripts/budget.py --delete`; retaining it for later lessons is useful. For future resource-creating lessons:
+
+1. Stop running clients, streaming requests, browser/code sessions and evaluation schedules.
+2. Run that lesson's explicit teardown command against its recorded account and region.
+3. Confirm the stack/resource deletion finishes; investigate `DELETE_FAILED` and retained resources.
+4. Check S3 objects/versions, vector indexes, ECR images, CloudWatch logs, databases and memory stores against the lesson inventory. Empty only resources that belong to this course before deleting them.
+5. Check regional networking charges, load balancers, NAT gateways and public IPs. Inspect global resources and budgets separately.
+6. Run the read-only leftover inventory in **every region used**:
+
+```text
+uv run python scripts/find_leftovers.py --regions us-east-1 us-east-2 us-west-2
+```
+
+The helper paginates tagged-resource results and active tagged CloudFormation stacks, including stack children. Exit code **0** means no resources found within that scope, **1** means resources remain, and **2** means the scan was incomplete or failed. Permission failures are reported, never treated as proof of cleanup. Untagged resources, unsupported services, global resources, deleted-stack remnants and unlisted regions need separate review. Service-specific scanners arrive with their infrastructure lessons.
+
+7. Review AWS Billing after its usage data refreshes. Keep the budget alert until you have checked for continued charges. Log out with `aws sso logout` when finished. Do not delete a shared CDK bootstrap stack or shared identity resources without the account owner's agreement.
+
+Local `.nimbus/` contains only generated working state. Delete selected session/report directories when you no longer need them; keep committed `data/` for reproducible exercises.

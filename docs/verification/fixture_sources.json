@@ -1,0 +1,5 @@
+{
+  "strands-py/tests/strands/agent/conftest.py": "https://raw.githubusercontent.com/strands-agents/harness-sdk/python/v1.62.0/strands-py/tests/strands/agent/conftest.py",
+  "strands-py/tests/conftest.py": "https://raw.githubusercontent.com/strands-agents/harness-sdk/python/v1.62.0/strands-py/tests/conftest.py",
+  "scripted_model_pattern": "https://raw.githubusercontent.com/strands-agents/harness-sdk/python/v1.62.0/strands-py/tests/fixtures/mocked_model_provider.py"
+}
