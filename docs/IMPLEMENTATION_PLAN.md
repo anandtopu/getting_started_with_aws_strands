@@ -1,8 +1,8 @@
 # Nimbus Travel course: implementation plan
 
-Plan prepared October 29, 2026 · Phases 1–3 delivered; later phases pending
+Plan prepared October 29, 2026 · Phases 1–5 delivered; later phases pending
 
-This repository teaches a Python learner to build, evaluate, secure, and deploy the Nimbus assistant with Strands Agents. This document retains the original course plan. The foundation and Tier 1 modules 00–06 are now implemented; the root README and verification notes track delivered scope.
+This repository teaches a Python learner to build, evaluate, secure, and deploy the Nimbus assistant with Strands Agents. This document retains the original course plan. The foundation and modules 00–14 are implemented; the root README and verification notes track delivered scope.
 
 ## Review these deliverables
 
@@ -125,4 +125,14 @@ Tier 1 modules 00–06 and the [Booking Helper checkpoint](../checkpoints/01_boo
 
 ## Phase 4 delivery
 
-Modules 07–09 and the Policy & Preferences checkpoint are implemented, with local Chroma retrieval, citation validation, retrieval/answer evaluation, isolated preferences and sessions, supported memory adapters, and three optional AWS CDK apps. Templates synthesize offline; no deployment is claimed. The comparison records a source-hit tie, not an invented improvement. Phase 5 (modules 10–14, support checkpoint and Guardrails infrastructure) remains next, pending `continue`.
+Modules 07–09 and the Policy & Preferences checkpoint are implemented, with local Chroma retrieval, citation validation, retrieval/answer evaluation, isolated preferences and sessions, supported memory adapters, and three optional AWS CDK apps. Templates synthesize offline; no deployment is claimed. The comparison records a source-hit tie, not an invented improvement. This historical Phase 4 checkpoint is superseded by the Phase 5 delivery below.
+
+## Phase 5 delivery
+
+Modules 10–14 and Safe Support are implemented: bounded streaming, FastAPI and
+Streamlit apps, current lifecycle hooks, individual/batch/tool interrupts,
+transactional refund decisions, local policy and injection regression, managed
+Guardrails contracts, and actual stdio/HTTP MCP booking servers. The fourth optional
+CDK app configures Guardrails. There are 23 new examples, five use cases, 15 exercise
+pairs, five cleared notebooks and a checkpoint. Phase 6 (Tier 4, modules 15–18)
+remains pending the user's next `continue`. No AWS resources were deployed.

@@ -1,11 +1,12 @@
 """Execute delivered notebooks into an ignored folder, preserving clean originals.
 
 Run from the repository root:
-uv run --group notebooks --group rag --group memory --group aws python scripts/check_notebooks.py
+uv run --all-groups python scripts/check_notebooks.py
 Expected: PASS for each delivered notebook. Cost: $0; all lesson calls use mocks.
 AWS resources: none. Jupyter uses local loopback; lessons block external traffic.
 """
 
+import argparse
 import os
 import sys
 
@@ -13,6 +14,9 @@ from common.config import ROOT
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--module", help="Execute one delivered module, e.g. 10_streaming")
+    args = parser.parse_args()
     try:
         import nbformat
         from jupyter_client import KernelManager
@@ -25,6 +29,10 @@ def main() -> int:
     output.mkdir(parents=True, exist_ok=True)
     os.environ["PYTHONUTF8"] = "1"
     paths = sorted((ROOT / "modules").glob("*/notebook.ipynb"))
+    if args.module:
+        paths = [path for path in paths if path.parent.name == args.module]
+        if not paths:
+            parser.error("Choose the name of a delivered module directory")
     for path in paths:
         notebook = nbformat.read(path, as_version=4)
         nbformat.validate(notebook)

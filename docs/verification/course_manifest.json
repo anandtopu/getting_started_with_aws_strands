@@ -467,24 +467,29 @@
         {
           "path": "modules/10_streaming/examples/01_stream_events.py",
           "features": "stream_async text deltas, reasoning if exposed, tool and lifecycle events versus callbacks",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/10_streaming/examples/02_concurrency_and_cancel.py",
           "features": "Concurrent agents, timeouts, cancellation and bounded resource use",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/10_streaming/examples/03_fastapi_sse.py",
           "features": "FastAPI SSE framing, client disconnect and cancellation propagation",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/10_streaming/examples/04_streamlit_chat.py",
           "features": "Streamlit chat, per-user sessions and streamed responses",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "11_hooks",
@@ -497,24 +502,29 @@
         {
           "path": "modules/11_hooks/examples/01_lifecycle_hooks.py",
           "features": "HookProvider, HookRegistry; AgentInitializedEvent, Before/AfterInvocationEvent, Before/AfterModelCallEvent",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/11_hooks/examples/02_tool_hooks.py",
           "features": "Before/AfterToolCallEvent, Before/AfterToolsEvent; block or modify inputs and rewrite results",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/11_hooks/examples/03_message_hooks.py",
           "features": "MessageAddedEvent and MessageUpdatedEvent; redaction before persistence/logging",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/11_hooks/examples/04_audit_budget.py",
           "features": "Invocation state, structured audit trail, booking budget enforcement and metrics",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "12_interrupts",
@@ -526,25 +536,36 @@
       "examples": [
         {
           "path": "modules/12_interrupts/examples/01_hook_interrupt.py",
-          "features": "Interrupt an individual call or batch from supported hooks; capture identifiers",
-          "aws_required": "No"
+          "features": "Interrupt an individual call from BeforeToolCallEvent; capture identifiers",
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/12_interrupts/examples/02_tool_interrupt.py",
           "features": "Interrupt from ToolContext and resume with matched human response",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/12_interrupts/examples/03_approval_cli.py",
           "features": "Approve/reject/expire refunds over $500 and non-refundable changes; handoff_to_user comparison",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/12_interrupts/examples/04_approval_web.py",
           "features": "Authenticated approval state, web approve/reject, audit trail and replay-safe mutation",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
+        },
+        {
+          "path": "modules/12_interrupts/examples/05_batch_interrupt.py",
+          "features": "BeforeToolsEvent pauses the complete tool batch; matched resume or cancellation",
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "13_guardrails",
@@ -557,29 +578,35 @@
         {
           "path": "modules/13_guardrails/examples/01_local_guardrails.py",
           "features": "Provider-independent hook checks and typed business policy",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/13_guardrails/examples/02_prompt_injection.py",
           "features": "Poisoned document attack, untrusted content boundary, tool authorization and regression cases",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/13_guardrails/examples/03_least_privilege.py",
           "features": "Read-only SQLite, tool allow-lists and restricted use_aws role",
-          "aws_required": "Optional; local tools alternative"
+          "aws_required": "Optional; local tools alternative",
+          "status": "delivered"
         },
         {
           "path": "modules/13_guardrails/examples/04_limits.py",
           "features": "Current invocation limits, tool budgets and wall-clock timeouts",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/13_guardrails/examples/05_bedrock_guardrails.py",
           "features": "Content filters, denied topics, PII masking, grounding checks, BedrockModel attachment and trace; CDK lifecycle",
-          "aws_required": "Yes; local policy checks with narrower coverage"
+          "aws_required": "Yes; local policy checks with narrower coverage",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "14_mcp",
@@ -592,29 +619,35 @@
         {
           "path": "modules/14_mcp/examples/01_stdio_client.py",
           "features": "MCPClient stdio transport and managed/context-manager lifecycle",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/14_mcp/examples/02_http_client.py",
           "features": "Streamable HTTP transport, lifetime, authentication and shutdown",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/14_mcp/examples/03_booking_server.py",
           "features": "Official mcp SDK server exposing Nimbus booking tools",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/14_mcp/examples/04_aws_servers.py",
           "features": "Pinned AWS Documentation and AWS Pricing MCP servers via uvx; trust and access review",
-          "aws_required": "Optional; Pricing requires credentials, fixture alternative"
+          "aws_required": "Optional; Pricing requires credentials, fixture alternative",
+          "status": "delivered"
         },
         {
           "path": "modules/14_mcp/examples/05_tool_filtering.py",
           "features": "Filter/namespace tools, combine servers and reject unexpected capabilities",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "15_agents_as_tools",
@@ -987,5 +1020,5 @@
       ]
     }
   ],
-  "delivered_phase": 4
+  "delivered_phase": 5
 }

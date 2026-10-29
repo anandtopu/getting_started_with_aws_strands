@@ -2,7 +2,7 @@
 
 A hands-on course for Python learners building their first AI agent. You will build the **Nimbus assistant** for a fictional travel company, then add tools, retrieval, memory, approvals, evaluation and AWS deployment.
 
-**Delivery status: Phase 4 / Tiers 1–2 delivered.** Modules 00–09 include 55 focused examples, ten use cases, 30 exercises with solutions, ten notebooks, quizzes and tests. Complete the [Booking Helper](checkpoints/01_booking_helper/README.md) and [Policy & Preferences](checkpoints/02_policy_preferences/README.md) checkpoints. Modules 10–21, bonus modules and capstones remain planned. See the [verification record](docs/VERIFICATION_NOTES.md) for executed checks and remaining live-service gaps.
+**Delivery status: Phase 5 / Tiers 1–3 delivered.** Modules 00–14 include 78 focused examples, 15 use cases, 45 exercises with solutions, 15 notebooks, quizzes and tests. Complete the [Booking Helper](checkpoints/01_booking_helper/README.md) and [Policy & Preferences](checkpoints/02_policy_preferences/README.md) checkpoints. The [Safe Support Agent](checkpoints/03_safe_support/README.md) integrates Tier 3. Modules 15–21, bonus modules and capstones remain planned. See the [verification record](docs/VERIFICATION_NOTES.md) for executed checks and remaining live-service gaps.
 
 ```mermaid
 flowchart LR
@@ -30,7 +30,7 @@ uv sync --group notebooks
 uv run --group notebooks jupyter lab
 ```
 
-Each notebook defaults to offline replay and is saved with outputs cleared. Use the Tier 2 group command below to execute all ten notebooks automatically.
+Each notebook defaults to offline replay and is saved with outputs cleared. Use the Tier 2 group command below to execute all 15 notebooks automatically.
 
 ## Continue with Tier 2
 
@@ -42,12 +42,27 @@ Each notebook defaults to offline replay and is saved with outputs cleared. Use 
 Install the optional lesson groups before running every delivered notebook or script:
 
 ```text
-uv sync --frozen --group notebooks --group rag --group memory --group aws
-uv run --frozen --group notebooks --group rag --group memory --group aws python scripts/check_notebooks.py
-uv run --frozen --group rag --group memory --group aws python scripts/run_all_examples.py --require-all
+uv sync --frozen --group notebooks --group rag --group memory --group aws --group apps
+uv run --frozen --group notebooks --group rag --group memory --group aws --group apps python scripts/check_notebooks.py
+uv run --frozen --group rag --group memory --group aws --group apps python scripts/run_all_examples.py --require-all
 ```
 
 Default-group checks report optional lessons as skipped. The [AWS labs](infra/README.md) provide synthesizable templates, costs and teardown instructions; deploying them is optional and billable.
+
+## Continue with Tier 3
+
+- [10 — Streaming and async](modules/10_streaming/README.md)
+- [11 — Hooks and lifecycle](modules/11_hooks/README.md)
+- [12 — Human approval](modules/12_interrupts/README.md)
+- [13 — Guardrails and safety](modules/13_guardrails/README.md)
+- [14 — Model Context Protocol](modules/14_mcp/README.md)
+- [Safe Support Agent checkpoint](checkpoints/03_safe_support/README.md)
+
+Use `--mock` for offline model replay. The local MCP lessons still run actual child
+servers and authenticated loopback HTTP. Install the `apps` group for FastAPI and
+Streamlit. Approvals and reservations change only synthetic local databases.
+The [optional Guardrails lab](infra/13_guardrails/README.md) includes synthesis,
+deployment costs and explicit teardown; no AWS deployment is required.
 
 ## Quick start
 

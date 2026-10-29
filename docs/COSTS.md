@@ -102,3 +102,24 @@ All 18 new examples, three use cases and the checkpoint have offline replay. Loc
 The [optional lab inventory and estimates](../infra/README.md#dated-cost-assumptions-october-29-2026) cover S3 Vectors/Knowledge Bases, S3 sessions and AgentCore Memory, with explicit small-workload assumptions. They incorporate the October 2026 AgentCore consumption-based memory pricing change and avoid claiming that any vector store is universally cheapest. Reranking has a separate Bedrock charge; removing `--mock` from the reranking example opts into that AWS operation. No paid usage was measured.
 
 Use the [tag-checked teardown helper](../scripts/tier2_lab.py) and [service-specific leftover checks](../infra/README.md#tear-down-and-verify) for these labs. Inspect is the default action; deletion requires both execution and exact-stack confirmation flags. Cloud cleanup has offline tests but has not been exercised against an AWS account.
+
+## Delivered Tier 3 cost controls
+
+Modules 10–14 have offline replay and local tools at $0 hosted cost. Module 10
+caps independent concurrent agents and wall time; modules 11–13 enforce tool and
+turn budgets. Small hosted experiments retain the $0.05–$0.20 planning envelope,
+not a spending guarantee. Actual token rates come from the selected model.
+Streaming alone does not reduce token cost. Failed, cancelled and repeated calls
+may still incur provider charges.
+
+The [Guardrails lab cost table](../infra/13_guardrails/README.md#costs-before-deployment)
+prices content, topics, PII and grounding with October 29, 2026 assumptions.
+Grounding includes source/query/answer text; configuration does not run always-on
+compute. The default MCP booking servers use disposable SQLite data and no cloud.
+AWS Documentation/Pricing MCP branches need network setup; Pricing uses read-only
+SSO access. Its $1.87 Lambda arithmetic is explicitly illustrative and excludes
+free tier, logs, transfer and other services, not an actual bill forecast.
+
+Stop local web servers, inspect persisted synthetic approval state, and follow
+the [Guardrails teardown](../infra/13_guardrails/README.md#tear-down-and-verify)
+if you chose to deploy that optional stack. No cloud deployment/cleanup was tested.

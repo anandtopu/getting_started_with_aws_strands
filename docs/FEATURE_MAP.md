@@ -1,8 +1,8 @@
 # Feature map: course coverage contract
 
-Phase 4 Tiers 1–2 edition · October 29, 2026
+Phase 5 Tiers 1–3 edition · October 29, 2026
 
-Modules 00–09 and the first two checkpoints are delivered. Their paths below link to existing files. Modules 10–21, bonus modules and capstones remain planned; their paths stay plain code text. The final audit will reject missing files or unimplemented coverage.
+Modules 00–14 and the first three checkpoints are delivered. Their paths below link to existing files. Modules 15–21, bonus modules and capstones remain planned; their paths stay plain code text. The final audit will reject missing files or unimplemented coverage.
 
 ## Delivered foundation
 
@@ -149,60 +149,60 @@ Assistant v6 · [Module guide](../modules/09_memory/README.md) · [Use case](../
 
 ## 10_streaming: Streaming and async
 
-Assistant v6 · use case: `modules/10_streaming/use_case/streaming_trip_planner.py`
+Assistant v6 · [Module guide](../modules/10_streaming/README.md) · [Use case](../modules/10_streaming/use_case/streaming_trip_planner.py) · [Tests](../modules/10_streaming/tests)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| stream_async text deltas, reasoning if exposed, tool and lifecycle events versus callbacks | `modules/10_streaming/examples/01_stream_events.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
-| Concurrent agents, timeouts, cancellation and bounded resource use | `modules/10_streaming/examples/02_concurrency_and_cancel.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
-| FastAPI SSE framing, client disconnect and cancellation propagation | `modules/10_streaming/examples/03_fastapi_sse.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
-| Streamlit chat, per-user sessions and streamed responses | `modules/10_streaming/examples/04_streamlit_chat.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
+| stream_async text deltas, reasoning if exposed, tool and lifecycle events versus callbacks | [01_stream_events.py](../modules/10_streaming/examples/01_stream_events.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
+| Concurrent agents, timeouts, cancellation and bounded resource use | [02_concurrency_and_cancel.py](../modules/10_streaming/examples/02_concurrency_and_cancel.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
+| FastAPI SSE framing, client disconnect and cancellation propagation | [03_fastapi_sse.py](../modules/10_streaming/examples/03_fastapi_sse.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
+| Streamlit chat, per-user sessions and streamed responses | [04_streamlit_chat.py](../modules/10_streaming/examples/04_streamlit_chat.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
 
 ## 11_hooks: Hooks and lifecycle
 
-Assistant v7 · use case: `modules/11_hooks/use_case/audited_booking.py`
+Assistant v7 · [Module guide](../modules/11_hooks/README.md) · [Use case](../modules/11_hooks/use_case/audited_booking.py) · [Tests](../modules/11_hooks/tests)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| HookProvider, HookRegistry; AgentInitializedEvent, Before/AfterInvocationEvent, Before/AfterModelCallEvent | `modules/11_hooks/examples/01_lifecycle_hooks.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
-| Before/AfterToolCallEvent, Before/AfterToolsEvent; block or modify inputs and rewrite results | `modules/11_hooks/examples/02_tool_hooks.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
-| MessageAddedEvent and MessageUpdatedEvent; redaction before persistence/logging | `modules/11_hooks/examples/03_message_hooks.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
-| Invocation state, structured audit trail, booking budget enforcement and metrics | `modules/11_hooks/examples/04_audit_budget.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
+| HookProvider, HookRegistry; AgentInitializedEvent, Before/AfterInvocationEvent, Before/AfterModelCallEvent | [01_lifecycle_hooks.py](../modules/11_hooks/examples/01_lifecycle_hooks.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
+| Before/AfterToolCallEvent, Before/AfterToolsEvent; block or modify inputs and rewrite results | [02_tool_hooks.py](../modules/11_hooks/examples/02_tool_hooks.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
+| MessageAddedEvent and MessageUpdatedEvent; redaction before persistence/logging | [03_message_hooks.py](../modules/11_hooks/examples/03_message_hooks.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
+| Invocation state, structured audit trail, booking budget enforcement and metrics | [04_audit_budget.py](../modules/11_hooks/examples/04_audit_budget.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
 
 ## 12_interrupts: Human approval with interrupts
 
-Assistant v8 · use case: `modules/12_interrupts/use_case/refund_approval.py`
+Assistant v8 · [Module guide](../modules/12_interrupts/README.md) · [Use case](../modules/12_interrupts/use_case/refund_approval.py) · [Tests](../modules/12_interrupts/tests)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Interrupt an individual call or batch from supported hooks; capture identifiers | `modules/12_interrupts/examples/01_hook_interrupt.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
-| Interrupt from ToolContext and resume with matched human response | `modules/12_interrupts/examples/02_tool_interrupt.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
-| Approve/reject/expire refunds over $500 and non-refundable changes; handoff_to_user comparison | `modules/12_interrupts/examples/03_approval_cli.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
-| Authenticated approval state, web approve/reject, audit trail and replay-safe mutation | `modules/12_interrupts/examples/04_approval_web.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
+| Interrupt an individual call or batch from supported hooks; capture identifiers | [01_hook_interrupt.py](../modules/12_interrupts/examples/01_hook_interrupt.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
+| Interrupt from ToolContext and resume with matched human response | [02_tool_interrupt.py](../modules/12_interrupts/examples/02_tool_interrupt.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
+| Approve/reject/expire refunds over $500 and non-refundable changes; handoff_to_user comparison | [03_approval_cli.py](../modules/12_interrupts/examples/03_approval_cli.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
+| Authenticated approval state, web approve/reject, audit trail and replay-safe mutation | [04_approval_web.py](../modules/12_interrupts/examples/04_approval_web.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
 
 ## 13_guardrails: Guardrails and safety
 
-Assistant v9 · use case: `modules/13_guardrails/use_case/hardened_support.py`
+Assistant v9 · [Module guide](../modules/13_guardrails/README.md) · [Use case](../modules/13_guardrails/use_case/hardened_support.py) · [Tests](../modules/13_guardrails/tests)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Provider-independent hook checks and typed business policy | `modules/13_guardrails/examples/01_local_guardrails.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
-| Poisoned document attack, untrusted content boundary, tool authorization and regression cases | `modules/13_guardrails/examples/02_prompt_injection.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
-| Read-only SQLite, tool allow-lists and restricted use_aws role | `modules/13_guardrails/examples/03_least_privilege.py` | Optional; local tools alternative | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
-| Current invocation limits, tool budgets and wall-clock timeouts | `modules/13_guardrails/examples/04_limits.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
-| Content filters, denied topics, PII masking, grounding checks, BedrockModel attachment and trace; CDK lifecycle | `modules/13_guardrails/examples/05_bedrock_guardrails.py` | Yes; local policy checks with narrower coverage | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
+| Provider-independent hook checks and typed business policy | [01_local_guardrails.py](../modules/13_guardrails/examples/01_local_guardrails.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
+| Poisoned document attack, untrusted content boundary, tool authorization and regression cases | [02_prompt_injection.py](../modules/13_guardrails/examples/02_prompt_injection.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
+| Read-only SQLite, tool allow-lists and restricted use_aws role | [03_least_privilege.py](../modules/13_guardrails/examples/03_least_privilege.py) | Optional; local tools alternative | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
+| Current invocation limits, tool budgets and wall-clock timeouts | [04_limits.py](../modules/13_guardrails/examples/04_limits.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
+| Content filters, denied topics, PII masking, grounding checks, BedrockModel attachment and trace; CDK lifecycle | [05_bedrock_guardrails.py](../modules/13_guardrails/examples/05_bedrock_guardrails.py) | Yes; local policy checks with narrower coverage | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
 
 ## 14_mcp: Model Context Protocol
 
-Assistant v9 · use case: `modules/14_mcp/use_case/mcp_booking_assistant.py`
+Assistant v9 · [Module guide](../modules/14_mcp/README.md) · [Use case](../modules/14_mcp/use_case/mcp_booking_assistant.py) · [Tests](../modules/14_mcp/tests)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| MCPClient stdio transport and managed/context-manager lifecycle | `modules/14_mcp/examples/01_stdio_client.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
-| Streamable HTTP transport, lifetime, authentication and shutdown | `modules/14_mcp/examples/02_http_client.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
-| Official mcp SDK server exposing Nimbus booking tools | `modules/14_mcp/examples/03_booking_server.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
-| Pinned AWS Documentation and AWS Pricing MCP servers via uvx; trust and access review | `modules/14_mcp/examples/04_aws_servers.py` | Optional; Pricing requires credentials, fixture alternative | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
-| Filter/namespace tools, combine servers and reject unexpected capabilities | `modules/14_mcp/examples/05_tool_filtering.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
+| MCPClient stdio transport and managed/context-manager lifecycle | [01_stdio_client.py](../modules/14_mcp/examples/01_stdio_client.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
+| Streamable HTTP transport, lifetime, authentication and shutdown | [02_http_client.py](../modules/14_mcp/examples/02_http_client.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
+| Official mcp SDK server exposing Nimbus booking tools | [03_booking_server.py](../modules/14_mcp/examples/03_booking_server.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
+| Pinned AWS Documentation and AWS Pricing MCP servers via uvx; trust and access review | [04_aws_servers.py](../modules/14_mcp/examples/04_aws_servers.py) | Optional; Pricing requires credentials, fixture alternative | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
+| Filter/namespace tools, combine servers and reject unexpected capabilities | [05_tool_filtering.py](../modules/14_mcp/examples/05_tool_filtering.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
 
 ## 15_agents_as_tools: Agents as tools
 
@@ -358,7 +358,7 @@ Assistant v11 · use case: `modules/bonus/B4_whats_new/use_case/release_feature_
 | 07 optional Knowledge Base | [infra/07_knowledge_base/app.py](../infra/07_knowledge_base/app.py) | Source bucket, S3 vector bucket/index, Knowledge Base/data source, IAM |
 | 09 optional S3 sessions | [infra/09_sessions/app.py](../infra/09_sessions/app.py) | Session bucket, policies, objects and optional logs |
 | 09 optional Memory (21 extends later) | [infra/09_memory/app.py](../infra/09_memory/app.py) | Memory resource with preference strategy; scoped recall-only managed policy |
-| 13 optional Guardrails | `infra/guardrails/app.py` | Guardrail configuration and versions |
+| 13 optional Guardrails | [infra/13_guardrails/app.py](../infra/13_guardrails/app.py) | Guardrail configuration and versions |
 | 20 Lambda | `infra/lambda_support/app.py` | Function, execution role, artifact assets and logs; authenticated invocation |
 | 20 Fargate | `infra/fargate_support/app.py` | Cluster/service/tasks, VPC/subnets, security groups, load balancer, ECR and logs; explicit public IPv4/network costs |
 | 20 AgentCore Runtime | `infra/agentcore_runtime/app.py` | Runtime/endpoint, role, package/image assets, logs and invocation permissions |
@@ -369,3 +369,5 @@ Assistant v11 · use case: `modules/bonus/B4_whats_new/use_case/release_feature_
 All infrastructure apps include a README, `cdk.json`, stack code, synth tests and a teardown command. Where CloudFormation lacks a needed operation, a narrowly scoped boto3 lifecycle script records resource IDs and implements symmetric create/delete. The exact supported resource coverage is verified before implementation.
 
 Tier 2 verification: [retrieval comparison](verification/tier2_retrieval_report.json), [AWS contracts and template tests](../tests/test_tier2_cloud.py), [checkpoint tests](../checkpoints/02_policy_preferences/test_policy_preferences.py), and [resource lifecycle guide](../infra/README.md).
+
+Tier 3 adds [batch interrupts](../modules/12_interrupts/examples/05_batch_interrupt.py), [boundary tests](../tests/test_tier3_boundaries.py), [real MCP integration](../tests/test_tier3_mcp.py), [Streamlit widget tests](../tests/test_tier3_ui.py), and the [Safe Support checkpoint](../checkpoints/03_safe_support/README.md). The current MCP server class is MCPServer; direct call names remain unprefixed.

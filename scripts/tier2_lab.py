@@ -12,13 +12,13 @@ from common.aws_retrieval import aws_client
 from common.data import data_path
 from common.pretty import console, run_cli
 
-STACKS = {"NimbusKnowledgeLab", "NimbusSessionLab", "NimbusMemoryLab"}
+STACKS = {"NimbusKnowledgeLab", "NimbusSessionLab", "NimbusMemoryLab", "NimbusGuardrailLab"}
 PROJECT = "getting-started-with-aws-strands"
 
 
 def checked_stack(client, name: str) -> dict:
     if name not in STACKS:
-        raise ValueError("Choose one of the three named Tier 2 lab stacks")
+        raise ValueError("Choose one of the named course lab stacks")
     stack = client.describe_stacks(StackName=name)["Stacks"][0]
     if {t["Key"]: t["Value"] for t in stack.get("Tags", [])}.get("project") != PROJECT:
         raise PermissionError("Stack is not tagged as this course's lab")

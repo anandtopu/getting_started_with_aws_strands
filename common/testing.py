@@ -91,8 +91,21 @@ class ScriptedModel(Model):
             elif "text" in block:
                 yield {"contentBlockStart": {"start": {}}}
                 yield {"contentBlockDelta": {"delta": {"text": block["text"]}}}
+            elif "reasoningContent" in block:
+                yield {"contentBlockStart": {"start": {}}}
+                yield {
+                    "contentBlockDelta": {
+                        "delta": {
+                            "reasoningContent": {
+                                "text": block["reasoningContent"]["reasoningText"]["text"]
+                            }
+                        }
+                    }
+                }
             else:
-                raise ValueError("ScriptedModel supports text and toolUse blocks only.")
+                raise ValueError(
+                    "ScriptedModel supports text, toolUse and reasoningContent blocks."
+                )
             yield {"contentBlockStop": {}}
         yield {"messageStop": {"stopReason": stop_reason}}
         yield {

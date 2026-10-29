@@ -1,0 +1,497 @@
+[
+  {
+    "module": "10_streaming",
+    "exercises": [
+      {
+        "file": "01_frame.py",
+        "task": "Encode one SSE text frame without allowing a newline to forge another event.",
+        "cases": [
+          {
+            "input": "hello",
+            "expected": "event: text\ndata: {\"text\": \"hello\"}\n\n"
+          },
+          {
+            "input": "a\nevent: forged",
+            "expected": "event: text\ndata: {\"text\": \"a\\nevent: forged\"}\n\n"
+          }
+        ]
+      },
+      {
+        "file": "02_text_only.py",
+        "task": "Extract only public text deltas; never leak tool inputs or raw trace metadata.",
+        "cases": [
+          {
+            "input": [
+              {
+                "data": "Hi"
+              },
+              {
+                "metadata": {
+                  "secret": "x"
+                }
+              },
+              {
+                "data": " there"
+              }
+            ],
+            "expected": [
+              "Hi",
+              " there"
+            ]
+          },
+          {
+            "input": [],
+            "expected": []
+          }
+        ]
+      },
+      {
+        "file": "03_batch_budget.py",
+        "task": "Split jobs into ordered batches no larger than the positive worker budget.",
+        "cases": [
+          {
+            "input": {
+              "jobs": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "workers": 2
+            },
+            "expected": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                5
+              ]
+            ]
+          },
+          {
+            "input": {
+              "jobs": [],
+              "workers": 3
+            },
+            "expected": []
+          },
+          {
+            "input": {
+              "jobs": [
+                1,
+                2
+              ],
+              "workers": 1
+            },
+            "expected": [
+              [
+                1
+              ],
+              [
+                2
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "11_hooks",
+    "exercises": [
+      {
+        "file": "01_redact.py",
+        "task": "Recursively redact email and US phone patterns without mutating the input.",
+        "cases": [
+          {
+            "input": {
+              "message": [
+                "a@example.com",
+                "555-123-4567"
+              ]
+            },
+            "expected": {
+              "message": [
+                "[EMAIL]",
+                "[PHONE]"
+              ]
+            }
+          },
+          {
+            "input": {
+              "message": "Boston"
+            },
+            "expected": {
+              "message": "Boston"
+            }
+          }
+        ]
+      },
+      {
+        "file": "02_budget.py",
+        "task": "Allow only catalog-priced destinations inside the trusted budget.",
+        "cases": [
+          {
+            "input": {
+              "destination": " bos ",
+              "budget": 35000
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "destination": "LAX",
+              "budget": 50000
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "destination": "UNKNOWN",
+              "budget": 999999
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_audit.py",
+        "task": "Build an audit record that omits raw arguments and redacts status text.",
+        "cases": [
+          {
+            "input": {
+              "name": "quote",
+              "status": "ok",
+              "arguments": {
+                "email": "a@example.com"
+              }
+            },
+            "expected": {
+              "name": "quote",
+              "status": "ok"
+            }
+          },
+          {
+            "input": {
+              "name": "x",
+              "status": "a@example.com",
+              "arguments": {}
+            },
+            "expected": {
+              "name": "x",
+              "status": "[EMAIL]"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "12_interrupts",
+    "exercises": [
+      {
+        "file": "01_threshold.py",
+        "task": "Require approval above $500 or for a change to a non-refundable fare.",
+        "cases": [
+          {
+            "input": {
+              "cents": 50000,
+              "action": "refund",
+              "nonrefundable": true
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "cents": 50001,
+              "action": "refund",
+              "nonrefundable": false
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "cents": 0,
+              "action": "change",
+              "nonrefundable": true
+            },
+            "expected": true
+          }
+        ]
+      },
+      {
+        "file": "02_expiry.py",
+        "task": "Accept only an approved, unexpired request belonging to the trusted owner.",
+        "cases": [
+          {
+            "input": {
+              "status": "approved",
+              "owner": "a",
+              "trusted_owner": "a",
+              "expires": 11,
+              "now": 10
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "status": "approved",
+              "owner": "b",
+              "trusted_owner": "a",
+              "expires": 11,
+              "now": 10
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "status": "approved",
+              "owner": "a",
+              "trusted_owner": "a",
+              "expires": 10,
+              "now": 10
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_replay.py",
+        "task": "Apply each request ID at most once while preserving first-seen order.",
+        "cases": [
+          {
+            "input": [
+              "r1",
+              "r2",
+              "r1"
+            ],
+            "expected": [
+              "r1",
+              "r2"
+            ]
+          },
+          {
+            "input": [],
+            "expected": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "13_guardrails",
+    "exercises": [
+      {
+        "file": "01_allowlist.py",
+        "task": "Filter requested capabilities using a reviewed allow-list; deduplicate in order.",
+        "cases": [
+          {
+            "input": {
+              "requested": [
+                "read",
+                "export",
+                "read"
+              ],
+              "allowed": [
+                "read"
+              ]
+            },
+            "expected": [
+              "read"
+            ]
+          },
+          {
+            "input": {
+              "requested": [
+                "delete"
+              ],
+              "allowed": []
+            },
+            "expected": []
+          }
+        ]
+      },
+      {
+        "file": "02_grounding.py",
+        "task": "Require a known source and an exact nonempty quote before displaying a citation.",
+        "cases": [
+          {
+            "input": {
+              "quote": "5 days",
+              "source": "policy",
+              "sources": {
+                "policy": "Wait 5 days"
+              }
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "quote": "one minute",
+              "source": "policy",
+              "sources": {
+                "policy": "Wait 5 days"
+              }
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "quote": "",
+              "source": "policy",
+              "sources": {}
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_limits.py",
+        "task": "Permit a new call only before both the tool budget and deadline are exhausted.",
+        "cases": [
+          {
+            "input": {
+              "calls": 1,
+              "maximum": 2,
+              "now": 9,
+              "deadline": 10
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "calls": 2,
+              "maximum": 2,
+              "now": 9,
+              "deadline": 10
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "calls": 0,
+              "maximum": 2,
+              "now": 10,
+              "deadline": 10
+            },
+            "expected": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "14_mcp",
+    "exercises": [
+      {
+        "file": "01_namespace.py",
+        "task": "Prefix tool names with the reviewed server name, preserving order.",
+        "cases": [
+          {
+            "input": {
+              "server": "nimbus",
+              "tools": [
+                "search",
+                "book"
+              ]
+            },
+            "expected": [
+              "nimbus_search",
+              "nimbus_book"
+            ]
+          },
+          {
+            "input": {
+              "server": "other",
+              "tools": []
+            },
+            "expected": []
+          }
+        ]
+      },
+      {
+        "file": "02_review.py",
+        "task": "Reject an unexpected tool inventory, including hidden additional pages.",
+        "cases": [
+          {
+            "input": {
+              "actual": [
+                "search"
+              ],
+              "expected": [
+                "search"
+              ],
+              "next_page": false
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "actual": [
+                "search",
+                "export"
+              ],
+              "expected": [
+                "search"
+              ],
+              "next_page": false
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "actual": [
+                "search"
+              ],
+              "expected": [
+                "search"
+              ],
+              "next_page": true
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_idempotency.py",
+        "task": "Return new, replay, or conflict by comparing a key with its stored flight terms.",
+        "cases": [
+          {
+            "input": {
+              "stored": {},
+              "key": "k",
+              "flight": "f1"
+            },
+            "expected": "new"
+          },
+          {
+            "input": {
+              "stored": {
+                "k": "f1"
+              },
+              "key": "k",
+              "flight": "f1"
+            },
+            "expected": "replay"
+          },
+          {
+            "input": {
+              "stored": {
+                "k": "f1"
+              },
+              "key": "k",
+              "flight": "f2"
+            },
+            "expected": "conflict"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,4 +1,4 @@
-# Optional Tier 2 AWS labs
+# Optional AWS learning labs
 
 **AWS required; core lessons remain local.** These apps create resources only when
 you explicitly run CDK deployment. They have not been deployed during course
@@ -27,6 +27,8 @@ keep the chosen SSO profile's region consistent with it. Review the generated
 | [Knowledge Base](07_knowledge_base/app.py) / `NimbusKnowledgeLab` | S3 policy bucket, S3 vector bucket/index, Bedrock Knowledge Base and data source, service role/policy | Selected embedding model, policy prefix, one vector index | Empty the source bucket, then delete the stack |
 | [Sessions](09_sessions/app.py) / `NimbusSessionLab` | Private encrypted S3 bucket with 90-day lifecycle; scoped managed policy | Read/write/list/delete only `CUS-001/` | Delete demo sessions, empty bucket, delete stack |
 | [Memory](09_memory/app.py) / `NimbusMemoryLab` | AgentCore Memory with a user-preference strategy and recall-only managed policy | Read records from this memory; no event writes or deletion | Delete the entire isolated demo memory through stack deletion |
+
+[Guardrails](13_guardrails/README.md) adds the optional Tier 3 stack `NimbusGuardrailLab`: a guardrail, published version and scoped ApplyGuardrail policy. Its guide contains separate pricing, deployment and teardown steps.
 
 Resources that support tags carry `project=getting-started-with-aws-strands`.
 Untagged children are tracked by their tagged CloudFormation stack. Policies use

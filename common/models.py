@@ -9,6 +9,29 @@ from strands.models import Model
 from common.config import CourseError, Settings, load_settings
 
 
+def get_guarded_model(settings):
+    """Attach a deployed guardrail through the same provider factory used by every lesson."""
+    from common.config import course_value
+
+    if settings.provider not in {"bedrock", "mock"}:
+        raise CourseError(
+            "Bedrock Guardrails attachment requires Bedrock; use local hooks for Ollama."
+        )
+    model = get_model(settings, responses=["Guardrail-protected fixture response."])
+    if settings.provider == "bedrock":
+        identifier = course_value("BEDROCK_GUARDRAIL_ID")
+        version = course_value("BEDROCK_GUARDRAIL_VERSION")
+        if not identifier or not version:
+            raise CourseError("Set the deployed guardrail ID and version; see infra/13_guardrails.")
+        model.update_config(
+            guardrail_id=identifier,
+            guardrail_version=version,
+            guardrail_trace="enabled",
+            guardrail_stream_processing_mode="sync",
+        )
+    return model
+
+
 def get_embeddings(*, mock: bool):
     from common.config import course_value
     from common.retrieval import Embeddings

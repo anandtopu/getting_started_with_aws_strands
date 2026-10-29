@@ -276,3 +276,97 @@ Costs use dated workloads in the [lab guide](../infra/README.md), including Octo
 | Documentation links | 688 local/public links checked with zero failures |
 
 Default sync restores the small 110-distribution environment. Optional-group skips are reported explicitly and do not count as successes. The optional CI job installs all groups, synthesizes every app and uses `--require-all` for the script sweep; those remote jobs have not yet run.
+
+## Phase 5: control, approvals, safety and MCP — October 29, 2026
+
+Delivered modules 10–14, the Safe Support checkpoint and optional Guardrails CDK
+app. This adds 23 focused examples, five use cases, 15 exercise pairs and five
+cleared notebooks. Cumulative delivery is 78 examples, 15 use cases, 45 exercise
+pairs, 15 notebooks, three checkpoints, four optional CDK apps and 100 finite
+script manifest entries. Later tiers, bonus modules and capstones remain planned.
+
+### Current API decisions and primary references
+
+- [Strands hooks](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/):
+  use HookProvider/HookRegistry and current invocation/model/tool/message events.
+  Trusted context is supplied through `invocation_state`; bare additional keyword
+  arguments produce a deprecating warning in the pinned SDK. The warning filter
+  catches both deprecated and deprecating wording. MessageUpdatedEvent uses an
+  explicit replacement-event fixture; plain list edits do not emit it. No
+  arbitrary persistence-order guarantee is made.
+- [Strands interrupts](https://strandsagents.com/docs/user-guide/sdk/interrupts/):
+  individual BeforeToolCallEvent, batch BeforeToolsEvent and ToolContext interrupts
+  resume with matched identifiers. handoff_to_user remains a clarification tool.
+  Financial approval is separately recorded and checked in a SQLite transaction;
+  forged resume text is not authorization.
+- [Strands MCP](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/)
+  and the [official Python SDK](https://github.com/modelcontextprotocol/python-sdk):
+  pinned MCP 2.1.1 uses MCPServer rather than the removed FastMCP import. Real stdio
+  and streamable HTTP servers run locally even with a scripted model. Contexts
+  own discovery and calls; agent-facing prefixes do not belong in direct server
+  calls. Tool inventory pages are checked explicitly. HTTP authentication is a
+  loopback demo token, not a production OAuth implementation.
+- [AWS Documentation server](https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server)
+  1.2.3 and [AWS Pricing server](https://awslabs.github.io/mcp/servers/aws-pricing-mcp-server)
+  1.1.1 have exact uvx pins in the module configuration. Live server launches and
+  AWS pricing responses are untested. The cost agent uses a bounded get_pricing
+  wrapper; offline rates are illustrative and never called current live prices.
+- [Strands Guardrails](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/)
+  and [CloudFormation Guardrail](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-guardrail.html):
+  model attachment sets ID/version, synchronous stream processing and enabled
+  trace. Explicit ApplyGuardrail grounding supplies source/query/answer tags.
+  CDK's nested dictionary property names use camelCase. Configuration includes
+  content, denied-topic, PII anonymization and grounding/relevance filters, plus
+  a published version and ARN-scoped apply policy. No deployment occurred.
+
+### Safety and integration evidence
+
+Tests force a harmless export-marker proposal with the actual poisoned document
+in model input; the baseline executes the marker and the policy denies it.
+This is an application-boundary regression, not a claim that a live model always
+ignores injection. Approval tests cover rejection, exact expiry, cross-customer
+access, forged resume, changed remaining balance and concurrent replay.
+Real MCP tests cover authenticated/unauthenticated HTTP, filtered capabilities,
+actual booking calls, idempotency and server shutdown. FastAPI tests cover role
+tokens, approve/reject routes and replay; stream tests close iterators on timeout,
+disconnect and cancellation. Streamlit's actual widget runtime verifies repeated
+messages, isolated sessions and clearing history.
+
+Windows checks exposed and corrected two lifecycle bugs: Streamlit must own its
+entry-point lifecycle rather than receive SystemExit from the CLI wrapper, and
+the HTTP MCP server must stop its real child process before its SQLite file is
+removed. Connections close explicitly; authenticated graceful shutdown has a
+bounded owned-process-tree fallback. Jupyter subprocess logging uses the original
+stderr file handle. A bounded queue keeps the Streamlit async stream in one
+task/context. The example runner preserves Unicode failure diagnostics even on
+narrower Windows terminal encodings. Twelve consecutive HTTP cleanup runs passed
+after the fix, and process inspection found no remaining test servers.
+
+Mock providers, Stubber and template synthesis verify integration contracts;
+they do not establish live classifier accuracy, regional availability, IAM
+permissions, model quality or cloud deletion. Local web approval pauses live in
+memory; the ledger persists but restart recovery/multi-worker coordination are
+outside this teaching app. Remote CI, live Ollama/Bedrock calls, AWS MCP servers,
+cloud deployment and cloud teardown remain untested.
+
+### Observed Phase 5 checks
+
+| Check | Observed result |
+|---|---|
+| Windows Python 3.12.13, apps/aws/notebooks/rag/memory groups | 296 passed; 2 optional provider checks skipped; no Strands deprecation warnings |
+| Default frozen installation, Python 3.12.13 | 287 passed; 11 explicitly optional checks skipped |
+| Default installation, Python 3.13.13 | 287 passed; the same 11 optional checks skipped |
+| Offline finite scripts with lesson dependencies | All 100 entries passed, with no dependency skips |
+| Offline finite scripts with default groups | 89 entries passed; 11 optional entries explicitly skipped |
+| Jupyter execution | All 15 notebooks passed; streaming notebook rechecked after final cancellation cleanup; originals remain cleared |
+| Streamlit and API boundaries | Repeated messages, session isolation, Clear, authorization, approval/replay, timeout and cancellation passed |
+| Actual CDK CLI synthesis | All four apps synthesized without lookups, bootstrap or deployment |
+| Exercises | All 45 starters execute; all 45 reference solutions pass acceptance cases |
+| Documentation links | 904 local/public references checked with zero failures |
+| Frozen dependency resolution and consistency | Lock check passed; all 110 default distributions compatible |
+| Ruff lint and formatting | Passed for all delivered Python files and notebooks |
+| pre-commit on all files | All hooks passed, including notebook clearing and IAM/sample configuration checks |
+
+The optional install contains 264 distributions. Skipped checks are not counted
+as successes. Verification uses actual SDK loops, local protocols and Jupyter,
+while paid service behavior remains explicitly unverified as described above.

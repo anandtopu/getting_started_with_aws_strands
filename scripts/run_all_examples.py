@@ -17,6 +17,10 @@ from common.pretty import run_cli
 
 
 def run_examples(*, live: bool = False, require_all: bool = False) -> int:
+    # Captured child output is UTF-8; Windows terminals may use a narrower code page.
+    # Preserve readable failure diagnostics rather than aborting the entire sweep.
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(errors="backslashreplace")
     manifest = json.loads((ROOT / "scripts/examples_manifest.json").read_text(encoding="utf-8"))
     failed = 0
     checked = skipped = 0

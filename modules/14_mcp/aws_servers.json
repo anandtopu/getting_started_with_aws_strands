@@ -1,0 +1,13 @@
+{
+  "checked_on": "2026-10-29",
+  "documentation": {
+    "package": "awslabs.aws-documentation-mcp-server==1.2.3",
+    "tools": ["search_documentation", "read_documentation"],
+    "source": "https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server"
+  },
+  "pricing": {
+    "package": "awslabs.aws-pricing-mcp-server==1.1.1",
+    "tools": ["get_pricing", "get_pricing_service_attributes", "get_pricing_attribute_values"],
+    "source": "https://awslabs.github.io/mcp/servers/aws-pricing-mcp-server"
+  }
+}

@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Nimbus learning desk</title><style>
+body{font:17px system-ui;max-width:760px;margin:3rem auto;padding:1rem;background:#f2f6fc;color:#17304c}
+section{background:white;padding:1.5rem;margin:1rem 0;border-radius:16px}label{display:block;margin:.8rem 0}
+input,select,button,textarea{font:inherit;padding:.6rem;box-sizing:border-box;max-width:100%}
+input,textarea{width:100%}button{background:#173e7a;color:white;border:0;border-radius:6px;margin:.3rem}
+pre{white-space:pre-wrap;overflow-wrap:anywhere}small{color:#465970}
+</style><h1>Nimbus learning desk</h1><p>Plan a trip or review a synthetic booking request.</p>
+<small>This local exercise never purchases travel or transfers money. Tokens last for this server run.</small>
+<section><label>Customer token <input id="customer" type="password" autocomplete="off"></label>
+<label>Trip request <textarea id="prompt">Plan a short trip to Boston.</textarea></label>
+<button id="chat">Plan my trip</button><pre id="answer" aria-live="polite"></pre></section>
+<section id="booking"><h2>Booking request</h2><p>Demo booking DEMO-001 · paid $1,000 · non-refundable fare</p>
+<label>Action <select id="action"><option value="refund">Refund $600</option><option value="change">Change fare</option></select></label>
+<button id="start">Request action</button><pre id="proposal"></pre>
+<label>Supervisor token <input id="supervisor" type="password" autocomplete="off"></label>
+<button id="approve">Approve</button><button id="reject">Reject</button><pre id="decision" aria-live="polite"></pre></section>
+<script>
+let current=null; const el=id=>document.getElementById(id);
+async function send(path,body,role,out){
+  const target=el(out);target.textContent="Working…";
+  const response=await fetch(path,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+el(role).value},body:JSON.stringify(body)});
+  if(!response.ok)throw Error((await response.json()).detail||"Request failed");
+  if(response.headers.get("Content-Type").includes("event-stream")){
+    target.textContent="";const reader=response.body.getReader(),decoder=new TextDecoder();let buffer="";
+    while(true){const {value,done}=await reader.read();if(done)break;buffer+=decoder.decode(value,{stream:true});let end;
+      while((end=buffer.indexOf("\n\n"))>=0){const frame=buffer.slice(0,end);buffer=buffer.slice(end+2);
+        const line=frame.split("\n").find(x=>x.startsWith("data: "));if(line){const data=JSON.parse(line.slice(6));target.textContent+=data.text||data.message||(data.stop_reason?"\nFinished: "+data.stop_reason:"");}}
+    }return null;
+  }
+  const data=await response.json();target.textContent=JSON.stringify(data,null,2);return data;
+}
+function bind(id,fn,out){el(id).onclick=async()=>{el(id).disabled=true;try{await fn()}catch(e){el(out).textContent=e.message}finally{el(id).disabled=false}}}
+bind("chat",()=>send("/chat",{prompt:el("prompt").value},"customer","answer"),"answer");
+bind("start",async()=>{const action=el("action").value;const r=await send("/requests",{action,cents:action==="refund"?60000:0},"customer","proposal");current=r.request.id},"proposal");
+for(const decision of ["approve","reject"])bind(decision,async()=>{
+  if(!current)throw Error("Create a request first");
+  await send(`/requests/${current}/decision`,{decision},"supervisor","decision");
+  const status=await fetch(`/requests/${current}`,{headers:{"Authorization":"Bearer "+el("customer").value}});
+  if(!status.ok)throw Error("Decision recorded; reopen the request status to confirm its outcome.");
+  const recorded=await status.json();el("proposal").textContent=JSON.stringify(recorded,null,2);
+  el("decision").textContent+="\nRecorded outcome: "+recorded.status;current=null;
+},"decision");
+</script></html>

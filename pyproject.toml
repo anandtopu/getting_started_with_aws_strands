@@ -61,7 +61,7 @@ markers = ["live: explicit opt-in real model or AWS calls", "local_protocol: loo
 filterwarnings = [
   "error::DeprecationWarning:strands.*",
   "error::PendingDeprecationWarning:strands.*",
-  "error:.*deprecated.*:UserWarning:strands.*",
+  "error:.*deprecat.*:UserWarning:strands.*",
 ]
 
 [tool.ruff]

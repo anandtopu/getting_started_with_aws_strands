@@ -271,7 +271,7 @@ Local reports/indexes remain under ignored `.nimbus/`; temporary session/prefere
 
 ## Next: Tier 2 checkpoint
 
-Build the [Policy & Preferences assistant](../../checkpoints/02_policy_preferences/README.md). Module 10 follows in Phase 5.
+Build the [Policy & Preferences assistant](../../checkpoints/02_policy_preferences/README.md). Then continue to [Module 10](../10_streaming/README.md).
 
 ## AgentCore compatibility decision
 

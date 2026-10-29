@@ -1,5 +1,15 @@
 # Changelog
 
+## Phase 5 — 2026-10-29
+
+- Deliver modules 10–14: 23 examples, five use cases, 15 exercise pairs, quizzes and five notebooks.
+- Add bounded streaming and authenticated local approval routes; verify Streamlit session isolation.
+- Add current lifecycle hooks, trusted policy state and individual/batch/tool interrupt flows.
+- Enforce refund ownership, expiry, supervisor decisions and atomic replay protection.
+- Run the planted injection through the agent loop with a harmless marker and denied capability.
+- Add real stdio/HTTP MCP booking servers, filtered namespaces, and optional pinned AWS server definitions.
+- Add Safe Support and optional Guardrails CDK configuration with dated costs and teardown.
+
 ## Phase 4 — 2026-10-29
 
 - Deliver modules 07–09: 18 examples, three use cases, nine exercise pairs, quizzes and three cleared notebooks.

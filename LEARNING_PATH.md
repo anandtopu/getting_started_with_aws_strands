@@ -1,8 +1,8 @@
 # Learning path: build the Nimbus assistant
 
-Tiers 1–2 delivered; later tiers planned · October 29, 2026
+Tiers 1–3 delivered; later tiers planned · October 29, 2026
 
-Start with basic Python, terminal use, and git. You do not need prior agent or AWS knowledge. The core course is approximately 58 hours, including checkpoint practice; capstones and optional cloud/voice extensions take additional time. Modules 00–09 and their two checkpoints are implemented; later tiers remain planned. See the [implementation plan](docs/IMPLEMENTATION_PLAN.md) and [feature map](docs/FEATURE_MAP.md).
+Start with basic Python, terminal use, and git. You do not need prior agent or AWS knowledge. The core course is approximately 58 hours, including checkpoint practice; capstones and optional cloud/voice extensions take additional time. Modules 00–14 and their three checkpoints are implemented; later tiers remain planned. See the [implementation plan](docs/IMPLEMENTATION_PLAN.md) and [feature map](docs/FEATURE_MAP.md).
 
 ```mermaid
 flowchart TD
@@ -62,19 +62,19 @@ Optional AWS branches: Knowledge Base with S3 Vectors; S3 session storage; Agent
 
 | Module | Minutes | Ability you will demonstrate | Assistant progression |
 |---|---:|---|---|
-| 10 Streaming and async | 150 | Stream text/tool events to a terminal and app; cancel work and bound concurrency | v6: streaming experience |
-| 11 Hooks and lifecycle | 120 | Audit tool calls, enforce a booking budget, and redact data before logging | v7: auditable behavior |
-| 12 Human approval and interrupts | 150 | Pause a refund, approve/reject/expire it, and resume without duplicate payment effects | v8: approval workflow |
-| 13 Guardrails and safety | 150 | Enforce tool boundaries, resist the planted injection, and bound cycles, calls, and time | v9: hardened support agent |
-| 14 Model Context Protocol | 150 | Build and consume a booking MCP server with correct transport lifetime and tool filtering | v9: interoperable tools |
+| [10 Streaming and async](modules/10_streaming/README.md) | 150 | Stream text/tool events to a terminal and app; cancel work and bound concurrency | v6: streaming experience |
+| [11 Hooks and lifecycle](modules/11_hooks/README.md) | 120 | Audit tool calls, enforce a booking budget, and redact data before logging | v7: auditable behavior |
+| [12 Human approval and interrupts](modules/12_interrupts/README.md) | 150 | Pause a refund, approve/reject/expire it, and resume without duplicate payment effects | v8: approval workflow |
+| [13 Guardrails and safety](modules/13_guardrails/README.md) | 150 | Enforce tool boundaries, resist the planted injection, and bound cycles, calls, and time | v9: hardened support agent |
+| [14 Model Context Protocol](modules/14_mcp/README.md) | 150 | Build and consume a booking MCP server with correct transport lifetime and tool filtering | v9: interoperable tools |
 
 First encounters: async iterator, server-sent events, cancellation, lifecycle hook, invocation state, interrupt, idempotency, authorization, and protocol. Tool approval is a business decision; consent to execute local code is a separate control.
 
-**Checkpoint: Safe Support Agent.** Stream a support interaction, obtain approval for a refund over $500, reject an injection attempt, and invoke a booking tool over MCP. Tests cover rejection, timeout, replay, and client disconnect, not just the successful path.
+**Checkpoint: [Safe Support Agent](checkpoints/03_safe_support/README.md).** Stream a support interaction, obtain approval for a refund over $500, reject an injection attempt, and invoke a booking tool over MCP. Tests cover rejection, timeout, replay, and client disconnect, not just the successful path.
 
 You're ready for Tier 4 when you can distinguish callbacks from hooks, pause and resume safely, identify untrusted retrieved text, keep consent enabled, and demonstrate that refused actions do not execute.
 
-The optional Bedrock Guardrails branch creates resources. The local branch enforces policy with hooks and typed tools; it does not claim equivalent managed content-filter coverage. CloudOps Copilot is now available as a capstone.
+The optional Bedrock Guardrails branch creates resources. The local branch enforces policy with hooks and typed tools; it does not claim equivalent managed content-filter coverage. CloudOps Copilot is planned for Phase 8 after this tier.
 
 ## Tier 4 — Multi-agent systems · 12 hours
 
