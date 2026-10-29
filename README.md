@@ -2,7 +2,7 @@
 
 A hands-on course for Python learners building their first AI agent. You will build the **Nimbus assistant** for a fictional travel company, then add tools, retrieval, memory, approvals, evaluation and AWS deployment.
 
-**Delivery status: Phase 2 foundation delivered.** Lessons 00–21 and capstones are planned in the [feature map](docs/FEATURE_MAP.md); they are not yet runnable. The foundation demo and checks below are the current entry points. See the [verification record](docs/VERIFICATION_NOTES.md) for tested versions and remaining checks.
+**Delivery status: Phase 3 / Tier 1 delivered.** Modules 00–06 include 37 focused examples, seven use cases, 21 exercises with solutions, seven notebooks, quizzes and tests. Complete the [Nimbus Booking Helper checkpoint](checkpoints/01_booking_helper/README.md) before moving on. Modules 07–21, bonus modules and capstones remain planned. See the [verification record](docs/VERIFICATION_NOTES.md) for executed checks and remaining live-service gaps.
 
 ```mermaid
 flowchart LR
@@ -12,6 +12,25 @@ flowchart LR
   M --> P[19–21 Production on AWS]
   P --> N[Nimbus Support Copilot]
 ```
+
+## Start Tier 1
+
+- [00 — Setup and orientation](modules/00_setup/README.md)
+- [01 — Your first agent](modules/01_first_agent/README.md)
+- [02 — Model providers](modules/02_model_providers/README.md)
+- [03 — Conversations, messages and multimodal input](modules/03_conversations/README.md)
+- [04 — Structured output](modules/04_structured_output/README.md)
+- [05 — Building tools](modules/05_building_tools/README.md)
+- [06 — Community and vended tools](modules/06_community_tools/README.md)
+
+Run the scripts from the repository root. To open the interactive lessons:
+
+```text
+uv sync --group notebooks
+uv run --group notebooks jupyter lab
+```
+
+Each notebook defaults to offline replay and is saved with outputs cleared. To execute all notebooks automatically: `uv run --group notebooks python scripts/check_notebooks.py`.
 
 ## Quick start
 

@@ -82,9 +82,10 @@ getting_started_with_aws_strands/
 │   ├── tier_5.md
 │   └── tier_5.pdf
 ├── checkpoints/
-│   ├── tier_1/
-│   │   ├── tests/
-│   │   │   └── test_checkpoint.py
+│   ├── 01_booking_helper/
+│   │   ├── starter.py
+│   │   ├── solution.py
+│   │   ├── test_booking_helper.py
 │   │   └── README.md
 │   ├── tier_2/
 │   │   ├── tests/

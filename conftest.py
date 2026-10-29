@@ -15,6 +15,9 @@ os.environ["ANONYMIZED_TELEMETRY"] = "False"
 
 def pytest_addoption(parser: pytest.Parser) -> None:
     parser.addoption(
+        "--exercise-starters", action="store_true", help="Check learner exercise edits"
+    )
+    parser.addoption(
         "--live", action="store_true", help="Explicitly enable billable integration tests"
     )
 
@@ -45,5 +48,6 @@ def isolated_environment(monkeypatch: pytest.MonkeyPatch, tmp_path, request):
     monkeypatch.setenv("AWS_CONFIG_FILE", str(tmp_path / "no-config"))
     monkeypatch.setenv("AWS_SHARED_CREDENTIALS_FILE", str(tmp_path / "no-credentials"))
     monkeypatch.setenv("BYPASS_TOOL_CONSENT", "false")
+    monkeypatch.setenv("STRANDS_NON_INTERACTIVE", "false")
     with offline_network():
         yield

@@ -1,7 +1,7 @@
 """Synthesize delivered CDK apps; never bootstrap or deploy.
 
 Run: uv run python scripts/synth_all.py
-Phase 2 expected: no CDK applications delivered yet. AWS cost/resources: none.
+Expected until Tier 5: no CDK applications delivered. AWS cost/resources: none.
 """
 
 import shutil
@@ -13,7 +13,7 @@ from common.config import ROOT
 def main() -> int:
     apps = sorted((ROOT / "infra").glob("*/cdk.json"))
     if not apps:
-        print("No CDK apps delivered in Phase 2. No synthesis or deployment claimed.")
+        print("No CDK apps delivered yet. No synthesis or deployment claimed.")
         return 0
     executable = shutil.which("cdk")
     if not executable:

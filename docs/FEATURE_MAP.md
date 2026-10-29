@@ -1,8 +1,8 @@
 # Feature map: course coverage contract
 
-Phase 2 foundation edition · October 29, 2026
+Phase 3 Tier 1 edition · October 29, 2026
 
-Module rows are planned deliverables, not claims that their code exists. Their paths remain plain code text during planning. As each tier ships, its paths become relative links to real files and its rows gain test evidence. The final audit rejects missing files or unimplemented coverage. No empty files are created to disguise gaps.
+Modules 00–06 and the Tier 1 checkpoint are delivered. Their paths below link to existing files. Modules 07–21, bonus modules and capstones remain planned; their paths stay plain code text. The final audit will reject missing files or unimplemented coverage.
 
 ## Delivered foundation
 
@@ -22,89 +22,91 @@ Each feature receives plain-English teaching, a runnable example, a realistic us
 
 ## 00_setup: Setup and orientation
 
-Assistant v0 · use case: `modules/00_setup/use_case/orientation.py`
+Assistant v0 · [Module guide](../modules/00_setup/README.md) · [Use case](../modules/00_setup/use_case/orientation.py) · [Tests](../modules/00_setup/tests)
 
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
+| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Model-driven agents versus fixed workflows; tokens; ecosystem map (Python, TypeScript, tools, Evals, builder, Bedrock, AgentCore, MCP, A2A) | `modules/00_setup/examples/01_agent_or_workflow.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| Python, uv, pip/venv fallback, Ollama tool-capable model and configuration checks | `modules/00_setup/examples/02_local_readiness.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| Identity Center, CLI v2 SSO, budget-before-billing gate, region and model-access checks | `modules/00_setup/examples/03_aws_readiness.py` | Yes; local readiness instead | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| First configured agent call and token/latency inspection | `modules/00_setup/examples/04_first_call_metrics.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Model-driven agents versus fixed workflows; tokens; ecosystem map (Python, TypeScript, tools, Evals, builder, Bedrock, AgentCore, MCP, A2A) | [01_agent_or_workflow.py](../modules/00_setup/examples/01_agent_or_workflow.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Python, uv, pip/venv fallback, Ollama tool-capable model and configuration checks | [02_local_readiness.py](../modules/00_setup/examples/02_local_readiness.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Identity Center, CLI v2 SSO, budget-before-billing gate, region and model-access checks | [03_aws_readiness.py](../modules/00_setup/examples/03_aws_readiness.py) | Yes; local readiness instead | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| First configured agent call and token/latency inspection | [04_first_call_metrics.py](../modules/00_setup/examples/04_first_call_metrics.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
 
 ## 01_first_agent: Your first agent
 
-Assistant v1 · use case: `modules/01_first_agent/use_case/faq_responder.py`
+Assistant v1 · [Module guide](../modules/01_first_agent/README.md) · [Use case](../modules/01_first_agent/use_case/faq_responder.py) · [Tests](../modules/01_first_agent/tests)
 
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
+| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Agent defaults inspected safely; configured Agent, system_prompt and synchronous invocation | `modules/01_first_agent/examples/01_hello_agent.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| AgentResult message, stop_reason, metrics, and agent.messages | `modules/01_first_agent/examples/02_result_and_messages.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| Default printing, null_callback_handler, and custom callback handler | `modules/01_first_agent/examples/03_callbacks.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| Async/await primer and invoke_async | `modules/01_first_agent/examples/04_async_call.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| Agent/event loop; model decision, tool execution, continuation and stop | `modules/01_first_agent/examples/05_follow_the_loop.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Agent defaults inspected safely; configured Agent, system_prompt and synchronous invocation | [01_hello_agent.py](../modules/01_first_agent/examples/01_hello_agent.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| AgentResult message, stop_reason, metrics, and agent.messages | [02_result_and_messages.py](../modules/01_first_agent/examples/02_result_and_messages.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Default printing, null_callback_handler, and custom callback handler | [03_callbacks.py](../modules/01_first_agent/examples/03_callbacks.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Async/await primer and invoke_async | [04_async_call.py](../modules/01_first_agent/examples/04_async_call.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Agent/event loop; model decision, tool execution, continuation and stop | [05_follow_the_loop.py](../modules/01_first_agent/examples/05_follow_the_loop.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
 
 ## 02_model_providers: Model providers
 
-Assistant v1 · use case: `modules/02_model_providers/use_case/provider_comparison.py`
+Assistant v1 · [Module guide](../modules/02_model_providers/README.md) · [Use case](../modules/02_model_providers/use_case/provider_comparison.py) · [Tests](../modules/02_model_providers/tests)
 
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
+| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| BedrockModel; model ID, region, boto3 profile/session, temperature, max tokens and inference profiles | `modules/02_model_providers/examples/01_bedrock_settings.py` | Yes; other providers instead | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
-| Anthropic, OpenAI, Ollama and LiteLLM; overview of other supported providers | `modules/02_model_providers/examples/02_provider_switch.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
-| Runtime configuration changes; token usage to dated cost estimate | `modules/02_model_providers/examples/03_runtime_settings_and_cost.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
-| Build it yourself: Model interface with scripted text and tool events | `modules/02_model_providers/examples/04_custom_model.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
-| CacheConfig and supported Bedrock prompt-cache settings | `modules/02_model_providers/examples/05_prompt_cache.py` | Yes; uncached local comparison | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
-| Model-specific reasoning configuration and capability validation | `modules/02_model_providers/examples/06_reasoning.py` | Optional; capable local model | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
+| BedrockModel; model ID, region, boto3 profile/session, temperature, max tokens and inference profiles | [01_bedrock_settings.py](../modules/02_model_providers/examples/01_bedrock_settings.py) | Yes; other providers instead | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
+| Anthropic, OpenAI, Ollama and LiteLLM; overview of other supported providers | [02_provider_switch.py](../modules/02_model_providers/examples/02_provider_switch.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
+| Runtime configuration changes; token usage to dated cost estimate | [03_runtime_settings_and_cost.py](../modules/02_model_providers/examples/03_runtime_settings_and_cost.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
+| Build it yourself: minimal Model text stream and explicit unsupported structured output; common.testing extends it to tool events | [04_custom_model.py](../modules/02_model_providers/examples/04_custom_model.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
+| CacheConfig and supported Bedrock prompt-cache settings | [05_prompt_cache.py](../modules/02_model_providers/examples/05_prompt_cache.py) | Yes; uncached local comparison | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
+| Model-specific reasoning configuration and capability validation | [06_reasoning.py](../modules/02_model_providers/examples/06_reasoning.py) | Optional; capable local model | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
 
 ## 03_conversations: Conversations, messages and multimodal input
 
-Assistant v2 · use case: `modules/03_conversations/use_case/trip_chat.py`
+Assistant v2 · [Module guide](../modules/03_conversations/README.md) · [Use case](../modules/03_conversations/use_case/trip_chat.py) · [Tests](../modules/03_conversations/tests)
 
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
+| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Text content blocks, agent.messages, multi-turn state and role/constraints/tone/output prompts | `modules/03_conversations/examples/01_multi_turn.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
-| SlidingWindowConversationManager, SummarizingConversationManager, NullConversationManager and overflow | `modules/03_conversations/examples/02_conversation_windows.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
-| Image content blocks and vision capability checks on a synthetic receipt | `modules/03_conversations/examples/03_receipt_image.py` | No; vision model needed | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
-| Document blocks on supported models; local PDF text extraction with page provenance | `modules/03_conversations/examples/04_policy_document.py` | Optional; local extraction | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
+| Text content blocks, agent.messages, multi-turn state and role/constraints/tone/output prompts | [01_multi_turn.py](../modules/03_conversations/examples/01_multi_turn.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
+| SlidingWindowConversationManager, SummarizingConversationManager, NullConversationManager and overflow | [02_conversation_windows.py](../modules/03_conversations/examples/02_conversation_windows.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
+| Image content blocks and vision capability checks on a synthetic receipt | [03_receipt_image.py](../modules/03_conversations/examples/03_receipt_image.py) | No; vision model needed | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
+| Document blocks on supported models; local PDF text extraction with page provenance | [04_policy_document.py](../modules/03_conversations/examples/04_policy_document.py) | Optional; local extraction | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
 
 ## 04_structured_output: Structured output
 
-Assistant v3 · use case: `modules/04_structured_output/use_case/ticket_triage.py`
+Assistant v3 · [Module guide](../modules/04_structured_output/README.md) · [Use case](../modules/04_structured_output/use_case/ticket_triage.py) · [Tests](../modules/04_structured_output/tests)
 
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
+| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Pydantic primer; structured_output_model on Agent/call and result.structured_output | `modules/04_structured_output/examples/01_typed_ticket.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
-| Nested schemas, enums and optional fields; extract a confirmation email | `modules/04_structured_output/examples/02_nested_itinerary.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
-| Validation failure, correction, retry limits and malformed output tests | `modules/04_structured_output/examples/03_validation_retry.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
-| Structured answers after tool use; labelled ticket accuracy and CSV export | `modules/04_structured_output/examples/04_structure_with_tools.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
+| Pydantic primer; structured_output_model on Agent/call and result.structured_output | [01_typed_ticket.py](../modules/04_structured_output/examples/01_typed_ticket.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
+| Nested schemas, enums and optional fields; extract a confirmation email | [02_nested_itinerary.py](../modules/04_structured_output/examples/02_nested_itinerary.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
+| Validation failure, correction, retry limits and malformed output tests | [03_validation_retry.py](../modules/04_structured_output/examples/03_validation_retry.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
+| Structured answers after tool use; labelled ticket accuracy and CSV export | [04_structure_with_tools.py](../modules/04_structured_output/examples/04_structure_with_tools.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
 
 ## 05_building_tools: Building tools
 
-Assistant v4 · use case: `modules/05_building_tools/use_case/booking_assistant.py`
+Assistant v4 · [Module guide](../modules/05_building_tools/README.md) · [Use case](../modules/05_building_tools/use_case/booking_assistant.py) · [Tests](../modules/05_building_tools/tests)
 
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
+| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| @tool; docstrings, parameter descriptions and type hints becoming tool specifications | `modules/05_building_tools/examples/01_typed_search.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| toolUse, toolResult, status and tool exception feedback | `modules/05_building_tools/examples/02_results_and_errors.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| @tool(context=True), ToolContext, private agent state and invocation state | `modules/05_building_tools/examples/03_tool_context.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| Async tools, streamed tool progress and consumption | `modules/05_building_tools/examples/04_async_progress.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| Class-based tools sharing a database connection; read-only queries | `modules/05_building_tools/examples/05_resource_sharing.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| TOOL_SPEC modules and direct agent.tool calls | `modules/05_building_tools/examples/06_module_tools.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| Sequential and concurrent execution; race and resource limits | `modules/05_building_tools/examples/07_tool_executors.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| Trusted folder loading, hot reload and review before registration | `modules/05_building_tools/examples/08_tool_directory.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| Build it yourself: bounded boto3 Converse loop with toolConfig/toolUse/toolResult, then Strands equivalent | `modules/05_building_tools/examples/09_manual_converse_loop.py` | Yes; offline Stubber replay | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| @tool; docstrings, parameter descriptions and type hints becoming tool specifications | [01_typed_search.py](../modules/05_building_tools/examples/01_typed_search.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| toolUse, toolResult, status and tool exception feedback | [02_results_and_errors.py](../modules/05_building_tools/examples/02_results_and_errors.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| @tool(context=True), ToolContext, private agent state and invocation state | [03_tool_context.py](../modules/05_building_tools/examples/03_tool_context.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| Async tools, streamed tool progress and consumption | [04_async_progress.py](../modules/05_building_tools/examples/04_async_progress.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| Class-based tools sharing a database connection; read-only queries | [05_resource_sharing.py](../modules/05_building_tools/examples/05_resource_sharing.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| TOOL_SPEC modules and direct agent.tool calls | [06_module_tools.py](../modules/05_building_tools/examples/06_module_tools.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| Sequential and concurrent execution; race and resource limits | [07_tool_executors.py](../modules/05_building_tools/examples/07_tool_executors.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| Trusted folder loading, hot reload and review before registration | [08_tool_directory.py](../modules/05_building_tools/examples/08_tool_directory.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| Build it yourself: bounded boto3 Converse loop with toolConfig/toolUse/toolResult, then Strands equivalent | [09_manual_converse_loop.py](../modules/05_building_tools/examples/09_manual_converse_loop.py) | Yes; offline Stubber replay | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
 
 ## 06_community_tools: Community and vended tools
 
-Assistant v4 · use case: `modules/06_community_tools/use_case/travel_day_helper.py`
+Assistant v4 · [Module guide](../modules/06_community_tools/README.md) · [Use case](../modules/06_community_tools/use_case/travel_day_helper.py) · [Tests](../modules/06_community_tools/tests)
 
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
+| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| calculator, current_time, http_request and Open-Meteo; recorded offline weather | `modules/06_community_tools/examples/01_calculator_time_weather.py` | No; live weather needs internet | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
-| file_read, file_write, editor and shell with explicit consent and path restrictions | `modules/06_community_tools/examples/02_files_and_consent.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
-| Vended python_repl replacement, consent gate and BYPASS_TOOL_CONSENT explanation | `modules/06_community_tools/examples/03_python_with_consent.py` | No; execution environment capability check | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
-| retrieve, memory, think, use_llm, image_reader, journal, handoff_to_user; mix with custom tools | `modules/06_community_tools/examples/04_tool_catalog.py` | Optional; AWS tool adapters use fixtures locally | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
-| use_aws with scoped read-only role; denied write demonstration | `modules/06_community_tools/examples/05_read_only_aws.py` | Yes; recorded contract locally | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
+| Supported replacements for calculator/current_time/http_request: bounded Decimal conversion, injected clock and vended HTTP; synthetic Open-Meteo fixture | [01_calculator_time_weather.py](../modules/06_community_tools/examples/01_calculator_time_weather.py) | No; live weather needs internet | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
+| file_read, file_write, editor and shell with explicit consent and path restrictions | [02_files_and_consent.py](../modules/06_community_tools/examples/02_files_and_consent.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
+| Vended python_repl replacement, consent gate and BYPASS_TOOL_CONSENT explanation | [03_python_with_consent.py](../modules/06_community_tools/examples/03_python_with_consent.py) | No; execution environment capability check | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
+| Supported use_agent, vended notebook, image_reader and handoff_to_user; migration guide for retrieve/memory/think/use_llm/journal | [04_tool_catalog.py](../modules/06_community_tools/examples/04_tool_catalog.py) | Optional; AWS tool adapters use fixtures locally | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
+| use_aws with scoped read-only role; denied write demonstration | [05_read_only_aws.py](../modules/06_community_tools/examples/05_read_only_aws.py) | Yes; recorded contract locally | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
+
+Tier 1 integration: [Nimbus Booking Helper](../checkpoints/01_booking_helper/README.md) and [trajectory test](../checkpoints/01_booking_helper/test_booking_helper.py). See [supported tool migrations](../modules/06_community_tools/MIGRATIONS.md); deprecated names in this table identify replacements, not imports used by the lessons.
 
 ## 07_rag: Retrieval-augmented generation
 

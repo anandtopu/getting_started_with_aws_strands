@@ -1,8 +1,8 @@
 # Learning path: build the Nimbus assistant
 
-Planning edition · October 29, 2026
+Tier 1 delivered; later tiers planned · October 29, 2026
 
-Start with basic Python, terminal use, and git. You do not need prior agent or AWS knowledge. The core course is approximately 58 hours, including checkpoint practice; capstones and optional cloud/voice extensions take additional time. Lessons are planned, not yet implemented. See the [implementation plan](docs/IMPLEMENTATION_PLAN.md) and [feature map](docs/FEATURE_MAP.md).
+Start with basic Python, terminal use, and git. You do not need prior agent or AWS knowledge. The core course is approximately 58 hours, including checkpoint practice; capstones and optional cloud/voice extensions take additional time. Modules 00–06 and their checkpoint are implemented; later tiers remain planned. See the [implementation plan](docs/IMPLEMENTATION_PLAN.md) and [feature map](docs/FEATURE_MAP.md).
 
 ```mermaid
 flowchart TD
@@ -28,17 +28,17 @@ Use Ollama for the core learning route or Bedrock for hosted inference. Offline 
 
 | Module | Minutes | Ability you will demonstrate | Assistant progression |
 |---|---:|---|---|
-| 00 Setup and orientation | 90 | Explain an agent; configure an offline/local path or safe SSO and budget prerequisites | v0: prepared workspace |
-| 01 Your first agent | 60 | Run a call and inspect messages, stop reason, tokens, latency, callbacks, and async invocation | v1: FAQ responder |
-| 02 Model providers | 90 | Switch providers, implement a minimal model interface, and compare cost and quality | v1: configurable responder |
-| 03 Conversations and multimodal input | 90 | Manage a conversation window and interpret receipt images and document content | v2: trip-planning conversation |
-| 04 Structured output | 75 | Validate ticket triage and nested itineraries with Pydantic | v3: typed responses |
-| 05 Building tools | 120 | Build typed booking tools and explain toolUse/toolResult by comparing Converse with Strands | v4: booking helper |
-| 06 Community and vended tools | 75 | Combine tools while preserving consent, trusted inputs, and read-only AWS access | v4: travel-day assistance |
+| [00 Setup and orientation](modules/00_setup/README.md) | 90 | Explain an agent; configure an offline/local path or safe SSO and budget prerequisites | v0: prepared workspace |
+| [01 Your first agent](modules/01_first_agent/README.md) | 60 | Run a call and inspect messages, stop reason, tokens, latency, callbacks, and async invocation | v1: FAQ responder |
+| [02 Model providers](modules/02_model_providers/README.md) | 90 | Switch providers, implement a minimal model interface, and compare cost and quality | v1: configurable responder |
+| [03 Conversations and multimodal input](modules/03_conversations/README.md) | 90 | Manage a conversation window and interpret receipt images and document content | v2: trip-planning conversation |
+| [04 Structured output](modules/04_structured_output/README.md) | 75 | Validate ticket triage and nested itineraries with Pydantic | v3: typed responses |
+| [05 Building tools](modules/05_building_tools/README.md) | 120 | Build typed booking tools and explain toolUse/toolResult by comparing Converse with Strands | v4: booking helper |
+| [06 Community and vended tools](modules/06_community_tools/README.md) | 75 | Combine tools while preserving consent, trusted inputs, and read-only AWS access | v4: travel-day assistance |
 
 First encounters: model, token, context window, agent loop, IAM, SSO, async/await, schema, Pydantic, and tool specification. The raw `Agent()` defaults are inspected without a paid invocation; all normal runs use the configured factory.
 
-**Checkpoint: Nimbus Booking Helper.** Search flights/hotels, look up an existing booking, and produce a validated itinerary. Submit its tool trajectory and estimated token cost. Tests must reject malformed inputs and avoid changing the committed database.
+**Checkpoint: [Nimbus Booking Helper](checkpoints/01_booking_helper/README.md).** Search flights/hotels, look up an existing booking, and produce a validated itinerary. Submit its tool trajectory and estimated token cost. Tests must reject malformed inputs and avoid changing the committed database.
 
 You're ready for Tier 2 when you can explain who chooses the next tool, read a tool result, distinguish model configuration from a system prompt, validate a typed response, and switch between mock and live inference deliberately.
 

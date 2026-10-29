@@ -1,5 +1,5 @@
 {
-  "status": "planned",
+  "status": "partially_delivered",
   "checked_on": "2026-10-29",
   "modules": [
     {
@@ -13,24 +13,31 @@
         {
           "path": "modules/00_setup/examples/01_agent_or_workflow.py",
           "features": "Model-driven agents versus fixed workflows; tokens; ecosystem map (Python, TypeScript, tools, Evals, builder, Bedrock, AgentCore, MCP, A2A)",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/00_setup/examples/02_local_readiness.py",
           "features": "Python, uv, pip/venv fallback, Ollama tool-capable model and configuration checks",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/00_setup/examples/03_aws_readiness.py",
           "features": "Identity Center, CLI v2 SSO, budget-before-billing gate, region and model-access checks",
-          "aws_required": "Yes; local readiness instead"
+          "aws_required": "Yes; local readiness instead",
+          "status": "delivered"
         },
         {
           "path": "modules/00_setup/examples/04_first_call_metrics.py",
           "features": "First configured agent call and token/latency inspection",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered",
+      "guide": "modules/00_setup/README.md",
+      "tests": "modules/00_setup/tests"
     },
     {
       "slug": "01_first_agent",
@@ -43,29 +50,37 @@
         {
           "path": "modules/01_first_agent/examples/01_hello_agent.py",
           "features": "Agent defaults inspected safely; configured Agent, system_prompt and synchronous invocation",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/01_first_agent/examples/02_result_and_messages.py",
           "features": "AgentResult message, stop_reason, metrics, and agent.messages",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/01_first_agent/examples/03_callbacks.py",
           "features": "Default printing, null_callback_handler, and custom callback handler",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/01_first_agent/examples/04_async_call.py",
           "features": "Async/await primer and invoke_async",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/01_first_agent/examples/05_follow_the_loop.py",
           "features": "Agent/event loop; model decision, tool execution, continuation and stop",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered",
+      "guide": "modules/01_first_agent/README.md",
+      "tests": "modules/01_first_agent/tests"
     },
     {
       "slug": "02_model_providers",
@@ -78,34 +93,43 @@
         {
           "path": "modules/02_model_providers/examples/01_bedrock_settings.py",
           "features": "BedrockModel; model ID, region, boto3 profile/session, temperature, max tokens and inference profiles",
-          "aws_required": "Yes; other providers instead"
+          "aws_required": "Yes; other providers instead",
+          "status": "delivered"
         },
         {
           "path": "modules/02_model_providers/examples/02_provider_switch.py",
           "features": "Anthropic, OpenAI, Ollama and LiteLLM; overview of other supported providers",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/02_model_providers/examples/03_runtime_settings_and_cost.py",
           "features": "Runtime configuration changes; token usage to dated cost estimate",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/02_model_providers/examples/04_custom_model.py",
-          "features": "Build it yourself: Model interface with scripted text and tool events",
-          "aws_required": "No"
+          "features": "Build it yourself: minimal Model text stream and explicit unsupported structured output; common.testing extends it to tool events",
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/02_model_providers/examples/05_prompt_cache.py",
           "features": "CacheConfig and supported Bedrock prompt-cache settings",
-          "aws_required": "Yes; uncached local comparison"
+          "aws_required": "Yes; uncached local comparison",
+          "status": "delivered"
         },
         {
           "path": "modules/02_model_providers/examples/06_reasoning.py",
           "features": "Model-specific reasoning configuration and capability validation",
-          "aws_required": "Optional; capable local model"
+          "aws_required": "Optional; capable local model",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered",
+      "guide": "modules/02_model_providers/README.md",
+      "tests": "modules/02_model_providers/tests"
     },
     {
       "slug": "03_conversations",
@@ -118,24 +142,31 @@
         {
           "path": "modules/03_conversations/examples/01_multi_turn.py",
           "features": "Text content blocks, agent.messages, multi-turn state and role/constraints/tone/output prompts",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/03_conversations/examples/02_conversation_windows.py",
           "features": "SlidingWindowConversationManager, SummarizingConversationManager, NullConversationManager and overflow",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/03_conversations/examples/03_receipt_image.py",
           "features": "Image content blocks and vision capability checks on a synthetic receipt",
-          "aws_required": "No; vision model needed"
+          "aws_required": "No; vision model needed",
+          "status": "delivered"
         },
         {
           "path": "modules/03_conversations/examples/04_policy_document.py",
           "features": "Document blocks on supported models; local PDF text extraction with page provenance",
-          "aws_required": "Optional; local extraction"
+          "aws_required": "Optional; local extraction",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered",
+      "guide": "modules/03_conversations/README.md",
+      "tests": "modules/03_conversations/tests"
     },
     {
       "slug": "04_structured_output",
@@ -148,24 +179,31 @@
         {
           "path": "modules/04_structured_output/examples/01_typed_ticket.py",
           "features": "Pydantic primer; structured_output_model on Agent/call and result.structured_output",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/04_structured_output/examples/02_nested_itinerary.py",
           "features": "Nested schemas, enums and optional fields; extract a confirmation email",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/04_structured_output/examples/03_validation_retry.py",
           "features": "Validation failure, correction, retry limits and malformed output tests",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/04_structured_output/examples/04_structure_with_tools.py",
           "features": "Structured answers after tool use; labelled ticket accuracy and CSV export",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered",
+      "guide": "modules/04_structured_output/README.md",
+      "tests": "modules/04_structured_output/tests"
     },
     {
       "slug": "05_building_tools",
@@ -178,49 +216,61 @@
         {
           "path": "modules/05_building_tools/examples/01_typed_search.py",
           "features": "@tool; docstrings, parameter descriptions and type hints becoming tool specifications",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/05_building_tools/examples/02_results_and_errors.py",
           "features": "toolUse, toolResult, status and tool exception feedback",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/05_building_tools/examples/03_tool_context.py",
           "features": "@tool(context=True), ToolContext, private agent state and invocation state",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/05_building_tools/examples/04_async_progress.py",
           "features": "Async tools, streamed tool progress and consumption",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/05_building_tools/examples/05_resource_sharing.py",
           "features": "Class-based tools sharing a database connection; read-only queries",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/05_building_tools/examples/06_module_tools.py",
           "features": "TOOL_SPEC modules and direct agent.tool calls",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/05_building_tools/examples/07_tool_executors.py",
           "features": "Sequential and concurrent execution; race and resource limits",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/05_building_tools/examples/08_tool_directory.py",
           "features": "Trusted folder loading, hot reload and review before registration",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/05_building_tools/examples/09_manual_converse_loop.py",
           "features": "Build it yourself: bounded boto3 Converse loop with toolConfig/toolUse/toolResult, then Strands equivalent",
-          "aws_required": "Yes; offline Stubber replay"
+          "aws_required": "Yes; offline Stubber replay",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered",
+      "guide": "modules/05_building_tools/README.md",
+      "tests": "modules/05_building_tools/tests"
     },
     {
       "slug": "06_community_tools",
@@ -232,30 +282,38 @@
       "examples": [
         {
           "path": "modules/06_community_tools/examples/01_calculator_time_weather.py",
-          "features": "calculator, current_time, http_request and Open-Meteo; recorded offline weather",
-          "aws_required": "No; live weather needs internet"
+          "features": "Supported replacements for calculator/current_time/http_request: bounded Decimal conversion, injected clock and vended HTTP; synthetic Open-Meteo fixture",
+          "aws_required": "No; live weather needs internet",
+          "status": "delivered"
         },
         {
           "path": "modules/06_community_tools/examples/02_files_and_consent.py",
           "features": "file_read, file_write, editor and shell with explicit consent and path restrictions",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/06_community_tools/examples/03_python_with_consent.py",
           "features": "Vended python_repl replacement, consent gate and BYPASS_TOOL_CONSENT explanation",
-          "aws_required": "No; execution environment capability check"
+          "aws_required": "No; execution environment capability check",
+          "status": "delivered"
         },
         {
           "path": "modules/06_community_tools/examples/04_tool_catalog.py",
-          "features": "retrieve, memory, think, use_llm, image_reader, journal, handoff_to_user; mix with custom tools",
-          "aws_required": "Optional; AWS tool adapters use fixtures locally"
+          "features": "Supported use_agent, vended notebook, image_reader and handoff_to_user; migration guide for retrieve/memory/think/use_llm/journal",
+          "aws_required": "Optional; AWS tool adapters use fixtures locally",
+          "status": "delivered"
         },
         {
           "path": "modules/06_community_tools/examples/05_read_only_aws.py",
           "features": "use_aws with scoped read-only role; denied write demonstration",
-          "aws_required": "Yes; recorded contract locally"
+          "aws_required": "Yes; recorded contract locally",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered",
+      "guide": "modules/06_community_tools/README.md",
+      "tests": "modules/06_community_tools/tests"
     },
     {
       "slug": "07_rag",
@@ -907,5 +965,6 @@
         }
       ]
     }
-  ]
+  ],
+  "delivered_phase": 3
 }

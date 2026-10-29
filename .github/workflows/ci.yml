@@ -51,3 +51,4 @@ jobs:
       - run: uv sync --frozen --all-groups
       - run: uv pip check
       - run: uv run --frozen --all-groups pytest
+      - run: uv run --frozen --all-groups python scripts/check_notebooks.py

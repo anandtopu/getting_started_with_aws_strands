@@ -2,7 +2,7 @@
 
 Planning date: **October 29, 2026**. Currency: USD, before tax. Region: `us-east-1` unless the selected service says otherwise. These are workload estimates, not measured invoices or spending limits. Later phases must replace planning assumptions with the delivered example's token counts and resource inventory.
 
-The foundation's default tests, data generation and mock demo cost **$0 in cloud charges**. Ollama has no hosted-model charge; electricity, hardware and downloads still have costs. Installing Python dependencies requires network access.
+The default tests, data generation and all Tier 1 mock runs cost **$0 in cloud charges**. Ollama has no hosted-model charge; electricity, hardware and downloads still have costs. Installing Python dependencies requires network access.
 
 ## Calculate inference cost
 
@@ -29,8 +29,8 @@ The call counts below budget one pass through examples and a small exercise atte
 | 01 First agent | 10 | $0.0185 | None |
 | 02 Providers | 15 | $0.0278 | Other providers use their own prices |
 | 03 Conversations and images | 15 | $0.0278 | Image token counts vary; this is text-only |
-| 04 Structured output | 15 | $0.0278 | Validation retries included in allowance |
-| 05 Building tools | 20 | $0.0370 | Local tools free |
+| 04 Structured output | 40 | $0.0740 | Includes the 20-ticket run; repair attempts can increase usage |
+| 05 Building tools | 40 | $0.0740 | Includes tool continuations and checkpoint; local tools free |
 | 06 Community tools | 20 | $0.0370 | Optional remote APIs priced separately |
 | 07 RAG | 20 | $0.0370 | Local embeddings free; hosted embeddings extra |
 | 08 Advanced RAG | 30 | $0.0555 | Optional Knowledge Base/vector storage, reranking |
@@ -88,3 +88,9 @@ The helper paginates tagged-resource results and active tagged CloudFormation st
 7. Review AWS Billing after its usage data refreshes. Keep the budget alert until you have checked for continued charges. Log out with `aws sso logout` when finished. Do not delete a shared CDK bootstrap stack or shared identity resources without the account owner's agreement.
 
 Local `.nimbus/` contains only generated working state. Delete selected session/report directories when you no longer need them; keep committed `data/` for reproducible exercises.
+
+## Delivered Tier 1 cost controls
+
+All 37 examples and seven use cases have offline replay. Module 04 reports aggregate tokens for the 20-ticket evaluation; its three-turn per-ticket limit permits up to 60 calls if repairs are needed. Module 02 compares six prompts across three providers and reports unknown prices rather than assigning one provider's rate to another. The checkpoint bounds the conversation to seven turns. These are call budgets, not dollar caps.
+
+Direct tool demonstrations such as workspace editing and AWS Stubber discovery use no model calls. Cache and image costs cannot be predicted accurately from text length alone. No live model bills were measured. All Tier 1 modules create zero AWS resources; temporary tool files are removed automatically and reports remain under ignored `.nimbus/`.

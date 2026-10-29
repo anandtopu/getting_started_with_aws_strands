@@ -1,12 +1,428 @@
 {
-  "phase": 2,
+  "phase": 3,
   "examples": [
     {
       "path": "scripts/foundation_demo.py",
-      "mock_args": ["--mock"],
+      "mock_args": [
+        "--mock"
+      ],
       "live_args": [],
       "timeout_seconds": 150,
       "expected_stdout": "POL-REF-001"
+    },
+    {
+      "path": "modules/00_setup/examples/01_agent_or_workflow.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/00_setup/examples/02_local_readiness.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/00_setup/examples/03_aws_readiness.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/00_setup/examples/04_first_call_metrics.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/01_first_agent/examples/01_hello_agent.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/01_first_agent/examples/02_result_and_messages.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/01_first_agent/examples/03_callbacks.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/01_first_agent/examples/04_async_call.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/01_first_agent/examples/05_follow_the_loop.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/02_model_providers/examples/01_bedrock_settings.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/02_model_providers/examples/02_provider_switch.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/02_model_providers/examples/03_runtime_settings_and_cost.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/02_model_providers/examples/04_custom_model.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/02_model_providers/examples/05_prompt_cache.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/02_model_providers/examples/06_reasoning.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/03_conversations/examples/01_multi_turn.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/03_conversations/examples/02_conversation_windows.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/03_conversations/examples/03_receipt_image.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/03_conversations/examples/04_policy_document.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/04_structured_output/examples/01_typed_ticket.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/04_structured_output/examples/02_nested_itinerary.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/04_structured_output/examples/03_validation_retry.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/04_structured_output/examples/04_structure_with_tools.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/05_building_tools/examples/01_typed_search.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/05_building_tools/examples/02_results_and_errors.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/05_building_tools/examples/03_tool_context.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/05_building_tools/examples/04_async_progress.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/05_building_tools/examples/05_resource_sharing.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/05_building_tools/examples/06_module_tools.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/05_building_tools/examples/07_tool_executors.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/05_building_tools/examples/08_tool_directory.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/05_building_tools/examples/09_manual_converse_loop.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/06_community_tools/examples/01_calculator_time_weather.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/06_community_tools/examples/02_files_and_consent.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/06_community_tools/examples/03_python_with_consent.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/06_community_tools/examples/04_tool_catalog.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/06_community_tools/examples/05_read_only_aws.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 45,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/00_setup/use_case/orientation.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/01_first_agent/use_case/faq_responder.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/02_model_providers/use_case/provider_comparison.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/03_conversations/use_case/trip_chat.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/04_structured_output/use_case/ticket_triage.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/05_building_tools/use_case/booking_assistant.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/06_community_tools/use_case/travel_day_helper.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "checkpoints/01_booking_helper/solution.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "checkpoints/01_booking_helper/starter.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
     }
   ]
 }

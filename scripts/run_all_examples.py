@@ -49,20 +49,23 @@ def run_examples(*, live: bool = False) -> int:
             passed = result.returncode == 0 and (
                 live or example["expected_stdout"] in result.stdout
             )
-            print(f"{'PASS' if passed else 'FAIL'} {example['path']}")
+            print(f"{'PASS' if passed else 'FAIL'} {example['path']}", flush=True)
             if not passed:
                 # Errors from course CLIs are already sanitized; stderr may contain provider data.
                 print(
                     f"Exit code: {result.returncode}; expected output matched: "
                     f"{example['expected_stdout'] in result.stdout}"
                 )
+                if not live:
+                    print(result.stdout[-2000:])
+                    print(result.stderr[-2000:])
                 failed += 1
         except subprocess.TimeoutExpired:
             print(f"TIMEOUT {example['path']}")
             failed += 1
     print(
         f"Checked {len(manifest['examples'])} delivered examples. "
-        "Modules 00-21 arrive in later phases."
+        "Only delivered manifest entries are counted."
     )
     return int(failed > 0)
 

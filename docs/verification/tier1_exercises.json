@@ -1,0 +1,585 @@
+[
+  {
+    "module": "00_setup",
+    "exercises": [
+      {
+        "file": "01_provider.py",
+        "task": "Normalize a provider name and accept only the five supported live providers.",
+        "cases": [
+          {
+            "input": " OLLAMA ",
+            "expected": true
+          },
+          {
+            "input": "unknown",
+            "expected": false
+          },
+          {
+            "input": "",
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "02_tokens.py",
+        "task": "Calculate USD from input/output counts and per-million prices; round to six decimals.",
+        "cases": [
+          {
+            "input": {
+              "input": 2000,
+              "output": 500,
+              "input_price": 0.3,
+              "output_price": 2.5
+            },
+            "expected": 0.00185
+          },
+          {
+            "input": {
+              "input": 0,
+              "output": 0,
+              "input_price": 1,
+              "output_price": 1
+            },
+            "expected": 0.0
+          }
+        ]
+      },
+      {
+        "file": "03_readiness.py",
+        "task": "Return missing setup steps in order: profile, budget, region; Ollama requires none of these.",
+        "cases": [
+          {
+            "input": {
+              "provider": "bedrock",
+              "profile": "nimbus",
+              "region": "us-east-1"
+            },
+            "expected": [
+              "budget"
+            ]
+          },
+          {
+            "input": {
+              "provider": "bedrock"
+            },
+            "expected": [
+              "profile",
+              "budget",
+              "region"
+            ]
+          },
+          {
+            "input": {
+              "provider": "ollama"
+            },
+            "expected": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "01_first_agent",
+    "exercises": [
+      {
+        "file": "01_prompt.py",
+        "task": "Compose an explicit role, constraint, tone and output format from the supplied fields.",
+        "cases": [
+          {
+            "input": {
+              "role": "Nimbus",
+              "constraint": "Use policy only",
+              "tone": "Concise",
+              "format": "One paragraph"
+            },
+            "expected": "Role: Nimbus. Constraint: Use policy only. Tone: Concise. Format: One paragraph."
+          }
+        ]
+      },
+      {
+        "file": "02_message.py",
+        "task": "Concatenate only text content blocks from an assistant message.",
+        "cases": [
+          {
+            "input": {
+              "content": [
+                {
+                  "text": "Hello "
+                },
+                {
+                  "toolUse": {}
+                },
+                {
+                  "text": "Nimbus"
+                }
+              ]
+            },
+            "expected": "Hello Nimbus"
+          },
+          {
+            "input": {
+              "content": []
+            },
+            "expected": ""
+          }
+        ]
+      },
+      {
+        "file": "03_usage.py",
+        "task": "Sum inputTokens and outputTokens across model turns; missing counts are zero.",
+        "cases": [
+          {
+            "input": [
+              {
+                "inputTokens": 100,
+                "outputTokens": 20
+              },
+              {
+                "inputTokens": 160
+              }
+            ],
+            "expected": {
+              "inputTokens": 260,
+              "outputTokens": 20
+            }
+          },
+          {
+            "input": [],
+            "expected": {
+              "inputTokens": 0,
+              "outputTokens": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "02_model_providers",
+    "exercises": [
+      {
+        "file": "01_model_id.py",
+        "task": "Use a nonempty explicit MODEL_ID; otherwise select the provider-specific ID.",
+        "cases": [
+          {
+            "input": {
+              "MODEL_PROVIDER": "ollama",
+              "MODEL_ID": "",
+              "OLLAMA_MODEL_ID": "local"
+            },
+            "expected": "local"
+          },
+          {
+            "input": {
+              "MODEL_PROVIDER": "bedrock",
+              "MODEL_ID": "chosen",
+              "BEDROCK_MODEL_ID": "default"
+            },
+            "expected": "chosen"
+          }
+        ]
+      },
+      {
+        "file": "02_price.py",
+        "task": "Return None for unpriced hosted inference and zero for Ollama/mock.",
+        "cases": [
+          {
+            "input": {
+              "provider": "bedrock"
+            },
+            "expected": null
+          },
+          {
+            "input": {
+              "provider": "ollama"
+            },
+            "expected": 0.0
+          },
+          {
+            "input": {
+              "provider": "openai",
+              "known_cost": 0.01
+            },
+            "expected": 0.01
+          }
+        ]
+      },
+      {
+        "file": "03_capability.py",
+        "task": "Enable the Nova low-effort settings only when the model ID contains nova-2-lite.",
+        "cases": [
+          {
+            "input": "us.amazon.nova-2-lite-v1:0",
+            "expected": {
+              "reasoningConfig": {
+                "type": "enabled",
+                "maxReasoningEffort": "low"
+              }
+            }
+          },
+          {
+            "input": "unrelated-model",
+            "expected": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "03_conversations",
+    "exercises": [
+      {
+        "file": "01_window.py",
+        "task": "Keep the last two complete text-only user/assistant pairs. This exercise excludes tool messages.",
+        "cases": [
+          {
+            "input": [
+              "u1",
+              "a1",
+              "u2",
+              "a2",
+              "u3",
+              "a3"
+            ],
+            "expected": [
+              "u2",
+              "a2",
+              "u3",
+              "a3"
+            ]
+          },
+          {
+            "input": [
+              "u1",
+              "a1"
+            ],
+            "expected": [
+              "u1",
+              "a1"
+            ]
+          }
+        ]
+      },
+      {
+        "file": "02_pages.py",
+        "task": "Attach one-based page provenance to each extracted PDF page.",
+        "cases": [
+          {
+            "input": [
+              "Policy A",
+              "Policy B"
+            ],
+            "expected": "[Page 1] Policy A\n[Page 2] Policy B"
+          },
+          {
+            "input": [],
+            "expected": ""
+          }
+        ]
+      },
+      {
+        "file": "03_content.py",
+        "task": "Convert a list of traveler strings into SDK text content blocks.",
+        "cases": [
+          {
+            "input": [
+              "Lisbon",
+              "Budget 600"
+            ],
+            "expected": [
+              {
+                "text": "Lisbon"
+              },
+              {
+                "text": "Budget 600"
+              }
+            ]
+          },
+          {
+            "input": [],
+            "expected": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "04_structured_output",
+    "exercises": [
+      {
+        "file": "01_ticket.py",
+        "task": "Validate a ticket with the real TicketTriage schema and return whether it is valid.",
+        "cases": [
+          {
+            "input": {
+              "category": "refund",
+              "urgency": "normal",
+              "summary": "Refund needed"
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "category": "unknown",
+              "urgency": "now",
+              "summary": "x"
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "02_itinerary.py",
+        "task": "Validate nested flight legs and their total with the Itinerary schema.",
+        "cases": [
+          {
+            "input": {
+              "traveler": "Demo",
+              "legs": [
+                {
+                  "flight_id": "FLT-0001",
+                  "destination": "Lisbon",
+                  "price_cents": 100
+                }
+              ],
+              "total_cents": 100
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "traveler": "Demo",
+              "legs": [
+                {
+                  "flight_id": "FLT-0001",
+                  "destination": "Lisbon",
+                  "price_cents": 100
+                }
+              ],
+              "total_cents": 200
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_score.py",
+        "task": "Return exact-match accuracy over category AND urgency; empty input scores zero.",
+        "cases": [
+          {
+            "input": [
+              {
+                "prediction": {
+                  "category": "refund",
+                  "urgency": "normal"
+                },
+                "expected": {
+                  "category": "refund",
+                  "urgency": "high"
+                }
+              },
+              {
+                "prediction": {
+                  "category": "change",
+                  "urgency": "normal"
+                },
+                "expected": {
+                  "category": "change",
+                  "urgency": "normal"
+                }
+              }
+            ],
+            "expected": 0.5
+          },
+          {
+            "input": [],
+            "expected": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "05_building_tools",
+    "exercises": [
+      {
+        "file": "01_search.py",
+        "task": "Filter supplied flights by case-insensitive destination and maximum USD price; return their IDs.",
+        "cases": [
+          {
+            "input": {
+              "destination": "lisbon",
+              "budget": 100,
+              "flights": [
+                {
+                  "id": "A",
+                  "destination": "Lisbon",
+                  "price": 100
+                },
+                {
+                  "id": "B",
+                  "destination": "Paris",
+                  "price": 90
+                },
+                {
+                  "id": "C",
+                  "destination": "Lisbon",
+                  "price": 101
+                }
+              ]
+            },
+            "expected": [
+              "A"
+            ]
+          }
+        ]
+      },
+      {
+        "file": "02_identity.py",
+        "task": "Authorize a booking only when a trusted, nonempty customer ID matches the owner.",
+        "cases": [
+          {
+            "input": {
+              "customer_id": "CUS-001",
+              "owner_id": "CUS-001"
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "customer_id": "CUS-001",
+              "owner_id": "CUS-002"
+            },
+            "expected": false
+          },
+          {
+            "input": {},
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_seats.py",
+        "task": "Allow one through nine travelers only when enough seats remain.",
+        "cases": [
+          {
+            "input": {
+              "travelers": 2,
+              "seats": 2
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "travelers": 3,
+              "seats": 2
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "travelers": 0,
+              "seats": 20
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "travelers": 10,
+              "seats": 20
+            },
+            "expected": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "06_community_tools",
+    "exercises": [
+      {
+        "file": "01_budget.py",
+        "task": "Use the checked convert_budget tool and return its displayed conversion.",
+        "cases": [
+          {
+            "input": {
+              "amount": "100",
+              "rate": ".92"
+            },
+            "expected": "EUR 92.00; assumed rate, not a live quote"
+          },
+          {
+            "input": {
+              "amount": "150",
+              "rate": ".92"
+            },
+            "expected": "EUR 138.00; assumed rate, not a live quote"
+          }
+        ]
+      },
+      {
+        "file": "02_allow_list.py",
+        "task": "Approve only an exact GET to WEATHER_URL; reject writes and alternate URLs.",
+        "cases": [
+          {
+            "input": {
+              "method": "GET",
+              "url": "https://example.com"
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "method": "POST",
+              "url": "https://api.open-meteo.com"
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "method": "GET",
+              "url": "https://api.open-meteo.com/v1/forecast?latitude=38.72&longitude=-9.14&current=temperature_2m,precipitation&timezone=UTC"
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "method": "POST",
+              "url": "https://api.open-meteo.com/v1/forecast?latitude=38.72&longitude=-9.14&current=temperature_2m,precipitation&timezone=UTC"
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "method": "GET",
+              "url": "https://api.open-meteo.com/v1/forecast?latitude=38.72&longitude=-9.14&current=temperature_2m,precipitation&timezone=UTC&extra=1"
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_consent.py",
+        "task": "Accept only an explicit case-insensitive yes after stripping whitespace; missing input denies.",
+        "cases": [
+          {
+            "input": " YES ",
+            "expected": true
+          },
+          {
+            "input": "no",
+            "expected": false
+          },
+          {
+            "input": "",
+            "expected": false
+          },
+          {
+            "input": null,
+            "expected": false
+          }
+        ]
+      }
+    ]
+  }
+]

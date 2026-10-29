@@ -196,4 +196,39 @@ The generator writes UTF-8/LF text so Git normalization does not invalidate fixt
 
 No real model calls, AWS resource creation, deployment or cleanup against an account were performed. Ollama model quality, live provider compatibility, SSO permissions, actual costs and cloud cleanup remain unverified. The GitHub workflow definitions target Ubuntu/Windows with Python 3.12 and 3.13, plus a macOS core check, but remote CI has not run and the repository has not been published. Dependency resolution does not prove every optional package's behavior; each later integration needs its own API and behavioral tests.
 
-Modules 00–21, notebooks, exercises/solutions, checkpoints, infrastructure, bonus modules and capstones remain future-phase deliverables. Planned feature-map paths are deliberately not links to nonexistent files. Phase 3 will implement Tier 1, modules 00–06; the later whole-course definition of done is not yet satisfied.
+At the end of Phase 2, all modules remained future deliverables. The Phase 3 record below supersedes that delivery status; the whole-course definition of done remains open.
+
+## Phase 3 Tier 1 verification — October 29, 2026
+
+Modules 00–06 and the Booking Helper checkpoint are delivered. The dependency pins remain unchanged from Phase 2. The real SDK agent loop executes against scripted model events; network guards block external calls in tests, notebook replay and the script sweep. No AWS resources or hosted inference calls were made.
+
+### API evidence and changes
+
+- Checked `Agent` limits, `retry_strategy=None`, callback handlers, async invocation, all three conversation managers, `ToolContext`, async-generator progress, class/module tools, executors and reviewed directory reload against installed 1.62.0 source and executed examples. Direct `agent.tool` calls cross a thread boundary: the class-sharing lesson uses a serialized read-only SQLite connection, with a regression test.
+- Structured output uses `structured_output_model` and `result.structured_output`. Tests cover invalid output repair, exhausted turn budgets, nested totals, inventory mismatch and held-out scoring.
+- `CacheConfig(strategy="auto")` recognizes Anthropic model IDs in this pin; it does not automatically add Nova checkpoints. The Nova example uses explicit `cachePoint` blocks. [Bedrock caching](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html) and [SDK caching](https://strandsagents.com/docs/user-guide/sdk/model-providers/amazon-bedrock-prompt-caching/) document provider-specific behavior. No real cache hit or savings is claimed.
+- Nova low-effort reasoning is passed through `additional_request_fields` using `reasoningConfig`. High effort is excluded because it changes permitted token/temperature settings and can substantially increase output. Checked against [Nova reasoning](https://docs.aws.amazon.com/nova/latest/nova2-userguide/extended-thinking.html).
+- Tools 0.8.10 deprecates more community integrations than the initial plan identified, including calculator, current_time, HTTP, shell, editor, think and journal. [The migration table](../modules/06_community_tools/MIGRATIONS.md) records all replacements. Executed lessons use the current vended factories and supported community tools; no legacy replacement is called merely to satisfy the older requested name.
+- Vended shell, editor and Python tools are bound to a tiny `Sandbox` implementation with two exact operations, bounded paths and explicit consent. This is an educational backend, not general arbitrary-code isolation. HTTP access is constrained below the model to one exact Open-Meteo GET.
+- `use_agent` inherits the configured parent model; vended `notebook` replaces journal. Deprecated Knowledge Base retrieve/memory wrappers are explained as migration context here, with full retrieval/memory implementations deferred to Tier 2.
+
+### Verification limits
+
+Mock answers check tool trajectories and application contracts; they do not establish model quality, vision accuracy, cache savings or live weather. Ollama downloads/inference, hosted provider calls, SSO and scoped role permissions remain untested here. Windows local execution is recorded below; the defined Ubuntu/Windows/macOS GitHub jobs remain unrun until publication. No CDK apps exist yet, so synthesis discovery reports zero apps rather than success.
+
+### Observed Phase 3 checks
+
+| Check | Observed result |
+|---|---|
+| Default `uv sync --frozen` then `uv run --frozen pytest`, Windows Python 3.12.13 | 142 passed; 3 optional-provider constructor tests skipped |
+| Default groups, Windows Python 3.13.13 | 142 passed; same 3 optional checks skipped |
+| Offline script sweep, Python 3.12 | All 47 entries passed: foundation + 37 examples + 7 use cases + checkpoint starter/solution |
+| Exercise entry points and acceptance cases | All 21 starters run; all 21 reference solutions pass their cases, including allowed/denied requests |
+| Actual Jupyter execution | All 7 notebooks executed top-to-bottom, with outputs saved only under ignored `.nimbus/`; committed notebooks have no outputs |
+| Ruff lint and formatting | Passed across the delivered Python files and notebooks |
+| `pre-commit run --all-files` | All hooks passed after notebook cell IDs were normalized; no saved outputs |
+| Lock consistency / installed dependencies | 307 locked packages; 110 compatible default installed distributions |
+| Local and public documentation links | 535 checked, zero failures |
+| CDK discovery | Zero delivered apps; no deployment or synthesis success claimed |
+
+The temporary notebook group was removed by the final default sync. Learners can reinstall it with `uv sync --group notebooks`. Notebook execution uses a kernel bound to the calling Python interpreter. Module tests inherit the repository-level offline fixture, so moving outside `tests/` does not bypass credential isolation or the external-network guard.

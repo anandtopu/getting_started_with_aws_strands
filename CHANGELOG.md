@@ -1,5 +1,13 @@
 # Changelog
 
+## Phase 3 — 2026-10-29
+
+- Deliver modules 00–06, 37 examples, seven use cases, 21 exercises and reference solutions, seven notebooks and quizzes.
+- Add the Nimbus Booking Helper checkpoint with read-only tools, trusted customer scope, structured itineraries and inventory verification.
+- Replace deprecated community tools with verified supported integrations; test consent refusal and constrained execution.
+- Extend offline tests and CI to delivered module tests and notebook execution.
+
+
 ## 0.2.0 — 2026-10-29
 
 - Added the foundation configuration, dependency groups and resolved uv lockfile.

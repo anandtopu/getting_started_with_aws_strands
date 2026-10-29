@@ -53,7 +53,7 @@ default-groups = ["dev"]
 packages = ["common", "scripts"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests", "modules", "checkpoints"]
 addopts = "-ra"
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
@@ -74,3 +74,4 @@ select = ["E", "F", "I", "UP", "B"]
 
 [tool.ruff.lint.per-file-ignores]
 "scripts/build_data.py" = ["E501"]
+"*.ipynb" = ["E402", "F811", "F401"] # Each cell mirrors an independently runnable script.
