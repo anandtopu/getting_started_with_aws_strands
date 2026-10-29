@@ -1,5 +1,5 @@
 {
-  "phase": 3,
+  "phase": 4,
   "examples": [
     {
       "path": "scripts/foundation_demo.py",
@@ -417,6 +417,245 @@
     },
     {
       "path": "checkpoints/01_booking_helper/starter.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "checkpoints/02_policy_preferences/solution.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "rank_bm25"
+      ],
+      "install_hint": "--group rag"
+    },
+    {
+      "path": "checkpoints/02_policy_preferences/starter.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/07_rag/examples/01_load_and_chunk.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/07_rag/examples/02_embeddings_by_hand.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "matplotlib"
+      ],
+      "install_hint": "--group rag"
+    },
+    {
+      "path": "modules/07_rag/examples/03_local_index.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "chromadb"
+      ],
+      "install_hint": "--group rag"
+    },
+    {
+      "path": "modules/07_rag/examples/04_cited_search.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/07_rag/examples/05_knowledge_base.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/07_rag/examples/06_bedrock_embeddings.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/07_rag/use_case/ask_nimbus.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "chromadb"
+      ],
+      "install_hint": "--group rag"
+    },
+    {
+      "path": "modules/08_advanced_rag/examples/01_query_rewriting.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/08_advanced_rag/examples/02_hybrid_search.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "rank_bm25"
+      ],
+      "install_hint": "--group rag"
+    },
+    {
+      "path": "modules/08_advanced_rag/examples/03_reranking.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/08_advanced_rag/examples/04_filters_multihop.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/08_advanced_rag/examples/05_evaluate_retrieval.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "rank_bm25"
+      ],
+      "install_hint": "--group rag"
+    },
+    {
+      "path": "modules/08_advanced_rag/examples/06_failure_gallery.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/08_advanced_rag/use_case/retrieval_comparison.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "rank_bm25"
+      ],
+      "install_hint": "--group rag"
+    },
+    {
+      "path": "modules/09_memory/examples/01_state_and_messages.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/09_memory/examples/02_file_sessions.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/09_memory/examples/03_s3_sessions.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/09_memory/examples/04_local_preferences.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/09_memory/examples/05_agentcore_memory.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/09_memory/examples/06_mem0_store.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "mem0_strands"
+      ],
+      "install_hint": "--group memory"
+    },
+    {
+      "path": "modules/09_memory/use_case/preferences_assistant.py",
       "mock_args": [
         "--mock"
       ],

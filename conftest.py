@@ -11,6 +11,7 @@ os.environ["AWS_EC2_METADATA_DISABLED"] = "true"
 os.environ["OTEL_SDK_DISABLED"] = "true"
 os.environ["LITELLM_LOCAL_MODEL_COST_MAP"] = "True"
 os.environ["ANONYMIZED_TELEMETRY"] = "False"
+os.environ["MEM0_TELEMETRY"] = "false"
 
 
 def pytest_addoption(parser: pytest.Parser) -> None:

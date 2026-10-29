@@ -1,5 +1,8 @@
 PLANNED FINAL TREE — Phase 1, October 29, 2026
-This is a design inventory. Most files do not exist until their delivery phase.
+This is the planned final inventory. Phase 4 delivers modules 00–09 and two checkpoints; later tiers remain planned.
+Current optional apps: infra/07_knowledge_base, infra/09_sessions, infra/09_memory (shared lifecycle guide: infra/README.md).
+Current checkpoints: checkpoints/01_booking_helper, checkpoints/02_policy_preferences.
+See FEATURE_MAP.md for links to delivered files; historical planned names below can differ.
 Every module expands to concrete examples, use case, exercises, solutions, notebook, quiz and tests.
 getting_started_with_aws_strands/
 ├── .github/

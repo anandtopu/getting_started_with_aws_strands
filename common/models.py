@@ -9,6 +9,52 @@ from strands.models import Model
 from common.config import CourseError, Settings, load_settings
 
 
+def get_embeddings(*, mock: bool):
+    from common.config import course_value
+    from common.retrieval import Embeddings
+
+    cfg = load_settings()
+    return Embeddings(
+        mock=mock, host=cfg.ollama_host, model_id=course_value("OLLAMA_EMBEDDING_MODEL_ID")
+    )
+
+
+def mem0_local_config(directory) -> dict:
+    """Mem0 owns its adapters; explicitly choose local models through this shared helper."""
+    from common.config import course_value
+
+    cfg = load_settings(provider="ollama")
+    dimensions = len(get_embeddings(mock=False)(["Nimbus preference"])[0])
+    return {
+        "llm": {
+            "provider": "ollama",
+            "config": {
+                "model": cfg.model_id,
+                "ollama_base_url": cfg.ollama_host,
+                "temperature": 0,
+                "max_tokens": 512,
+            },
+        },
+        "embedder": {
+            "provider": "ollama",
+            "config": {
+                "model": course_value("OLLAMA_EMBEDDING_MODEL_ID"),
+                "ollama_base_url": cfg.ollama_host,
+                "embedding_dims": dimensions,
+            },
+        },
+        "vector_store": {
+            "provider": "qdrant",
+            "config": {
+                "path": str(directory / "vectors"),
+                "collection_name": "nimbus_preferences",
+                "embedding_model_dims": dimensions,
+            },
+        },
+        "history_db_path": str(directory / "history.db"),
+    }
+
+
 def get_model(
     settings: Settings | None = None,
     *,

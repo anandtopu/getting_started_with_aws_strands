@@ -232,3 +232,47 @@ Mock answers check tool trajectories and application contracts; they do not esta
 | CDK discovery | Zero delivered apps; no deployment or synthesis success claimed |
 
 The temporary notebook group was removed by the final default sync. Learners can reinstall it with `uv sync --group notebooks`. Notebook execution uses a kernel bound to the calling Python interpreter. Module tests inherit the repository-level offline fixture, so moving outside `tests/` does not bypass credential isolation or the external-network guard.
+
+## Phase 4 Tier 2 verification — October 29, 2026
+
+Modules 07–09, the Policy & Preferences checkpoint, and three optional AWS lab apps are delivered. The cumulative course has 55 examples, ten use cases, 30 exercise pairs and ten notebooks. Phases 5–8 remain pending. No AWS resources were deployed and no live model inference was performed.
+
+### Version and API evidence
+
+The existing frozen lock retains Strands 1.62.0, tools 0.8.10, Chroma 1.5.9, rank-bm25 0.2.2, mem0ai 2.2.1, mem0-strands 0.1.1, bedrock-agentcore 1.25.1 and aws-cdk-lib 2.275.0. The infrastructure npm lock pins aws-cdk CLI 2.1146.1. No experimental API or warning suppression was introduced.
+
+- [Ollama embeddings](https://docs.ollama.com/capabilities/embeddings): live local retrieval uses `Client.embed`, `embeddinggemma`, explicit input lists and `truncate=False`. The same embedding identity is stored with the Chroma collection. Offline SHA-based lexical vectors are explicitly fixtures, not semantic embeddings.
+- [Chroma collection configuration](https://docs.trychroma.com/docs/collections/configure): `PersistentClient`, explicit supplied embeddings with `embedding_function=None`, cosine configuration and metadata filters were checked against the installed client and real persisted-index tests. The embedding visualization was rendered and visually checked.
+- [Titan embeddings](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-embed-text.html): `amazon.titan-embed-text-v2:0` uses `InvokeModel` with 256 dimensions in this lab. Converse does not supply this embedding operation. The response body is validated with an actual botocore Stubber contract.
+- [Bedrock reranking support](https://docs.aws.amazon.com/bedrock/latest/userguide/rerank-supported.html): the configurable default is `cohere.rerank-v3-5:0`; Amazon Rerank 1 is not assumed available in us-east-1. The example has an explicit local overlap heuristic and a separately identified AWS branch.
+- [Strands memory](https://strandsagents.com/docs/user-guide/sdk/memory/overview/): `BedrockKnowledgeBaseStore` replaces the deprecated retrieve tool. Its test supplies an explicit VECTOR type, a topic filter and exact Retrieve request/response shapes. `MemoryManager` provides the current store interface; FileSessionManager and S3SessionManager provide session persistence. The latter completed a real SDK round trip against moto.
+- [Mem0 Strands integration](https://docs.mem0.ai/integrations/strands): `Mem0MemoryStore` and `Mem0ServiceClient` replace `mem0_memory`. Tests execute the real adapter with an explicitly identified scoped backend double. Live OSS configuration selects Ollama and local Qdrant, discovers embedding dimensions, disables telemetry, closes the history database and vector client, and removes the disposable directory. The live OSS branch was not run. `delete_all` alone does not prove erasure of Mem0 history or backups.
+- AgentCore compatibility change: the pinned package and [upstream session integration](https://raw.githubusercontent.com/aws/bedrock-agentcore-sdk-python/main/src/bedrock_agentcore/memory/integrations/strands/session_manager.py) still import deprecated bidi and multi-agent hook aliases. Instead of weakening the deprecation gate, this course uses a small read-only `MemoryStore` with the stable [RetrieveMemoryRecords API](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_RetrieveMemoryRecords.html) and Strands `MemoryManager`. It is course-owned integration code, not an AWS-provided session adapter. Exact service schemas, namespace filtering, bounded recall and error propagation are tested. It neither writes events nor activates automatic extraction.
+- The CDK labs use S3 Vectors with a matching Titan dimension, private encrypted S3 sessions, and AgentCore Memory with a preference strategy. Explicit action lists, resource scopes and trust conditions are checked in synthesized templates. Resource lifecycle commands require a known stack name, matching project tag, and explicit mutation flags. Cleanup tests preserve an unrelated bucket. Live IAM propagation, service availability, ingestion and deletion remain unverified.
+
+### Evaluation evidence and limitations
+
+The [committed retrieval report](verification/tier2_retrieval_report.json) records source hit rate at three results: **11/11 lexical and 11/11 hybrid** on answerable questions. The unsupported visa question is excluded from that retrieval denominator and retained in answer evaluation. This is an observed tie using lexical fixture embeddings, not evidence of semantic improvement. Tests verify that changing golden labels does not change retrieved IDs.
+
+The optional answer-evaluation command executed all 12 prediction/judge pairs. Predictions are produced without golden labels; only the separate judge receives the reference. Its offline judgments are intentionally scripted negatives and cannot establish faithfulness or correctness. The report labels them accordingly. Citation tests reject fabricated quotations and invalid provenance, and empty evidence produces abstention; exact quote matching does not by itself prove that an answer follows from the quoted text. The checkpoint preserves another user's preferences while deleting the selected user's registered active data. Copies held by a running agent, operating-system snapshots, exported reports and backups require separate retention handling.
+
+Costs use dated workloads in the [lab guide](../infra/README.md), including October 2026 AgentCore consumption-based memory pricing and OpenSearch Serverless NextGen scale-to-zero behavior. No universal cheapest vector store or measured cloud bill is claimed. Live Ollama quality, managed extraction, cloud deployment/cleanup and remote Ubuntu/Windows/macOS CI remain untested.
+
+### Observed Phase 4 checks
+
+| Check | Observed result |
+|---|---|
+| Default frozen sync then pytest, Windows Python 3.12.13 | 199 passed; 8 explicitly optional checks skipped; no Strands deprecation warnings |
+| Default groups, Windows Python 3.13.13 | 199 passed; same 8 optional skips |
+| Python 3.12 with rag, memory, aws and notebooks groups | 205 passed; 2 unrelated optional-provider checks skipped; no Strands deprecation warnings |
+| Offline script sweep with Tier 2 dependencies | All 70 entries passed; changed AgentCore CLI rechecked after the compatibility swap |
+| Offline script sweep after default sync | 62 entries passed; 8 optional entries explicitly skipped |
+| Actual Jupyter execution | All ten notebooks passed; changed memory notebook rerun successfully; committed outputs remain cleared |
+| Exercise entry points and acceptance cases | All 30 starters run; all 30 reference solutions pass their acceptance cases |
+| Optional full answer-evaluation command | All 12 prediction/judge records produced in offline mode; no live quality conclusion |
+| Actual CDK CLI synthesis | All three apps synthesized after the final memory policy change; no lookups, bootstrap or deployment |
+| Ruff lint and formatting | Passed for delivered Python and notebooks |
+| `pre-commit run --all-files` | All hooks passed, including cleared notebooks and IAM/sample configuration checks |
+| Documentation links | 688 local/public links checked with zero failures |
+
+Default sync restores the small 110-distribution environment. Optional-group skips are reported explicitly and do not count as successes. The optional CI job installs all groups, synthesizes every app and uses `--require-all` for the script sweep; those remote jobs have not yet run.

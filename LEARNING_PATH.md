@@ -1,8 +1,8 @@
 # Learning path: build the Nimbus assistant
 
-Tier 1 delivered; later tiers planned · October 29, 2026
+Tiers 1–2 delivered; later tiers planned · October 29, 2026
 
-Start with basic Python, terminal use, and git. You do not need prior agent or AWS knowledge. The core course is approximately 58 hours, including checkpoint practice; capstones and optional cloud/voice extensions take additional time. Modules 00–06 and their checkpoint are implemented; later tiers remain planned. See the [implementation plan](docs/IMPLEMENTATION_PLAN.md) and [feature map](docs/FEATURE_MAP.md).
+Start with basic Python, terminal use, and git. You do not need prior agent or AWS knowledge. The core course is approximately 58 hours, including checkpoint practice; capstones and optional cloud/voice extensions take additional time. Modules 00–09 and their two checkpoints are implemented; later tiers remain planned. See the [implementation plan](docs/IMPLEMENTATION_PLAN.md) and [feature map](docs/FEATURE_MAP.md).
 
 ```mermaid
 flowchart TD
@@ -46,17 +46,17 @@ You're ready for Tier 2 when you can explain who chooses the next tool, read a t
 
 | Module | Minutes | Ability you will demonstrate | Assistant progression |
 |---|---:|---|---|
-| 07 Retrieval-augmented generation | 210 | Chunk policies, calculate cosine similarity, index embeddings, and cite source files/pages | v5: Ask Nimbus |
-| 08 Advanced retrieval and evaluation | 180 | Compare hybrid search, query rewriting, reranking, and grounded answers on held-out questions | v5: measured retrieval improvements |
-| 09 Memory, state, and sessions | 210 | Resume a conversation, isolate travelers' preferences, and delete stored memory | v6: persistent preferences |
+| [07 Retrieval-augmented generation](modules/07_rag/README.md) | 210 | Chunk policies, calculate cosine similarity, index embeddings, and cite source files/pages | v5: Ask Nimbus |
+| [08 Advanced retrieval and evaluation](modules/08_advanced_rag/README.md) | 180 | Compare hybrid search, query rewriting, reranking, and grounded answers on held-out questions | v5: measured retrieval comparison |
+| [09 Memory, state, and sessions](modules/09_memory/README.md) | 210 | Resume a conversation, isolate travelers' preferences, and delete stored memory | v6: persistent preferences |
 
 First encounters: embedding, vector, cosine similarity, BM25, retrieval hit rate, faithfulness, evaluation set, and retention. A simple judge is explained here; the full Strands Evals suite comes in 19.
 
-**Checkpoint: Policy & Preferences Assistant.** Answer policy questions with checkable citations, remember a synthetic traveler's preferences, and return an honest “not found” for unsupported claims. Submit before/after retrieval results and a user-deletion test.
+**Checkpoint: [Policy & Preferences Assistant](checkpoints/02_policy_preferences/README.md).** Answer policy questions with checkable citations, remember a synthetic traveler's preferences, and return an honest “not found” for unsupported claims. Submit before/after retrieval results and a user-deletion test.
 
 You're ready for Tier 3 when you can trace an answer back to its source, distinguish session history from private application state and long-term memory, explain why a high retrieval score does not prove answer correctness, and prevent memory from crossing user boundaries.
 
-Optional AWS branches: Knowledge Base with S3 Vectors; S3 session storage; AgentCore Memory. Each branch has its own cost and teardown steps. They can be deferred until Tier 5.
+Optional AWS branches: Knowledge Base with S3 Vectors; S3 session storage; AgentCore Memory. The [lab guide](infra/README.md) includes resource inventories, cost estimates and teardown steps for each branch. They can be deferred until Tier 5.
 
 ## Tier 3 — Controlling behavior · 12 hours
 

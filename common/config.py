@@ -11,6 +11,16 @@ ROOT = Path(__file__).resolve().parents[1]
 Provider = Literal["bedrock", "anthropic", "openai", "ollama", "litellm", "mock"]
 
 
+def course_value(name: str) -> str:
+    """Read a non-secret optional lesson setting using the same explicit precedence."""
+    values = {
+        **dotenv_values(ROOT / ".env.example", interpolate=False),
+        **dotenv_values(ROOT / ".env", interpolate=False),
+        **os.environ,
+    }
+    return values.get(name) or ""
+
+
 class CourseError(RuntimeError):
     """A recoverable setup problem suitable for a beginner-facing message."""
 

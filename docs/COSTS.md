@@ -94,3 +94,11 @@ Local `.nimbus/` contains only generated working state. Delete selected session/
 All 37 examples and seven use cases have offline replay. Module 04 reports aggregate tokens for the 20-ticket evaluation; its three-turn per-ticket limit permits up to 60 calls if repairs are needed. Module 02 compares six prompts across three providers and reports unknown prices rather than assigning one provider's rate to another. The checkpoint bounds the conversation to seven turns. These are call budgets, not dollar caps.
 
 Direct tool demonstrations such as workspace editing and AWS Stubber discovery use no model calls. Cache and image costs cannot be predicted accurately from text length alone. No live model bills were measured. All Tier 1 modules create zero AWS resources; temporary tool files are removed automatically and reports remain under ignored `.nimbus/`.
+
+## Delivered Tier 2 cost controls
+
+All 18 new examples, three use cases and the checkpoint have offline replay. Local Chroma, SQLite and file sessions create no AWS resources. Live local retrieval requires an Ollama embedding-model download. The optional `--judge-answers` comparison generates and judges 12 answers: at most 72 model turns (four for each answer, two for each judge), with actual token charges determined by the configured provider. Retrieval scores alone make no chat-model calls; live Ollama embeddings use local compute.
+
+The [optional lab inventory and estimates](../infra/README.md#dated-cost-assumptions-october-29-2026) cover S3 Vectors/Knowledge Bases, S3 sessions and AgentCore Memory, with explicit small-workload assumptions. They incorporate the October 2026 AgentCore consumption-based memory pricing change and avoid claiming that any vector store is universally cheapest. Reranking has a separate Bedrock charge; removing `--mock` from the reranking example opts into that AWS operation. No paid usage was measured.
+
+Use the [tag-checked teardown helper](../scripts/tier2_lab.py) and [service-specific leftover checks](../infra/README.md#tear-down-and-verify) for these labs. Inspect is the default action; deletion requires both execution and exact-stack confirmation flags. Cloud cleanup has offline tests but has not been exercised against an AWS account.

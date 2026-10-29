@@ -17,7 +17,11 @@ def load_exercise(slug: str, folder: str, filename: str):
 
 
 def exercise_cases(slug: str) -> list[tuple]:
-    data = json.loads((ROOT / "docs/verification/tier1_exercises.json").read_text(encoding="utf-8"))
+    data = [
+        row
+        for path in sorted((ROOT / "docs/verification").glob("tier*_exercises.json"))
+        for row in json.loads(path.read_text(encoding="utf-8"))
+    ]
     record = next(row for row in data if row["module"] == slug)
     return [
         (exercise["file"], case["input"], case["expected"])

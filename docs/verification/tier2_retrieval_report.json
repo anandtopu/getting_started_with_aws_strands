@@ -1,0 +1,174 @@
+{
+  "mode": "hashed lexical fixture",
+  "k": 3,
+  "answer_quality_measured": false,
+  "rows": [
+    {
+      "id": "QA-01",
+      "baseline_hit": true,
+      "hybrid_hit": true,
+      "baseline_ids": [
+        "4006d54b9b6f185fa9de",
+        "821abc75697a264d432e",
+        "1de21cc14e3e9bded331"
+      ],
+      "hybrid_ids": [
+        "4006d54b9b6f185fa9de",
+        "821abc75697a264d432e",
+        "1de21cc14e3e9bded331"
+      ]
+    },
+    {
+      "id": "QA-02",
+      "baseline_hit": true,
+      "hybrid_hit": true,
+      "baseline_ids": [
+        "26eb5993b584144b58bc",
+        "a675c57acc8fc22ec292",
+        "4006d54b9b6f185fa9de"
+      ],
+      "hybrid_ids": [
+        "26eb5993b584144b58bc",
+        "33849ffb8cf121a38d0e",
+        "a675c57acc8fc22ec292"
+      ]
+    },
+    {
+      "id": "QA-03",
+      "baseline_hit": true,
+      "hybrid_hit": true,
+      "baseline_ids": [
+        "821abc75697a264d432e",
+        "1de21cc14e3e9bded331",
+        "26eb5993b584144b58bc"
+      ],
+      "hybrid_ids": [
+        "821abc75697a264d432e",
+        "1de21cc14e3e9bded331",
+        "a675c57acc8fc22ec292"
+      ]
+    },
+    {
+      "id": "QA-04",
+      "baseline_hit": true,
+      "hybrid_hit": true,
+      "baseline_ids": [
+        "821abc75697a264d432e",
+        "26eb5993b584144b58bc",
+        "574260bbdf523e153c84"
+      ],
+      "hybrid_ids": [
+        "821abc75697a264d432e",
+        "574260bbdf523e153c84",
+        "26eb5993b584144b58bc"
+      ]
+    },
+    {
+      "id": "QA-05",
+      "baseline_hit": true,
+      "hybrid_hit": true,
+      "baseline_ids": [
+        "1de21cc14e3e9bded331",
+        "26eb5993b584144b58bc",
+        "484217dbf54c0ea9092d"
+      ],
+      "hybrid_ids": [
+        "1de21cc14e3e9bded331",
+        "a675c57acc8fc22ec292",
+        "484217dbf54c0ea9092d"
+      ]
+    },
+    {
+      "id": "QA-06",
+      "baseline_hit": true,
+      "hybrid_hit": true,
+      "baseline_ids": [
+        "484217dbf54c0ea9092d",
+        "cca2b548e37111c1286b",
+        "1de21cc14e3e9bded331"
+      ],
+      "hybrid_ids": [
+        "484217dbf54c0ea9092d",
+        "cca2b548e37111c1286b",
+        "26eb5993b584144b58bc"
+      ]
+    },
+    {
+      "id": "QA-07",
+      "baseline_hit": true,
+      "hybrid_hit": true,
+      "baseline_ids": [
+        "821abc75697a264d432e",
+        "26eb5993b584144b58bc",
+        "1de21cc14e3e9bded331"
+      ],
+      "hybrid_ids": [
+        "821abc75697a264d432e",
+        "26eb5993b584144b58bc",
+        "574260bbdf523e153c84"
+      ]
+    },
+    {
+      "id": "QA-08",
+      "baseline_hit": true,
+      "hybrid_hit": true,
+      "baseline_ids": [
+        "26eb5993b584144b58bc",
+        "4006d54b9b6f185fa9de",
+        "821abc75697a264d432e"
+      ],
+      "hybrid_ids": [
+        "26eb5993b584144b58bc",
+        "4006d54b9b6f185fa9de",
+        "33849ffb8cf121a38d0e"
+      ]
+    },
+    {
+      "id": "QA-09",
+      "baseline_hit": true,
+      "hybrid_hit": true,
+      "baseline_ids": [
+        "a675c57acc8fc22ec292",
+        "1de21cc14e3e9bded331",
+        "26eb5993b584144b58bc"
+      ],
+      "hybrid_ids": [
+        "a675c57acc8fc22ec292",
+        "4dfcf906210117cc39fa",
+        "574260bbdf523e153c84"
+      ]
+    },
+    {
+      "id": "QA-10",
+      "baseline_hit": true,
+      "hybrid_hit": true,
+      "baseline_ids": [
+        "26eb5993b584144b58bc",
+        "4006d54b9b6f185fa9de",
+        "84acfdbe2ea6d1d7c8fc"
+      ],
+      "hybrid_ids": [
+        "84acfdbe2ea6d1d7c8fc",
+        "4006d54b9b6f185fa9de",
+        "484217dbf54c0ea9092d"
+      ]
+    },
+    {
+      "id": "QA-11",
+      "baseline_hit": true,
+      "hybrid_hit": true,
+      "baseline_ids": [
+        "484217dbf54c0ea9092d",
+        "cca2b548e37111c1286b",
+        "1de21cc14e3e9bded331"
+      ],
+      "hybrid_ids": [
+        "cca2b548e37111c1286b",
+        "4006d54b9b6f185fa9de",
+        "484217dbf54c0ea9092d"
+      ]
+    }
+  ],
+  "baseline_hit_rate": 1.0,
+  "hybrid_hit_rate": 1.0
+}

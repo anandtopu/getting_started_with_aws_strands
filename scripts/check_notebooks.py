@@ -1,6 +1,7 @@
 """Execute delivered notebooks into an ignored folder, preserving clean originals.
 
-Run: uv run --group notebooks python scripts/check_notebooks.py
+Run from the repository root:
+uv run --group notebooks --group rag --group memory --group aws python scripts/check_notebooks.py
 Expected: PASS for each delivered notebook. Cost: $0; all lesson calls use mocks.
 AWS resources: none. Jupyter uses local loopback; lessons block external traffic.
 """

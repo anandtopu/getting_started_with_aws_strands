@@ -326,34 +326,41 @@
         {
           "path": "modules/07_rag/examples/01_load_and_chunk.py",
           "features": "Markdown/PDF loading, chunk boundaries and source/page metadata",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/07_rag/examples/02_embeddings_by_hand.py",
           "features": "Embedding primer, cosine similarity by hand, 2D projection and its limits",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/07_rag/examples/03_local_index.py",
           "features": "Chroma persistence and Ollama embeddings; offline deterministic embedding fixture",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/07_rag/examples/04_cited_search.py",
           "features": "search_policies tool, agentic retrieval, citations, grounding and abstention",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/07_rag/examples/05_knowledge_base.py",
           "features": "Optional Bedrock Knowledge Base, S3 Vectors, retrieve tool and metadata filters; infrastructure and teardown",
-          "aws_required": "Yes; local Chroma alternative"
+          "aws_required": "Yes; local Chroma alternative",
+          "status": "delivered"
         },
         {
           "path": "modules/07_rag/examples/06_bedrock_embeddings.py",
           "features": "Titan Text Embeddings or verified equivalent; embedding-specific API versus Converse",
-          "aws_required": "Yes; Ollama alternative"
+          "aws_required": "Yes; Ollama alternative",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "08_advanced_rag",
@@ -366,34 +373,41 @@
         {
           "path": "modules/08_advanced_rag/examples/01_query_rewriting.py",
           "features": "Agent query rewrite and multi-query retrieval with a query budget",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/08_advanced_rag/examples/02_hybrid_search.py",
           "features": "BM25 plus vector search and deduplication",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/08_advanced_rag/examples/03_reranking.py",
           "features": "Local reranking and optional Bedrock reranking with supported model/region",
-          "aws_required": "Optional; local scoring alternative"
+          "aws_required": "Optional; local scoring alternative",
+          "status": "delivered"
         },
         {
           "path": "modules/08_advanced_rag/examples/04_filters_multihop.py",
           "features": "Metadata filters and bounded multi-hop retrieval",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/08_advanced_rag/examples/05_evaluate_retrieval.py",
           "features": "Hit rate, faithfulness, correctness, held-out golden sets and LLM-as-judge limitations",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/08_advanced_rag/examples/06_failure_gallery.py",
           "features": "Before/after results for missing facts, irrelevant chunks, false citations and injection",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "09_memory",
@@ -406,34 +420,41 @@
         {
           "path": "modules/09_memory/examples/01_state_and_messages.py",
           "features": "Stateless model versus messages and agent.state; explicitly exposing private state when needed",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/09_memory/examples/02_file_sessions.py",
           "features": "FileSessionManager, session IDs, resume and user isolation",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/09_memory/examples/03_s3_sessions.py",
           "features": "S3SessionManager; moto tests and optional tagged bucket teardown",
-          "aws_required": "Yes; file sessions alternative"
+          "aws_required": "Yes; file sessions alternative",
+          "status": "delivered"
         },
         {
           "path": "modules/09_memory/examples/04_local_preferences.py",
           "features": "Preference storage, retention, retrieval and complete user deletion",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/09_memory/examples/05_agentcore_memory.py",
-          "features": "AgentCoreMemorySessionManager integration; live service deferred/optional before Tier 5",
-          "aws_required": "Yes; local preferences alternative"
+          "features": "Stable MemoryManager plus a course-owned AgentCore store; optional live scoped recall",
+          "aws_required": "Yes; local preferences alternative",
+          "status": "delivered"
         },
         {
           "path": "modules/09_memory/examples/06_mem0_store.py",
           "features": "Mem0MemoryStore via mem0-strands and MemoryManager; replace deprecated mem0_memory tool; deletion through backend API",
-          "aws_required": "No; Ollama-backed configuration"
+          "aws_required": "No; Ollama-backed configuration",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "10_streaming",
@@ -966,5 +987,5 @@
       ]
     }
   ],
-  "delivered_phase": 3
+  "delivered_phase": 4
 }

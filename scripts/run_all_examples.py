@@ -6,6 +6,7 @@ Undelivered planned lessons are reported as such, never counted as passing examp
 """
 
 import argparse
+import importlib.util
 import json
 import os
 import subprocess
@@ -15,9 +16,10 @@ from common.config import ROOT, CourseError
 from common.pretty import run_cli
 
 
-def run_examples(*, live: bool = False) -> int:
+def run_examples(*, live: bool = False, require_all: bool = False) -> int:
     manifest = json.loads((ROOT / "scripts/examples_manifest.json").read_text(encoding="utf-8"))
     failed = 0
+    checked = skipped = 0
     env = os.environ.copy()
     env.update(
         {"PYTHONUTF8": "1", "OTEL_SDK_DISABLED": "true", "LITELLM_LOCAL_MODEL_COST_MAP": "True"}
@@ -25,7 +27,19 @@ def run_examples(*, live: bool = False) -> int:
     if not live:
         env["NIMBUS_OFFLINE"] = "1"
         env["AWS_EC2_METADATA_DISABLED"] = "true"
+    env["MEM0_TELEMETRY"] = "false"
     for example in manifest["examples"]:
+        missing = [
+            name for name in example.get("requires", []) if importlib.util.find_spec(name) is None
+        ]
+        if missing:
+            skipped += 1
+            print(
+                f"SKIP {example['path']}: install {example.get('install_hint', 'optional groups')}",
+                flush=True,
+            )
+            continue
+        checked += 1
         path = (ROOT / example["path"]).resolve()
         if not path.is_relative_to(ROOT) or not path.is_file():
             raise CourseError("Manifest example path is missing or outside this repository.")
@@ -64,22 +78,25 @@ def run_examples(*, live: bool = False) -> int:
             print(f"TIMEOUT {example['path']}")
             failed += 1
     print(
-        f"Checked {len(manifest['examples'])} delivered examples. "
-        "Only delivered manifest entries are counted."
+        f"Checked {checked} delivered entries; skipped {skipped} for missing dependencies. "
+        "Skipped entries are not counted as passes."
     )
-    return int(failed > 0)
+    return int(failed > 0 or (require_all and skipped > 0))
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--live", action="store_true")
     parser.add_argument("--accept-cost", action="store_true")
+    parser.add_argument(
+        "--require-all", action="store_true", help="Fail if optional dependencies are missing"
+    )
     args = parser.parse_args()
     if args.live and not args.accept_cost:
         raise CourseError(
             "Live mode may be billable; add --accept-cost after reviewing configuration."
         )
-    return run_examples(live=args.live)
+    return run_examples(live=args.live, require_all=args.require_all)
 
 
 if __name__ == "__main__":

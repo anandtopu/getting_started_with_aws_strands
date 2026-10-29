@@ -1,0 +1,7 @@
+{
+  "name": "nimbus-course-infra-tools",
+  "private": true,
+  "version": "0.1.0",
+  "devDependencies": {"aws-cdk": "2.1146.1"},
+  "engines": {"node": ">=22"}
+}

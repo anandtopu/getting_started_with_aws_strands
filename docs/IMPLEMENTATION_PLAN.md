@@ -117,8 +117,12 @@ CI separates offline test jobs from networked setup and external link checks. De
 
 The foundation now includes the resolved lockfile, configuration and model/data/output helpers, an offline scripted provider, complete synthetic data, operational scripts, root documents, AWS setup and cost guidance, CI definitions and contribution templates. See [verification notes](VERIFICATION_NOTES.md) for results and limits.
 
-The course remains deliberately incomplete beyond this phase: module examples, exercise solutions, notebooks, infrastructure, checkpoints and capstones have not been claimed as delivered. Reply `continue` to authorize Phase 3: Tier 1, modules 00–06.
+At the Phase 2 checkpoint, lessons and infrastructure were still pending. The subsequent delivery records below supersede that historical status.
 
 ## Phase 3 delivery
 
 Tier 1 modules 00–06 and the [Booking Helper checkpoint](../checkpoints/01_booking_helper/README.md) are implemented. The feature map now links delivered paths and tests. Notebooks, exercise starters/solutions and offline CLI use cases are included. Tool deprecations discovered during implementation are recorded in the migration guide. Later phases remain pending.
+
+## Phase 4 delivery
+
+Modules 07–09 and the Policy & Preferences checkpoint are implemented, with local Chroma retrieval, citation validation, retrieval/answer evaluation, isolated preferences and sessions, supported memory adapters, and three optional AWS CDK apps. Templates synthesize offline; no deployment is claimed. The comparison records a source-hit tie, not an invented improvement. Phase 5 (modules 10–14, support checkpoint and Guardrails infrastructure) remains next, pending `continue`.

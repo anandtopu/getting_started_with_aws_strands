@@ -35,9 +35,11 @@ jobs:
       - run: uv run --frozen pytest
       - run: uv run --frozen python scripts/run_all_examples.py
       - run: uv run --frozen python scripts/check_links.py
-      - run: uv run --frozen python scripts/synth_all.py
   optional-adapters:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -50,5 +52,8 @@ jobs:
           enable-cache: true
       - run: uv sync --frozen --all-groups
       - run: uv pip check
+      - run: npm ci --prefix infra
+      - run: uv run --frozen --all-groups python scripts/synth_all.py
       - run: uv run --frozen --all-groups pytest
+      - run: uv run --frozen --all-groups python scripts/run_all_examples.py --require-all
       - run: uv run --frozen --all-groups python scripts/check_notebooks.py

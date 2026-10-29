@@ -1,0 +1,377 @@
+[
+  {
+    "module": "07_rag",
+    "exercises": [
+      {
+        "file": "01_chunks.py",
+        "task": "Split words into overlapping windows; reject non-progressing settings.",
+        "cases": [
+          {
+            "input": {
+              "text": "one two three four five",
+              "size": 3,
+              "overlap": 1
+            },
+            "expected": [
+              "one two three",
+              "three four five",
+              "five"
+            ]
+          },
+          {
+            "input": {
+              "text": "",
+              "size": 2,
+              "overlap": 0
+            },
+            "expected": []
+          }
+        ]
+      },
+      {
+        "file": "02_cosine.py",
+        "task": "Return cosine similarity, including zero-vector behavior.",
+        "cases": [
+          {
+            "input": [
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "expected": 1.0
+          },
+          {
+            "input": [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "expected": 0.0
+          },
+          {
+            "input": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "expected": 0.0
+          },
+          {
+            "input": [
+              [
+                1,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ],
+            "expected": -1.0
+          }
+        ]
+      },
+      {
+        "file": "03_citations.py",
+        "task": "Accept a quote only when its chunk ID, source, page and text match retrieved evidence.",
+        "cases": [
+          {
+            "input": {
+              "id": "a",
+              "source": "refund.md",
+              "page": 3,
+              "quote": "5 days",
+              "evidence": [
+                {
+                  "id": "a",
+                  "source": "refund.md",
+                  "page": 3,
+                  "text": "Wait 5 days"
+                }
+              ]
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "id": "a",
+              "source": "refund.md",
+              "page": 9,
+              "quote": "5 days",
+              "evidence": [
+                {
+                  "id": "a",
+                  "source": "refund.md",
+                  "page": 3,
+                  "text": "Wait 5 days"
+                }
+              ]
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "id": "invented",
+              "source": "refund.md",
+              "page": 3,
+              "quote": "5 days",
+              "evidence": []
+            },
+            "expected": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "08_advanced_rag",
+    "exercises": [
+      {
+        "file": "01_query_budget.py",
+        "task": "Deduplicate normalized query strings and keep at most three nonempty queries.",
+        "cases": [
+          {
+            "input": [
+              " Refund ",
+              "refund",
+              "approval",
+              "meal",
+              "budget"
+            ],
+            "expected": [
+              "refund",
+              "approval",
+              "meal"
+            ]
+          },
+          {
+            "input": [
+              "",
+              "  "
+            ],
+            "expected": []
+          }
+        ]
+      },
+      {
+        "file": "02_fusion.py",
+        "task": "Fuse two ranked ID lists with reciprocal rank weights 1/(60+rank), deduplicating IDs.",
+        "cases": [
+          {
+            "input": [
+              [
+                "a",
+                "b"
+              ],
+              [
+                "b",
+                "c"
+              ]
+            ],
+            "expected": [
+              "b",
+              "a",
+              "c"
+            ]
+          },
+          {
+            "input": [
+              [
+                "a",
+                "a"
+              ],
+              [
+                "b",
+                "a"
+              ]
+            ],
+            "expected": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "input": [
+              [],
+              []
+            ],
+            "expected": []
+          }
+        ]
+      },
+      {
+        "file": "03_hit_rate.py",
+        "task": "Compute source hit rate; exclude abstention cases without an expected source.",
+        "cases": [
+          {
+            "input": [
+              {
+                "expected_source": "a",
+                "retrieved_sources": [
+                  "a"
+                ]
+              },
+              {
+                "expected_source": "b",
+                "retrieved_sources": [
+                  "a"
+                ]
+              },
+              {
+                "retrieved_sources": []
+              }
+            ],
+            "expected": 0.5
+          },
+          {
+            "input": [],
+            "expected": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "09_memory",
+    "exercises": [
+      {
+        "file": "01_consent.py",
+        "task": "Allow only explicitly consented seat/meal fields with known values; deny arbitrary data.",
+        "cases": [
+          {
+            "input": {
+              "consent": true,
+              "name": "seat",
+              "value": "aisle"
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "consent": true,
+              "name": "passport",
+              "value": "fake"
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "consent": false,
+              "name": "meal",
+              "value": "vegetarian"
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "02_retention.py",
+        "task": "Return only the trusted owner's unexpired records; expiry is exclusive.",
+        "cases": [
+          {
+            "input": {
+              "owner": "a",
+              "now": 100,
+              "rows": [
+                {
+                  "owner": "a",
+                  "expires": 101
+                },
+                {
+                  "owner": "b",
+                  "expires": 999
+                },
+                {
+                  "owner": "a",
+                  "expires": 100
+                }
+              ]
+            },
+            "expected": [
+              {
+                "owner": "a",
+                "expires": 101
+              }
+            ]
+          },
+          {
+            "input": {
+              "owner": "a",
+              "now": 0,
+              "rows": []
+            },
+            "expected": []
+          }
+        ]
+      },
+      {
+        "file": "03_deletion.py",
+        "task": "Remove every preference and session record owned by one user, preserving other users.",
+        "cases": [
+          {
+            "input": {
+              "delete": "a",
+              "records": {
+                "preferences": [
+                  {
+                    "owner": "a"
+                  },
+                  {
+                    "owner": "b"
+                  }
+                ],
+                "sessions": [
+                  {
+                    "owner": "a"
+                  }
+                ]
+              }
+            },
+            "expected": {
+              "preferences": [
+                {
+                  "owner": "b"
+                }
+              ],
+              "sessions": []
+            }
+          },
+          {
+            "input": {
+              "delete": "missing",
+              "records": {
+                "sessions": [
+                  {
+                    "owner": "b"
+                  }
+                ]
+              }
+            },
+            "expected": {
+              "sessions": [
+                {
+                  "owner": "b"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

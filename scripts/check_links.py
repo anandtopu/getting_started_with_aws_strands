@@ -28,7 +28,8 @@ def markdown_files() -> list[Path]:
         ".github",
     ):
         paths.extend((ROOT / folder).rglob("*.md"))
-    return sorted(set(paths))
+    ignored = {"node_modules", ".nimbus", ".venv", "cdk.out"}
+    return sorted({p for p in paths if not (set(p.relative_to(ROOT).parts) & ignored)})
 
 
 def collect_links() -> tuple[list[str], set[str], int]:

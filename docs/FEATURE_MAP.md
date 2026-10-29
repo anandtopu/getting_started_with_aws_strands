@@ -1,8 +1,8 @@
 # Feature map: course coverage contract
 
-Phase 3 Tier 1 edition · October 29, 2026
+Phase 4 Tiers 1–2 edition · October 29, 2026
 
-Modules 00–06 and the Tier 1 checkpoint are delivered. Their paths below link to existing files. Modules 07–21, bonus modules and capstones remain planned; their paths stay plain code text. The final audit will reject missing files or unimplemented coverage.
+Modules 00–09 and the first two checkpoints are delivered. Their paths below link to existing files. Modules 10–21, bonus modules and capstones remain planned; their paths stay plain code text. The final audit will reject missing files or unimplemented coverage.
 
 ## Delivered foundation
 
@@ -110,42 +110,42 @@ Tier 1 integration: [Nimbus Booking Helper](../checkpoints/01_booking_helper/REA
 
 ## 07_rag: Retrieval-augmented generation
 
-Assistant v5 · use case: `modules/07_rag/use_case/ask_nimbus.py`
+Assistant v5 · [Module guide](../modules/07_rag/README.md) · [Use case](../modules/07_rag/use_case/ask_nimbus.py) · [Tests](../modules/07_rag/tests)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Markdown/PDF loading, chunk boundaries and source/page metadata | `modules/07_rag/examples/01_load_and_chunk.py` | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Embedding primer, cosine similarity by hand, 2D projection and its limits | `modules/07_rag/examples/02_embeddings_by_hand.py` | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Chroma persistence and Ollama embeddings; offline deterministic embedding fixture | `modules/07_rag/examples/03_local_index.py` | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| search_policies tool, agentic retrieval, citations, grounding and abstention | `modules/07_rag/examples/04_cited_search.py` | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Optional Bedrock Knowledge Base, S3 Vectors, retrieve tool and metadata filters; infrastructure and teardown | `modules/07_rag/examples/05_knowledge_base.py` | Yes; local Chroma alternative | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Titan Text Embeddings or verified equivalent; embedding-specific API versus Converse | `modules/07_rag/examples/06_bedrock_embeddings.py` | Yes; Ollama alternative | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Markdown/PDF loading, chunk boundaries and source/page metadata | [01_load_and_chunk.py](../modules/07_rag/examples/01_load_and_chunk.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Embedding primer, cosine similarity by hand, 2D projection and its limits | [02_embeddings_by_hand.py](../modules/07_rag/examples/02_embeddings_by_hand.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Chroma persistence and Ollama embeddings; offline deterministic embedding fixture | [03_local_index.py](../modules/07_rag/examples/03_local_index.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| search_policies tool, agentic retrieval, citations, grounding and abstention | [04_cited_search.py](../modules/07_rag/examples/04_cited_search.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Optional Bedrock Knowledge Base, S3 Vectors, BedrockKnowledgeBaseStore and metadata filters; infrastructure and teardown | [05_knowledge_base.py](../modules/07_rag/examples/05_knowledge_base.py) | Yes; local Chroma alternative | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Titan Text Embeddings or verified equivalent; embedding-specific API versus Converse | [06_bedrock_embeddings.py](../modules/07_rag/examples/06_bedrock_embeddings.py) | Yes; Ollama alternative | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
 
 ## 08_advanced_rag: Advanced retrieval and evaluation
 
-Assistant v5 · use case: `modules/08_advanced_rag/use_case/retrieval_comparison.py`
+Assistant v5 · [Module guide](../modules/08_advanced_rag/README.md) · [Use case](../modules/08_advanced_rag/use_case/retrieval_comparison.py) · [Tests](../modules/08_advanced_rag/tests)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Agent query rewrite and multi-query retrieval with a query budget | `modules/08_advanced_rag/examples/01_query_rewriting.py` | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| BM25 plus vector search and deduplication | `modules/08_advanced_rag/examples/02_hybrid_search.py` | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Local reranking and optional Bedrock reranking with supported model/region | `modules/08_advanced_rag/examples/03_reranking.py` | Optional; local scoring alternative | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Metadata filters and bounded multi-hop retrieval | `modules/08_advanced_rag/examples/04_filters_multihop.py` | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Hit rate, faithfulness, correctness, held-out golden sets and LLM-as-judge limitations | `modules/08_advanced_rag/examples/05_evaluate_retrieval.py` | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Before/after results for missing facts, irrelevant chunks, false citations and injection | `modules/08_advanced_rag/examples/06_failure_gallery.py` | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Agent query rewrite and multi-query retrieval with a query budget | [01_query_rewriting.py](../modules/08_advanced_rag/examples/01_query_rewriting.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| BM25 plus vector search and deduplication | [02_hybrid_search.py](../modules/08_advanced_rag/examples/02_hybrid_search.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Local overlap reranking heuristic and optional Bedrock reranking with supported model/region | [03_reranking.py](../modules/08_advanced_rag/examples/03_reranking.py) | Optional; local scoring alternative | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Metadata filters and bounded multi-hop retrieval | [04_filters_multihop.py](../modules/08_advanced_rag/examples/04_filters_multihop.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Hit rate, faithfulness, correctness, held-out golden sets and LLM-as-judge limitations | [05_evaluate_retrieval.py](../modules/08_advanced_rag/examples/05_evaluate_retrieval.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Failure fixtures: missing/irrelevant evidence, rejected false citations and quarantined injection | [06_failure_gallery.py](../modules/08_advanced_rag/examples/06_failure_gallery.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
 
 ## 09_memory: Memory, state and sessions
 
-Assistant v6 · use case: `modules/09_memory/use_case/preferences_assistant.py`
+Assistant v6 · [Module guide](../modules/09_memory/README.md) · [Use case](../modules/09_memory/use_case/preferences_assistant.py) · [Tests](../modules/09_memory/tests)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Stateless model versus messages and agent.state; explicitly exposing private state when needed | `modules/09_memory/examples/01_state_and_messages.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
-| FileSessionManager, session IDs, resume and user isolation | `modules/09_memory/examples/02_file_sessions.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
-| S3SessionManager; moto tests and optional tagged bucket teardown | `modules/09_memory/examples/03_s3_sessions.py` | Yes; file sessions alternative | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
-| Preference storage, retention, retrieval and complete user deletion | `modules/09_memory/examples/04_local_preferences.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
-| AgentCoreMemorySessionManager integration; live service deferred/optional before Tier 5 | `modules/09_memory/examples/05_agentcore_memory.py` | Yes; local preferences alternative | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
-| Mem0MemoryStore via mem0-strands and MemoryManager; replace deprecated mem0_memory tool; deletion through backend API | `modules/09_memory/examples/06_mem0_store.py` | No; Ollama-backed configuration | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
+| Stateless model versus messages and agent.state; explicitly exposing private state when needed | [01_state_and_messages.py](../modules/09_memory/examples/01_state_and_messages.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
+| FileSessionManager, session IDs, resume and user isolation | [02_file_sessions.py](../modules/09_memory/examples/02_file_sessions.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
+| S3SessionManager; moto tests and optional tagged bucket teardown | [03_s3_sessions.py](../modules/09_memory/examples/03_s3_sessions.py) | Yes; file sessions alternative | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
+| Preference storage, retention, retrieval and deletion of registered active data | [04_local_preferences.py](../modules/09_memory/examples/04_local_preferences.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
+| Stable MemoryManager plus a course-owned AgentCore store; optional live scoped recall | [05_agentcore_memory.py](../modules/09_memory/examples/05_agentcore_memory.py) | Yes; local preferences alternative | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
+| Mem0MemoryStore via mem0-strands and MemoryManager; replace deprecated mem0_memory tool; deletion through backend API | [06_mem0_store.py](../modules/09_memory/examples/06_mem0_store.py) | No; Ollama-backed configuration | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
 
 ## 10_streaming: Streaming and async
 
@@ -352,12 +352,12 @@ Assistant v11 · use case: `modules/bonus/B4_whats_new/use_case/release_feature_
 
 ## Infrastructure owners
 
-| Lesson | Planned CDK app / lifecycle owner | Resources to price, tag and clean |
+| Lesson | CDK app / lifecycle owner (links are delivered) | Resources to price, tag and clean |
 |---|---|---|
 | 00 optional budget helper | `infra/budget/app.py` | Budget and notification settings; retention decision documented |
-| 07 optional Knowledge Base | `infra/knowledge_base/app.py` | Source bucket, S3 vector bucket/index, Knowledge Base/data source, IAM |
-| 09 optional S3 sessions | `infra/session_storage/app.py` | Session bucket, policies, objects and optional logs |
-| 09/21 optional Memory | `infra/agentcore_memory/app.py` | Memory resource, events/records and access policy |
+| 07 optional Knowledge Base | [infra/07_knowledge_base/app.py](../infra/07_knowledge_base/app.py) | Source bucket, S3 vector bucket/index, Knowledge Base/data source, IAM |
+| 09 optional S3 sessions | [infra/09_sessions/app.py](../infra/09_sessions/app.py) | Session bucket, policies, objects and optional logs |
+| 09 optional Memory (21 extends later) | [infra/09_memory/app.py](../infra/09_memory/app.py) | Memory resource with preference strategy; scoped recall-only managed policy |
 | 13 optional Guardrails | `infra/guardrails/app.py` | Guardrail configuration and versions |
 | 20 Lambda | `infra/lambda_support/app.py` | Function, execution role, artifact assets and logs; authenticated invocation |
 | 20 Fargate | `infra/fargate_support/app.py` | Cluster/service/tasks, VPC/subnets, security groups, load balancer, ECR and logs; explicit public IPv4/network costs |
@@ -367,3 +367,5 @@ Assistant v11 · use case: `modules/bonus/B4_whats_new/use_case/release_feature_
 | Document capstone | `infra/document_pipeline/app.py` | DynamoDB table and scoped writer/reader permissions |
 
 All infrastructure apps include a README, `cdk.json`, stack code, synth tests and a teardown command. Where CloudFormation lacks a needed operation, a narrowly scoped boto3 lifecycle script records resource IDs and implements symmetric create/delete. The exact supported resource coverage is verified before implementation.
+
+Tier 2 verification: [retrieval comparison](verification/tier2_retrieval_report.json), [AWS contracts and template tests](../tests/test_tier2_cloud.py), [checkpoint tests](../checkpoints/02_policy_preferences/test_policy_preferences.py), and [resource lifecycle guide](../infra/README.md).

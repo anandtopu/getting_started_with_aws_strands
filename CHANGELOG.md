@@ -1,5 +1,13 @@
 # Changelog
 
+## Phase 4 — 2026-10-29
+
+- Deliver modules 07–09: 18 examples, three use cases, nine exercise pairs, quizzes and three cleared notebooks.
+- Add cited policy retrieval, BM25/vector comparison, bounded multi-hop search and a separate answer judge.
+- Add user-scoped sessions/preferences, expiry/deletion checks and current Mem0/AgentCore adapters.
+- Add the Policy & Preferences checkpoint and optional Knowledge Base, S3 session and AgentCore Memory CDK labs with cost and cleanup guidance.
+- Record the observed 11/11 source-hit tie and distinguish offline contracts from untested live quality.
+
 ## Phase 3 — 2026-10-29
 
 - Deliver modules 00–06, 37 examples, seven use cases, 21 exercises and reference solutions, seven notebooks and quizzes.
