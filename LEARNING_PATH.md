@@ -1,8 +1,8 @@
 # Learning path: build the Nimbus assistant
 
-Tiers 1–3 delivered; later tiers planned · October 29, 2026
+Tiers 1–4 delivered; later tiers planned · October 29, 2026
 
-Start with basic Python, terminal use, and git. You do not need prior agent or AWS knowledge. The core course is approximately 58 hours, including checkpoint practice; capstones and optional cloud/voice extensions take additional time. Modules 00–14 and their three checkpoints are implemented; later tiers remain planned. See the [implementation plan](docs/IMPLEMENTATION_PLAN.md) and [feature map](docs/FEATURE_MAP.md).
+Start with basic Python, terminal use, and git. You do not need prior agent or AWS knowledge. The core course is approximately 58 hours, including checkpoint practice; capstones and optional cloud/voice extensions take additional time. Modules 00–18 and their four checkpoints are implemented; later tiers remain planned. See the [implementation plan](docs/IMPLEMENTATION_PLAN.md) and [feature map](docs/FEATURE_MAP.md).
 
 ```mermaid
 flowchart TD
@@ -80,14 +80,14 @@ The optional Bedrock Guardrails branch creates resources. The local branch enfor
 
 | Module | Minutes | Ability you will demonstrate | Assistant progression |
 |---|---:|---|---|
-| 15 Agents as tools | 150 | Delegate to bounded flight, hotel, and policy specialists and count the added model calls | v10: concierge |
-| 16 Swarms | 180 | Observe handoffs and stop repetitive or over-budget itinerary collaboration | v10: itinerary team |
-| 17 Graphs and workflows | 240 | Build parallel search, conditional budget checks, approval, and confirmation with bounded loops | v10: group-trip pipeline |
-| 18 Agent-to-Agent protocol | 150 | Discover and call an authenticated partner airline agent in another process | v10: partner integration |
+| [15 Agents as tools](modules/15_agents_as_tools/README.md) | 150 | Delegate to bounded flight, hotel, and policy specialists and count the added model calls | v10: concierge |
+| [16 Swarms](modules/16_swarms/README.md) | 180 | Observe handoffs and stop repetitive or over-budget itinerary collaboration | v10: itinerary team |
+| [17 Graphs and workflows](modules/17_graphs/README.md) | 240 | Build parallel search, conditional budget checks, approval, and confirmation with bounded loops | v10: group-trip pipeline |
+| [18 Agent-to-Agent protocol](modules/18_a2a/README.md) | 150 | Discover and call an authenticated partner airline agent in another process | v10: partner integration |
 
 First encounters: orchestration, delegation, handoff, graph node/edge, fan-out/fan-in, conditional routing, agent card, and authenticated transport. Models do not gain authority merely by receiving delegated work.
 
-**Checkpoint: Trip Planning Crew.** Produce a group itinerary under a stated budget, explain the tool/agent sequence, and write a design rationale comparing a single agent, agents as tools, swarm, graph, and A2A. Include a pattern diagram and a failed-budget trace.
+**Checkpoint: [Trip Planning Crew](checkpoints/04_trip_planning_crew/README.md).** Produce a group itinerary under a stated budget, explain the tool/agent sequence, and write a design rationale comparing a single agent, agents as tools, swarm, graph, and A2A. Include a pattern diagram and a failed-budget trace.
 
 You're ready for Tier 5 when you can justify additional agents with measured benefit, cap every loop, explain why MCP tools differ from remote A2A agents, and preserve user approvals across delegation.
 

@@ -944,6 +944,239 @@
       "live_args": [],
       "timeout_seconds": 150,
       "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/15_agents_as_tools/examples/01_specialist_tools.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/15_agents_as_tools/examples/02_context_boundaries.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/15_agents_as_tools/examples/03_delegation_cost.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/15_agents_as_tools/use_case/nimbus_concierge.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/16_swarms/examples/01_handoffs.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/16_swarms/examples/02_swarm_limits.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/16_swarms/examples/03_swarm_results.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/16_swarms/examples/04_itinerary_team.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/16_swarms/use_case/itinerary_swarm.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/17_graphs/examples/01_graph_basics.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/17_graphs/examples/02_parallel_search.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/17_graphs/examples/03_conditional_budget.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/17_graphs/examples/04_nested_patterns.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/17_graphs/examples/05_workflow_comparison.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/17_graphs/examples/06_approval_pipeline.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/17_graphs/use_case/group_trip_pipeline.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "modules/18_a2a/examples/01_partner_server.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "a2a",
+        "uvicorn"
+      ],
+      "install_hint": "uv sync --group multiagent --group partner"
+    },
+    {
+      "path": "modules/18_a2a/examples/02_remote_agent.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "a2a",
+        "uvicorn"
+      ],
+      "install_hint": "uv sync --group multiagent --group partner"
+    },
+    {
+      "path": "modules/18_a2a/examples/03_authenticated_client.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "a2a",
+        "uvicorn"
+      ],
+      "install_hint": "uv sync --group multiagent --group partner"
+    },
+    {
+      "path": "modules/18_a2a/examples/04_framework_interop.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "a2a",
+        "uvicorn",
+        "langgraph"
+      ],
+      "install_hint": "uv sync --group multiagent --group partner"
+    },
+    {
+      "path": "modules/18_a2a/use_case/partner_upgrade.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "a2a",
+        "uvicorn"
+      ],
+      "install_hint": "uv sync --group multiagent --group partner"
+    },
+    {
+      "path": "checkpoints/04_trip_planning_crew/starter.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
+    },
+    {
+      "path": "checkpoints/04_trip_planning_crew/solution.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 150,
+      "expected_stdout": "Lesson complete."
     }
   ]
 }

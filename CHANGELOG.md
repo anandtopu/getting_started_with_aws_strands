@@ -1,5 +1,15 @@
 # Changelog
 
+## Phase 6 — 2026-10-29
+
+- Deliver modules 15–18: 17 examples, four use cases, 12 exercise pairs, quizzes and four notebooks.
+- Add bounded specialist delegation with grounded quote validation and explicit parent/child accounting.
+- Teach real Swarm handoffs, repetition detection, node deadlines and host cancellation.
+- Add parallel Graph joins, budget branches, bounded loops, nesting and quote-bound human review.
+- Demonstrate the existing workflow tool's metadata lifecycle separately from Graph execution.
+- Add authenticated A2A child servers, isolated agent factories, streaming artifacts and real LangGraph interoperability.
+- Add the Trip Planning Crew checkpoint and document SDK timeout/usage caveats.
+
 ## Phase 5 — 2026-10-29
 
 - Deliver modules 10–14: 23 examples, five use cases, 15 exercise pairs, quizzes and five notebooks.

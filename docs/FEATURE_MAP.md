@@ -1,8 +1,8 @@
 # Feature map: course coverage contract
 
-Phase 5 Tiers 1–3 edition · October 29, 2026
+Phase 6 Tiers 1–4 edition · October 29, 2026
 
-Modules 00–14 and the first three checkpoints are delivered. Their paths below link to existing files. Modules 15–21, bonus modules and capstones remain planned; their paths stay plain code text. The final audit will reject missing files or unimplemented coverage.
+Modules 00–18 and the first four checkpoints are delivered. Their paths below link to existing files. Modules 19–21, bonus modules and capstones remain planned; their paths stay plain code text. The final audit will reject missing files or unimplemented coverage.
 
 ## Delivered foundation
 
@@ -206,48 +206,48 @@ Assistant v9 · [Module guide](../modules/14_mcp/README.md) · [Use case](../mod
 
 ## 15_agents_as_tools: Agents as tools
 
-Assistant v10 · use case: `modules/15_agents_as_tools/use_case/nimbus_concierge.py`
+Assistant v10 · use case: [modules/15_agents_as_tools/use_case/nimbus_concierge.py](../modules/15_agents_as_tools/use_case/nimbus_concierge.py)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Flight, hotel and policy agents wrapped as tools | `modules/15_agents_as_tools/examples/01_specialist_tools.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/) |
-| Minimum specialist context, output validation and authority boundaries | `modules/15_agents_as_tools/examples/02_context_boundaries.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/) |
-| Compare single-agent and delegated quality, latency and total token cost | `modules/15_agents_as_tools/examples/03_delegation_cost.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/) |
+| Flight, hotel and policy agents wrapped as tools | [modules/15_agents_as_tools/examples/01_specialist_tools.py](../modules/15_agents_as_tools/examples/01_specialist_tools.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/) |
+| Minimum specialist context, output validation and authority boundaries | [modules/15_agents_as_tools/examples/02_context_boundaries.py](../modules/15_agents_as_tools/examples/02_context_boundaries.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/) |
+| Compare single-agent and delegated quality, latency and total token cost | [modules/15_agents_as_tools/examples/03_delegation_cost.py](../modules/15_agents_as_tools/examples/03_delegation_cost.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/) |
 
 ## 16_swarms: Swarms
 
-Assistant v10 · use case: `modules/16_swarms/use_case/itinerary_swarm.py`
+Assistant v10 · use case: [modules/16_swarms/use_case/itinerary_swarm.py](../modules/16_swarms/use_case/itinerary_swarm.py)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| Swarm, entry point, agent handoffs and shared context | `modules/16_swarms/examples/01_handoffs.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
-| max_handoffs, max_iterations, execution_timeout, node_timeout and repetitive handoff detection | `modules/16_swarms/examples/02_swarm_limits.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
-| Result status, node outcomes, execution order and failure diagnosis | `modules/16_swarms/examples/03_swarm_results.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
-| Researcher, budget planner, itinerary writer and reviewer collaboration | `modules/16_swarms/examples/04_itinerary_team.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
+| Swarm, entry point, agent handoffs and shared context | [modules/16_swarms/examples/01_handoffs.py](../modules/16_swarms/examples/01_handoffs.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
+| max_handoffs, max_iterations, execution_timeout, node_timeout and repetitive handoff detection | [modules/16_swarms/examples/02_swarm_limits.py](../modules/16_swarms/examples/02_swarm_limits.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
+| Result status, node outcomes, execution order and failure diagnosis | [modules/16_swarms/examples/03_swarm_results.py](../modules/16_swarms/examples/03_swarm_results.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
+| Researcher, budget planner, itinerary writer and reviewer collaboration | [modules/16_swarms/examples/04_itinerary_team.py](../modules/16_swarms/examples/04_itinerary_team.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
 
 ## 17_graphs: Graphs and workflows
 
-Assistant v10 · use case: `modules/17_graphs/use_case/group_trip_pipeline.py`
+Assistant v10 · use case: [modules/17_graphs/use_case/group_trip_pipeline.py](../modules/17_graphs/use_case/group_trip_pipeline.py)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| GraphBuilder nodes, edges, entry point and per-node results | `modules/17_graphs/examples/01_graph_basics.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
-| Parallel flight/hotel branches and single fan-in after completion | `modules/17_graphs/examples/02_parallel_search.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
-| Conditional edges and bounded loops using set_max_node_executions/timeouts | `modules/17_graphs/examples/03_conditional_budget.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
-| Nested graph/swarm nodes and aggregate limits | `modules/17_graphs/examples/04_nested_patterns.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
-| Existing workflow tool versus Graph and deterministic orchestration | `modules/17_graphs/examples/05_workflow_comparison.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
-| Parse, parallel search, budget branch, approval, and confirmation draft | `modules/17_graphs/examples/06_approval_pipeline.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
+| GraphBuilder nodes, edges, entry point and per-node results | [modules/17_graphs/examples/01_graph_basics.py](../modules/17_graphs/examples/01_graph_basics.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
+| Parallel flight/hotel branches and single fan-in after completion | [modules/17_graphs/examples/02_parallel_search.py](../modules/17_graphs/examples/02_parallel_search.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
+| Conditional edges and bounded loops using set_max_node_executions/timeouts | [modules/17_graphs/examples/03_conditional_budget.py](../modules/17_graphs/examples/03_conditional_budget.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
+| Nested graph/swarm nodes and aggregate limits | [modules/17_graphs/examples/04_nested_patterns.py](../modules/17_graphs/examples/04_nested_patterns.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
+| Existing workflow tool versus Graph and deterministic orchestration | [modules/17_graphs/examples/05_workflow_comparison.py](../modules/17_graphs/examples/05_workflow_comparison.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
+| Parse, parallel search, budget branch, approval, and confirmation draft | [modules/17_graphs/examples/06_approval_pipeline.py](../modules/17_graphs/examples/06_approval_pipeline.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
 
 ## 18_a2a: Agent-to-Agent protocol
 
-Assistant v10 · use case: `modules/18_a2a/use_case/partner_upgrade.py`
+Assistant v10 · use case: [modules/18_a2a/use_case/partner_upgrade.py](../modules/18_a2a/use_case/partner_upgrade.py)
 
 | Feature coverage | Planned example file | AWS required / local alternative | Official reference |
 |---|---|---|---|
-| A2A protocol, Strands A2AServer and agent cards | `modules/18_a2a/examples/01_partner_server.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
-| A2AAgent endpoint, invoke_async and streamed remote results | `modules/18_a2a/examples/02_remote_agent.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
-| client_config authenticated transport, card discovery and credential boundaries | `modules/18_a2a/examples/03_authenticated_client.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
-| Protocol contracts for a partner in another framework; full LangGraph implementation in capstone | `modules/18_a2a/examples/04_framework_interop.py` | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
+| A2A protocol, Strands A2AServer and agent cards | [modules/18_a2a/examples/01_partner_server.py](../modules/18_a2a/examples/01_partner_server.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
+| A2AAgent endpoint, invoke_async and streamed remote results | [modules/18_a2a/examples/02_remote_agent.py](../modules/18_a2a/examples/02_remote_agent.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
+| client_config authenticated transport, card discovery and credential boundaries | [modules/18_a2a/examples/03_authenticated_client.py](../modules/18_a2a/examples/03_authenticated_client.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
+| Actual LangGraph StateGraph partner in a separate process with the same authenticated Strands client | [modules/18_a2a/examples/04_framework_interop.py](../modules/18_a2a/examples/04_framework_interop.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
 
 ## 19_observability: Observability, testing and evaluation
 
@@ -371,3 +371,5 @@ All infrastructure apps include a README, `cdk.json`, stack code, synth tests an
 Tier 2 verification: [retrieval comparison](verification/tier2_retrieval_report.json), [AWS contracts and template tests](../tests/test_tier2_cloud.py), [checkpoint tests](../checkpoints/02_policy_preferences/test_policy_preferences.py), and [resource lifecycle guide](../infra/README.md).
 
 Tier 3 adds [batch interrupts](../modules/12_interrupts/examples/05_batch_interrupt.py), [boundary tests](../tests/test_tier3_boundaries.py), [real MCP integration](../tests/test_tier3_mcp.py), [Streamlit widget tests](../tests/test_tier3_ui.py), and the [Safe Support checkpoint](../checkpoints/03_safe_support/README.md). The current MCP server class is MCPServer; direct call names remain unprefixed.
+
+Tier 4 verification: [coordination and approval tests](../tests/test_tier4_coordination.py), [real authenticated A2A and LangGraph tests](../tests/test_tier4_a2a.py), and [Trip Planning Crew](../checkpoints/04_trip_planning_crew/README.md). The workflow comparison executes metadata lifecycle only; A2A uses protocol 0.3.0 with the pinned compatible SDK.

@@ -1,0 +1,57 @@
+{
+  "checked_on": "2026-10-29",
+  "phase": 6,
+  "platform": "Windows",
+  "versions": {
+    "strands-agents": "1.62.0",
+    "strands-agents-tools": "0.8.10",
+    "a2a-sdk": "0.3.26",
+    "a2a_protocol": "0.3.0",
+    "langgraph": "1.2.18"
+  },
+  "delivery": {
+    "modules": 19,
+    "examples": 95,
+    "use_cases": 19,
+    "exercise_pairs": 57,
+    "notebooks": 19,
+    "checkpoints": 4,
+    "finite_script_entries": 123
+  },
+  "test_runs": [
+    {
+      "python": "3.12.13",
+      "groups": "dev,apps,aws,notebooks,rag,memory,multiagent,partner",
+      "scope": "full suite before final duplicate-call/context-isolation additions",
+      "passed": 373,
+      "skipped": 2
+    },
+    {
+      "python": "3.12.13",
+      "groups": "dev,apps,aws,notebooks,rag,memory,multiagent,partner",
+      "scope": "final Tier 4 boundary suite including new tests",
+      "passed": 20,
+      "skipped": 0
+    },
+    {"python": "3.12.13", "groups": "default", "scope": "full final suite", "passed": 363, "skipped": 13},
+    {"python": "3.13.13", "groups": "default", "scope": "full final suite", "passed": 363, "skipped": 13}
+  ],
+  "finite_scripts_with_lesson_dependencies": {"passed": 123, "skipped": 0},
+  "finite_scripts_default_install": {"passed": 107, "skipped": 16},
+  "notebooks_executed": 19,
+  "actual_cdk_cli_apps_synthesized": 4,
+  "public_and_local_links_checked": 1032,
+  "link_failures": 0,
+  "ruff_check": "passed",
+  "ruff_format_check": "passed",
+  "lock_check": "passed",
+  "default_dependency_consistency": "110 distributions compatible",
+  "pre_commit_all_files": "all hooks passed",
+  "cloud_resources_deployed": 0,
+  "unverified": [
+    "remote CI and non-Windows execution",
+    "live model quality and Ollama performance",
+    "public A2A and production identity deployment",
+    "AWS deployment and teardown"
+  ]
+}

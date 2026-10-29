@@ -1,0 +1,415 @@
+[
+  {
+    "module": "15_agents_as_tools",
+    "exercises": [
+      {
+        "file": "01_context.py",
+        "task": "Pass only city and nights to a hotel specialist; omit all private fields.",
+        "cases": [
+          {
+            "input": {
+              "city": "Porto",
+              "nights": 2,
+              "passport": "fake-private"
+            },
+            "expected": {
+              "city": "Porto",
+              "nights": 2
+            }
+          },
+          {
+            "input": {
+              "city": "Lima",
+              "nights": 1,
+              "messages": [
+                "secret"
+              ]
+            },
+            "expected": {
+              "city": "Lima",
+              "nights": 1
+            }
+          }
+        ]
+      },
+      {
+        "file": "02_validate.py",
+        "task": "Accept a quote only when role, reference and integer cents match the catalog.",
+        "cases": [
+          {
+            "input": {
+              "answer": {
+                "role": "flight",
+                "reference": "f1",
+                "cents": 100
+              },
+              "catalog": {
+                "role": "flight",
+                "reference": "f1",
+                "cents": 100
+              }
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "answer": {
+                "role": "flight",
+                "reference": "f1",
+                "cents": 1
+              },
+              "catalog": {
+                "role": "flight",
+                "reference": "f1",
+                "cents": 100
+              }
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "answer": {
+                "role": "hotel",
+                "reference": "f1",
+                "cents": 100
+              },
+              "catalog": {
+                "role": "flight",
+                "reference": "f1",
+                "cents": 100
+              }
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_usage.py",
+        "task": "Sum parent and child per-call token usage exactly once.",
+        "cases": [
+          {
+            "input": {
+              "parent": 240,
+              "children": [
+                120,
+                120,
+                120
+              ]
+            },
+            "expected": 600
+          },
+          {
+            "input": {
+              "parent": 240,
+              "children": []
+            },
+            "expected": 240
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "16_swarms",
+    "exercises": [
+      {
+        "file": "01_order.py",
+        "task": "Extract visited node IDs in order, retaining repeated visits.",
+        "cases": [
+          {
+            "input": [
+              {
+                "node_id": "researcher"
+              },
+              {
+                "node_id": "writer"
+              },
+              {
+                "node_id": "researcher"
+              }
+            ],
+            "expected": [
+              "researcher",
+              "writer",
+              "researcher"
+            ]
+          },
+          {
+            "input": [],
+            "expected": []
+          }
+        ]
+      },
+      {
+        "file": "02_repetition.py",
+        "task": "Flag a full recent window with fewer than the required unique agents.",
+        "cases": [
+          {
+            "input": {
+              "history": [
+                "a",
+                "b",
+                "a",
+                "b"
+              ],
+              "window": 4,
+              "minimum": 3
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "history": [
+                "a",
+                "b"
+              ],
+              "window": 4,
+              "minimum": 3
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "history": [
+                "a",
+                "b",
+                "c",
+                "d"
+              ],
+              "window": 4,
+              "minimum": 3
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_deadline.py",
+        "task": "Return whether another node can start before both the visit limit and deadline.",
+        "cases": [
+          {
+            "input": {
+              "visits": 1,
+              "maximum": 2,
+              "now": 9,
+              "deadline": 10
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "visits": 2,
+              "maximum": 2,
+              "now": 9,
+              "deadline": 10
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "visits": 0,
+              "maximum": 2,
+              "now": 10,
+              "deadline": 10
+            },
+            "expected": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "17_graphs",
+    "exercises": [
+      {
+        "file": "01_join.py",
+        "task": "Allow the budget node only when flight and hotel are both completed.",
+        "cases": [
+          {
+            "input": {
+              "flight": "completed",
+              "hotel": "completed"
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "flight": "completed"
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "flight": "failed",
+              "hotel": "completed"
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "02_route.py",
+        "task": "Route to review only when the authoritative subtotal fits the budget.",
+        "cases": [
+          {
+            "input": {
+              "cents": [
+                35600,
+                17200
+              ],
+              "budget": 52800
+            },
+            "expected": "review"
+          },
+          {
+            "input": {
+              "cents": [
+                35600,
+                17200
+              ],
+              "budget": 52799
+            },
+            "expected": "over_budget"
+          }
+        ]
+      },
+      {
+        "file": "03_approval.py",
+        "task": "Require recorded approval, a matching fingerprint, and an unexpired review.",
+        "cases": [
+          {
+            "input": {
+              "decision": "approve",
+              "fingerprint": "a",
+              "current": "a",
+              "now": 1,
+              "expires": 2
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "decision": "approve",
+              "fingerprint": "a",
+              "current": "b",
+              "now": 1,
+              "expires": 2
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "decision": "approve",
+              "fingerprint": "a",
+              "current": "a",
+              "now": 2,
+              "expires": 2
+            },
+            "expected": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "18_a2a",
+    "exercises": [
+      {
+        "file": "01_card.py",
+        "task": "Accept only a streaming card whose exact URL is in the host allow-list.",
+        "cases": [
+          {
+            "input": {
+              "card": {
+                "url": "https://partner.example/",
+                "capabilities": {
+                  "streaming": true
+                }
+              },
+              "allowed": [
+                "https://partner.example/"
+              ]
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "card": {
+                "url": "https://other.example/",
+                "capabilities": {
+                  "streaming": true
+                }
+              },
+              "allowed": [
+                "https://partner.example/"
+              ]
+            },
+            "expected": false
+          },
+          {
+            "input": {
+              "card": {
+                "url": "https://partner.example/",
+                "capabilities": {}
+              },
+              "allowed": [
+                "https://partner.example/"
+              ]
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "02_public_offer.py",
+        "task": "Expose only the reviewed public quote fields; omit credentials and debug data.",
+        "cases": [
+          {
+            "input": {
+              "offer_id": "u1",
+              "flight_id": "f1",
+              "cents": 7500,
+              "currency": "USD",
+              "quote_only": true,
+              "token": "private"
+            },
+            "expected": {
+              "offer_id": "u1",
+              "flight_id": "f1",
+              "cents": 7500,
+              "currency": "USD",
+              "quote_only": true
+            }
+          }
+        ]
+      },
+      {
+        "file": "03_usage_unknown.py",
+        "task": "Return unknown if any agent omits its usage; otherwise sum reported totals.",
+        "cases": [
+          {
+            "input": [
+              240,
+              null
+            ],
+            "expected": null
+          },
+          {
+            "input": [
+              240,
+              120
+            ],
+            "expected": 360
+          },
+          {
+            "input": [
+              0,
+              0
+            ],
+            "expected": 0
+          }
+        ]
+      }
+    ]
+  }
+]

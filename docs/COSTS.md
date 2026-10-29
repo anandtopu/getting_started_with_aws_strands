@@ -123,3 +123,25 @@ free tier, logs, transfer and other services, not an actual bill forecast.
 Stop local web servers, inspect persisted synthetic approval state, and follow
 the [Guardrails teardown](../infra/13_guardrails/README.md#tear-down-and-verify)
 if you chose to deploy that optional stack. No cloud deployment/cleanup was tested.
+
+## Delivered Tier 4 cost controls
+
+Modules 15–18 create no AWS resources. Offline replay costs $0; Ollama has no hosted
+API fee. Bedrock inference uses the selected model's dated rates and default 512-token
+response ceiling. More agents can increase total input history and model calls even
+when parallel execution reduces elapsed time.
+
+The single-agent comparison makes two fixture calls (240 synthetic tokens); the
+delegated version makes five (600). The normal four-node swarm makes seven (840).
+The approved checkpoint makes five (600), including both search specialists. These
+are accounting tests, not live token forecasts. Configured rates yield an inference
+estimate; absent rates remain unknown. Revisited Swarm nodes have a pinned-SDK
+cumulative-usage caveat, so those reports suppress dollar estimates. Remote A2A
+provider usage is unavailable in the response and must not be counted as zero.
+
+Each child has a three-turn budget; delegated tools are limited to one attempt per
+role. Swarms and graphs limit visits and node waiting. Swarm execution_timeout checks
+between nodes; a host asyncio.timeout is needed for a strict whole-call deadline.
+Cancellation does not reverse completed remote actions or necessarily stop billing.
+The course's partner service only quotes synthetic upgrades. Its loopback process
+and temporary token are closed after each example. No cloud teardown is required.

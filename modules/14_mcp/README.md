@@ -268,4 +268,4 @@ Stop local servers with Ctrl+C. Finite CLI demos close clients and remove tempor
 
 ## Next: Tier 3 checkpoint
 
-Build the [Safe Support Agent](../../checkpoints/03_safe_support/README.md). Tier 4 follows in Phase 6.
+Build the [Safe Support Agent](../../checkpoints/03_safe_support/README.md). Continue to [Module 15: Agents as tools](../15_agents_as_tools/README.md).

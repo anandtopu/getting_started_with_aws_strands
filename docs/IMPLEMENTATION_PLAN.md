@@ -134,5 +134,16 @@ Streamlit apps, current lifecycle hooks, individual/batch/tool interrupts,
 transactional refund decisions, local policy and injection regression, managed
 Guardrails contracts, and actual stdio/HTTP MCP booking servers. The fourth optional
 CDK app configures Guardrails. There are 23 new examples, five use cases, 15 exercise
-pairs, five cleared notebooks and a checkpoint. Phase 6 (Tier 4, modules 15–18)
-remains pending the user's next `continue`. No AWS resources were deployed.
+pairs, five cleared notebooks and a checkpoint. This historical delivery is superseded
+by Phase 6 below. No AWS resources were deployed.
+
+## Phase 6 delivery
+
+Modules 15–18 and Trip Planning Crew are implemented: bounded specialist delegation,
+real Swarm handoffs and termination, parallel Graph joins and branches, nested patterns,
+quote-bound human review, and authenticated A2A calls to Strands and actual LangGraph
+partners in separate processes. There are 17 new examples, four use cases, 12 exercise
+pairs and four cleared notebooks. The workflow comparison uses its real metadata
+lifecycle; worker execution is explicitly outside that example. SDK timeout and
+revisited-usage caveats are recorded in the verification notes. Phase 7 (Tier 5,
+modules 19–21) awaits the next `continue`. No AWS resources were deployed.

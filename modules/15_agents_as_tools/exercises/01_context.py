@@ -1,0 +1,20 @@
+"""Pass only city and nights to a hotel specialist; omit all private fields.
+
+Run: uv run python modules/15_agents_as_tools/exercises/01_context.py
+Expected: sample output; check with module tests. Cost/resources: $0, none.
+"""
+
+from typing import Any
+
+
+def solve(value: Any) -> Any:
+    # YOUR CODE HERE
+    return value
+
+
+def main() -> None:
+    print(solve({"city": "Porto", "nights": 2, "passport": "fake-private"}))
+
+
+if __name__ == "__main__":
+    main()

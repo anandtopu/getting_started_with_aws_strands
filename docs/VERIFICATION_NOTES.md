@@ -370,3 +370,91 @@ cloud deployment and cloud teardown remain untested.
 The optional install contains 264 distributions. Skipped checks are not counted
 as successes. Verification uses actual SDK loops, local protocols and Jupyter,
 while paid service behavior remains explicitly unverified as described above.
+
+## Phase 6: multi-agent systems — October 29, 2026
+
+Modules 15–18 add 17 examples, four use cases, 12 exercise pairs, four notebooks
+and Trip Planning Crew. Cumulative delivery is 95 examples, 19 use cases,
+57 exercise pairs, 19 cleared notebooks, four checkpoints and 123 finite script
+entries. The four optional CDK apps from earlier tiers remain unchanged.
+
+### Checked API contracts and implementation decisions
+
+The locked versions remain Strands 1.62.0, strands-agents-tools 0.8.10,
+a2a-sdk 0.3.26 and LangGraph 1.2.18. The installed source was checked alongside
+the official [agents-as-tools guide](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/),
+[Swarm guide](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/),
+[Graph guide](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/),
+[A2A guide](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/),
+and [LangGraph graph API](https://docs.langchain.com/oss/python/langgraph/graph-api).
+
+- Explicit async tool wrappers construct specialists through the shared model
+  factory. They pass only public task evidence, validate role/reference/cents
+  against catalogs, allow one attempt per role, and cap calls and elapsed time.
+  A concurrent duplicate-call test confirms only three specialist models run.
+- The delegated fixture uses 600 tokens versus 240 for a single agent with a
+  catalog tool. This verifies accounting, not a quality improvement. Answer
+  reference/topic checks and a manual factuality/usefulness rubric make that
+  distinction visible.
+- `Swarm` adds `handoff_to_agent`; its fixture must include the subsequent final
+  assistant response before moving nodes. Both handoff/iteration ceilings use
+  history length in this version. Repetition detection ends a two-agent loop
+  after four visits. `execution_timeout` is checked between nodes, so an outer
+  `asyncio.timeout` is used to enforce a strict whole-call deadline in the probe.
+  Tests verify cooperative async-tool cleanup after both node and host timeouts.
+- Revisited agents expose an SDK accounting caveat: eight fixture model calls
+  use 960 tokens but the Swarm aggregate reports 1440 because cumulative usage
+  can be added again. Reports retain the raw aggregate and suppress dollar
+  estimates for repeated node IDs. Independent per-call telemetry is required
+  for reliable billing. Ordinary distinct-node and nested totals are tested.
+- `GraphBuilder` runs Agent and `MultiAgentBase` executors. Real tests cover
+  concurrent flight/hotel intervals, single fan-in, conditional budget routes,
+  bounded self-loops, nested graphs/swarms and propagated specialist usage.
+  Exact quote approval is host-owned, fingerprint-bound, single-decision and
+  expires after five minutes. Forged interrupt text, expiry or rejection yields
+  no email draft. The review is local/in-memory and not a production identity
+  or durable approval service. Nothing is booked or sent.
+- `workflow` still exists in the tools package. The lesson creates, inspects
+  and deletes actual workflow metadata in a temporary directory; it does not
+  start background workers or route their models outside the course factory.
+  Its pinned private manager cleanup is isolated in a compatibility helper.
+  Pause/resume are unimplemented in the tool source and are not taught as working.
+- The deprecated shared-agent `A2AServer(agent=...)` is replaced with
+  `agent_factory(context_id)`. Each context gets an independent Agent; the
+  integration test exceeds one fixture agent's request allowance across four
+  contexts to catch shared-agent regressions. The server caps contexts at 16.
+- The compatible A2A integration advertises **protocol 0.3.0**, not the latest
+  protocol version. Compliant streaming is enabled explicitly; the Strands
+  client consumes actual task/artifact events and validates the final quote.
+  A generated bearer protects discovery, RPC and shutdown. Credentials stay
+  in HTTP configuration; redirects and environment proxies are disabled, and
+  the card's origin must match the approved endpoint. These are loopback demos
+  with a single principal, not internet-ready identity/authorization systems.
+- Interoperability uses an actual LangGraph `StateGraph` behind the A2A SDK's
+  executor/task-store adapter in a separate process. The same Strands client
+  calls both backends. Unknown remote model usage is explicitly reported as
+  unavailable rather than zero. The deterministic LangGraph quote node uses
+  no model. Its small cancellation handler reports a status and does not
+  implement durable cancellation/recovery for production tasks.
+
+### Verification scope
+
+Offline checks execute real SDK loops, local subprocess transports and Jupyter
+kernels. The lesson-dependency test run passed 373 tests with two optional
+provider checks skipped; after adding duplicate-call/context-isolation checks,
+the focused boundary suite passed all 20 tests. All 123 finite scripts and all
+19 notebooks passed. The actual CDK CLI synthesized all four existing apps with
+no lookups or deployment. Original notebooks remain cleared.
+
+Windows Python 3.12.13 and 3.13.13 with default groups each passed 363 tests and
+explicitly skipped 13 optional-dependency checks. No Strands deprecation warnings occurred
+in the tests. Live model quality, Ollama performance, public A2A interoperability,
+HTTPS/identity deployment, remote CI and all cloud deployment/teardown remain
+unverified. The default paths create no AWS resources.
+
+Frozen dependency resolution and consistency checks passed with 110 default
+distributions. Ruff lint/format checks passed across 438 source/notebook files.
+The documentation checker verified 1,032 local/public links with zero failures.
+All 107 default-install script entries passed; 16 entries explicitly skipped
+missing optional dependencies. All pre-commit hooks passed on every file,
+including notebook clearing, IAM actions and sample credential checks.

@@ -1,7 +1,7 @@
 PLANNED FINAL TREE — Phase 1, October 29, 2026
-This is the planned final inventory. Phase 5 delivers modules 00–14 and three checkpoints; later tiers remain planned.
+This is the planned final inventory. Phase 6 delivers modules 00–18 and four checkpoints; later tiers remain planned.
 Current optional apps: infra/07_knowledge_base, infra/09_sessions, infra/09_memory, infra/13_guardrails (shared lifecycle guide: infra/README.md).
-Current checkpoints: checkpoints/01_booking_helper, checkpoints/02_policy_preferences, checkpoints/03_safe_support.
+Current checkpoints: checkpoints/01_booking_helper, checkpoints/02_policy_preferences, checkpoints/03_safe_support, checkpoints/04_trip_planning_crew.
 See FEATURE_MAP.md for links to delivered files; historical planned names below can differ.
 Every module expands to concrete examples, use case, exercises, solutions, notebook, quiz and tests.
 getting_started_with_aws_strands/

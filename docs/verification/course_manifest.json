@@ -660,19 +660,23 @@
         {
           "path": "modules/15_agents_as_tools/examples/01_specialist_tools.py",
           "features": "Flight, hotel and policy agents wrapped as tools",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/15_agents_as_tools/examples/02_context_boundaries.py",
           "features": "Minimum specialist context, output validation and authority boundaries",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/15_agents_as_tools/examples/03_delegation_cost.py",
           "features": "Compare single-agent and delegated quality, latency and total token cost",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "16_swarms",
@@ -685,24 +689,29 @@
         {
           "path": "modules/16_swarms/examples/01_handoffs.py",
           "features": "Swarm, entry point, agent handoffs and shared context",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/16_swarms/examples/02_swarm_limits.py",
           "features": "max_handoffs, max_iterations, execution_timeout, node_timeout and repetitive handoff detection",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/16_swarms/examples/03_swarm_results.py",
           "features": "Result status, node outcomes, execution order and failure diagnosis",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/16_swarms/examples/04_itinerary_team.py",
           "features": "Researcher, budget planner, itinerary writer and reviewer collaboration",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "17_graphs",
@@ -715,34 +724,41 @@
         {
           "path": "modules/17_graphs/examples/01_graph_basics.py",
           "features": "GraphBuilder nodes, edges, entry point and per-node results",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/17_graphs/examples/02_parallel_search.py",
           "features": "Parallel flight/hotel branches and single fan-in after completion",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/17_graphs/examples/03_conditional_budget.py",
           "features": "Conditional edges and bounded loops using set_max_node_executions/timeouts",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/17_graphs/examples/04_nested_patterns.py",
           "features": "Nested graph/swarm nodes and aggregate limits",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/17_graphs/examples/05_workflow_comparison.py",
           "features": "Existing workflow tool versus Graph and deterministic orchestration",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/17_graphs/examples/06_approval_pipeline.py",
           "features": "Parse, parallel search, budget branch, approval, and confirmation draft",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "18_a2a",
@@ -755,24 +771,29 @@
         {
           "path": "modules/18_a2a/examples/01_partner_server.py",
           "features": "A2A protocol, Strands A2AServer and agent cards",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/18_a2a/examples/02_remote_agent.py",
           "features": "A2AAgent endpoint, invoke_async and streamed remote results",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/18_a2a/examples/03_authenticated_client.py",
           "features": "client_config authenticated transport, card discovery and credential boundaries",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/18_a2a/examples/04_framework_interop.py",
-          "features": "Protocol contracts for a partner in another framework; full LangGraph implementation in capstone",
-          "aws_required": "No"
+          "features": "Actual LangGraph StateGraph partner in a separate process, called by the same authenticated Strands A2A client",
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered"
     },
     {
       "slug": "19_observability",
@@ -1020,5 +1041,5 @@
       ]
     }
   ],
-  "delivered_phase": 5
+  "delivered_phase": 6
 }
