@@ -1,5 +1,5 @@
 {
-  "phase": 7,
+  "phase": 8,
   "examples": [
     {
       "path": "scripts/foundation_demo.py",
@@ -1484,6 +1484,290 @@
         "bedrock_agentcore",
         "fastapi",
         "jwt"
+      ],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B1_voice/examples/01_voice_session.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B1_voice/examples/02_barge_in.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B1_voice/examples/03_voice_approval.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B1_voice/use_case/voice_booking.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B3_self_extending/examples/01_builder.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B3_self_extending/examples/02_review_generated_tool.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B3_self_extending/examples/03_trusted_reload.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B3_self_extending/use_case/reviewed_tool_builder.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B4_whats_new/examples/01_cancel_and_limits.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B4_whats_new/examples/02_public_middleware.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B4_whats_new/examples/03_stable_redteam.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "strands_evals"
+      ],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B4_whats_new/examples/04_experimental_config.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "modules/bonus/B4_whats_new/use_case/release_feature_lab.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "strands_evals"
+      ],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "capstones/01_cloudops_copilot/starter.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [
+        "--mock"
+      ],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "capstones/01_cloudops_copilot/solution/main.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [
+        "--mock"
+      ],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "matplotlib"
+      ],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "capstones/02_trip_planner_crew/starter.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [
+        "--mock"
+      ],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "capstones/02_trip_planner_crew/solution/main.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [
+        "--mock"
+      ],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "capstones/03_document_intelligence/starter.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [
+        "--mock"
+      ],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "capstones/03_document_intelligence/solution/main.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [
+        "--mock"
+      ],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "capstones/04_nimbus_support_copilot/starter.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [
+        "--mock"
+      ],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "capstones/04_nimbus_support_copilot/solution/main.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [
+        "--mock"
+      ],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "strands_evals"
+      ],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "capstones/05_partner_network/starter.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [
+        "--mock"
+      ],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [],
+      "install_hint": "uv sync --all-groups"
+    },
+    {
+      "path": "capstones/05_partner_network/solution/main.py",
+      "mock_args": [
+        "--mock"
+      ],
+      "live_args": [
+        "--mock"
+      ],
+      "timeout_seconds": 180,
+      "expected_stdout": "Lesson complete.",
+      "requires": [
+        "a2a",
+        "langgraph"
       ],
       "install_hint": "uv sync --all-groups"
     }

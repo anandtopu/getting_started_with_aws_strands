@@ -16,7 +16,8 @@ def session(settings: Settings):
     return boto3.Session(region_name=settings.aws_region, profile_name=settings.aws_profile or None)
 
 
-def client(service: str, settings: Settings):
+def client(service: str, settings: Settings, *, read_timeout: int = 30):
     return session(settings).client(
-        service, config=Config(connect_timeout=5, read_timeout=30, retries={"max_attempts": 1})
+        service,
+        config=Config(connect_timeout=5, read_timeout=read_timeout, retries={"max_attempts": 1}),
     )

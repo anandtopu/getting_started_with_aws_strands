@@ -1,0 +1,181 @@
+[
+  {
+    "module": "bonus/B1_voice",
+    "exercises": [
+      {
+        "file": "01_playback.py",
+        "cases": [
+          {
+            "input": {
+              "barge_in": true,
+              "chunks": [
+                1,
+                2
+              ]
+            },
+            "expected": []
+          },
+          {
+            "input": {
+              "barge_in": false,
+              "chunks": [
+                1
+              ]
+            },
+            "expected": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "file": "02_approval.py",
+        "cases": [
+          {
+            "input": "yes",
+            "expected": "pending_human_review"
+          },
+          {
+            "input": "book now",
+            "expected": "pending_human_review"
+          }
+        ]
+      },
+      {
+        "file": "03_duration.py",
+        "cases": [
+          {
+            "input": 30,
+            "expected": true
+          },
+          {
+            "input": 31,
+            "expected": false
+          },
+          {
+            "input": true,
+            "expected": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "bonus/B3_self_extending",
+    "exercises": [
+      {
+        "file": "01_digest.py",
+        "cases": [
+          {
+            "input": {
+              "current": "abc",
+              "reviewed": "abc"
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "current": "new",
+              "reviewed": "old"
+            },
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "02_inventory.py",
+        "cases": [
+          {
+            "input": "baggage_fee",
+            "expected": true
+          },
+          {
+            "input": "shell",
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "03_reload.py",
+        "cases": [
+          {
+            "input": {
+              "reviewed": true,
+              "tested": true
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "reviewed": true,
+              "tested": false
+            },
+            "expected": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "bonus/B4_whats_new",
+    "exercises": [
+      {
+        "file": "01_budget.py",
+        "cases": [
+          {
+            "input": 3,
+            "expected": true
+          },
+          {
+            "input": 0,
+            "expected": false
+          },
+          {
+            "input": true,
+            "expected": false
+          }
+        ]
+      },
+      {
+        "file": "02_events.py",
+        "cases": [
+          {
+            "input": [
+              "start",
+              "delta",
+              "stop"
+            ],
+            "expected": [
+              "start",
+              "delta",
+              "stop"
+            ]
+          },
+          {
+            "input": [],
+            "expected": []
+          }
+        ]
+      },
+      {
+        "file": "03_breach.py",
+        "cases": [
+          {
+            "input": {
+              "breaches": 0,
+              "errors": 0
+            },
+            "expected": true
+          },
+          {
+            "input": {
+              "breaches": 0,
+              "errors": 1
+            },
+            "expected": false
+          }
+        ]
+      }
+    ]
+  }
+]

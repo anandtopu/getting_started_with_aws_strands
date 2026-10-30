@@ -1,5 +1,9 @@
 # Changelog
 
+## Phase 8 - 2026-10-29
+
+Added four bonus modules, five capstones, four notebooks, twelve exercise pairs, five printable tier sheets, a 90-term glossary and troubleshooting. Added real TypeScript SDK tests, bounded voice events, reviewed tool replacement, stable red-team examples, a streaming trip UI, document storage and a Runtime-hosted Memory/Gateway/Guardrail composition. Reconciled every feature-map link and documented all live-service verification gaps.
+
 ## Phase 7 â€” 2026-10-29
 
 Added Modules 19â€“21, 22 focused examples, three use cases, nine exercise pairs, three notebooks and the Production Readiness checkpoint. Added actual Evals CLI gating, private-content span filtering, local hosting contracts, five CDK apps, authenticated service integration and disabled managed evaluation schedules. No AWS deployment or container-build success is claimed.

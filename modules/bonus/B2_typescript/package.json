@@ -1,0 +1,9 @@
+{
+  "name": "nimbus-strands-typescript-course",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"check": "tsc --noEmit", "test": "tsx --test tests/*.test.ts", "demo": "tsx use_case/typescript_booking.ts --mock"},
+  "dependencies": {"@strands-agents/sdk": "1.22.0", "zod": "4.6.7"},
+  "devDependencies": {"typescript": "7.0.2", "tsx": "4.23.15", "@types/node": "26.6.6"}
+}

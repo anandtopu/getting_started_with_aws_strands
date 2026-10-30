@@ -45,7 +45,7 @@ def local_otlp_receiver():
         thread.join(timeout=5)
 
 
-def trace_run(settings, *, endpoint=None, cloud=False):
+def trace_run(settings, *, endpoint=None, cloud=False, workload=None):
     from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
     from opentelemetry.sdk.resources import Resource
     from opentelemetry.sdk.trace import ReadableSpan, TracerProvider
@@ -122,7 +122,9 @@ def trace_run(settings, *, endpoint=None, cloud=False):
     trace.set_tracer_provider(provider)
     try:
         result = asyncio.run(
-            answer_support({"prompt": "Refund time? PRIVATE-MARKER-DO-NOT-EXPORT"}, settings)
+            workload()
+            if workload
+            else answer_support({"prompt": "Refund time? PRIVATE-MARKER-DO-NOT-EXPORT"}, settings)
         )
     finally:
         provider.force_flush(timeout_millis=5000)

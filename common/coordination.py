@@ -33,14 +33,14 @@ class ModelTurnBudget(HookProvider):
             raise RuntimeError("Node model-call budget exhausted")
 
 
-def worker(settings, name, responses, *, tools=(), prompt=None, **kwargs):
+def worker(settings, name, responses, *, tools=(), prompt=None, model_calls=3, **kwargs):
     return Agent(
         name=name,
         model=get_model(settings, responses=responses),
         tools=list(tools),
         system_prompt=prompt
         or f"You are Nimbus's {name}. Use synthetic facts only; never book or pay.",
-        hooks=[ModelTurnBudget()],
+        hooks=[ModelTurnBudget(model_calls)],
         callback_handler=None,
         retry_strategy=None,
         **kwargs,

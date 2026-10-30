@@ -49,6 +49,21 @@ def test_gateway_identity_policy_and_memory(templates):
     assert memory["EventExpiryDuration"] == 7
 
 
+def test_flagship_runtime_permissions_are_resource_bound(templates):
+    template = templates["RuntimeStack"]
+    policy = template["Resources"]["CopilotAccess"]
+    assert policy["Condition"] == "CopilotConfigured"
+    statements = policy["Properties"]["PolicyDocument"]["Statement"]
+    assert set(statements[0]["Action"]) == {
+        "bedrock-agentcore:CreateEvent",
+        "bedrock-agentcore:RetrieveMemoryRecords",
+        "bedrock-agentcore:DeleteEvent",
+    }
+    assert "MemoryId" in str(statements[0]["Resource"])
+    assert statements[1]["Action"] == ["bedrock:ApplyGuardrail"]
+    assert "GuardrailId" in str(statements[1]["Resource"])
+
+
 def test_managed_evaluations_start_disabled(templates):
     template = templates["AgentCoreStack"]
     online = resources(template, "AWS::BedrockAgentCore::OnlineEvaluationConfig")[0]

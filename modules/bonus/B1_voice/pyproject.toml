@@ -1,0 +1,8 @@
+[project]
+name = "nimbus-voice-lab"
+version = "1.0.0"
+requires-python = ">=3.12,<3.14"
+dependencies = ["getting-started-with-aws-strands", "strands-agents[bidi]>=1.62,<1.63"]
+
+[tool.uv.sources]
+getting-started-with-aws-strands = {path = "../../..", editable = true}

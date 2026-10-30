@@ -16,6 +16,15 @@ def runtime_app(settings: Settings | None = None):
 
     @app.entrypoint
     async def invoke(payload, context):
+        if isinstance(payload, dict) and payload.get("operation") == "copilot":
+            import asyncio
+
+            from common.flagship_runtime import hosted_copilot
+
+            # The credential stays in trusted transport code, outside agent messages and outputs.
+            result = await asyncio.to_thread(hosted_copilot, payload, settings or load_settings())
+            yield {"type": "done", "result": result}
+            return
         # Runtime session isolation is hosting isolation; this lesson creates fresh agent state.
         async for event in stream_support(payload, settings or load_settings()):
             yield event

@@ -1,966 +1,751 @@
-PLANNED FINAL TREE — Phase 1, October 29, 2026
-This is the planned final inventory. Phase 6 delivers modules 00–18 and four checkpoints; later tiers remain planned.
-Current optional apps: infra/07_knowledge_base, infra/09_sessions, infra/09_memory, infra/13_guardrails (shared lifecycle guide: infra/README.md).
-Current checkpoints: checkpoints/01_booking_helper, checkpoints/02_policy_preferences, checkpoints/03_safe_support, checkpoints/04_trip_planning_crew.
-See FEATURE_MAP.md for links to delivered files; historical planned names below can differ.
-Every module expands to concrete examples, use case, exercises, solutions, notebook, quiz and tests.
-getting_started_with_aws_strands/
-├── .github/
-│   ├── ISSUE_TEMPLATE/
-│   │   ├── bug_report.yml
-│   │   ├── content_error.yml
-│   │   └── example_request.yml
-│   ├── workflows/
-│   │   ├── ci.yml
-│   │   └── link-check.yml
-│   └── PULL_REQUEST_TEMPLATE.md
-├── capstones/
-│   ├── 01_cloudops_copilot/
-│   │   ├── eval/
-│   │   │   └── cases.jsonl
-│   │   ├── solution/
-│   │   │   └── main.py
-│   │   ├── starter/
-│   │   │   └── main.py
-│   │   ├── tests/
-│   │   │   └── test_acceptance.py
-│   │   ├── README.md
-│   │   └── RUBRIC.md
-│   ├── 02_trip_planner_crew/
-│   │   ├── eval/
-│   │   │   └── cases.jsonl
-│   │   ├── solution/
-│   │   │   ├── main.py
-│   │   │   └── streamlit_app.py
-│   │   ├── starter/
-│   │   │   └── main.py
-│   │   ├── tests/
-│   │   │   └── test_acceptance.py
-│   │   ├── README.md
-│   │   └── RUBRIC.md
-│   ├── 03_document_intelligence/
-│   │   ├── eval/
-│   │   │   └── cases.jsonl
-│   │   ├── solution/
-│   │   │   └── main.py
-│   │   ├── starter/
-│   │   │   └── main.py
-│   │   ├── tests/
-│   │   │   └── test_acceptance.py
-│   │   ├── README.md
-│   │   └── RUBRIC.md
-│   ├── 04_nimbus_support_copilot/
-│   │   ├── eval/
-│   │   │   └── cases.jsonl
-│   │   ├── solution/
-│   │   │   ├── main.py
-│   │   │   └── streamlit_app.py
-│   │   ├── starter/
-│   │   │   └── main.py
-│   │   ├── tests/
-│   │   │   └── test_acceptance.py
-│   │   ├── README.md
-│   │   └── RUBRIC.md
-│   └── 05_partner_network/
-│       ├── eval/
-│       │   └── cases.jsonl
-│       ├── solution/
-│       │   ├── main.py
-│       │   └── partner_agent.py
-│       ├── starter/
-│       │   └── main.py
-│       ├── tests/
-│       │   └── test_acceptance.py
-│       ├── README.md
-│       └── RUBRIC.md
-├── cheatsheets/
-│   ├── tier_1.md
-│   ├── tier_1.pdf
-│   ├── tier_2.md
-│   ├── tier_2.pdf
-│   ├── tier_3.md
-│   ├── tier_3.pdf
-│   ├── tier_4.md
-│   ├── tier_4.pdf
-│   ├── tier_5.md
-│   └── tier_5.pdf
-├── checkpoints/
-│   ├── 01_booking_helper/
-│   │   ├── starter.py
-│   │   ├── solution.py
-│   │   ├── test_booking_helper.py
-│   │   └── README.md
-│   ├── tier_2/
-│   │   ├── tests/
-│   │   │   └── test_checkpoint.py
-│   │   └── README.md
-│   ├── tier_3/
-│   │   ├── tests/
-│   │   │   └── test_checkpoint.py
-│   │   └── README.md
-│   ├── tier_4/
-│   │   ├── tests/
-│   │   │   └── test_checkpoint.py
-│   │   └── README.md
-│   └── tier_5/
-│       ├── tests/
-│       │   └── test_checkpoint.py
-│       └── README.md
-├── common/
-│   ├── retrieval/
-│   │   ├── __init__.py
-│   │   ├── chunking.py
-│   │   ├── embeddings.py
-│   │   ├── index.py
-│   │   ├── loaders.py
-│   │   └── ranking.py
-│   ├── tools/
-│   │   ├── __init__.py
-│   │   ├── bookings.py
-│   │   ├── operations.py
-│   │   ├── policies.py
-│   │   └── weather.py
-│   ├── __init__.py
-│   ├── approvals.py
-│   ├── assistant.py
-│   ├── config.py
-│   ├── data.py
-│   ├── evaluation.py
-│   ├── memory.py
-│   ├── models.py
-│   ├── pretty.py
-│   ├── safety.py
-│   ├── schemas.py
-│   └── testing.py
-├── data/
-│   ├── eval/
-│   │   ├── agent_conversations.jsonl
-│   │   ├── policy_qa.jsonl
-│   │   └── ticket_triage.jsonl
-│   ├── ops/
-│   │   ├── app_logs.jsonl
-│   │   └── cost_report.csv
-│   ├── policies/
-│   │   ├── baggage.md
-│   │   ├── cancellation.md
-│   │   ├── change_fee.md
-│   │   ├── nimbus_terms.pdf
-│   │   ├── privacy.md
-│   │   ├── refund.md
-│   │   └── travel_insurance.md
-│   ├── receipts/
-│   │   ├── receipt_01.png
-│   │   ├── receipt_02.png
-│   │   ├── receipt_03.png
-│   │   ├── receipt_04.png
-│   │   ├── receipt_05.png
-│   │   ├── receipt_06.png
-│   │   ├── receipt_07.png
-│   │   ├── receipt_08.png
-│   │   ├── receipt_09.png
-│   │   ├── receipt_10.png
-│   │   ├── receipt_11.png
-│   │   ├── receipt_12.png
-│   │   ├── receipt_13.png
-│   │   ├── receipt_14.png
-│   │   ├── receipt_15.png
-│   │   ├── receipt_16.png
-│   │   ├── receipt_17.png
-│   │   ├── receipt_18.png
-│   │   ├── receipt_19.png
-│   │   └── receipt_20.png
-│   ├── runbooks/
-│   │   ├── cost_reviews.md
-│   │   ├── deployments.md
-│   │   ├── incident_response.md
-│   │   └── on_call.md
-│   ├── security/
-│   │   └── poisoned_doc.md
-│   ├── bookings.db
-│   ├── destinations.json
-│   ├── flights.csv
-│   ├── hotels.csv
-│   ├── manifest.json
-│   ├── reviews.csv
-│   └── support_tickets.jsonl
-├── docs/
-│   ├── verification/
-│   │   ├── compatibility_metadata.json
-│   │   ├── course_manifest.json
-│   │   ├── evals_releases.json
-│   │   ├── fixture_sources.json
-│   │   ├── harness-sdk_releases.json
-│   │   ├── npm_metadata.json
-│   │   ├── official_doc_links.json
-│   │   ├── package_metadata.json
-│   │   ├── phase1_checks.json
-│   │   └── tools_releases.json
-│   ├── AWS_SETUP.md
-│   ├── CHOOSING_THE_RIGHT_PATTERN.md
-│   ├── COMPLETION_CHECKLIST.md
-│   ├── COSTS.md
-│   ├── FEATURE_MAP.md
-│   ├── GLOSSARY.md
-│   ├── IMPLEMENTATION_PLAN.md
-│   ├── MENTAL_MODEL.md
-│   ├── REPOSITORY_TREE.txt
-│   ├── TROUBLESHOOTING.md
-│   └── VERIFICATION_NOTES.md
-├── infra/
-│   ├── agentcore_copilot/
-│   │   ├── tests/
-│   │   │   └── test_stack.py
-│   │   ├── README.md
-│   │   ├── app.py
-│   │   ├── booking_api.yaml
-│   │   ├── cdk.json
-│   │   ├── refund_policy.cedar
-│   │   ├── service_lifecycle.py
-│   │   ├── stack.py
-│   │   └── teardown.py
-│   ├── agentcore_memory/
-│   │   ├── tests/
-│   │   │   └── test_stack.py
-│   │   ├── README.md
-│   │   ├── app.py
-│   │   ├── cdk.json
-│   │   ├── stack.py
-│   │   └── teardown.py
-│   ├── agentcore_runtime/
-│   │   ├── tests/
-│   │   │   └── test_stack.py
-│   │   ├── Dockerfile
-│   │   ├── README.md
-│   │   ├── app.py
-│   │   ├── cdk.json
-│   │   ├── stack.py
-│   │   └── teardown.py
-│   ├── agentcore_tools/
-│   │   ├── tests/
-│   │   │   └── test_stack.py
-│   │   ├── README.md
-│   │   ├── app.py
-│   │   ├── cdk.json
-│   │   ├── stack.py
-│   │   └── teardown.py
-│   ├── budget/
-│   │   ├── tests/
-│   │   │   └── test_stack.py
-│   │   ├── README.md
-│   │   ├── app.py
-│   │   ├── cdk.json
-│   │   ├── stack.py
-│   │   └── teardown.py
-│   ├── document_pipeline/
-│   │   ├── tests/
-│   │   │   └── test_stack.py
-│   │   ├── README.md
-│   │   ├── app.py
-│   │   ├── cdk.json
-│   │   ├── stack.py
-│   │   └── teardown.py
-│   ├── fargate_support/
-│   │   ├── tests/
-│   │   │   └── test_stack.py
-│   │   ├── Dockerfile
-│   │   ├── README.md
-│   │   ├── app.py
-│   │   ├── cdk.json
-│   │   ├── stack.py
-│   │   └── teardown.py
-│   ├── guardrails/
-│   │   ├── tests/
-│   │   │   └── test_stack.py
-│   │   ├── README.md
-│   │   ├── app.py
-│   │   ├── cdk.json
-│   │   ├── stack.py
-│   │   └── teardown.py
-│   ├── knowledge_base/
-│   │   ├── tests/
-│   │   │   └── test_stack.py
-│   │   ├── README.md
-│   │   ├── app.py
-│   │   ├── cdk.json
-│   │   ├── stack.py
-│   │   └── teardown.py
-│   ├── lambda_support/
-│   │   ├── tests/
-│   │   │   └── test_stack.py
-│   │   ├── README.md
-│   │   ├── app.py
-│   │   ├── cdk.json
-│   │   ├── package.py
-│   │   ├── stack.py
-│   │   └── teardown.py
-│   └── session_storage/
-│       ├── tests/
-│       │   └── test_stack.py
-│       ├── README.md
-│       ├── app.py
-│       ├── cdk.json
-│       ├── stack.py
-│       └── teardown.py
-├── modules/
-│   ├── 00_setup/
-│   │   ├── examples/
-│   │   │   ├── 01_agent_or_workflow.py
-│   │   │   ├── 02_local_readiness.py
-│   │   │   ├── 03_aws_readiness.py
-│   │   │   └── 04_first_call_metrics.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── orientation.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 01_first_agent/
-│   │   ├── examples/
-│   │   │   ├── 01_hello_agent.py
-│   │   │   ├── 02_result_and_messages.py
-│   │   │   ├── 03_callbacks.py
-│   │   │   ├── 04_async_call.py
-│   │   │   └── 05_follow_the_loop.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── faq_responder.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 02_model_providers/
-│   │   ├── examples/
-│   │   │   ├── 01_bedrock_settings.py
-│   │   │   ├── 02_provider_switch.py
-│   │   │   ├── 03_runtime_settings_and_cost.py
-│   │   │   ├── 04_custom_model.py
-│   │   │   ├── 05_prompt_cache.py
-│   │   │   └── 06_reasoning.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── provider_comparison.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 03_conversations/
-│   │   ├── examples/
-│   │   │   ├── 01_multi_turn.py
-│   │   │   ├── 02_conversation_windows.py
-│   │   │   ├── 03_receipt_image.py
-│   │   │   └── 04_policy_document.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── trip_chat.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 04_structured_output/
-│   │   ├── examples/
-│   │   │   ├── 01_typed_ticket.py
-│   │   │   ├── 02_nested_itinerary.py
-│   │   │   ├── 03_validation_retry.py
-│   │   │   └── 04_structure_with_tools.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── ticket_triage.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 05_building_tools/
-│   │   ├── examples/
-│   │   │   ├── 01_typed_search.py
-│   │   │   ├── 02_results_and_errors.py
-│   │   │   ├── 03_tool_context.py
-│   │   │   ├── 04_async_progress.py
-│   │   │   ├── 05_resource_sharing.py
-│   │   │   ├── 06_module_tools.py
-│   │   │   ├── 07_tool_executors.py
-│   │   │   ├── 08_tool_directory.py
-│   │   │   └── 09_manual_converse_loop.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── booking_assistant.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 06_community_tools/
-│   │   ├── examples/
-│   │   │   ├── 01_calculator_time_weather.py
-│   │   │   ├── 02_files_and_consent.py
-│   │   │   ├── 03_python_with_consent.py
-│   │   │   ├── 04_tool_catalog.py
-│   │   │   └── 05_read_only_aws.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── travel_day_helper.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 07_rag/
-│   │   ├── examples/
-│   │   │   ├── 01_load_and_chunk.py
-│   │   │   ├── 02_embeddings_by_hand.py
-│   │   │   ├── 03_local_index.py
-│   │   │   ├── 04_cited_search.py
-│   │   │   ├── 05_knowledge_base.py
-│   │   │   └── 06_bedrock_embeddings.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── ask_nimbus.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 08_advanced_rag/
-│   │   ├── examples/
-│   │   │   ├── 01_query_rewriting.py
-│   │   │   ├── 02_hybrid_search.py
-│   │   │   ├── 03_reranking.py
-│   │   │   ├── 04_filters_multihop.py
-│   │   │   ├── 05_evaluate_retrieval.py
-│   │   │   └── 06_failure_gallery.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── retrieval_comparison.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 09_memory/
-│   │   ├── examples/
-│   │   │   ├── 01_state_and_messages.py
-│   │   │   ├── 02_file_sessions.py
-│   │   │   ├── 03_s3_sessions.py
-│   │   │   ├── 04_local_preferences.py
-│   │   │   ├── 05_agentcore_memory.py
-│   │   │   └── 06_mem0_store.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── preferences_assistant.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 10_streaming/
-│   │   ├── examples/
-│   │   │   ├── 01_stream_events.py
-│   │   │   ├── 02_concurrency_and_cancel.py
-│   │   │   ├── 03_fastapi_sse.py
-│   │   │   └── 04_streamlit_chat.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── streaming_trip_planner.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 11_hooks/
-│   │   ├── examples/
-│   │   │   ├── 01_lifecycle_hooks.py
-│   │   │   ├── 02_tool_hooks.py
-│   │   │   ├── 03_message_hooks.py
-│   │   │   └── 04_audit_budget.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── audited_booking.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 12_interrupts/
-│   │   ├── examples/
-│   │   │   ├── 01_hook_interrupt.py
-│   │   │   ├── 02_tool_interrupt.py
-│   │   │   ├── 03_approval_cli.py
-│   │   │   └── 04_approval_web.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── refund_approval.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 13_guardrails/
-│   │   ├── examples/
-│   │   │   ├── 01_local_guardrails.py
-│   │   │   ├── 02_prompt_injection.py
-│   │   │   ├── 03_least_privilege.py
-│   │   │   ├── 04_limits.py
-│   │   │   └── 05_bedrock_guardrails.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── hardened_support.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 14_mcp/
-│   │   ├── examples/
-│   │   │   ├── 01_stdio_client.py
-│   │   │   ├── 02_http_client.py
-│   │   │   ├── 03_booking_server.py
-│   │   │   ├── 04_aws_servers.py
-│   │   │   └── 05_tool_filtering.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── mcp_booking_assistant.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 15_agents_as_tools/
-│   │   ├── examples/
-│   │   │   ├── 01_specialist_tools.py
-│   │   │   ├── 02_context_boundaries.py
-│   │   │   └── 03_delegation_cost.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── nimbus_concierge.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 16_swarms/
-│   │   ├── examples/
-│   │   │   ├── 01_handoffs.py
-│   │   │   ├── 02_swarm_limits.py
-│   │   │   ├── 03_swarm_results.py
-│   │   │   └── 04_itinerary_team.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── itinerary_swarm.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 17_graphs/
-│   │   ├── examples/
-│   │   │   ├── 01_graph_basics.py
-│   │   │   ├── 02_parallel_search.py
-│   │   │   ├── 03_conditional_budget.py
-│   │   │   ├── 04_nested_patterns.py
-│   │   │   ├── 05_workflow_comparison.py
-│   │   │   └── 06_approval_pipeline.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── group_trip_pipeline.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 18_a2a/
-│   │   ├── examples/
-│   │   │   ├── 01_partner_server.py
-│   │   │   ├── 02_remote_agent.py
-│   │   │   ├── 03_authenticated_client.py
-│   │   │   └── 04_framework_interop.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── partner_upgrade.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 19_observability/
-│   │   ├── examples/
-│   │   │   ├── 01_agent_metrics.py
-│   │   │   ├── 02_local_tracing.py
-│   │   │   ├── 03_offline_testing.py
-│   │   │   ├── 04_strands_evals.py
-│   │   │   ├── 05_evaluation_cli.py
-│   │   │   ├── 06_cloud_observability.py
-│   │   │   └── 07_managed_evaluation.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── support_quality_gate.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 20_deployment/
-│   │   ├── examples/
-│   │   │   ├── 01_hosting_decision.py
-│   │   │   ├── 02_agentcore_local.py
-│   │   │   ├── 03_agentcore_runtime.py
-│   │   │   ├── 04_lambda_handler.py
-│   │   │   ├── 05_fargate_api.py
-│   │   │   └── 06_runtime_configuration.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── deployment_comparison.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   ├── 21_agentcore/
-│   │   ├── examples/
-│   │   │   ├── 01_memory.py
-│   │   │   ├── 02_gateway.py
-│   │   │   ├── 03_identity.py
-│   │   │   ├── 04_code_interpreter.py
-│   │   │   ├── 05_browser.py
-│   │   │   ├── 06_observability.py
-│   │   │   ├── 07_policy.py
-│   │   │   ├── 08_evaluations.py
-│   │   │   └── 09_integrated_copilot.py
-│   │   ├── exercises/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── solutions/
-│   │   │   ├── 01_practice.py
-│   │   │   ├── 02_apply.py
-│   │   │   └── 03_stretch.py
-│   │   ├── tests/
-│   │   │   ├── test_examples.py
-│   │   │   ├── test_exercises.py
-│   │   │   └── test_use_case.py
-│   │   ├── use_case/
-│   │   │   └── production_copilot.py
-│   │   ├── README.md
-│   │   ├── notebook.ipynb
-│   │   └── quiz.md
-│   └── bonus/
-│       ├── B1_voice/
-│       │   ├── examples/
-│       │   │   ├── 01_voice_session.py
-│       │   │   ├── 02_barge_in.py
-│       │   │   └── 03_voice_approval.py
-│       │   ├── exercises/
-│       │   │   ├── 01_practice.py
-│       │   │   ├── 02_apply.py
-│       │   │   └── 03_stretch.py
-│       │   ├── solutions/
-│       │   │   ├── 01_practice.py
-│       │   │   ├── 02_apply.py
-│       │   │   └── 03_stretch.py
-│       │   ├── tests/
-│       │   │   ├── test_examples.py
-│       │   │   ├── test_exercises.py
-│       │   │   └── test_use_case.py
-│       │   ├── use_case/
-│       │   │   └── voice_booking.py
-│       │   ├── README.md
-│       │   ├── notebook.ipynb
-│       │   └── quiz.md
-│       ├── B2_typescript/
-│       │   ├── examples/
-│       │   │   ├── 01_first_agent.ts
-│       │   │   ├── 02_typed_tool.ts
-│       │   │   └── 03_provider_and_result.ts
-│       │   ├── exercises/
-│       │   │   ├── 01_practice.ts
-│       │   │   ├── 02_apply.ts
-│       │   │   └── 03_stretch.ts
-│       │   ├── solutions/
-│       │   │   ├── 01_practice.ts
-│       │   │   ├── 02_apply.ts
-│       │   │   └── 03_stretch.ts
-│       │   ├── tests/
-│       │   │   ├── examples.test.ts
-│       │   │   ├── exercises.test.ts
-│       │   │   └── use_case.test.ts
-│       │   ├── use_case/
-│       │   │   └── typescript_booking.ts
-│       │   ├── README.md
-│       │   ├── notebook.ipynb
-│       │   ├── package-lock.json
-│       │   ├── package.json
-│       │   ├── quiz.md
-│       │   └── tsconfig.json
-│       ├── B3_self_extending/
-│       │   ├── examples/
-│       │   │   ├── 01_builder.py
-│       │   │   ├── 02_review_generated_tool.py
-│       │   │   └── 03_trusted_reload.py
-│       │   ├── exercises/
-│       │   │   ├── 01_practice.py
-│       │   │   ├── 02_apply.py
-│       │   │   └── 03_stretch.py
-│       │   ├── solutions/
-│       │   │   ├── 01_practice.py
-│       │   │   ├── 02_apply.py
-│       │   │   └── 03_stretch.py
-│       │   ├── tests/
-│       │   │   ├── test_examples.py
-│       │   │   ├── test_exercises.py
-│       │   │   └── test_use_case.py
-│       │   ├── use_case/
-│       │   │   └── reviewed_tool_builder.py
-│       │   ├── README.md
-│       │   ├── notebook.ipynb
-│       │   └── quiz.md
-│       └── B4_whats_new/
-│           ├── examples/
-│           │   ├── 01_cancel_and_limits.py
-│           │   ├── 02_public_middleware.py
-│           │   ├── 03_stable_redteam.py
-│           │   └── 04_experimental_config.py
-│           ├── exercises/
-│           │   ├── 01_practice.py
-│           │   ├── 02_apply.py
-│           │   └── 03_stretch.py
-│           ├── solutions/
-│           │   ├── 01_practice.py
-│           │   ├── 02_apply.py
-│           │   └── 03_stretch.py
-│           ├── tests/
-│           │   ├── test_examples.py
-│           │   ├── test_exercises.py
-│           │   └── test_use_case.py
-│           ├── use_case/
-│           │   └── release_feature_lab.py
-│           ├── README.md
-│           ├── notebook.ipynb
-│           └── quiz.md
-├── scripts/
-│   ├── __init__.py
-│   ├── build_data.py
-│   ├── check_env.py
-│   ├── check_links.py
-│   ├── check_notebooks.py
-│   ├── examples_manifest.json
-│   ├── find_leftovers.py
-│   ├── render_cheatsheets.py
-│   ├── run_all_examples.py
-│   └── synth_all.py
-├── tests/
-│   ├── live/
-│   │   └── test_provider_smoke.py
-│   ├── conftest.py
-│   ├── test_course_structure.py
-│   ├── test_data_integrity.py
-│   ├── test_deprecations.py
-│   ├── test_iam_policies.py
-│   ├── test_links.py
-│   ├── test_models.py
-│   ├── test_offline_examples.py
-│   └── test_secret_examples.py
-├── .env.example
-├── .gitignore
-├── .pre-commit-config.yaml
-├── CHANGELOG.md
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── LEARNING_PATH.md
-├── LICENSE
-├── README.md
-├── THIRD_PARTY_NOTICES.md
-├── pyproject.toml
-└── uv.lock
+DELIVERED INVENTORY - 2026-10-29
+Generated from tracked and non-ignored project files.
+Excluded: environments, dependency caches, local outputs, CDK synthesis outputs and Git metadata.
+
+.env.example
+.gitattributes
+.github/ISSUE_TEMPLATE/bug_report.md
+.github/ISSUE_TEMPLATE/learning_improvement.md
+.github/ISSUE_TEMPLATE/new_example.md
+.github/PULL_REQUEST_TEMPLATE.md
+.github/workflows/ci.yml
+.github/workflows/links.yml
+.gitignore
+.pre-commit-config.yaml
+.python-version
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+LEARNING_PATH.md
+LICENSE
+README.md
+THIRD_PARTY_NOTICES.md
+capstones/01_cloudops_copilot/README.md
+capstones/01_cloudops_copilot/evaluation.json
+capstones/01_cloudops_copilot/solution/main.py
+capstones/01_cloudops_copilot/starter.py
+capstones/01_cloudops_copilot/tests/test_cloudops.py
+capstones/02_trip_planner_crew/README.md
+capstones/02_trip_planner_crew/evaluation.json
+capstones/02_trip_planner_crew/solution/app.py
+capstones/02_trip_planner_crew/solution/main.py
+capstones/02_trip_planner_crew/starter.py
+capstones/02_trip_planner_crew/tests/test_trip.py
+capstones/03_document_intelligence/README.md
+capstones/03_document_intelligence/evaluation.json
+capstones/03_document_intelligence/fixtures/invoices.jsonl
+capstones/03_document_intelligence/fixtures/invoices/invoice_01.png
+capstones/03_document_intelligence/fixtures/invoices/invoice_02.png
+capstones/03_document_intelligence/solution/main.py
+capstones/03_document_intelligence/starter.py
+capstones/03_document_intelligence/tests/test_document_infrastructure.py
+capstones/03_document_intelligence/tests/test_documents.py
+capstones/04_nimbus_support_copilot/DEPLOYMENT.md
+capstones/04_nimbus_support_copilot/README.md
+capstones/04_nimbus_support_copilot/evaluation.json
+capstones/04_nimbus_support_copilot/solution/main.py
+capstones/04_nimbus_support_copilot/starter.py
+capstones/04_nimbus_support_copilot/tests/test_support.py
+capstones/05_partner_network/README.md
+capstones/05_partner_network/evaluation.json
+capstones/05_partner_network/solution/main.py
+capstones/05_partner_network/starter.py
+capstones/05_partner_network/tests/test_partner.py
+capstones/README.md
+cheatsheets/01_foundations.md
+cheatsheets/02_knowledge_memory.md
+cheatsheets/03_control_safety.md
+cheatsheets/04_multiagent.md
+cheatsheets/05_production.md
+cheatsheets/README.md
+checkpoints/01_booking_helper/README.md
+checkpoints/01_booking_helper/solution.py
+checkpoints/01_booking_helper/starter.py
+checkpoints/01_booking_helper/test_booking_helper.py
+checkpoints/02_policy_preferences/README.md
+checkpoints/02_policy_preferences/solution.py
+checkpoints/02_policy_preferences/starter.py
+checkpoints/02_policy_preferences/test_policy_preferences.py
+checkpoints/03_safe_support/README.md
+checkpoints/03_safe_support/solution.py
+checkpoints/03_safe_support/starter.py
+checkpoints/03_safe_support/test_safe_support.py
+checkpoints/04_trip_planning_crew/README.md
+checkpoints/04_trip_planning_crew/solution.py
+checkpoints/04_trip_planning_crew/starter.py
+checkpoints/05_production_readiness/README.md
+checkpoints/05_production_readiness/solution.py
+checkpoints/05_production_readiness/starter.py
+common/__init__.py
+common/agentcore_identity.py
+common/agentcore_memory.py
+common/agentcore_stack.py
+common/agentcore_tools.py
+common/approvals.py
+common/assistant.py
+common/audit.py
+common/aws_mcp.py
+common/aws_otlp.py
+common/aws_retrieval.py
+common/capstone_ops.py
+common/capstone_trip.py
+common/cloud_clients.py
+common/config.py
+common/coordination.py
+common/data.py
+common/deployment_apps.py
+common/deployment_calls.py
+common/document_pipeline.py
+common/evaluation_cli.py
+common/exercise_support.py
+common/extension_lab.py
+common/flagship.py
+common/flagship_runtime.py
+common/gateway_booking.py
+common/gateway_openapi.py
+common/graph_lessons.py
+common/guardrail_stack.py
+common/hosting_stacks.py
+common/infra_stacks.py
+common/lessons.py
+common/managed_evaluation.py
+common/mcp_clients.py
+common/mcp_server.py
+common/memory_adapters.py
+common/models.py
+common/network.py
+common/observability_stack.py
+common/partner_client.py
+common/partner_server.py
+common/preferences.py
+common/pretty.py
+common/pricing_agent.py
+common/production_checks.py
+common/production_copilot.py
+common/production_lessons.py
+common/production_support.py
+common/public_booking.py
+common/rag_agent.py
+common/release_lab.py
+common/retrieval.py
+common/retrieval_evaluation.py
+common/reviewed_workspace.py
+common/safety.py
+common/scheduled_evaluation.py
+common/schemas.py
+common/specialists.py
+common/streaming.py
+common/support_evaluation.py
+common/swarm_lessons.py
+common/telemetry_lab.py
+common/testing.py
+common/tools/__init__.py
+common/tools/booking.py
+common/tools/policy_lookup.py
+common/tools/travel_day.py
+common/triage.py
+common/trip_graph.py
+common/trip_planning.py
+common/voice_lab.py
+common/web_apps.py
+common/web_ui.html
+common/workflow_inspection.py
+conftest.py
+data/bookings.db
+data/destinations.json
+data/eval/agent_conversations.jsonl
+data/eval/policy_qa.jsonl
+data/eval/receipts.jsonl
+data/eval/ticket_triage.jsonl
+data/flights.csv
+data/hotels.csv
+data/manifest.json
+data/ops/app_logs.jsonl
+data/ops/cost_report.csv
+data/ops/ground_truth.json
+data/policies/baggage.md
+data/policies/cancellation.md
+data/policies/change_fee.md
+data/policies/nimbus_terms.pdf
+data/policies/privacy.md
+data/policies/refund.md
+data/policies/travel_insurance.md
+data/receipts/receipt_01.png
+data/receipts/receipt_02.png
+data/receipts/receipt_03.png
+data/receipts/receipt_04.png
+data/receipts/receipt_05.png
+data/receipts/receipt_06.png
+data/receipts/receipt_07.png
+data/receipts/receipt_08.png
+data/receipts/receipt_09.png
+data/receipts/receipt_10.png
+data/receipts/receipt_11.png
+data/receipts/receipt_12.png
+data/receipts/receipt_13.png
+data/receipts/receipt_14.png
+data/receipts/receipt_15.png
+data/receipts/receipt_16.png
+data/receipts/receipt_17.png
+data/receipts/receipt_18.png
+data/receipts/receipt_19.png
+data/receipts/receipt_20.png
+data/reviews.csv
+data/runbooks/cost_reviews.md
+data/runbooks/deployments.md
+data/runbooks/incident_response.md
+data/runbooks/on_call.md
+data/security/poisoned_doc.md
+data/support_tickets.jsonl
+deploy/fargate.Dockerfile
+deploy/jaeger-compose.yml
+deploy/lambda.Dockerfile
+deploy/requirements.txt
+deploy/runtime.Dockerfile
+docs/AWS_SETUP.md
+docs/CHOOSING_THE_RIGHT_PATTERN.md
+docs/COSTS.md
+docs/DEFINITION_OF_DONE.md
+docs/FEATURE_MAP.md
+docs/GLOSSARY.md
+docs/IMPLEMENTATION_PLAN.md
+docs/MENTAL_MODEL.md
+docs/PRODUCTION_COSTS.md
+docs/REPOSITORY_TREE.txt
+docs/SYNTHETIC_DATA.md
+docs/TROUBLESHOOTING.md
+docs/VERIFICATION_NOTES.md
+docs/verification/compatibility_metadata.json
+docs/verification/course_manifest.json
+docs/verification/evals_releases.json
+docs/verification/fixture_sources.json
+docs/verification/harness-sdk_releases.json
+docs/verification/npm_metadata.json
+docs/verification/official_doc_links.json
+docs/verification/package_metadata.json
+docs/verification/phase1_checks.json
+docs/verification/phase2_checks.json
+docs/verification/phase6_checks.json
+docs/verification/phase7_packages.json
+docs/verification/phase8_checks.json
+docs/verification/phase8_packages.json
+docs/verification/tier1_exercises.json
+docs/verification/tier2_exercises.json
+docs/verification/tier2_retrieval_report.json
+docs/verification/tier3_exercises.json
+docs/verification/tier4_exercises.json
+docs/verification/tier5_exercises.json
+docs/verification/tier6_exercises.json
+docs/verification/tools_releases.json
+infra/07_knowledge_base/README.md
+infra/07_knowledge_base/app.py
+infra/07_knowledge_base/cdk.json
+infra/09_memory/README.md
+infra/09_memory/app.py
+infra/09_memory/cdk.json
+infra/09_sessions/README.md
+infra/09_sessions/app.py
+infra/09_sessions/cdk.json
+infra/13_guardrails/README.md
+infra/13_guardrails/app.py
+infra/13_guardrails/cdk.json
+infra/19_observability/README.md
+infra/19_observability/app.py
+infra/19_observability/cdk.json
+infra/20_fargate/README.md
+infra/20_fargate/app.py
+infra/20_fargate/cdk.json
+infra/20_lambda/README.md
+infra/20_lambda/app.py
+infra/20_lambda/cdk.json
+infra/20_runtime/README.md
+infra/20_runtime/app.py
+infra/20_runtime/cdk.json
+infra/21_agentcore/README.md
+infra/21_agentcore/app.py
+infra/21_agentcore/cdk.json
+infra/PRODUCTION.md
+infra/README.md
+infra/document_pipeline/README.md
+infra/document_pipeline/app.py
+infra/document_pipeline/cdk.json
+infra/package-lock.json
+infra/package.json
+modules/00_setup/README.md
+modules/00_setup/examples/01_agent_or_workflow.py
+modules/00_setup/examples/02_local_readiness.py
+modules/00_setup/examples/03_aws_readiness.py
+modules/00_setup/examples/04_first_call_metrics.py
+modules/00_setup/exercises/01_provider.py
+modules/00_setup/exercises/02_tokens.py
+modules/00_setup/exercises/03_readiness.py
+modules/00_setup/notebook.ipynb
+modules/00_setup/quiz.md
+modules/00_setup/solutions/01_provider.py
+modules/00_setup/solutions/02_tokens.py
+modules/00_setup/solutions/03_readiness.py
+modules/00_setup/tests/test_00_readiness.py
+modules/00_setup/tests/test_00_setup_exercises.py
+modules/00_setup/use_case/orientation.py
+modules/01_first_agent/README.md
+modules/01_first_agent/examples/01_hello_agent.py
+modules/01_first_agent/examples/02_result_and_messages.py
+modules/01_first_agent/examples/03_callbacks.py
+modules/01_first_agent/examples/04_async_call.py
+modules/01_first_agent/examples/05_follow_the_loop.py
+modules/01_first_agent/exercises/01_prompt.py
+modules/01_first_agent/exercises/02_message.py
+modules/01_first_agent/exercises/03_usage.py
+modules/01_first_agent/notebook.ipynb
+modules/01_first_agent/quiz.md
+modules/01_first_agent/solutions/01_prompt.py
+modules/01_first_agent/solutions/02_message.py
+modules/01_first_agent/solutions/03_usage.py
+modules/01_first_agent/tests/test_01_agent.py
+modules/01_first_agent/tests/test_01_first_agent_exercises.py
+modules/01_first_agent/use_case/faq_responder.py
+modules/02_model_providers/README.md
+modules/02_model_providers/examples/01_bedrock_settings.py
+modules/02_model_providers/examples/02_provider_switch.py
+modules/02_model_providers/examples/03_runtime_settings_and_cost.py
+modules/02_model_providers/examples/04_custom_model.py
+modules/02_model_providers/examples/05_prompt_cache.py
+modules/02_model_providers/examples/06_reasoning.py
+modules/02_model_providers/exercises/01_model_id.py
+modules/02_model_providers/exercises/02_price.py
+modules/02_model_providers/exercises/03_capability.py
+modules/02_model_providers/notebook.ipynb
+modules/02_model_providers/quiz.md
+modules/02_model_providers/solutions/01_model_id.py
+modules/02_model_providers/solutions/02_price.py
+modules/02_model_providers/solutions/03_capability.py
+modules/02_model_providers/tests/test_02_adapter.py
+modules/02_model_providers/tests/test_02_model_providers_exercises.py
+modules/02_model_providers/use_case/provider_comparison.py
+modules/03_conversations/README.md
+modules/03_conversations/examples/01_multi_turn.py
+modules/03_conversations/examples/02_conversation_windows.py
+modules/03_conversations/examples/03_receipt_image.py
+modules/03_conversations/examples/04_policy_document.py
+modules/03_conversations/exercises/01_window.py
+modules/03_conversations/exercises/02_pages.py
+modules/03_conversations/exercises/03_content.py
+modules/03_conversations/notebook.ipynb
+modules/03_conversations/quiz.md
+modules/03_conversations/solutions/01_window.py
+modules/03_conversations/solutions/02_pages.py
+modules/03_conversations/solutions/03_content.py
+modules/03_conversations/tests/test_03_context.py
+modules/03_conversations/tests/test_03_conversations_exercises.py
+modules/03_conversations/use_case/trip_chat.py
+modules/04_structured_output/README.md
+modules/04_structured_output/examples/01_typed_ticket.py
+modules/04_structured_output/examples/02_nested_itinerary.py
+modules/04_structured_output/examples/03_validation_retry.py
+modules/04_structured_output/examples/04_structure_with_tools.py
+modules/04_structured_output/exercises/01_ticket.py
+modules/04_structured_output/exercises/02_itinerary.py
+modules/04_structured_output/exercises/03_score.py
+modules/04_structured_output/notebook.ipynb
+modules/04_structured_output/quiz.md
+modules/04_structured_output/solutions/01_ticket.py
+modules/04_structured_output/solutions/02_itinerary.py
+modules/04_structured_output/solutions/03_score.py
+modules/04_structured_output/tests/test_04_structured_output_exercises.py
+modules/04_structured_output/tests/test_04_validation.py
+modules/04_structured_output/use_case/ticket_triage.py
+modules/05_building_tools/README.md
+modules/05_building_tools/examples/01_typed_search.py
+modules/05_building_tools/examples/02_results_and_errors.py
+modules/05_building_tools/examples/03_tool_context.py
+modules/05_building_tools/examples/04_async_progress.py
+modules/05_building_tools/examples/05_resource_sharing.py
+modules/05_building_tools/examples/06_module_tools.py
+modules/05_building_tools/examples/07_tool_executors.py
+modules/05_building_tools/examples/08_tool_directory.py
+modules/05_building_tools/examples/09_manual_converse_loop.py
+modules/05_building_tools/exercises/01_search.py
+modules/05_building_tools/exercises/02_identity.py
+modules/05_building_tools/exercises/03_seats.py
+modules/05_building_tools/notebook.ipynb
+modules/05_building_tools/quiz.md
+modules/05_building_tools/solutions/01_search.py
+modules/05_building_tools/solutions/02_identity.py
+modules/05_building_tools/solutions/03_seats.py
+modules/05_building_tools/tests/test_05_booking.py
+modules/05_building_tools/tests/test_05_building_tools_exercises.py
+modules/05_building_tools/use_case/booking_assistant.py
+modules/06_community_tools/MIGRATIONS.md
+modules/06_community_tools/README.md
+modules/06_community_tools/examples/01_calculator_time_weather.py
+modules/06_community_tools/examples/02_files_and_consent.py
+modules/06_community_tools/examples/03_python_with_consent.py
+modules/06_community_tools/examples/04_tool_catalog.py
+modules/06_community_tools/examples/05_read_only_aws.py
+modules/06_community_tools/exercises/01_budget.py
+modules/06_community_tools/exercises/02_allow_list.py
+modules/06_community_tools/exercises/03_consent.py
+modules/06_community_tools/notebook.ipynb
+modules/06_community_tools/quiz.md
+modules/06_community_tools/solutions/01_budget.py
+modules/06_community_tools/solutions/02_allow_list.py
+modules/06_community_tools/solutions/03_consent.py
+modules/06_community_tools/tests/test_06_boundaries.py
+modules/06_community_tools/tests/test_06_community_tools_exercises.py
+modules/06_community_tools/use_case/travel_day_helper.py
+modules/07_rag/README.md
+modules/07_rag/examples/01_load_and_chunk.py
+modules/07_rag/examples/02_embeddings_by_hand.py
+modules/07_rag/examples/03_local_index.py
+modules/07_rag/examples/04_cited_search.py
+modules/07_rag/examples/05_knowledge_base.py
+modules/07_rag/examples/06_bedrock_embeddings.py
+modules/07_rag/exercises/01_chunks.py
+modules/07_rag/exercises/02_cosine.py
+modules/07_rag/exercises/03_citations.py
+modules/07_rag/notebook.ipynb
+modules/07_rag/quiz.md
+modules/07_rag/solutions/01_chunks.py
+modules/07_rag/solutions/02_cosine.py
+modules/07_rag/solutions/03_citations.py
+modules/07_rag/tests/test_07_rag_exercises.py
+modules/07_rag/tests/test_07_retrieval.py
+modules/07_rag/use_case/ask_nimbus.py
+modules/08_advanced_rag/README.md
+modules/08_advanced_rag/examples/01_query_rewriting.py
+modules/08_advanced_rag/examples/02_hybrid_search.py
+modules/08_advanced_rag/examples/03_reranking.py
+modules/08_advanced_rag/examples/04_filters_multihop.py
+modules/08_advanced_rag/examples/05_evaluate_retrieval.py
+modules/08_advanced_rag/examples/06_failure_gallery.py
+modules/08_advanced_rag/exercises/01_query_budget.py
+modules/08_advanced_rag/exercises/02_fusion.py
+modules/08_advanced_rag/exercises/03_hit_rate.py
+modules/08_advanced_rag/notebook.ipynb
+modules/08_advanced_rag/quiz.md
+modules/08_advanced_rag/solutions/01_query_budget.py
+modules/08_advanced_rag/solutions/02_fusion.py
+modules/08_advanced_rag/solutions/03_hit_rate.py
+modules/08_advanced_rag/tests/test_08_advanced_rag_exercises.py
+modules/08_advanced_rag/tests/test_08_evaluation.py
+modules/08_advanced_rag/use_case/retrieval_comparison.py
+modules/09_memory/README.md
+modules/09_memory/examples/01_state_and_messages.py
+modules/09_memory/examples/02_file_sessions.py
+modules/09_memory/examples/03_s3_sessions.py
+modules/09_memory/examples/04_local_preferences.py
+modules/09_memory/examples/05_agentcore_memory.py
+modules/09_memory/examples/06_mem0_store.py
+modules/09_memory/exercises/01_consent.py
+modules/09_memory/exercises/02_retention.py
+modules/09_memory/exercises/03_deletion.py
+modules/09_memory/notebook.ipynb
+modules/09_memory/quiz.md
+modules/09_memory/solutions/01_consent.py
+modules/09_memory/solutions/02_retention.py
+modules/09_memory/solutions/03_deletion.py
+modules/09_memory/tests/test_09_memory_exercises.py
+modules/09_memory/tests/test_09_privacy.py
+modules/09_memory/use_case/preferences_assistant.py
+modules/10_streaming/README.md
+modules/10_streaming/examples/01_stream_events.py
+modules/10_streaming/examples/02_concurrency_and_cancel.py
+modules/10_streaming/examples/03_fastapi_sse.py
+modules/10_streaming/examples/04_streamlit_chat.py
+modules/10_streaming/exercises/01_frame.py
+modules/10_streaming/exercises/02_text_only.py
+modules/10_streaming/exercises/03_batch_budget.py
+modules/10_streaming/notebook.ipynb
+modules/10_streaming/quiz.md
+modules/10_streaming/solutions/01_frame.py
+modules/10_streaming/solutions/02_text_only.py
+modules/10_streaming/solutions/03_batch_budget.py
+modules/10_streaming/tests/test_10_streaming_exercises.py
+modules/10_streaming/use_case/streaming_trip_planner.py
+modules/11_hooks/README.md
+modules/11_hooks/examples/01_lifecycle_hooks.py
+modules/11_hooks/examples/02_tool_hooks.py
+modules/11_hooks/examples/03_message_hooks.py
+modules/11_hooks/examples/04_audit_budget.py
+modules/11_hooks/exercises/01_redact.py
+modules/11_hooks/exercises/02_budget.py
+modules/11_hooks/exercises/03_audit.py
+modules/11_hooks/notebook.ipynb
+modules/11_hooks/quiz.md
+modules/11_hooks/solutions/01_redact.py
+modules/11_hooks/solutions/02_budget.py
+modules/11_hooks/solutions/03_audit.py
+modules/11_hooks/tests/test_11_hooks_exercises.py
+modules/11_hooks/use_case/audited_booking.py
+modules/12_interrupts/README.md
+modules/12_interrupts/examples/01_hook_interrupt.py
+modules/12_interrupts/examples/02_tool_interrupt.py
+modules/12_interrupts/examples/03_approval_cli.py
+modules/12_interrupts/examples/04_approval_web.py
+modules/12_interrupts/examples/05_batch_interrupt.py
+modules/12_interrupts/exercises/01_threshold.py
+modules/12_interrupts/exercises/02_expiry.py
+modules/12_interrupts/exercises/03_replay.py
+modules/12_interrupts/notebook.ipynb
+modules/12_interrupts/quiz.md
+modules/12_interrupts/solutions/01_threshold.py
+modules/12_interrupts/solutions/02_expiry.py
+modules/12_interrupts/solutions/03_replay.py
+modules/12_interrupts/tests/test_12_interrupts_exercises.py
+modules/12_interrupts/use_case/refund_approval.py
+modules/13_guardrails/README.md
+modules/13_guardrails/examples/01_local_guardrails.py
+modules/13_guardrails/examples/02_prompt_injection.py
+modules/13_guardrails/examples/03_least_privilege.py
+modules/13_guardrails/examples/04_limits.py
+modules/13_guardrails/examples/05_bedrock_guardrails.py
+modules/13_guardrails/exercises/01_allowlist.py
+modules/13_guardrails/exercises/02_grounding.py
+modules/13_guardrails/exercises/03_limits.py
+modules/13_guardrails/notebook.ipynb
+modules/13_guardrails/quiz.md
+modules/13_guardrails/read_only_aws_policy.json
+modules/13_guardrails/solutions/01_allowlist.py
+modules/13_guardrails/solutions/02_grounding.py
+modules/13_guardrails/solutions/03_limits.py
+modules/13_guardrails/tests/test_13_guardrails_exercises.py
+modules/13_guardrails/use_case/hardened_support.py
+modules/14_mcp/README.md
+modules/14_mcp/aws_servers.json
+modules/14_mcp/examples/01_stdio_client.py
+modules/14_mcp/examples/02_http_client.py
+modules/14_mcp/examples/03_booking_server.py
+modules/14_mcp/examples/04_aws_servers.py
+modules/14_mcp/examples/05_tool_filtering.py
+modules/14_mcp/exercises/01_namespace.py
+modules/14_mcp/exercises/02_review.py
+modules/14_mcp/exercises/03_idempotency.py
+modules/14_mcp/notebook.ipynb
+modules/14_mcp/quiz.md
+modules/14_mcp/solutions/01_namespace.py
+modules/14_mcp/solutions/02_review.py
+modules/14_mcp/solutions/03_idempotency.py
+modules/14_mcp/tests/test_14_mcp_exercises.py
+modules/14_mcp/use_case/mcp_booking_assistant.py
+modules/15_agents_as_tools/README.md
+modules/15_agents_as_tools/examples/01_specialist_tools.py
+modules/15_agents_as_tools/examples/02_context_boundaries.py
+modules/15_agents_as_tools/examples/03_delegation_cost.py
+modules/15_agents_as_tools/exercises/01_context.py
+modules/15_agents_as_tools/exercises/02_validate.py
+modules/15_agents_as_tools/exercises/03_usage.py
+modules/15_agents_as_tools/notebook.ipynb
+modules/15_agents_as_tools/quiz.md
+modules/15_agents_as_tools/solutions/01_context.py
+modules/15_agents_as_tools/solutions/02_validate.py
+modules/15_agents_as_tools/solutions/03_usage.py
+modules/15_agents_as_tools/tests/test_15_agents_as_tools_exercises.py
+modules/15_agents_as_tools/use_case/nimbus_concierge.py
+modules/16_swarms/README.md
+modules/16_swarms/examples/01_handoffs.py
+modules/16_swarms/examples/02_swarm_limits.py
+modules/16_swarms/examples/03_swarm_results.py
+modules/16_swarms/examples/04_itinerary_team.py
+modules/16_swarms/exercises/01_order.py
+modules/16_swarms/exercises/02_repetition.py
+modules/16_swarms/exercises/03_deadline.py
+modules/16_swarms/notebook.ipynb
+modules/16_swarms/quiz.md
+modules/16_swarms/solutions/01_order.py
+modules/16_swarms/solutions/02_repetition.py
+modules/16_swarms/solutions/03_deadline.py
+modules/16_swarms/tests/test_16_swarms_exercises.py
+modules/16_swarms/use_case/itinerary_swarm.py
+modules/17_graphs/README.md
+modules/17_graphs/examples/01_graph_basics.py
+modules/17_graphs/examples/02_parallel_search.py
+modules/17_graphs/examples/03_conditional_budget.py
+modules/17_graphs/examples/04_nested_patterns.py
+modules/17_graphs/examples/05_workflow_comparison.py
+modules/17_graphs/examples/06_approval_pipeline.py
+modules/17_graphs/exercises/01_join.py
+modules/17_graphs/exercises/02_route.py
+modules/17_graphs/exercises/03_approval.py
+modules/17_graphs/notebook.ipynb
+modules/17_graphs/quiz.md
+modules/17_graphs/solutions/01_join.py
+modules/17_graphs/solutions/02_route.py
+modules/17_graphs/solutions/03_approval.py
+modules/17_graphs/tests/test_17_graphs_exercises.py
+modules/17_graphs/use_case/group_trip_pipeline.py
+modules/18_a2a/README.md
+modules/18_a2a/examples/01_partner_server.py
+modules/18_a2a/examples/02_remote_agent.py
+modules/18_a2a/examples/03_authenticated_client.py
+modules/18_a2a/examples/04_framework_interop.py
+modules/18_a2a/exercises/01_card.py
+modules/18_a2a/exercises/02_public_offer.py
+modules/18_a2a/exercises/03_usage_unknown.py
+modules/18_a2a/notebook.ipynb
+modules/18_a2a/quiz.md
+modules/18_a2a/solutions/01_card.py
+modules/18_a2a/solutions/02_public_offer.py
+modules/18_a2a/solutions/03_usage_unknown.py
+modules/18_a2a/tests/test_18_a2a_exercises.py
+modules/18_a2a/use_case/partner_upgrade.py
+modules/19_observability/README.md
+modules/19_observability/examples/01_agent_metrics.py
+modules/19_observability/examples/02_local_tracing.py
+modules/19_observability/examples/03_offline_testing.py
+modules/19_observability/examples/04_strands_evals.py
+modules/19_observability/examples/05_evaluation_cli.py
+modules/19_observability/examples/06_cloud_observability.py
+modules/19_observability/examples/07_managed_evaluation.py
+modules/19_observability/exercises/01_redact.py
+modules/19_observability/exercises/02_gate.py
+modules/19_observability/exercises/03_cost.py
+modules/19_observability/notebook.ipynb
+modules/19_observability/quiz.md
+modules/19_observability/solutions/01_redact.py
+modules/19_observability/solutions/02_gate.py
+modules/19_observability/solutions/03_cost.py
+modules/19_observability/tests/test_19_observability_exercises.py
+modules/19_observability/use_case/support_quality_gate.py
+modules/20_deployment/README.md
+modules/20_deployment/examples/01_hosting_decision.py
+modules/20_deployment/examples/02_agentcore_local.py
+modules/20_deployment/examples/03_agentcore_runtime.py
+modules/20_deployment/examples/04_lambda_handler.py
+modules/20_deployment/examples/05_fargate_api.py
+modules/20_deployment/examples/06_runtime_configuration.py
+modules/20_deployment/exercises/01_host.py
+modules/20_deployment/exercises/02_payload.py
+modules/20_deployment/exercises/03_idle.py
+modules/20_deployment/notebook.ipynb
+modules/20_deployment/quiz.md
+modules/20_deployment/solutions/01_host.py
+modules/20_deployment/solutions/02_payload.py
+modules/20_deployment/solutions/03_idle.py
+modules/20_deployment/tests/test_20_deployment_exercises.py
+modules/20_deployment/use_case/deployment_comparison.py
+modules/21_agentcore/README.md
+modules/21_agentcore/examples/01_memory.py
+modules/21_agentcore/examples/02_gateway.py
+modules/21_agentcore/examples/03_identity.py
+modules/21_agentcore/examples/04_code_interpreter.py
+modules/21_agentcore/examples/05_browser.py
+modules/21_agentcore/examples/06_observability.py
+modules/21_agentcore/examples/07_policy.py
+modules/21_agentcore/examples/08_evaluations.py
+modules/21_agentcore/examples/09_integrated_copilot.py
+modules/21_agentcore/exercises/01_actor.py
+modules/21_agentcore/exercises/02_refund.py
+modules/21_agentcore/exercises/03_schedule.py
+modules/21_agentcore/notebook.ipynb
+modules/21_agentcore/quiz.md
+modules/21_agentcore/solutions/01_actor.py
+modules/21_agentcore/solutions/02_refund.py
+modules/21_agentcore/solutions/03_schedule.py
+modules/21_agentcore/tests/test_21_agentcore_exercises.py
+modules/21_agentcore/use_case/production_copilot.py
+modules/bonus/B1_voice/README.md
+modules/bonus/B1_voice/examples/01_voice_session.py
+modules/bonus/B1_voice/examples/02_barge_in.py
+modules/bonus/B1_voice/examples/03_voice_approval.py
+modules/bonus/B1_voice/exercises/01_playback.py
+modules/bonus/B1_voice/exercises/02_approval.py
+modules/bonus/B1_voice/exercises/03_duration.py
+modules/bonus/B1_voice/notebook.ipynb
+modules/bonus/B1_voice/pyproject.toml
+modules/bonus/B1_voice/quiz.md
+modules/bonus/B1_voice/solutions/01_playback.py
+modules/bonus/B1_voice/solutions/02_approval.py
+modules/bonus/B1_voice/solutions/03_duration.py
+modules/bonus/B1_voice/tests/test_B1_voice_exercises.py
+modules/bonus/B1_voice/use_case/voice_booking.py
+modules/bonus/B1_voice/uv.lock
+modules/bonus/B2_typescript/README.md
+modules/bonus/B2_typescript/common.ts
+modules/bonus/B2_typescript/examples/01_first_agent.ts
+modules/bonus/B2_typescript/examples/02_typed_tool.ts
+modules/bonus/B2_typescript/examples/03_provider_and_result.ts
+modules/bonus/B2_typescript/exercises/01_quote.ts
+modules/bonus/B2_typescript/exercises/02_provider.ts
+modules/bonus/B2_typescript/exercises/03_authority.ts
+modules/bonus/B2_typescript/notebook.ipynb
+modules/bonus/B2_typescript/package-lock.json
+modules/bonus/B2_typescript/package.json
+modules/bonus/B2_typescript/quiz.md
+modules/bonus/B2_typescript/solutions/01_quote.ts
+modules/bonus/B2_typescript/solutions/02_provider.ts
+modules/bonus/B2_typescript/solutions/03_authority.ts
+modules/bonus/B2_typescript/tests/booking.test.ts
+modules/bonus/B2_typescript/tests/exercises.test.ts
+modules/bonus/B2_typescript/tsconfig.json
+modules/bonus/B2_typescript/use_case/typescript_booking.ts
+modules/bonus/B3_self_extending/README.md
+modules/bonus/B3_self_extending/examples/01_builder.py
+modules/bonus/B3_self_extending/examples/02_review_generated_tool.py
+modules/bonus/B3_self_extending/examples/03_trusted_reload.py
+modules/bonus/B3_self_extending/exercises/01_digest.py
+modules/bonus/B3_self_extending/exercises/02_inventory.py
+modules/bonus/B3_self_extending/exercises/03_reload.py
+modules/bonus/B3_self_extending/notebook.ipynb
+modules/bonus/B3_self_extending/quiz.md
+modules/bonus/B3_self_extending/solutions/01_digest.py
+modules/bonus/B3_self_extending/solutions/02_inventory.py
+modules/bonus/B3_self_extending/solutions/03_reload.py
+modules/bonus/B3_self_extending/tests/test_B3_self_extending_exercises.py
+modules/bonus/B3_self_extending/use_case/reviewed_tool_builder.py
+modules/bonus/B4_whats_new/README.md
+modules/bonus/B4_whats_new/examples/01_cancel_and_limits.py
+modules/bonus/B4_whats_new/examples/02_public_middleware.py
+modules/bonus/B4_whats_new/examples/03_stable_redteam.py
+modules/bonus/B4_whats_new/examples/04_experimental_config.py
+modules/bonus/B4_whats_new/exercises/01_budget.py
+modules/bonus/B4_whats_new/exercises/02_events.py
+modules/bonus/B4_whats_new/exercises/03_breach.py
+modules/bonus/B4_whats_new/notebook.ipynb
+modules/bonus/B4_whats_new/quiz.md
+modules/bonus/B4_whats_new/solutions/01_budget.py
+modules/bonus/B4_whats_new/solutions/02_events.py
+modules/bonus/B4_whats_new/solutions/03_breach.py
+modules/bonus/B4_whats_new/tests/test_B4_whats_new_exercises.py
+modules/bonus/B4_whats_new/use_case/release_feature_lab.py
+output/pdf/01_foundations.pdf
+output/pdf/02_knowledge_memory.pdf
+output/pdf/03_control_safety.pdf
+output/pdf/04_multiagent.pdf
+output/pdf/05_production.pdf
+pyproject.toml
+scripts/__init__.py
+scripts/budget.py
+scripts/build_capstone_data.py
+scripts/build_cheatsheets.py
+scripts/build_data.py
+scripts/check_env.py
+scripts/check_links.py
+scripts/check_notebooks.py
+scripts/check_typescript.py
+scripts/cognito_copilot.py
+scripts/data_content.py
+scripts/examples_manifest.json
+scripts/find_leftovers.py
+scripts/foundation_demo.py
+scripts/offline_run.py
+scripts/prepare_deployment.py
+scripts/run_all_examples.py
+scripts/synth_all.py
+scripts/tier2_lab.py
+scripts/write_iam_policy.py
+tests/test_bonus_capstone_contracts.py
+tests/test_data_integrity.py
+tests/test_foundation_operations.py
+tests/test_guardrail_infra.py
+tests/test_models.py
+tests/test_production.py
+tests/test_production_infrastructure.py
+tests/test_repository_contract.py
+tests/test_tier1_delivery.py
+tests/test_tier2_cloud.py
+tests/test_tier3_boundaries.py
+tests/test_tier3_mcp.py
+tests/test_tier3_ui.py
+tests/test_tier4_a2a.py
+tests/test_tier4_coordination.py
+uv.lock

@@ -1,8 +1,8 @@
 # Learning path: build the Nimbus assistant
 
-Tiers 1–5 delivered; bonus modules and capstones planned · October 29, 2026
+All five tiers, bonus modules and capstones delivered · October 29, 2026
 
-Start with basic Python, terminal use, and git. You do not need prior agent or AWS knowledge. The core course is approximately 58 hours, including checkpoint practice; capstones and optional cloud/voice extensions take additional time. Modules 00–18 and their four checkpoints are implemented; later tiers remain planned. See the [implementation plan](docs/IMPLEMENTATION_PLAN.md) and [feature map](docs/FEATURE_MAP.md).
+Start with basic Python, terminal use, and git. You do not need prior agent or AWS knowledge. The core course is approximately 58 hours, including checkpoint practice; capstones and optional cloud/voice extensions take additional time. Modules 00–21, five checkpoints, four bonus modules and five capstones are implemented. See the [implementation plan](docs/IMPLEMENTATION_PLAN.md) and [feature map](docs/FEATURE_MAP.md).
 
 ```mermaid
 flowchart TD
@@ -74,7 +74,7 @@ First encounters: async iterator, server-sent events, cancellation, lifecycle ho
 
 You're ready for Tier 4 when you can distinguish callbacks from hooks, pause and resume safely, identify untrusted retrieved text, keep consent enabled, and demonstrate that refused actions do not execute.
 
-The optional Bedrock Guardrails branch creates resources. The local branch enforces policy with hooks and typed tools; it does not claim equivalent managed content-filter coverage. CloudOps Copilot is planned for Phase 8 after this tier.
+The optional Bedrock Guardrails branch creates resources. The local branch enforces policy with hooks and typed tools; it does not claim equivalent managed content-filter coverage. CloudOps Copilot is available after this tier.
 
 ## Tier 4 — Multi-agent systems · 12 hours
 
@@ -154,3 +154,7 @@ Read expected output before running a script. Try the exercise before its soluti
 ## Tier 5 delivery and checkpoint
 
 The [production lab guide](infra/PRODUCTION.md) includes nine total course CDK apps, with five new production stacks. Run [Production Readiness](checkpoints/05_production_readiness/README.md) after Modules 19–21. Local gates do not prove image builds, live IAM, regional deployment or teardown.
+
+## Final reference shelf
+
+Use the [capstone index](capstones/README.md), [tier sheets](cheatsheets/README.md), [glossary](docs/GLOSSARY.md) and [troubleshooting guide](docs/TROUBLESHOOTING.md). The [final checklist](docs/DEFINITION_OF_DONE.md) distinguishes offline proof from live model, cloud and onboarding checks.

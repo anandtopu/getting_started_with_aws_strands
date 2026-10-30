@@ -2,7 +2,7 @@
 
 A hands-on course for Python learners building their first AI agent. You will build the **Nimbus assistant** for a fictional travel company, then add tools, retrieval, memory, approvals, evaluation and AWS deployment.
 
-**Delivery status: Phase 7 / all five core tiers delivered.** Modules 00–21 include 117 focused examples, 22 use cases, 66 exercises with solutions, 22 notebooks, quizzes and tests. Five checkpoints end with [Production Readiness](checkpoints/05_production_readiness/README.md). Tier 5 adds support evaluation, hosting adapters and AgentCore service contracts plus five CDK apps. Bonus modules and capstones remain for Phase 8. See the [verification record](docs/VERIFICATION_NOTES.md) for executed checks and live-service gaps.
+**Delivery status: Phase 8 / course content delivered.** The 22 core modules and four bonus modules include 130 focused examples, 26 use cases, 78 exercise/solution pairs, 26 notebooks, quizzes and tests. Five checkpoints lead to five complete [capstone reference projects](capstones/README.md). Ten optional CDK apps accompany the AWS labs. See the [verification record](docs/VERIFICATION_NOTES.md) and [definition of done](docs/DEFINITION_OF_DONE.md) for executed checks and remaining live-service verification.
 
 ```mermaid
 flowchart LR
@@ -30,7 +30,7 @@ uv sync --group notebooks
 uv run --group notebooks jupyter lab
 ```
 
-Each notebook defaults to offline replay and is saved with outputs cleared. Use the Tier 2 group command below to execute all 19 notebooks automatically.
+Each notebook defaults to offline replay and is saved with outputs cleared. Use the full-course commands below to execute all 26 notebooks after installing the optional Python and TypeScript dependencies.
 
 ## Continue with Tier 2
 
@@ -42,9 +42,10 @@ Each notebook defaults to offline replay and is saved with outputs cleared. Use 
 Install the optional lesson groups before running every delivered notebook or script:
 
 ```text
-uv sync --frozen --group notebooks --group rag --group memory --group aws --group apps --group multiagent --group partner
-uv run --frozen --group notebooks --group rag --group memory --group aws --group apps --group multiagent --group partner python scripts/check_notebooks.py
-uv run --frozen --group rag --group memory --group aws --group apps --group multiagent --group partner python scripts/run_all_examples.py --require-all
+uv sync --frozen --all-groups
+npm ci --ignore-scripts --prefix modules/bonus/B2_typescript
+uv run --frozen --all-groups python scripts/check_notebooks.py
+uv run --frozen --all-groups python scripts/run_all_examples.py --require-all
 ```
 
 Default-group checks report optional lessons as skipped. The [AWS labs](infra/README.md) provide synthesizable templates, costs and teardown instructions; deploying them is optional and billable.
@@ -85,9 +86,11 @@ email or purchasing travel. No cloud infrastructure is created in this tier.
 
 ## Quick start
 
-Install Python 3.12 and [uv](https://docs.astral.sh/uv/getting-started/installation/). Open a terminal in this repository after downloading or cloning it. The public GitHub repository has not been published yet, so no clone URL is invented here. Commands below work in PowerShell, macOS and Linux.
+Install Python 3.12, Git and [uv](https://docs.astral.sh/uv/getting-started/installation/). Clone the [public repository](https://github.com/anandtopu/getting_started_with_aws_strands), then run the same commands in PowerShell, macOS or Linux:
 
 ```text
+git clone https://github.com/anandtopu/getting_started_with_aws_strands.git
+cd getting_started_with_aws_strands
 uv sync
 uv run python -c "from pathlib import Path; p=Path('.env'); p.exists() or p.write_text(Path('.env.example').read_text(), encoding='utf-8')"
 uv run python scripts/check_env.py
@@ -135,7 +138,7 @@ Create the environment with `python -m venv .venv`. On Windows, run `.venv\Scrip
 
 1. Work through the [learning path](LEARNING_PATH.md) in order when each tier is delivered.
 2. Find a specific concept in the [feature map](docs/FEATURE_MAP.md).
-3. Use the planned capstones as acceptance targets: CloudOps, trip planning, document intelligence, support, or partner agents.
+3. Use the capstones as acceptance targets: CloudOps, trip planning, document intelligence, support, or partner agents.
 
 | Tier | Core time | Local inference | Hosted route |
 |---|---:|---|---|
@@ -166,3 +169,12 @@ Use the [ecosystem map](docs/MENTAL_MODEL.md) to understand the parts, the [patt
 **What is checked without keys?** Model/tool contracts, fixture integrity, mock agent runs, link targets, secret-like samples, and IAM policies. These checks do not prove a cloud deployment works.
 
 See [contributing](CONTRIBUTING.md), the [code of conduct](CODE_OF_CONDUCT.md), and the [MIT license](LICENSE).
+
+## Bonus lessons and final projects
+
+- [B1 Voice and barge-in](modules/bonus/B1_voice/README.md)
+- [B2 TypeScript](modules/bonus/B2_typescript/README.md)
+- [B3 Reviewed tool generation](modules/bonus/B3_self_extending/README.md)
+- [B4 Current release features](modules/bonus/B4_whats_new/README.md)
+- [Five capstones](capstones/README.md), including the Nimbus Support Copilot
+- [Printable tier references](cheatsheets/README.md), [glossary](docs/GLOSSARY.md) and [troubleshooting](docs/TROUBLESHOOTING.md)

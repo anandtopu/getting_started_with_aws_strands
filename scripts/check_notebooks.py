@@ -29,6 +29,7 @@ def main() -> int:
     output.mkdir(parents=True, exist_ok=True)
     os.environ["PYTHONUTF8"] = "1"
     paths = sorted((ROOT / "modules").glob("*/notebook.ipynb"))
+    paths += sorted((ROOT / "modules/bonus").glob("*/notebook.ipynb"))
     if args.module:
         paths = [path for path in paths if path.parent.name == args.module]
         if not paths:

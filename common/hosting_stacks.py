@@ -1,6 +1,6 @@
 """Small explicit CDK hosting stacks. Synthesizing never builds images or deploys AWS."""
 
-from aws_cdk import CfnOutput, CfnParameter, Duration, Fn, RemovalPolicy, Stack, Tags
+from aws_cdk import CfnCondition, CfnOutput, CfnParameter, Duration, Fn, RemovalPolicy, Stack, Tags
 from aws_cdk import aws_bedrockagentcore as ac
 from aws_cdk import aws_ec2 as ec2
 from aws_cdk import aws_ecr_assets as assets
@@ -129,6 +129,57 @@ class RuntimeStack(Stack):
         pull_image(role, image)
         environment = model_environment(self, role)
         environment["AWS_REGION"] = self.region
+        parameters = {}
+        for key, variable in {
+            "MemoryId": "AGENTCORE_MEMORY_ID",
+            "GatewayUrl": "AGENTCORE_GATEWAY_URL",
+            "UserPoolId": "NIMBUS_USER_POOL_ID",
+            "ClientId": "NIMBUS_CLIENT_ID",
+            "GuardrailId": "BEDROCK_GUARDRAIL_ID",
+            "GuardrailVersion": "BEDROCK_GUARDRAIL_VERSION",
+        }.items():
+            parameter = CfnParameter(self, key, default="")
+            parameters[key] = parameter.value_as_string
+            environment[variable] = parameter.value_as_string
+        enabled = CfnCondition(
+            self,
+            "CopilotConfigured",
+            expression=Fn.condition_not(Fn.condition_equals(parameters["MemoryId"], "")),
+        )
+        # Temporary synthetic preference events and recall are limited to this configured memory.
+        # Guardrail application is limited to the explicitly configured guardrail.
+        policy = iam.CfnPolicy(
+            self,
+            "CopilotAccess",
+            policy_name="NimbusRuntimeCopilot",
+            roles=[role.role_name],
+            policy_document={
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Action": [
+                            "bedrock-agentcore:CreateEvent",
+                            "bedrock-agentcore:RetrieveMemoryRecords",
+                            "bedrock-agentcore:DeleteEvent",
+                        ],
+                        "Resource": [
+                            f"arn:{self.partition}:bedrock-agentcore:{self.region}:"
+                            f"{self.account}:memory/{parameters['MemoryId']}"
+                        ],
+                    },
+                    {
+                        "Effect": "Allow",
+                        "Action": ["bedrock:ApplyGuardrail"],
+                        "Resource": [
+                            f"arn:{self.partition}:bedrock:{self.region}:"
+                            f"{self.account}:guardrail/{parameters['GuardrailId']}"
+                        ],
+                    },
+                ],
+            },
+        )
+        policy.cfn_options.condition = enabled
         runtime = ac.CfnRuntime(
             self,
             "Runtime",

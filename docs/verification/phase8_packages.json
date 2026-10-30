@@ -1,0 +1,42 @@
+[
+  {
+    "package": "strands-agents",
+    "version": "1.62.0"
+  },
+  {
+    "package": "strands-agents-tools",
+    "version": "0.8.10"
+  },
+  {
+    "package": "strands-agents-evals",
+    "version": "1.7.0"
+  },
+  {
+    "package": "bedrock-agentcore",
+    "version": "1.25.1"
+  },
+  {
+    "package": "PyJWT",
+    "version": "2.15.1"
+  },
+  {
+    "package": "@strands-agents/sdk",
+    "version": "1.22.0"
+  },
+  {
+    "package": "typescript",
+    "version": "7.0.2"
+  },
+  {
+    "package": "tsx",
+    "version": "4.23.15"
+  },
+  {
+    "package": "zod",
+    "version": "4.6.7"
+  },
+  {
+    "package": "@types/node",
+    "version": "26.6.6"
+  }
+]

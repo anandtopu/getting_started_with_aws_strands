@@ -558,3 +558,96 @@ distributions passed dependency consistency checks. All pre-commit hooks passed,
 including normalization of the new notebooks' cell IDs, output clearing, IAM
 actions and sample credential checks. The workspace was returned to the normal
 `uv sync --frozen` dependency set after optional verification.
+
+## Phase 8 - bonus lessons, capstones and final audit (2026-10-29)
+
+The delivered course now has 22 core modules plus four bonus modules, 130 focused
+examples (including three TypeScript examples), 26 use cases, 78 exercise/solution
+pairs, 26 notebooks, five tier checkpoints and five capstones. There are 173 finite
+Python script entries plus four TypeScript example/use-case scripts, and ten CDK
+apps. The final reference shelf includes 90 glossary terms, 22 troubleshooting
+entries and five single-page PDFs with editable Markdown sources. Each PDF was
+rendered with Poppler and inspected; `scripts/build_cheatsheets.py` reproduces them.
+
+### Verified interfaces and substitutions
+
+- Python SDK remains 1.62.0, tools 0.8.10, Evals 1.7.0 and AgentCore 1.25.1.
+  TypeScript uses `@strands-agents/sdk` 1.22.0, TypeScript 7.0.2, tsx 4.23.15,
+  Zod 4.6.7 and Node types 26.6.6. Both npm and uv lockfiles are committed.
+- [BidiAgent](https://strandsagents.com/docs/user-guide/sdk/bidi/agent/) is stable
+  in the pinned Python SDK. The current Bedrock adapter is `BedrockNovaSonicModel`.
+  The older experimental import and the unverified `BidiNovaSonicModel` name are
+  not used. [Nova 2.5 Sonic's model card](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-2-5-sonic.html)
+  backs the explicit voice model setting; region availability still needs a live check.
+- The live voice extra requires an AWS CRT version incompatible with the AgentCore
+  toolkit's current dependency set. B1 therefore has its own locked editable project.
+  Its adapter constructs with dummy credentials and external traffic disabled;
+  no voice service was invoked. Root mock voice needs no optional adapter.
+- The [agent-builder repository](https://github.com/strands-agents/agent-builder)
+  is archived. B3 uses a current Agent structured-output proposal, exact-template
+  review and explicit tool-registry replacement. A digest alone does not make code
+  safe; unknown source is rejected even with a matching digest. The second actual
+  Agent invocation demonstrates that the registered replacement executes.
+- [Python release 1.62.0](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.62.0)
+  and [TypeScript release 1.22.0](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.22.0)
+  support the tested public cancellation, middleware and typed-tool interfaces.
+  `strands_evals.redteam` is stable in installed Evals; older experimental examples
+  are not copied. The three-prompt corpus and literal breach check are regression
+  fixtures, not a general safety assessment. `strands.experimental.agent_config`
+  remains explicitly Experimental and appears only in B4.
+- CloudOps calls the confirmed read-only Documentation search and Pricing attribute
+  discovery interfaces. Tool schemas were checked against the
+  [official Documentation server](https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server)
+  and [Pricing server source](https://github.com/awslabs/mcp/blob/main/src/aws-pricing-mcp-server/awslabs/aws_pricing_mcp_server/server.py).
+  Offline runs label these as an uncontacted reference inventory.
+
+### Integration evidence
+
+The trip capstone executes four actual Graph nodes and streams node progress to
+Streamlit. Host arithmetic and catalog checks validate the quotes. All four agents'
+usage records are retained. Weather uses a fixed Open-Meteo host and an HTTP fixture
+in mock mode; it is current weather, not a future trip forecast.
+
+The document graph passes actual PNG bytes into structured extraction, validates
+amounts and records anomalies. SQLite and moto-backed DynamoDB tests prove duplicate
+handling. The separate held-out invoice deliberately has incorrect printed arithmetic.
+Mock extraction reads public labels; no OCR quality claim is made. Its new CDK table
+is on-demand, tagged, disposable and has only table-scoped PutItem/GetItem permissions.
+
+The flagship combines the real interrupt ledger, policy retrieval, preferences,
+Guardrail model configuration, Evals and local numeric OTLP export. Its fresh-process
+trace run captured 136 exported spans and 136 local OTLP batches. The Runtime copilot
+operation now hosts policy retrieval, JWT-bound Memory and Gateway, with a configured
+Guardrail. Local ASGI and real MCP tests verify its actual handler, credential exclusion
+and authentication-before-service-access. The optional Runtime IAM policy references
+only the selected Memory and Guardrail and is conditional on configuration. Human
+approval remains a trusted-host responsibility and mutates only synthetic local data.
+No production payment service or hosted supervisor UI is implied.
+
+The optional full suite passed 505 tests with one explicit live-service skip. After
+the document-stack check and trip usage assertions were added, the ten affected
+capstone checks all passed. Python 3.13's default installation passed 473 tests with
+34 explicit optional/live skips. TypeScript type-checking, five tests and all four
+finite scripts passed. Both uv locks and all 302 installed optional distributions
+passed consistency checks. All 173 Python script entries passed in the optional
+environment. Final notebook, synthesis, default Python 3.12 and publication results
+are recorded in the final audit below when completed.
+
+No live model inference, AWS deployment or cloud teardown was performed. The
+upstream AgentCore runtime emitted its existing Python datetime deprecation warning;
+no Strands deprecation warning was accepted. See the [definition of done](DEFINITION_OF_DONE.md)
+for live-model, device, Docker, managed-service and timed-onboarding limits.
+
+### Final local audit
+
+All 26 notebooks executed top to bottom with outputs retained only in ignored
+scratch copies. All ten CDK apps synthesized successfully without AWS lookups or
+deployment. Ruff and formatting passed. The final public/local link sweep checked
+1,564 links with zero failures. GitHub repository creation succeeded under the
+signed-in account; the verified clone URL is now in the root README. Publication
+and CI results are recorded separately from these local checks.
+
+The final default Python 3.12.13 run also passed 473 tests with 34 optional/live
+skips, matching Python 3.13.13. Its 110 installed distributions passed dependency
+consistency checks. The normal beginner installation is restored after the full
+optional checks. No optional-group skip is counted as a passing integration.

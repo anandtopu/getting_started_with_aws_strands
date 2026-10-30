@@ -1,15 +1,15 @@
 # Nimbus Travel course: implementation plan
 
-Plan prepared October 29, 2026 · Phases 1–5 delivered; later phases pending
+Plan prepared October 29, 2026 · Phases 1–8 content delivered; live verification tracked separately
 
-This repository teaches a Python learner to build, evaluate, secure, and deploy the Nimbus assistant with Strands Agents. This document retains the original course plan. The foundation and modules 00–14 are implemented; the root README and verification notes track delivered scope.
+This repository teaches a Python learner to build, evaluate, secure, and deploy the Nimbus assistant with Strands Agents. This document retains the original course plan. The foundation, modules 00–21, four bonus modules and five capstones are implemented; the root README and verification notes track delivered scope.
 
 ## Review these deliverables
 
 - [Verified versions, API decisions, and remaining verification](VERIFICATION_NOTES.md)
-- [Feature map and planned example paths](FEATURE_MAP.md)
+- [Feature map and delivered example paths](FEATURE_MAP.md)
 - [Learning path, checkpoints, and schedules](../LEARNING_PATH.md)
-- [Complete planned repository tree](REPOSITORY_TREE.txt)
+- [Delivered repository tree](REPOSITORY_TREE.txt)
 - [Machine-readable package evidence](verification/package_metadata.json)
 
 ## Assumptions and scope

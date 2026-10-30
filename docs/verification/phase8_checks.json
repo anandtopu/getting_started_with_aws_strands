@@ -1,0 +1,42 @@
+{
+  "phase": 8,
+  "checked_on": "2026-10-29",
+  "platform": "Windows",
+  "repository": "https://github.com/anandtopu/getting_started_with_aws_strands",
+  "delivery": {
+    "modules": 26,
+    "examples": 130,
+    "use_cases": 26,
+    "exercise_solution_pairs": 78,
+    "notebooks": 26,
+    "checkpoints": 5,
+    "capstones": 5,
+    "cdk_apps": 10,
+    "python_script_entries": 173,
+    "typescript_script_entries": 4,
+    "glossary_terms": 90,
+    "printable_one_page_pdfs": 5
+  },
+  "tests": [
+    {"python": "3.12.13", "groups": "all", "passed": 505, "skipped": 1,
+     "scope": "Full suite before the final document-stack test and trip usage assertion"},
+    {"python": "3.12.13", "groups": "all", "passed": 10, "skipped": 0,
+     "scope": "Affected capstones, including the additional document-stack test"},
+    {"python": "3.12.13", "groups": "default", "passed": 473, "skipped": 34},
+    {"python": "3.13.13", "groups": "default", "passed": 473, "skipped": 34}
+  ],
+  "typescript": {"node": "24.18.0", "typecheck": "passed", "tests_passed": 5, "scripts_passed": 4},
+  "python_optional_scripts": {"passed": 173, "skipped": 0},
+  "executed_notebooks": 26,
+  "synthesized_cdk_apps": 10,
+  "links": {"count_before_repository_publication": 1564, "external": true, "failures": 0},
+  "ruff": "passed",
+  "format": "passed",
+  "dependency_consistency": {"optional_distributions": 302, "default_distributions": 110, "status": "passed"},
+  "voice_adapter": "Isolated locked project; BedrockNovaSonicModel constructed offline with dummy credentials",
+  "flagship_local_tracing": {"exported_spans": 136, "otlp_batches": 136, "projection": "numeric only"},
+  "aws_deployed": false,
+  "live_model_calls": false,
+  "pending": ["GitHub publication and remote CI", "Default Python example sweep completion"],
+  "unverified": ["Live Ollama/model quality", "Live AWS deployment/teardown", "Docker image builds", "Real microphone and speaker behavior", "Timed new-learner onboarding"]
+}

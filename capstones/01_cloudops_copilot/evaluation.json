@@ -1,0 +1,1 @@
+{"incident_days":["2027-01-07","2027-01-15","2027-01-23"],"kinds":["latency_spike","deployment_error_burst","dependency_timeout"],"cost_candidates":["nat-demo-idle","instance-demo-oversized","function-demo-runaway"]}

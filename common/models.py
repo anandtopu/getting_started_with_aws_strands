@@ -9,7 +9,7 @@ from strands.models import Model
 from common.config import CourseError, Settings, load_settings
 
 
-def get_guarded_model(settings):
+def get_guarded_model(settings, *, responses=None):
     """Attach a deployed guardrail through the same provider factory used by every lesson."""
     from common.config import course_value
 
@@ -17,7 +17,7 @@ def get_guarded_model(settings):
         raise CourseError(
             "Bedrock Guardrails attachment requires Bedrock; use local hooks for Ollama."
         )
-    model = get_model(settings, responses=["Guardrail-protected fixture response."])
+    model = get_model(settings, responses=responses or ["Guardrail-protected fixture response."])
     if settings.provider == "bedrock":
         identifier = course_value("BEDROCK_GUARDRAIL_ID")
         version = course_value("BEDROCK_GUARDRAIL_VERSION")
@@ -83,8 +83,13 @@ def get_model(
     *,
     provider: str | None = None,
     responses: Sequence[dict[str, Any] | str | Exception] | None = None,
+    voice: bool = False,
 ) -> Model:
     cfg = settings or load_settings(provider=provider)
+    if voice:
+        from common.voice_lab import voice_model
+
+        return voice_model(cfg)
     if provider and settings and provider != settings.provider:
         raise ValueError("Pass settings or a provider override, not conflicting selections.")
     if cfg.provider == "mock":

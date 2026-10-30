@@ -38,3 +38,7 @@ uv run pytest tests/test_data_integrity.py
 The generator refuses a nonempty output directory unless `--overwrite` is supplied. To deliberately refresh the committed fixtures, run `uv run python scripts/build_data.py --overwrite` and inspect the resulting changes. Never point it at a directory containing unrelated work.
 
 `data/manifest.json` records the source parameters, counts and SHA-256 byte hashes of the committed files. Text always uses UTF-8 and LF line endings. Rebuilding on this tested platform reproduces the binary bytes too, but SQLite version headers and compression libraries can differ between platforms. Tests therefore compare SQLite rows/schema, image pixels and PDF text for rebuilt binaries, while checking the committed files against their exact hashes. Every PDF page and receipt image must also be visually reviewed when the generator's layout changes.
+
+## Capstone invoice fixtures
+
+The document capstone adds two visibly synthetic invoices under `capstones/03_document_intelligence/fixtures/invoices/`. Regenerate with `uv run python scripts/build_capstone_data.py`. The first totals USD 110; the second deliberately prints USD 125 against a USD 100 subtotal and USD 10 tax. Its expected anomaly is recorded separately in the capstone evaluation set. The mock extraction reads public labels and does not measure OCR accuracy. These additions leave the original `data/manifest.json` fixtures unchanged.

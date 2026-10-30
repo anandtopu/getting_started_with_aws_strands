@@ -21,6 +21,13 @@ MODULES = (
     "production_support",
     "deployment_apps",
     "scheduled_evaluation",
+    "flagship_runtime",
+    "agentcore_identity",
+    "agentcore_memory",
+    "cloud_clients",
+    "gateway_booking",
+    "mcp_clients",
+    "public_booking",
 )
 
 
@@ -52,6 +59,7 @@ def prepare(kind: str) -> Path:
         shutil.copyfile(ROOT / "common" / (name + ".py"), path / "common" / (name + ".py"))
     for policy in (ROOT / "data/policies").glob("*.md"):
         shutil.copyfile(policy, path / "data/policies" / policy.name)
+    shutil.copyfile(ROOT / "data/flights.csv", path / "data/flights.csv")
     shutil.copyfile(ROOT / "deploy/requirements.txt", path / "requirements.txt")
     shutil.copyfile(ROOT / "deploy" / (kind + ".Dockerfile"), path / "Dockerfile")
     # No .env file is copied. AWS roles and explicit deployment environment supply settings.

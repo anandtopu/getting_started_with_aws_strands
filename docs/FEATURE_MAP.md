@@ -1,379 +1,176 @@
-# Feature map: course coverage contract
-
-Phase 7 Tiers 1–5 edition · October 29, 2026
-
-Modules 00–21 and all five checkpoints are delivered. Their paths below link to existing files. Bonus modules and capstones remain planned; their paths stay plain code text. The final audit will reject missing files or unimplemented coverage.
-
-## Delivered foundation
-
-| Capability | Implementation | Evidence |
-|---|---|---|
-| Bedrock, Ollama, Anthropic, OpenAI and LiteLLM selection | [Model helper](../common/models.py), [configuration](../common/config.py) | [Provider and real-loop contracts](../tests/test_models.py) |
-| Scripted text, tools, validation retry, streaming and metrics | [Scripted provider](../common/testing.py), [runnable demo](../scripts/foundation_demo.py) | [Agent tests](../tests/test_models.py), [example runner](../scripts/run_all_examples.py) |
-| Reproducible Nimbus data, PDF and receipts | [Generator](../scripts/build_data.py), [dataset guide](SYNTHETIC_DATA.md) | [Integrity/reproduction tests](../tests/test_data_integrity.py) |
-| SSO readiness, budgets, scoped inference policy and resource inventory | [AWS setup](AWS_SETUP.md), [costs](COSTS.md) | [Offline AWS contracts](../tests/test_foundation_operations.py) |
-| Credential/IAM checks, local links, clean notebooks and CI | [Repository tests](../tests/test_repository_contract.py), [CI](../.github/workflows/ci.yml) | Local verification only; remote CI not yet run |
-
-Each feature receives plain-English teaching, a runnable example, a realistic use case, and exercises with solutions. Related features can share an example; if that exceeds roughly 120 lines, split it and update this contract. Each module also has three exercises, a notebook, quiz, and tests as specified in the [implementation plan](IMPLEMENTATION_PLAN.md).
-
-**AWS labels:** No = can run with local inference; Optional/Yes identifies the specific cloud branch and local alternative. Offline fixture replay tests application behavior only. Models need tool calling for tool-based structured output, tools, retrieval, approvals, MCP and multi-agent work; image examples additionally need vision.
-
-**Current API substitutions:** vended `python_repl` replaces the deprecated community version; `mem0-strands` replaces `mem0_memory`; `A2AAgent` replaces the deprecated community A2A client. Voice and red teaming use their stable paths. See [verification notes](VERIFICATION_NOTES.md).
-
-## 00_setup: Setup and orientation
-
-Assistant v0 · [Module guide](../modules/00_setup/README.md) · [Use case](../modules/00_setup/use_case/orientation.py) · [Tests](../modules/00_setup/tests)
-
-| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Model-driven agents versus fixed workflows; tokens; ecosystem map (Python, TypeScript, tools, Evals, builder, Bedrock, AgentCore, MCP, A2A) | [01_agent_or_workflow.py](../modules/00_setup/examples/01_agent_or_workflow.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| Python, uv, pip/venv fallback, Ollama tool-capable model and configuration checks | [02_local_readiness.py](../modules/00_setup/examples/02_local_readiness.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| Identity Center, CLI v2 SSO, budget-before-billing gate, region and model-access checks | [03_aws_readiness.py](../modules/00_setup/examples/03_aws_readiness.py) | Yes; local readiness instead | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| First configured agent call and token/latency inspection | [04_first_call_metrics.py](../modules/00_setup/examples/04_first_call_metrics.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-
-## 01_first_agent: Your first agent
-
-Assistant v1 · [Module guide](../modules/01_first_agent/README.md) · [Use case](../modules/01_first_agent/use_case/faq_responder.py) · [Tests](../modules/01_first_agent/tests)
-
-| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Agent defaults inspected safely; configured Agent, system_prompt and synchronous invocation | [01_hello_agent.py](../modules/01_first_agent/examples/01_hello_agent.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| AgentResult message, stop_reason, metrics, and agent.messages | [02_result_and_messages.py](../modules/01_first_agent/examples/02_result_and_messages.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| Default printing, null_callback_handler, and custom callback handler | [03_callbacks.py](../modules/01_first_agent/examples/03_callbacks.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| Async/await primer and invoke_async | [04_async_call.py](../modules/01_first_agent/examples/04_async_call.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-| Agent/event loop; model decision, tool execution, continuation and stop | [05_follow_the_loop.py](../modules/01_first_agent/examples/05_follow_the_loop.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/) |
-
-## 02_model_providers: Model providers
-
-Assistant v1 · [Module guide](../modules/02_model_providers/README.md) · [Use case](../modules/02_model_providers/use_case/provider_comparison.py) · [Tests](../modules/02_model_providers/tests)
-
-| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| BedrockModel; model ID, region, boto3 profile/session, temperature, max tokens and inference profiles | [01_bedrock_settings.py](../modules/02_model_providers/examples/01_bedrock_settings.py) | Yes; other providers instead | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
-| Anthropic, OpenAI, Ollama and LiteLLM; overview of other supported providers | [02_provider_switch.py](../modules/02_model_providers/examples/02_provider_switch.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
-| Runtime configuration changes; token usage to dated cost estimate | [03_runtime_settings_and_cost.py](../modules/02_model_providers/examples/03_runtime_settings_and_cost.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
-| Build it yourself: minimal Model text stream and explicit unsupported structured output; common.testing extends it to tool events | [04_custom_model.py](../modules/02_model_providers/examples/04_custom_model.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
-| CacheConfig and supported Bedrock prompt-cache settings | [05_prompt_cache.py](../modules/02_model_providers/examples/05_prompt_cache.py) | Yes; uncached local comparison | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
-| Model-specific reasoning configuration and capability validation | [06_reasoning.py](../modules/02_model_providers/examples/06_reasoning.py) | Optional; capable local model | [Documentation](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
-
-## 03_conversations: Conversations, messages and multimodal input
-
-Assistant v2 · [Module guide](../modules/03_conversations/README.md) · [Use case](../modules/03_conversations/use_case/trip_chat.py) · [Tests](../modules/03_conversations/tests)
-
-| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Text content blocks, agent.messages, multi-turn state and role/constraints/tone/output prompts | [01_multi_turn.py](../modules/03_conversations/examples/01_multi_turn.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
-| SlidingWindowConversationManager, SummarizingConversationManager, NullConversationManager and overflow | [02_conversation_windows.py](../modules/03_conversations/examples/02_conversation_windows.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
-| Image content blocks and vision capability checks on a synthetic receipt | [03_receipt_image.py](../modules/03_conversations/examples/03_receipt_image.py) | No; vision model needed | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
-| Document blocks on supported models; local PDF text extraction with page provenance | [04_policy_document.py](../modules/03_conversations/examples/04_policy_document.py) | Optional; local extraction | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
-
-## 04_structured_output: Structured output
-
-Assistant v3 · [Module guide](../modules/04_structured_output/README.md) · [Use case](../modules/04_structured_output/use_case/ticket_triage.py) · [Tests](../modules/04_structured_output/tests)
-
-| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Pydantic primer; structured_output_model on Agent/call and result.structured_output | [01_typed_ticket.py](../modules/04_structured_output/examples/01_typed_ticket.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
-| Nested schemas, enums and optional fields; extract a confirmation email | [02_nested_itinerary.py](../modules/04_structured_output/examples/02_nested_itinerary.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
-| Validation failure, correction, retry limits and malformed output tests | [03_validation_retry.py](../modules/04_structured_output/examples/03_validation_retry.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
-| Structured answers after tool use; labelled ticket accuracy and CSV export | [04_structure_with_tools.py](../modules/04_structured_output/examples/04_structure_with_tools.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
-
-## 05_building_tools: Building tools
-
-Assistant v4 · [Module guide](../modules/05_building_tools/README.md) · [Use case](../modules/05_building_tools/use_case/booking_assistant.py) · [Tests](../modules/05_building_tools/tests)
-
-| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| @tool; docstrings, parameter descriptions and type hints becoming tool specifications | [01_typed_search.py](../modules/05_building_tools/examples/01_typed_search.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| toolUse, toolResult, status and tool exception feedback | [02_results_and_errors.py](../modules/05_building_tools/examples/02_results_and_errors.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| @tool(context=True), ToolContext, private agent state and invocation state | [03_tool_context.py](../modules/05_building_tools/examples/03_tool_context.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| Async tools, streamed tool progress and consumption | [04_async_progress.py](../modules/05_building_tools/examples/04_async_progress.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| Class-based tools sharing a database connection; read-only queries | [05_resource_sharing.py](../modules/05_building_tools/examples/05_resource_sharing.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| TOOL_SPEC modules and direct agent.tool calls | [06_module_tools.py](../modules/05_building_tools/examples/06_module_tools.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| Sequential and concurrent execution; race and resource limits | [07_tool_executors.py](../modules/05_building_tools/examples/07_tool_executors.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| Trusted folder loading, hot reload and review before registration | [08_tool_directory.py](../modules/05_building_tools/examples/08_tool_directory.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-| Build it yourself: bounded boto3 Converse loop with toolConfig/toolUse/toolResult, then Strands equivalent | [09_manual_converse_loop.py](../modules/05_building_tools/examples/09_manual_converse_loop.py) | Yes; offline Stubber replay | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
-
-## 06_community_tools: Community and vended tools
-
-Assistant v4 · [Module guide](../modules/06_community_tools/README.md) · [Use case](../modules/06_community_tools/use_case/travel_day_helper.py) · [Tests](../modules/06_community_tools/tests)
-
-| Feature coverage | Delivered example | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Supported replacements for calculator/current_time/http_request: bounded Decimal conversion, injected clock and vended HTTP; synthetic Open-Meteo fixture | [01_calculator_time_weather.py](../modules/06_community_tools/examples/01_calculator_time_weather.py) | No; live weather needs internet | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
-| file_read, file_write, editor and shell with explicit consent and path restrictions | [02_files_and_consent.py](../modules/06_community_tools/examples/02_files_and_consent.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
-| Vended python_repl replacement, consent gate and BYPASS_TOOL_CONSENT explanation | [03_python_with_consent.py](../modules/06_community_tools/examples/03_python_with_consent.py) | No; execution environment capability check | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
-| Supported use_agent, vended notebook, image_reader and handoff_to_user; migration guide for retrieve/memory/think/use_llm/journal | [04_tool_catalog.py](../modules/06_community_tools/examples/04_tool_catalog.py) | Optional; AWS tool adapters use fixtures locally | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
-| use_aws with scoped read-only role; denied write demonstration | [05_read_only_aws.py](../modules/06_community_tools/examples/05_read_only_aws.py) | Yes; recorded contract locally | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
-
-Tier 1 integration: [Nimbus Booking Helper](../checkpoints/01_booking_helper/README.md) and [trajectory test](../checkpoints/01_booking_helper/test_booking_helper.py). See [supported tool migrations](../modules/06_community_tools/MIGRATIONS.md); deprecated names in this table identify replacements, not imports used by the lessons.
-
-## 07_rag: Retrieval-augmented generation
-
-Assistant v5 · [Module guide](../modules/07_rag/README.md) · [Use case](../modules/07_rag/use_case/ask_nimbus.py) · [Tests](../modules/07_rag/tests)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Markdown/PDF loading, chunk boundaries and source/page metadata | [01_load_and_chunk.py](../modules/07_rag/examples/01_load_and_chunk.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Embedding primer, cosine similarity by hand, 2D projection and its limits | [02_embeddings_by_hand.py](../modules/07_rag/examples/02_embeddings_by_hand.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Chroma persistence and Ollama embeddings; offline deterministic embedding fixture | [03_local_index.py](../modules/07_rag/examples/03_local_index.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| search_policies tool, agentic retrieval, citations, grounding and abstention | [04_cited_search.py](../modules/07_rag/examples/04_cited_search.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Optional Bedrock Knowledge Base, S3 Vectors, BedrockKnowledgeBaseStore and metadata filters; infrastructure and teardown | [05_knowledge_base.py](../modules/07_rag/examples/05_knowledge_base.py) | Yes; local Chroma alternative | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Titan Text Embeddings or verified equivalent; embedding-specific API versus Converse | [06_bedrock_embeddings.py](../modules/07_rag/examples/06_bedrock_embeddings.py) | Yes; Ollama alternative | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-
-## 08_advanced_rag: Advanced retrieval and evaluation
-
-Assistant v5 · [Module guide](../modules/08_advanced_rag/README.md) · [Use case](../modules/08_advanced_rag/use_case/retrieval_comparison.py) · [Tests](../modules/08_advanced_rag/tests)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Agent query rewrite and multi-query retrieval with a query budget | [01_query_rewriting.py](../modules/08_advanced_rag/examples/01_query_rewriting.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| BM25 plus vector search and deduplication | [02_hybrid_search.py](../modules/08_advanced_rag/examples/02_hybrid_search.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Local overlap reranking heuristic and optional Bedrock reranking with supported model/region | [03_reranking.py](../modules/08_advanced_rag/examples/03_reranking.py) | Optional; local scoring alternative | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Metadata filters and bounded multi-hop retrieval | [04_filters_multihop.py](../modules/08_advanced_rag/examples/04_filters_multihop.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Hit rate, faithfulness, correctness, held-out golden sets and LLM-as-judge limitations | [05_evaluate_retrieval.py](../modules/08_advanced_rag/examples/05_evaluate_retrieval.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-| Failure fixtures: missing/irrelevant evidence, rejected false citations and quarantined injection | [06_failure_gallery.py](../modules/08_advanced_rag/examples/06_failure_gallery.py) | No | [Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
-
-## 09_memory: Memory, state and sessions
-
-Assistant v6 · [Module guide](../modules/09_memory/README.md) · [Use case](../modules/09_memory/use_case/preferences_assistant.py) · [Tests](../modules/09_memory/tests)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Stateless model versus messages and agent.state; explicitly exposing private state when needed | [01_state_and_messages.py](../modules/09_memory/examples/01_state_and_messages.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
-| FileSessionManager, session IDs, resume and user isolation | [02_file_sessions.py](../modules/09_memory/examples/02_file_sessions.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
-| S3SessionManager; moto tests and optional tagged bucket teardown | [03_s3_sessions.py](../modules/09_memory/examples/03_s3_sessions.py) | Yes; file sessions alternative | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
-| Preference storage, retention, retrieval and deletion of registered active data | [04_local_preferences.py](../modules/09_memory/examples/04_local_preferences.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
-| Stable MemoryManager plus a course-owned AgentCore store; optional live scoped recall | [05_agentcore_memory.py](../modules/09_memory/examples/05_agentcore_memory.py) | Yes; local preferences alternative | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
-| Mem0MemoryStore via mem0-strands and MemoryManager; replace deprecated mem0_memory tool; deletion through backend API | [06_mem0_store.py](../modules/09_memory/examples/06_mem0_store.py) | No; Ollama-backed configuration | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
-
-## 10_streaming: Streaming and async
-
-Assistant v6 · [Module guide](../modules/10_streaming/README.md) · [Use case](../modules/10_streaming/use_case/streaming_trip_planner.py) · [Tests](../modules/10_streaming/tests)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| stream_async text deltas, reasoning if exposed, tool and lifecycle events versus callbacks | [01_stream_events.py](../modules/10_streaming/examples/01_stream_events.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
-| Concurrent agents, timeouts, cancellation and bounded resource use | [02_concurrency_and_cancel.py](../modules/10_streaming/examples/02_concurrency_and_cancel.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
-| FastAPI SSE framing, client disconnect and cancellation propagation | [03_fastapi_sse.py](../modules/10_streaming/examples/03_fastapi_sse.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
-| Streamlit chat, per-user sessions and streamed responses | [04_streamlit_chat.py](../modules/10_streaming/examples/04_streamlit_chat.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
-
-## 11_hooks: Hooks and lifecycle
-
-Assistant v7 · [Module guide](../modules/11_hooks/README.md) · [Use case](../modules/11_hooks/use_case/audited_booking.py) · [Tests](../modules/11_hooks/tests)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| HookProvider, HookRegistry; AgentInitializedEvent, Before/AfterInvocationEvent, Before/AfterModelCallEvent | [01_lifecycle_hooks.py](../modules/11_hooks/examples/01_lifecycle_hooks.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
-| Before/AfterToolCallEvent, Before/AfterToolsEvent; block or modify inputs and rewrite results | [02_tool_hooks.py](../modules/11_hooks/examples/02_tool_hooks.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
-| MessageAddedEvent and MessageUpdatedEvent; redaction before persistence/logging | [03_message_hooks.py](../modules/11_hooks/examples/03_message_hooks.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
-| Invocation state, structured audit trail, booking budget enforcement and metrics | [04_audit_budget.py](../modules/11_hooks/examples/04_audit_budget.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
-
-## 12_interrupts: Human approval with interrupts
-
-Assistant v8 · [Module guide](../modules/12_interrupts/README.md) · [Use case](../modules/12_interrupts/use_case/refund_approval.py) · [Tests](../modules/12_interrupts/tests)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Interrupt an individual call or batch from supported hooks; capture identifiers | [01_hook_interrupt.py](../modules/12_interrupts/examples/01_hook_interrupt.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
-| Interrupt from ToolContext and resume with matched human response | [02_tool_interrupt.py](../modules/12_interrupts/examples/02_tool_interrupt.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
-| Approve/reject/expire refunds over $500 and non-refundable changes; handoff_to_user comparison | [03_approval_cli.py](../modules/12_interrupts/examples/03_approval_cli.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
-| Authenticated approval state, web approve/reject, audit trail and replay-safe mutation | [04_approval_web.py](../modules/12_interrupts/examples/04_approval_web.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
-
-## 13_guardrails: Guardrails and safety
-
-Assistant v9 · [Module guide](../modules/13_guardrails/README.md) · [Use case](../modules/13_guardrails/use_case/hardened_support.py) · [Tests](../modules/13_guardrails/tests)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Provider-independent hook checks and typed business policy | [01_local_guardrails.py](../modules/13_guardrails/examples/01_local_guardrails.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
-| Poisoned document attack, untrusted content boundary, tool authorization and regression cases | [02_prompt_injection.py](../modules/13_guardrails/examples/02_prompt_injection.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
-| Read-only SQLite, tool allow-lists and restricted use_aws role | [03_least_privilege.py](../modules/13_guardrails/examples/03_least_privilege.py) | Optional; local tools alternative | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
-| Current invocation limits, tool budgets and wall-clock timeouts | [04_limits.py](../modules/13_guardrails/examples/04_limits.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
-| Content filters, denied topics, PII masking, grounding checks, BedrockModel attachment and trace; CDK lifecycle | [05_bedrock_guardrails.py](../modules/13_guardrails/examples/05_bedrock_guardrails.py) | Yes; local policy checks with narrower coverage | [Documentation](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
-
-## 14_mcp: Model Context Protocol
-
-Assistant v9 · [Module guide](../modules/14_mcp/README.md) · [Use case](../modules/14_mcp/use_case/mcp_booking_assistant.py) · [Tests](../modules/14_mcp/tests)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| MCPClient stdio transport and managed/context-manager lifecycle | [01_stdio_client.py](../modules/14_mcp/examples/01_stdio_client.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
-| Streamable HTTP transport, lifetime, authentication and shutdown | [02_http_client.py](../modules/14_mcp/examples/02_http_client.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
-| Official mcp SDK server exposing Nimbus booking tools | [03_booking_server.py](../modules/14_mcp/examples/03_booking_server.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
-| Pinned AWS Documentation and AWS Pricing MCP servers via uvx; trust and access review | [04_aws_servers.py](../modules/14_mcp/examples/04_aws_servers.py) | Optional; Pricing requires credentials, fixture alternative | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
-| Filter/namespace tools, combine servers and reject unexpected capabilities | [05_tool_filtering.py](../modules/14_mcp/examples/05_tool_filtering.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
-
-## 15_agents_as_tools: Agents as tools
-
-Assistant v10 · use case: [modules/15_agents_as_tools/use_case/nimbus_concierge.py](../modules/15_agents_as_tools/use_case/nimbus_concierge.py)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Flight, hotel and policy agents wrapped as tools | [modules/15_agents_as_tools/examples/01_specialist_tools.py](../modules/15_agents_as_tools/examples/01_specialist_tools.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/) |
-| Minimum specialist context, output validation and authority boundaries | [modules/15_agents_as_tools/examples/02_context_boundaries.py](../modules/15_agents_as_tools/examples/02_context_boundaries.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/) |
-| Compare single-agent and delegated quality, latency and total token cost | [modules/15_agents_as_tools/examples/03_delegation_cost.py](../modules/15_agents_as_tools/examples/03_delegation_cost.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/) |
-
-## 16_swarms: Swarms
-
-Assistant v10 · use case: [modules/16_swarms/use_case/itinerary_swarm.py](../modules/16_swarms/use_case/itinerary_swarm.py)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Swarm, entry point, agent handoffs and shared context | [modules/16_swarms/examples/01_handoffs.py](../modules/16_swarms/examples/01_handoffs.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
-| max_handoffs, max_iterations, execution_timeout, node_timeout and repetitive handoff detection | [modules/16_swarms/examples/02_swarm_limits.py](../modules/16_swarms/examples/02_swarm_limits.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
-| Result status, node outcomes, execution order and failure diagnosis | [modules/16_swarms/examples/03_swarm_results.py](../modules/16_swarms/examples/03_swarm_results.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
-| Researcher, budget planner, itinerary writer and reviewer collaboration | [modules/16_swarms/examples/04_itinerary_team.py](../modules/16_swarms/examples/04_itinerary_team.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
-
-## 17_graphs: Graphs and workflows
-
-Assistant v10 · use case: [modules/17_graphs/use_case/group_trip_pipeline.py](../modules/17_graphs/use_case/group_trip_pipeline.py)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| GraphBuilder nodes, edges, entry point and per-node results | [modules/17_graphs/examples/01_graph_basics.py](../modules/17_graphs/examples/01_graph_basics.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
-| Parallel flight/hotel branches and single fan-in after completion | [modules/17_graphs/examples/02_parallel_search.py](../modules/17_graphs/examples/02_parallel_search.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
-| Conditional edges and bounded loops using set_max_node_executions/timeouts | [modules/17_graphs/examples/03_conditional_budget.py](../modules/17_graphs/examples/03_conditional_budget.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
-| Nested graph/swarm nodes and aggregate limits | [modules/17_graphs/examples/04_nested_patterns.py](../modules/17_graphs/examples/04_nested_patterns.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
-| Existing workflow tool versus Graph and deterministic orchestration | [modules/17_graphs/examples/05_workflow_comparison.py](../modules/17_graphs/examples/05_workflow_comparison.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
-| Parse, parallel search, budget branch, approval, and confirmation draft | [modules/17_graphs/examples/06_approval_pipeline.py](../modules/17_graphs/examples/06_approval_pipeline.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
-
-## 18_a2a: Agent-to-Agent protocol
-
-Assistant v10 · use case: [modules/18_a2a/use_case/partner_upgrade.py](../modules/18_a2a/use_case/partner_upgrade.py)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| A2A protocol, Strands A2AServer and agent cards | [modules/18_a2a/examples/01_partner_server.py](../modules/18_a2a/examples/01_partner_server.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
-| A2AAgent endpoint, invoke_async and streamed remote results | [modules/18_a2a/examples/02_remote_agent.py](../modules/18_a2a/examples/02_remote_agent.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
-| client_config authenticated transport, card discovery and credential boundaries | [modules/18_a2a/examples/03_authenticated_client.py](../modules/18_a2a/examples/03_authenticated_client.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
-| Actual LangGraph StateGraph partner in a separate process with the same authenticated Strands client | [modules/18_a2a/examples/04_framework_interop.py](../modules/18_a2a/examples/04_framework_interop.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
-
-## 19_observability: Observability, testing and evaluation
-
-Assistant v10 · use case: [modules/19_observability/use_case/support_quality_gate.py](../modules/19_observability/use_case/support_quality_gate.py)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| AgentResult token/cycle/latency/tool metrics and total cost accounting | [modules/19_observability/examples/01_agent_metrics.py](../modules/19_observability/examples/01_agent_metrics.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-| OpenTelemetry console and OTLP exporter; local Jaeger with Docker | [modules/19_observability/examples/02_local_tracing.py](../modules/19_observability/examples/02_local_tracing.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-| Scripted Model interface, tool unit tests, moto/Stubber, deprecations and opt-in live markers | [modules/19_observability/examples/03_offline_testing.py](../modules/19_observability/examples/03_offline_testing.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-| Cases, experiments, output and trajectory evaluators, LLM judges and deterministic scoring | [modules/19_observability/examples/04_strands_evals.py](../modules/19_observability/examples/04_strands_evals.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-| strands-evals run thresholds and nonzero exits as a CI quality gate | [modules/19_observability/examples/05_evaluation_cli.py](../modules/19_observability/examples/05_evaluation_cli.py) | No | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-| CloudWatch and AgentCore telemetry, redaction and retention | [modules/19_observability/examples/06_cloud_observability.py](../modules/19_observability/examples/06_cloud_observability.py) | Yes; local console/Jaeger alternative | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-| AgentCore Evaluations as a managed option | [modules/19_observability/examples/07_managed_evaluation.py](../modules/19_observability/examples/07_managed_evaluation.py) | Yes; local Evals alternative | [Documentation](https://strandsagents.com/docs/user-guide/evals-sdk/) |
-
-## 20_deployment: Deploying to AWS
-
-Assistant v10 · use case: [modules/20_deployment/use_case/deployment_comparison.py](../modules/20_deployment/use_case/deployment_comparison.py)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Local/Lambda/Fargate/AgentCore tradeoffs; EKS and EC2 overview | [modules/20_deployment/examples/01_hosting_decision.py](../modules/20_deployment/examples/01_hosting_decision.py) | No; local workload model | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
-| BedrockAgentCoreApp, @app.entrypoint and local runtime testing | [modules/20_deployment/examples/02_agentcore_local.py](../modules/20_deployment/examples/02_agentcore_local.py) | No; model can use Ollama | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
-| CDK Runtime deploy, invoke, streaming and sessions; resource inventory and teardown | [modules/20_deployment/examples/03_agentcore_runtime.py](../modules/20_deployment/examples/03_agentcore_runtime.py) | Yes; local runtime alternative | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
-| Lambda handler, dependency packaging, scoped execution role and CDK app | [modules/20_deployment/examples/04_lambda_handler.py](../modules/20_deployment/examples/04_lambda_handler.py) | Yes for deployment; offline handler alternative | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
-| FastAPI container, Fargate service/load balancer, logs and explicit idle costs; CDK lifecycle | [modules/20_deployment/examples/05_fargate_api.py](../modules/20_deployment/examples/05_fargate_api.py) | Yes for deployment; local container alternative | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
-| Secrets Manager/SSM, per-environment configuration, roles and cleanup comparison | [modules/20_deployment/examples/06_runtime_configuration.py](../modules/20_deployment/examples/06_runtime_configuration.py) | Yes; local environment configuration | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
-
-## 21_agentcore: Amazon Bedrock AgentCore services
-
-Assistant v11 · use case: [modules/21_agentcore/use_case/production_copilot.py](../modules/21_agentcore/use_case/production_copilot.py)
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Short-term events and semantic, preference, summary and episodic strategies; deletion | [modules/21_agentcore/examples/01_memory.py](../modules/21_agentcore/examples/01_memory.py) | Yes; local preference store | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| Lambda/OpenAPI to MCP, semantic tool search and scoped targets | [modules/21_agentcore/examples/02_gateway.py](../modules/21_agentcore/examples/02_gateway.py) | Yes; local booking MCP | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| Cognito/JWT inbound identity and third-party OAuth outbound identity | [modules/21_agentcore/examples/03_identity.py](../modules/21_agentcore/examples/03_identity.py) | Yes; local authenticated test provider | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| AgentCore Code Interpreter tool, sessions, execution limits and cleanup | [modules/21_agentcore/examples/04_code_interpreter.py](../modules/21_agentcore/examples/04_code_interpreter.py) | Yes; reviewed local computation | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| AgentCore Browser tool, restricted destinations, sessions and cleanup | [modules/21_agentcore/examples/05_browser.py](../modules/21_agentcore/examples/05_browser.py) | Yes; fixture web pages | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| Service telemetry, redaction, permissions and retention cleanup | [modules/21_agentcore/examples/06_observability.py](../modules/21_agentcore/examples/06_observability.py) | Yes; local OTLP | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| Gateway Policy, Cedar, tool-input limits and refusal of excess refunds | [modules/21_agentcore/examples/07_policy.py](../modules/21_agentcore/examples/07_policy.py) | Yes; local typed policy | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| Managed evaluation configuration, scheduled runs, score review and schedule deletion | [modules/21_agentcore/examples/08_evaluations.py](../modules/21_agentcore/examples/08_evaluations.py) | Yes; local evaluation runner | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-| Memory, booking Gateway, sign-in, refund policy and recurring evaluations | [modules/21_agentcore/examples/09_integrated_copilot.py](../modules/21_agentcore/examples/09_integrated_copilot.py) | Yes; composed local support app | [Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
-
-## bonus/B1_voice: Voice agents
-
-Assistant v11 · use case: `modules/bonus/B1_voice/use_case/voice_booking.py`
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Stable strands.bidi.BidiAgent and compatible Nova Sonic voice session | `modules/bonus/B1_voice/examples/01_voice_session.py` | Yes for Nova; optional non-AWS voice provider | [Documentation](https://strandsagents.com/docs/user-guide/sdk/bidi/agent/) |
-| Bidirectional audio, barge-in and cancellation boundaries | `modules/bonus/B1_voice/examples/02_barge_in.py` | Yes for Nova; recorded audio events locally | [Documentation](https://strandsagents.com/docs/user-guide/sdk/bidi/agent/) |
-| Voice tool approval and session cleanup; Experimental OpenAI Live excluded from core | `modules/bonus/B1_voice/examples/03_voice_approval.py` | Yes for Nova; offline approval fixture | [Documentation](https://strandsagents.com/docs/user-guide/sdk/bidi/agent/) |
-
-## bonus/B2_typescript: Strands in TypeScript
-
-Assistant v1 · use case: `modules/bonus/B2_typescript/use_case/typescript_booking.ts`
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| TypeScript primer and first agent with environment model selection | `modules/bonus/B2_typescript/examples/01_first_agent.ts` | No | [Documentation](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.22.0) |
-| Typed Nimbus booking tools and validation | `modules/bonus/B2_typescript/examples/02_typed_tool.ts` | No | [Documentation](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.22.0) |
-| Provider choice, async invocation and result comparison with Python | `modules/bonus/B2_typescript/examples/03_provider_and_result.ts` | No | [Documentation](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.22.0) |
-
-## bonus/B3_self_extending: Self-extending agents
-
-Assistant v11 · use case: `modules/bonus/B3_self_extending/use_case/reviewed_tool_builder.py`
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| Current SDK tool-generation builder with constrained inventory; archived agent-builder explained as historical context | `modules/bonus/B3_self_extending/examples/01_builder.py` | No | [Documentation](https://github.com/strands-agents/agent-builder) |
-| Generated source is untrusted; review, test and explicitly approve before loading | `modules/bonus/B3_self_extending/examples/02_review_generated_tool.py` | No | [Documentation](https://github.com/strands-agents/agent-builder) |
-| Approved tools in an allow-listed directory, hot reload and audit history | `modules/bonus/B3_self_extending/examples/03_trusted_reload.py` | No | [Documentation](https://github.com/strands-agents/agent-builder) |
-
-## bonus/B4_whats_new: What is new in the pinned release
-
-Assistant v11 · use case: `modules/bonus/B4_whats_new/use_case/release_feature_lab.py`
-
-| Feature coverage | Planned example file | AWS required / local alternative | Official reference |
-|---|---|---|---|
-| agent.cancel and whole-agent-tree invocation limits | `modules/bonus/B4_whats_new/examples/01_cancel_and_limits.py` | No | [Documentation](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.62.0) |
-| Public middleware composition and behavior tests | `modules/bonus/B4_whats_new/examples/02_public_middleware.py` | No | [Documentation](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.62.0) |
-| Stable Evals red teaming and held-out attack corpus; replace experimental imports | `modules/bonus/B4_whats_new/examples/03_stable_redteam.py` | No | [Documentation](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.62.0) |
-| Experimental AgentConfig opt-in demonstration, isolated from the core route | `modules/bonus/B4_whats_new/examples/04_experimental_config.py` | No | [Documentation](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.62.0) |
-
-## Cross-course and capstone coverage
-
-| Deliverable | Planned implementation | Acceptance evidence |
-|---|---|---|
-| Provider factory and deterministic mock | `common/models.py`, `common/testing.py` | Real SDK loop; text/tool/structured/interrupt tests, no external network |
-| Reproducible data | `scripts/build_data.py`, `data/manifest.json` | Counts, foreign keys, golden labels, planted incidents, PDF/image review |
-| AWS inventory and cleanup | `scripts/find_leftovers.py`, each infrastructure README | Tagged resources, stack inventory, regional scan, explicit errors and unsupported-service gaps |
-| Feature and content audit | `tests/test_course_structure.py`, `tests/test_links.py` | Every map target exists; required module sections/assets; internal and external links |
-| Safety regression | `tests/test_iam_policies.py`, `tests/test_secret_examples.py` | Inspect synthesized IAM; reject wildcard actions and secret-like sample values |
-| CloudOps Copilot | `capstones/01_cloudops_copilot/solution/main.py` | Incident detection, runbook citations, cost charts, Documentation/Pricing MCP; read-only optional live mode |
-| Trip Planner Crew | `capstones/02_trip_planner_crew/solution/main.py` | Flight/hotel/weather/budget agents, graph or swarm, streaming Streamlit UI |
-| Document Intelligence Pipeline | `capstones/03_document_intelligence/solution/main.py` | Receipt/image extraction, typed validation, anomaly routing, SQLite and optional DynamoDB |
-| Nimbus Support Copilot | `capstones/04_nimbus_support_copilot/solution/main.py` | Booking, policy RAG, memory, interrupt approvals, Guardrails, OTLP, Evals, Runtime, Gateway and teardown |
-| Partner Network | `capstones/05_partner_network/solution/main.py` | Authenticated Strands/LangGraph A2A interoperability in separate processes |
-| Five tier checkpoints | `checkpoints/tier_1/README.md` through `checkpoints/tier_5/README.md` | Concrete deliverables and readiness criteria in the learning path |
-| Teaching references | `docs/MENTAL_MODEL.md`, `docs/CHOOSING_THE_RIGHT_PATTERN.md`, `docs/GLOSSARY.md`, `docs/TROUBLESHOOTING.md`, `cheatsheets/` | Ecosystem diagram, two decision flowcharts, 60+ terms, real errors and five printable sheets |
+# Feature map: delivered coverage contract
+
+All linked files below are delivered. Fixture execution validates SDK and application contracts; live model quality, deployment and teardown are separate checks. See [verification](VERIFICATION_NOTES.md) and [definition of done](DEFINITION_OF_DONE.md).
+
+| Feature | Module | Example | Use case | AWS required | Official reference |
+|---|---|---|---|---|---|
+| Model-driven agents versus fixed workflows; tokens; ecosystem map (Python, TypeScript, tools, Evals, builder, Bedrock, AgentCore, MCP, A2A) | [00_setup](../modules/00_setup/README.md) | [01_agent_or_workflow](../modules/00_setup/examples/01_agent_or_workflow.py) | [Mini-app](../modules/00_setup/use_case/orientation.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Python, uv, pip/venv fallback, Ollama tool-capable model and configuration checks | [00_setup](../modules/00_setup/README.md) | [02_local_readiness](../modules/00_setup/examples/02_local_readiness.py) | [Mini-app](../modules/00_setup/use_case/orientation.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Identity Center, CLI v2 SSO, budget-before-billing gate, region and model-access checks | [00_setup](../modules/00_setup/README.md) | [03_aws_readiness](../modules/00_setup/examples/03_aws_readiness.py) | [Mini-app](../modules/00_setup/use_case/orientation.py) | Yes; local readiness instead | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| First configured agent call and token/latency inspection | [00_setup](../modules/00_setup/README.md) | [04_first_call_metrics](../modules/00_setup/examples/04_first_call_metrics.py) | [Mini-app](../modules/00_setup/use_case/orientation.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Agent defaults inspected safely; configured Agent, system_prompt and synchronous invocation | [01_first_agent](../modules/01_first_agent/README.md) | [01_hello_agent](../modules/01_first_agent/examples/01_hello_agent.py) | [Mini-app](../modules/01_first_agent/use_case/faq_responder.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| AgentResult message, stop_reason, metrics, and agent.messages | [01_first_agent](../modules/01_first_agent/README.md) | [02_result_and_messages](../modules/01_first_agent/examples/02_result_and_messages.py) | [Mini-app](../modules/01_first_agent/use_case/faq_responder.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Default printing, null_callback_handler, and custom callback handler | [01_first_agent](../modules/01_first_agent/README.md) | [03_callbacks](../modules/01_first_agent/examples/03_callbacks.py) | [Mini-app](../modules/01_first_agent/use_case/faq_responder.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Async/await primer and invoke_async | [01_first_agent](../modules/01_first_agent/README.md) | [04_async_call](../modules/01_first_agent/examples/04_async_call.py) | [Mini-app](../modules/01_first_agent/use_case/faq_responder.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| Agent/event loop; model decision, tool execution, continuation and stop | [01_first_agent](../modules/01_first_agent/README.md) | [05_follow_the_loop](../modules/01_first_agent/examples/05_follow_the_loop.py) | [Mini-app](../modules/01_first_agent/use_case/faq_responder.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/) |
+| BedrockModel; model ID, region, boto3 profile/session, temperature, max tokens and inference profiles | [02_model_providers](../modules/02_model_providers/README.md) | [01_bedrock_settings](../modules/02_model_providers/examples/01_bedrock_settings.py) | [Mini-app](../modules/02_model_providers/use_case/provider_comparison.py) | Yes; other providers instead | [Official docs](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
+| Anthropic, OpenAI, Ollama and LiteLLM; overview of other supported providers | [02_model_providers](../modules/02_model_providers/README.md) | [02_provider_switch](../modules/02_model_providers/examples/02_provider_switch.py) | [Mini-app](../modules/02_model_providers/use_case/provider_comparison.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
+| Runtime configuration changes; token usage to dated cost estimate | [02_model_providers](../modules/02_model_providers/README.md) | [03_runtime_settings_and_cost](../modules/02_model_providers/examples/03_runtime_settings_and_cost.py) | [Mini-app](../modules/02_model_providers/use_case/provider_comparison.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
+| Build it yourself: minimal Model text stream and explicit unsupported structured output; common.testing extends it to tool events | [02_model_providers](../modules/02_model_providers/README.md) | [04_custom_model](../modules/02_model_providers/examples/04_custom_model.py) | [Mini-app](../modules/02_model_providers/use_case/provider_comparison.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
+| CacheConfig and supported Bedrock prompt-cache settings | [02_model_providers](../modules/02_model_providers/README.md) | [05_prompt_cache](../modules/02_model_providers/examples/05_prompt_cache.py) | [Mini-app](../modules/02_model_providers/use_case/provider_comparison.py) | Yes; uncached local comparison | [Official docs](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
+| Model-specific reasoning configuration and capability validation | [02_model_providers](../modules/02_model_providers/README.md) | [06_reasoning](../modules/02_model_providers/examples/06_reasoning.py) | [Mini-app](../modules/02_model_providers/use_case/provider_comparison.py) | Optional; capable local model | [Official docs](https://strandsagents.com/docs/user-guide/sdk/model-providers/) |
+| Text content blocks, agent.messages, multi-turn state and role/constraints/tone/output prompts | [03_conversations](../modules/03_conversations/README.md) | [01_multi_turn](../modules/03_conversations/examples/01_multi_turn.py) | [Mini-app](../modules/03_conversations/use_case/trip_chat.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
+| SlidingWindowConversationManager, SummarizingConversationManager, NullConversationManager and overflow | [03_conversations](../modules/03_conversations/README.md) | [02_conversation_windows](../modules/03_conversations/examples/02_conversation_windows.py) | [Mini-app](../modules/03_conversations/use_case/trip_chat.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
+| Image content blocks and vision capability checks on a synthetic receipt | [03_conversations](../modules/03_conversations/README.md) | [03_receipt_image](../modules/03_conversations/examples/03_receipt_image.py) | [Mini-app](../modules/03_conversations/use_case/trip_chat.py) | No; vision model needed | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
+| Document blocks on supported models; local PDF text extraction with page provenance | [03_conversations](../modules/03_conversations/README.md) | [04_policy_document](../modules/03_conversations/examples/04_policy_document.py) | [Mini-app](../modules/03_conversations/use_case/trip_chat.py) | Optional; local extraction | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/conversation-management/) |
+| Pydantic primer; structured_output_model on Agent/call and result.structured_output | [04_structured_output](../modules/04_structured_output/README.md) | [01_typed_ticket](../modules/04_structured_output/examples/01_typed_ticket.py) | [Mini-app](../modules/04_structured_output/use_case/ticket_triage.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
+| Nested schemas, enums and optional fields; extract a confirmation email | [04_structured_output](../modules/04_structured_output/README.md) | [02_nested_itinerary](../modules/04_structured_output/examples/02_nested_itinerary.py) | [Mini-app](../modules/04_structured_output/use_case/ticket_triage.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
+| Validation failure, correction, retry limits and malformed output tests | [04_structured_output](../modules/04_structured_output/README.md) | [03_validation_retry](../modules/04_structured_output/examples/03_validation_retry.py) | [Mini-app](../modules/04_structured_output/use_case/ticket_triage.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
+| Structured answers after tool use; labelled ticket accuracy and CSV export | [04_structured_output](../modules/04_structured_output/README.md) | [04_structure_with_tools](../modules/04_structured_output/examples/04_structure_with_tools.py) | [Mini-app](../modules/04_structured_output/use_case/ticket_triage.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/structured-output/) |
+| @tool; docstrings, parameter descriptions and type hints becoming tool specifications | [05_building_tools](../modules/05_building_tools/README.md) | [01_typed_search](../modules/05_building_tools/examples/01_typed_search.py) | [Mini-app](../modules/05_building_tools/use_case/booking_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| toolUse, toolResult, status and tool exception feedback | [05_building_tools](../modules/05_building_tools/README.md) | [02_results_and_errors](../modules/05_building_tools/examples/02_results_and_errors.py) | [Mini-app](../modules/05_building_tools/use_case/booking_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| @tool(context=True), ToolContext, private agent state and invocation state | [05_building_tools](../modules/05_building_tools/README.md) | [03_tool_context](../modules/05_building_tools/examples/03_tool_context.py) | [Mini-app](../modules/05_building_tools/use_case/booking_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| Async tools, streamed tool progress and consumption | [05_building_tools](../modules/05_building_tools/README.md) | [04_async_progress](../modules/05_building_tools/examples/04_async_progress.py) | [Mini-app](../modules/05_building_tools/use_case/booking_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| Class-based tools sharing a database connection; read-only queries | [05_building_tools](../modules/05_building_tools/README.md) | [05_resource_sharing](../modules/05_building_tools/examples/05_resource_sharing.py) | [Mini-app](../modules/05_building_tools/use_case/booking_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| TOOL_SPEC modules and direct agent.tool calls | [05_building_tools](../modules/05_building_tools/README.md) | [06_module_tools](../modules/05_building_tools/examples/06_module_tools.py) | [Mini-app](../modules/05_building_tools/use_case/booking_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| Sequential and concurrent execution; race and resource limits | [05_building_tools](../modules/05_building_tools/README.md) | [07_tool_executors](../modules/05_building_tools/examples/07_tool_executors.py) | [Mini-app](../modules/05_building_tools/use_case/booking_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| Trusted folder loading, hot reload and review before registration | [05_building_tools](../modules/05_building_tools/README.md) | [08_tool_directory](../modules/05_building_tools/examples/08_tool_directory.py) | [Mini-app](../modules/05_building_tools/use_case/booking_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| Build it yourself: bounded boto3 Converse loop with toolConfig/toolUse/toolResult, then Strands equivalent | [05_building_tools](../modules/05_building_tools/README.md) | [09_manual_converse_loop](../modules/05_building_tools/examples/09_manual_converse_loop.py) | [Mini-app](../modules/05_building_tools/use_case/booking_assistant.py) | Yes; offline Stubber replay | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/) |
+| Supported replacements for calculator/current_time/http_request: bounded Decimal conversion, injected clock and vended HTTP; synthetic Open-Meteo fixture | [06_community_tools](../modules/06_community_tools/README.md) | [01_calculator_time_weather](../modules/06_community_tools/examples/01_calculator_time_weather.py) | [Mini-app](../modules/06_community_tools/use_case/travel_day_helper.py) | No; live weather needs internet | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
+| file_read, file_write, editor and shell with explicit consent and path restrictions | [06_community_tools](../modules/06_community_tools/README.md) | [02_files_and_consent](../modules/06_community_tools/examples/02_files_and_consent.py) | [Mini-app](../modules/06_community_tools/use_case/travel_day_helper.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
+| Vended python_repl replacement, consent gate and BYPASS_TOOL_CONSENT explanation | [06_community_tools](../modules/06_community_tools/README.md) | [03_python_with_consent](../modules/06_community_tools/examples/03_python_with_consent.py) | [Mini-app](../modules/06_community_tools/use_case/travel_day_helper.py) | No; execution environment capability check | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
+| Supported use_agent, vended notebook, image_reader and handoff_to_user; migration guide for retrieve/memory/think/use_llm/journal | [06_community_tools](../modules/06_community_tools/README.md) | [04_tool_catalog](../modules/06_community_tools/examples/04_tool_catalog.py) | [Mini-app](../modules/06_community_tools/use_case/travel_day_helper.py) | Optional; AWS tool adapters use fixtures locally | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
+| use_aws with scoped read-only role; denied write demonstration | [06_community_tools](../modules/06_community_tools/README.md) | [05_read_only_aws](../modules/06_community_tools/examples/05_read_only_aws.py) | [Mini-app](../modules/06_community_tools/use_case/travel_day_helper.py) | Yes; recorded contract locally | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/community-tools-package/) |
+| Markdown/PDF loading, chunk boundaries and source/page metadata | [07_rag](../modules/07_rag/README.md) | [01_load_and_chunk](../modules/07_rag/examples/01_load_and_chunk.py) | [Mini-app](../modules/07_rag/use_case/ask_nimbus.py) | No | [Official docs](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Embedding primer, cosine similarity by hand, 2D projection and its limits | [07_rag](../modules/07_rag/README.md) | [02_embeddings_by_hand](../modules/07_rag/examples/02_embeddings_by_hand.py) | [Mini-app](../modules/07_rag/use_case/ask_nimbus.py) | No | [Official docs](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Chroma persistence and Ollama embeddings; offline deterministic embedding fixture | [07_rag](../modules/07_rag/README.md) | [03_local_index](../modules/07_rag/examples/03_local_index.py) | [Mini-app](../modules/07_rag/use_case/ask_nimbus.py) | No | [Official docs](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| search_policies tool, agentic retrieval, citations, grounding and abstention | [07_rag](../modules/07_rag/README.md) | [04_cited_search](../modules/07_rag/examples/04_cited_search.py) | [Mini-app](../modules/07_rag/use_case/ask_nimbus.py) | No | [Official docs](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Optional Bedrock Knowledge Base, S3 Vectors, retrieve tool and metadata filters; infrastructure and teardown | [07_rag](../modules/07_rag/README.md) | [05_knowledge_base](../modules/07_rag/examples/05_knowledge_base.py) | [Mini-app](../modules/07_rag/use_case/ask_nimbus.py) | Yes; local Chroma alternative | [Official docs](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Titan Text Embeddings or verified equivalent; embedding-specific API versus Converse | [07_rag](../modules/07_rag/README.md) | [06_bedrock_embeddings](../modules/07_rag/examples/06_bedrock_embeddings.py) | [Mini-app](../modules/07_rag/use_case/ask_nimbus.py) | Yes; Ollama alternative | [Official docs](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Agent query rewrite and multi-query retrieval with a query budget | [08_advanced_rag](../modules/08_advanced_rag/README.md) | [01_query_rewriting](../modules/08_advanced_rag/examples/01_query_rewriting.py) | [Mini-app](../modules/08_advanced_rag/use_case/retrieval_comparison.py) | No | [Official docs](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| BM25 plus vector search and deduplication | [08_advanced_rag](../modules/08_advanced_rag/README.md) | [02_hybrid_search](../modules/08_advanced_rag/examples/02_hybrid_search.py) | [Mini-app](../modules/08_advanced_rag/use_case/retrieval_comparison.py) | No | [Official docs](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Local reranking and optional Bedrock reranking with supported model/region | [08_advanced_rag](../modules/08_advanced_rag/README.md) | [03_reranking](../modules/08_advanced_rag/examples/03_reranking.py) | [Mini-app](../modules/08_advanced_rag/use_case/retrieval_comparison.py) | Optional; local scoring alternative | [Official docs](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Metadata filters and bounded multi-hop retrieval | [08_advanced_rag](../modules/08_advanced_rag/README.md) | [04_filters_multihop](../modules/08_advanced_rag/examples/04_filters_multihop.py) | [Mini-app](../modules/08_advanced_rag/use_case/retrieval_comparison.py) | No | [Official docs](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Hit rate, faithfulness, correctness, held-out golden sets and LLM-as-judge limitations | [08_advanced_rag](../modules/08_advanced_rag/README.md) | [05_evaluate_retrieval](../modules/08_advanced_rag/examples/05_evaluate_retrieval.py) | [Mini-app](../modules/08_advanced_rag/use_case/retrieval_comparison.py) | No | [Official docs](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Before/after results for missing facts, irrelevant chunks, false citations and injection | [08_advanced_rag](../modules/08_advanced_rag/README.md) | [06_failure_gallery](../modules/08_advanced_rag/examples/06_failure_gallery.py) | [Mini-app](../modules/08_advanced_rag/use_case/retrieval_comparison.py) | No | [Official docs](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) |
+| Stateless model versus messages and agent.state; explicitly exposing private state when needed | [09_memory](../modules/09_memory/README.md) | [01_state_and_messages](../modules/09_memory/examples/01_state_and_messages.py) | [Mini-app](../modules/09_memory/use_case/preferences_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
+| FileSessionManager, session IDs, resume and user isolation | [09_memory](../modules/09_memory/README.md) | [02_file_sessions](../modules/09_memory/examples/02_file_sessions.py) | [Mini-app](../modules/09_memory/use_case/preferences_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
+| S3SessionManager; moto tests and optional tagged bucket teardown | [09_memory](../modules/09_memory/README.md) | [03_s3_sessions](../modules/09_memory/examples/03_s3_sessions.py) | [Mini-app](../modules/09_memory/use_case/preferences_assistant.py) | Yes; file sessions alternative | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
+| Preference storage, retention, retrieval and complete user deletion | [09_memory](../modules/09_memory/README.md) | [04_local_preferences](../modules/09_memory/examples/04_local_preferences.py) | [Mini-app](../modules/09_memory/use_case/preferences_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
+| Stable MemoryManager plus a course-owned AgentCore store; optional live scoped recall | [09_memory](../modules/09_memory/README.md) | [05_agentcore_memory](../modules/09_memory/examples/05_agentcore_memory.py) | [Mini-app](../modules/09_memory/use_case/preferences_assistant.py) | Yes; local preferences alternative | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
+| Mem0MemoryStore via mem0-strands and MemoryManager; replace deprecated mem0_memory tool; deletion through backend API | [09_memory](../modules/09_memory/README.md) | [06_mem0_store](../modules/09_memory/examples/06_mem0_store.py) | [Mini-app](../modules/09_memory/use_case/preferences_assistant.py) | No; Ollama-backed configuration | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/session-management/) |
+| stream_async text deltas, reasoning if exposed, tool and lifecycle events versus callbacks | [10_streaming](../modules/10_streaming/README.md) | [01_stream_events](../modules/10_streaming/examples/01_stream_events.py) | [Mini-app](../modules/10_streaming/use_case/streaming_trip_planner.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
+| Concurrent agents, timeouts, cancellation and bounded resource use | [10_streaming](../modules/10_streaming/README.md) | [02_concurrency_and_cancel](../modules/10_streaming/examples/02_concurrency_and_cancel.py) | [Mini-app](../modules/10_streaming/use_case/streaming_trip_planner.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
+| FastAPI SSE framing, client disconnect and cancellation propagation | [10_streaming](../modules/10_streaming/README.md) | [03_fastapi_sse](../modules/10_streaming/examples/03_fastapi_sse.py) | [Mini-app](../modules/10_streaming/use_case/streaming_trip_planner.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
+| Streamlit chat, per-user sessions and streamed responses | [10_streaming](../modules/10_streaming/README.md) | [04_streamlit_chat](../modules/10_streaming/examples/04_streamlit_chat.py) | [Mini-app](../modules/10_streaming/use_case/streaming_trip_planner.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/streaming/async-iterators/) |
+| HookProvider, HookRegistry; AgentInitializedEvent, Before/AfterInvocationEvent, Before/AfterModelCallEvent | [11_hooks](../modules/11_hooks/README.md) | [01_lifecycle_hooks](../modules/11_hooks/examples/01_lifecycle_hooks.py) | [Mini-app](../modules/11_hooks/use_case/audited_booking.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
+| Before/AfterToolCallEvent, Before/AfterToolsEvent; block or modify inputs and rewrite results | [11_hooks](../modules/11_hooks/README.md) | [02_tool_hooks](../modules/11_hooks/examples/02_tool_hooks.py) | [Mini-app](../modules/11_hooks/use_case/audited_booking.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
+| MessageAddedEvent and MessageUpdatedEvent; redaction before persistence/logging | [11_hooks](../modules/11_hooks/README.md) | [03_message_hooks](../modules/11_hooks/examples/03_message_hooks.py) | [Mini-app](../modules/11_hooks/use_case/audited_booking.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
+| Invocation state, structured audit trail, booking budget enforcement and metrics | [11_hooks](../modules/11_hooks/README.md) | [04_audit_budget](../modules/11_hooks/examples/04_audit_budget.py) | [Mini-app](../modules/11_hooks/use_case/audited_booking.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/agents/hooks-events/) |
+| Interrupt an individual call from BeforeToolCallEvent; capture identifiers | [12_interrupts](../modules/12_interrupts/README.md) | [01_hook_interrupt](../modules/12_interrupts/examples/01_hook_interrupt.py) | [Mini-app](../modules/12_interrupts/use_case/refund_approval.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
+| Interrupt from ToolContext and resume with matched human response | [12_interrupts](../modules/12_interrupts/README.md) | [02_tool_interrupt](../modules/12_interrupts/examples/02_tool_interrupt.py) | [Mini-app](../modules/12_interrupts/use_case/refund_approval.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
+| Approve/reject/expire refunds over $500 and non-refundable changes; handoff_to_user comparison | [12_interrupts](../modules/12_interrupts/README.md) | [03_approval_cli](../modules/12_interrupts/examples/03_approval_cli.py) | [Mini-app](../modules/12_interrupts/use_case/refund_approval.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
+| Authenticated approval state, web approve/reject, audit trail and replay-safe mutation | [12_interrupts](../modules/12_interrupts/README.md) | [04_approval_web](../modules/12_interrupts/examples/04_approval_web.py) | [Mini-app](../modules/12_interrupts/use_case/refund_approval.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
+| BeforeToolsEvent pauses the complete tool batch; matched resume or cancellation | [12_interrupts](../modules/12_interrupts/README.md) | [05_batch_interrupt](../modules/12_interrupts/examples/05_batch_interrupt.py) | [Mini-app](../modules/12_interrupts/use_case/refund_approval.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/interrupts/) |
+| Provider-independent hook checks and typed business policy | [13_guardrails](../modules/13_guardrails/README.md) | [01_local_guardrails](../modules/13_guardrails/examples/01_local_guardrails.py) | [Mini-app](../modules/13_guardrails/use_case/hardened_support.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
+| Poisoned document attack, untrusted content boundary, tool authorization and regression cases | [13_guardrails](../modules/13_guardrails/README.md) | [02_prompt_injection](../modules/13_guardrails/examples/02_prompt_injection.py) | [Mini-app](../modules/13_guardrails/use_case/hardened_support.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
+| Read-only SQLite, tool allow-lists and restricted use_aws role | [13_guardrails](../modules/13_guardrails/README.md) | [03_least_privilege](../modules/13_guardrails/examples/03_least_privilege.py) | [Mini-app](../modules/13_guardrails/use_case/hardened_support.py) | Optional; local tools alternative | [Official docs](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
+| Current invocation limits, tool budgets and wall-clock timeouts | [13_guardrails](../modules/13_guardrails/README.md) | [04_limits](../modules/13_guardrails/examples/04_limits.py) | [Mini-app](../modules/13_guardrails/use_case/hardened_support.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
+| Content filters, denied topics, PII masking, grounding checks, BedrockModel attachment and trace; CDK lifecycle | [13_guardrails](../modules/13_guardrails/README.md) | [05_bedrock_guardrails](../modules/13_guardrails/examples/05_bedrock_guardrails.py) | [Mini-app](../modules/13_guardrails/use_case/hardened_support.py) | Yes; local policy checks with narrower coverage | [Official docs](https://strandsagents.com/docs/user-guide/sdk/safety-security/guardrails/) |
+| MCPClient stdio transport and managed/context-manager lifecycle | [14_mcp](../modules/14_mcp/README.md) | [01_stdio_client](../modules/14_mcp/examples/01_stdio_client.py) | [Mini-app](../modules/14_mcp/use_case/mcp_booking_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
+| Streamable HTTP transport, lifetime, authentication and shutdown | [14_mcp](../modules/14_mcp/README.md) | [02_http_client](../modules/14_mcp/examples/02_http_client.py) | [Mini-app](../modules/14_mcp/use_case/mcp_booking_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
+| Official mcp SDK server exposing Nimbus booking tools | [14_mcp](../modules/14_mcp/README.md) | [03_booking_server](../modules/14_mcp/examples/03_booking_server.py) | [Mini-app](../modules/14_mcp/use_case/mcp_booking_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
+| Pinned AWS Documentation and AWS Pricing MCP servers via uvx; trust and access review | [14_mcp](../modules/14_mcp/README.md) | [04_aws_servers](../modules/14_mcp/examples/04_aws_servers.py) | [Mini-app](../modules/14_mcp/use_case/mcp_booking_assistant.py) | Optional; Pricing requires credentials, fixture alternative | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
+| Filter/namespace tools, combine servers and reject unexpected capabilities | [14_mcp](../modules/14_mcp/README.md) | [05_tool_filtering](../modules/14_mcp/examples/05_tool_filtering.py) | [Mini-app](../modules/14_mcp/use_case/mcp_booking_assistant.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/tools/mcp-tools/) |
+| Flight, hotel and policy agents wrapped as tools | [15_agents_as_tools](../modules/15_agents_as_tools/README.md) | [01_specialist_tools](../modules/15_agents_as_tools/examples/01_specialist_tools.py) | [Mini-app](../modules/15_agents_as_tools/use_case/nimbus_concierge.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/) |
+| Minimum specialist context, output validation and authority boundaries | [15_agents_as_tools](../modules/15_agents_as_tools/README.md) | [02_context_boundaries](../modules/15_agents_as_tools/examples/02_context_boundaries.py) | [Mini-app](../modules/15_agents_as_tools/use_case/nimbus_concierge.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/) |
+| Compare single-agent and delegated quality, latency and total token cost | [15_agents_as_tools](../modules/15_agents_as_tools/README.md) | [03_delegation_cost](../modules/15_agents_as_tools/examples/03_delegation_cost.py) | [Mini-app](../modules/15_agents_as_tools/use_case/nimbus_concierge.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agents-as-tools/) |
+| Swarm, entry point, agent handoffs and shared context | [16_swarms](../modules/16_swarms/README.md) | [01_handoffs](../modules/16_swarms/examples/01_handoffs.py) | [Mini-app](../modules/16_swarms/use_case/itinerary_swarm.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
+| max_handoffs, max_iterations, execution_timeout, node_timeout and repetitive handoff detection | [16_swarms](../modules/16_swarms/README.md) | [02_swarm_limits](../modules/16_swarms/examples/02_swarm_limits.py) | [Mini-app](../modules/16_swarms/use_case/itinerary_swarm.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
+| Result status, node outcomes, execution order and failure diagnosis | [16_swarms](../modules/16_swarms/README.md) | [03_swarm_results](../modules/16_swarms/examples/03_swarm_results.py) | [Mini-app](../modules/16_swarms/use_case/itinerary_swarm.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
+| Researcher, budget planner, itinerary writer and reviewer collaboration | [16_swarms](../modules/16_swarms/README.md) | [04_itinerary_team](../modules/16_swarms/examples/04_itinerary_team.py) | [Mini-app](../modules/16_swarms/use_case/itinerary_swarm.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/swarm/) |
+| GraphBuilder nodes, edges, entry point and per-node results | [17_graphs](../modules/17_graphs/README.md) | [01_graph_basics](../modules/17_graphs/examples/01_graph_basics.py) | [Mini-app](../modules/17_graphs/use_case/group_trip_pipeline.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
+| Parallel flight/hotel branches and single fan-in after completion | [17_graphs](../modules/17_graphs/README.md) | [02_parallel_search](../modules/17_graphs/examples/02_parallel_search.py) | [Mini-app](../modules/17_graphs/use_case/group_trip_pipeline.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
+| Conditional edges and bounded loops using set_max_node_executions/timeouts | [17_graphs](../modules/17_graphs/README.md) | [03_conditional_budget](../modules/17_graphs/examples/03_conditional_budget.py) | [Mini-app](../modules/17_graphs/use_case/group_trip_pipeline.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
+| Nested graph/swarm nodes and aggregate limits | [17_graphs](../modules/17_graphs/README.md) | [04_nested_patterns](../modules/17_graphs/examples/04_nested_patterns.py) | [Mini-app](../modules/17_graphs/use_case/group_trip_pipeline.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
+| Existing workflow tool versus Graph and deterministic orchestration | [17_graphs](../modules/17_graphs/README.md) | [05_workflow_comparison](../modules/17_graphs/examples/05_workflow_comparison.py) | [Mini-app](../modules/17_graphs/use_case/group_trip_pipeline.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
+| Parse, parallel search, budget branch, approval, and confirmation draft | [17_graphs](../modules/17_graphs/README.md) | [06_approval_pipeline](../modules/17_graphs/examples/06_approval_pipeline.py) | [Mini-app](../modules/17_graphs/use_case/group_trip_pipeline.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/) |
+| A2A protocol, Strands A2AServer and agent cards | [18_a2a](../modules/18_a2a/README.md) | [01_partner_server](../modules/18_a2a/examples/01_partner_server.py) | [Mini-app](../modules/18_a2a/use_case/partner_upgrade.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
+| A2AAgent endpoint, invoke_async and streamed remote results | [18_a2a](../modules/18_a2a/README.md) | [02_remote_agent](../modules/18_a2a/examples/02_remote_agent.py) | [Mini-app](../modules/18_a2a/use_case/partner_upgrade.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
+| client_config authenticated transport, card discovery and credential boundaries | [18_a2a](../modules/18_a2a/README.md) | [03_authenticated_client](../modules/18_a2a/examples/03_authenticated_client.py) | [Mini-app](../modules/18_a2a/use_case/partner_upgrade.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
+| Actual LangGraph StateGraph partner in a separate process, called by the same authenticated Strands A2A client | [18_a2a](../modules/18_a2a/README.md) | [04_framework_interop](../modules/18_a2a/examples/04_framework_interop.py) | [Mini-app](../modules/18_a2a/use_case/partner_upgrade.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/sdk/multi-agent/agent-to-agent/) |
+| AgentResult token/cycle/latency/tool metrics and total cost accounting | [19_observability](../modules/19_observability/README.md) | [01_agent_metrics](../modules/19_observability/examples/01_agent_metrics.py) | [Mini-app](../modules/19_observability/use_case/support_quality_gate.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| OpenTelemetry console and OTLP exporter; local Jaeger with Docker | [19_observability](../modules/19_observability/README.md) | [02_local_tracing](../modules/19_observability/examples/02_local_tracing.py) | [Mini-app](../modules/19_observability/use_case/support_quality_gate.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| Scripted Model interface, tool unit tests, moto/Stubber, deprecations and opt-in live markers | [19_observability](../modules/19_observability/README.md) | [03_offline_testing](../modules/19_observability/examples/03_offline_testing.py) | [Mini-app](../modules/19_observability/use_case/support_quality_gate.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| Cases, experiments, output and trajectory evaluators, LLM judges and deterministic scoring | [19_observability](../modules/19_observability/README.md) | [04_strands_evals](../modules/19_observability/examples/04_strands_evals.py) | [Mini-app](../modules/19_observability/use_case/support_quality_gate.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| strands-evals run thresholds and nonzero exits as a CI quality gate | [19_observability](../modules/19_observability/README.md) | [05_evaluation_cli](../modules/19_observability/examples/05_evaluation_cli.py) | [Mini-app](../modules/19_observability/use_case/support_quality_gate.py) | No | [Official docs](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| CloudWatch and AgentCore telemetry, redaction and retention | [19_observability](../modules/19_observability/README.md) | [06_cloud_observability](../modules/19_observability/examples/06_cloud_observability.py) | [Mini-app](../modules/19_observability/use_case/support_quality_gate.py) | Yes; local console/Jaeger alternative | [Official docs](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| AgentCore Evaluations as a managed option | [19_observability](../modules/19_observability/README.md) | [07_managed_evaluation](../modules/19_observability/examples/07_managed_evaluation.py) | [Mini-app](../modules/19_observability/use_case/support_quality_gate.py) | Yes; local Evals alternative | [Official docs](https://strandsagents.com/docs/user-guide/evals-sdk/) |
+| Local/Lambda/Fargate/AgentCore tradeoffs; EKS and EC2 overview | [20_deployment](../modules/20_deployment/README.md) | [01_hosting_decision](../modules/20_deployment/examples/01_hosting_decision.py) | [Mini-app](../modules/20_deployment/use_case/deployment_comparison.py) | No; local workload model | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
+| BedrockAgentCoreApp, @app.entrypoint and local runtime testing | [20_deployment](../modules/20_deployment/README.md) | [02_agentcore_local](../modules/20_deployment/examples/02_agentcore_local.py) | [Mini-app](../modules/20_deployment/use_case/deployment_comparison.py) | No; model can use Ollama | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
+| CDK Runtime deploy path, invocation, streaming and session IDs; resource inventory and teardown | [20_deployment](../modules/20_deployment/README.md) | [03_agentcore_runtime](../modules/20_deployment/examples/03_agentcore_runtime.py) | [Mini-app](../modules/20_deployment/use_case/deployment_comparison.py) | Yes; local runtime alternative | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
+| Lambda handler, dependency packaging, scoped execution role and CDK app | [20_deployment](../modules/20_deployment/README.md) | [04_lambda_handler](../modules/20_deployment/examples/04_lambda_handler.py) | [Mini-app](../modules/20_deployment/use_case/deployment_comparison.py) | Yes for deployment; offline handler alternative | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
+| FastAPI container, Fargate service/load balancer, logs and explicit idle costs; CDK lifecycle | [20_deployment](../modules/20_deployment/README.md) | [05_fargate_api](../modules/20_deployment/examples/05_fargate_api.py) | [Mini-app](../modules/20_deployment/use_case/deployment_comparison.py) | Yes for deployment; local container alternative | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
+| Secrets Manager/SSM, per-environment configuration, roles and cleanup comparison | [20_deployment](../modules/20_deployment/README.md) | [06_runtime_configuration](../modules/20_deployment/examples/06_runtime_configuration.py) | [Mini-app](../modules/20_deployment/use_case/deployment_comparison.py) | Yes; local environment configuration | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-agent-framework.html) |
+| Short-term events and semantic, preference, summary and episodic strategies; deletion | [21_agentcore](../modules/21_agentcore/README.md) | [01_memory](../modules/21_agentcore/examples/01_memory.py) | [Mini-app](../modules/21_agentcore/use_case/production_copilot.py) | Yes; local preference store | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Lambda/OpenAPI to MCP, semantic tool search and scoped targets | [21_agentcore](../modules/21_agentcore/README.md) | [02_gateway](../modules/21_agentcore/examples/02_gateway.py) | [Mini-app](../modules/21_agentcore/use_case/production_copilot.py) | Yes; local booking MCP | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Cognito/JWT inbound identity and third-party OAuth outbound identity | [21_agentcore](../modules/21_agentcore/README.md) | [03_identity](../modules/21_agentcore/examples/03_identity.py) | [Mini-app](../modules/21_agentcore/use_case/production_copilot.py) | Yes; local authenticated test provider | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| AgentCore Code Interpreter tool, sessions, execution limits and cleanup | [21_agentcore](../modules/21_agentcore/README.md) | [04_code_interpreter](../modules/21_agentcore/examples/04_code_interpreter.py) | [Mini-app](../modules/21_agentcore/use_case/production_copilot.py) | Yes; reviewed local computation | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| AgentCore Browser tool, restricted destinations, sessions and cleanup | [21_agentcore](../modules/21_agentcore/README.md) | [05_browser](../modules/21_agentcore/examples/05_browser.py) | [Mini-app](../modules/21_agentcore/use_case/production_copilot.py) | Yes; fixture web pages | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Service telemetry, redaction, permissions and retention cleanup | [21_agentcore](../modules/21_agentcore/README.md) | [06_observability](../modules/21_agentcore/examples/06_observability.py) | [Mini-app](../modules/21_agentcore/use_case/production_copilot.py) | Yes; local OTLP | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Gateway Policy, Cedar, tool-input limits and refusal of excess refunds | [21_agentcore](../modules/21_agentcore/README.md) | [07_policy](../modules/21_agentcore/examples/07_policy.py) | [Mini-app](../modules/21_agentcore/use_case/production_copilot.py) | Yes; local typed policy | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Managed evaluation configuration, scheduled runs, score review and schedule deletion | [21_agentcore](../modules/21_agentcore/README.md) | [08_evaluations](../modules/21_agentcore/examples/08_evaluations.py) | [Mini-app](../modules/21_agentcore/use_case/production_copilot.py) | Yes; local evaluation runner | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Memory, booking Gateway, sign-in, refund policy and recurring evaluations | [21_agentcore](../modules/21_agentcore/README.md) | [09_integrated_copilot](../modules/21_agentcore/examples/09_integrated_copilot.py) | [Mini-app](../modules/21_agentcore/use_case/production_copilot.py) | Yes; composed local support app | [Official docs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) |
+| Stable strands.bidi.BidiAgent and compatible Nova Sonic voice session | [bonus/B1_voice](../modules/bonus/B1_voice/README.md) | [01_voice_session](../modules/bonus/B1_voice/examples/01_voice_session.py) | [Mini-app](../modules/bonus/B1_voice/use_case/voice_booking.py) | Yes for Nova; recorded Bidi events locally | [Official docs](https://strandsagents.com/docs/user-guide/sdk/bidi/agent/) |
+| Bidirectional audio, barge-in and cancellation boundaries | [bonus/B1_voice](../modules/bonus/B1_voice/README.md) | [02_barge_in](../modules/bonus/B1_voice/examples/02_barge_in.py) | [Mini-app](../modules/bonus/B1_voice/use_case/voice_booking.py) | Yes for Nova; recorded audio events locally | [Official docs](https://strandsagents.com/docs/user-guide/sdk/bidi/agent/) |
+| Voice tool approval and session cleanup; Experimental OpenAI Live excluded from core | [bonus/B1_voice](../modules/bonus/B1_voice/README.md) | [03_voice_approval](../modules/bonus/B1_voice/examples/03_voice_approval.py) | [Mini-app](../modules/bonus/B1_voice/use_case/voice_booking.py) | Yes for Nova; offline approval fixture | [Official docs](https://strandsagents.com/docs/user-guide/sdk/bidi/agent/) |
+| TypeScript primer and first agent with environment model selection | [bonus/B2_typescript](../modules/bonus/B2_typescript/README.md) | [01_first_agent](../modules/bonus/B2_typescript/examples/01_first_agent.ts) | [Mini-app](../modules/bonus/B2_typescript/use_case/typescript_booking.ts) | No | [Official docs](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.22.0) |
+| Typed Nimbus booking tools and validation | [bonus/B2_typescript](../modules/bonus/B2_typescript/README.md) | [02_typed_tool](../modules/bonus/B2_typescript/examples/02_typed_tool.ts) | [Mini-app](../modules/bonus/B2_typescript/use_case/typescript_booking.ts) | No | [Official docs](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.22.0) |
+| Provider choice, async invocation and result comparison with Python | [bonus/B2_typescript](../modules/bonus/B2_typescript/README.md) | [03_provider_and_result](../modules/bonus/B2_typescript/examples/03_provider_and_result.ts) | [Mini-app](../modules/bonus/B2_typescript/use_case/typescript_booking.ts) | No | [Official docs](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.22.0) |
+| Typed source proposals through Agent; archived builder replaced by reviewed templates | [bonus/B3_self_extending](../modules/bonus/B3_self_extending/README.md) | [01_builder](../modules/bonus/B3_self_extending/examples/01_builder.py) | [Mini-app](../modules/bonus/B3_self_extending/use_case/reviewed_tool_builder.py) | No | [Official docs](https://github.com/strands-agents/agent-builder) |
+| Generated source is untrusted; review, test and explicitly approve before loading | [bonus/B3_self_extending](../modules/bonus/B3_self_extending/README.md) | [02_review_generated_tool](../modules/bonus/B3_self_extending/examples/02_review_generated_tool.py) | [Mini-app](../modules/bonus/B3_self_extending/use_case/reviewed_tool_builder.py) | No | [Official docs](https://github.com/strands-agents/agent-builder) |
+| Exact reviewed source replacement through tool registry; digest-bound approval and audit history | [bonus/B3_self_extending](../modules/bonus/B3_self_extending/README.md) | [03_trusted_reload](../modules/bonus/B3_self_extending/examples/03_trusted_reload.py) | [Mini-app](../modules/bonus/B3_self_extending/use_case/reviewed_tool_builder.py) | No | [Official docs](https://github.com/strands-agents/agent-builder) |
+| agent.cancel and whole-agent-tree invocation limits | [bonus/B4_whats_new](../modules/bonus/B4_whats_new/README.md) | [01_cancel_and_limits](../modules/bonus/B4_whats_new/examples/01_cancel_and_limits.py) | [Mini-app](../modules/bonus/B4_whats_new/use_case/release_feature_lab.py) | No | [Official docs](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.62.0) |
+| Public middleware composition and behavior tests | [bonus/B4_whats_new](../modules/bonus/B4_whats_new/README.md) | [02_public_middleware](../modules/bonus/B4_whats_new/examples/02_public_middleware.py) | [Mini-app](../modules/bonus/B4_whats_new/use_case/release_feature_lab.py) | No | [Official docs](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.62.0) |
+| Stable Evals red teaming and held-out attack corpus; replace experimental imports | [bonus/B4_whats_new](../modules/bonus/B4_whats_new/README.md) | [03_stable_redteam](../modules/bonus/B4_whats_new/examples/03_stable_redteam.py) | [Mini-app](../modules/bonus/B4_whats_new/use_case/release_feature_lab.py) | No | [Official docs](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.62.0) |
+| Experimental AgentConfig opt-in demonstration, isolated from the core route | [bonus/B4_whats_new](../modules/bonus/B4_whats_new/README.md) | [04_experimental_config](../modules/bonus/B4_whats_new/examples/04_experimental_config.py) | [Mini-app](../modules/bonus/B4_whats_new/use_case/release_feature_lab.py) | No | [Official docs](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.62.0) |
+
+## Cross-course delivery
+
+| Deliverable | Implementation |
+|---|---|
+| 01_cloudops_copilot | [Guide and acceptance criteria](../capstones/01_cloudops_copilot/README.md) |
+| 02_trip_planner_crew | [Guide and acceptance criteria](../capstones/02_trip_planner_crew/README.md) |
+| 03_document_intelligence | [Guide and acceptance criteria](../capstones/03_document_intelligence/README.md) |
+| 04_nimbus_support_copilot | [Guide and acceptance criteria](../capstones/04_nimbus_support_copilot/README.md) |
+| 05_partner_network | [Guide and acceptance criteria](../capstones/05_partner_network/README.md) |
+| 01_booking_helper | [Guide and acceptance criteria](../checkpoints/01_booking_helper/README.md) |
+| 02_policy_preferences | [Guide and acceptance criteria](../checkpoints/02_policy_preferences/README.md) |
+| 03_safe_support | [Guide and acceptance criteria](../checkpoints/03_safe_support/README.md) |
+| 04_trip_planning_crew | [Guide and acceptance criteria](../checkpoints/04_trip_planning_crew/README.md) |
+| 05_production_readiness | [Guide and acceptance criteria](../checkpoints/05_production_readiness/README.md) |
 
 ## Infrastructure owners
 
-| Lesson | CDK app / lifecycle owner (links are delivered) | Resources to price, tag and clean |
+Each app has a resource inventory, costs and teardown in its guide. Synthesis creates local templates, never cloud resources.
+
+| App | Stack code | Lifecycle guide |
 |---|---|---|
-| 00 optional budget helper | `infra/budget/app.py` | Budget and notification settings; retention decision documented |
-| 07 optional Knowledge Base | [infra/07_knowledge_base/app.py](../infra/07_knowledge_base/app.py) | Source bucket, S3 vector bucket/index, Knowledge Base/data source, IAM |
-| 09 optional S3 sessions | [infra/09_sessions/app.py](../infra/09_sessions/app.py) | Session bucket, policies, objects and optional logs |
-| 09 optional Memory (21 extends later) | [infra/09_memory/app.py](../infra/09_memory/app.py) | Memory resource with preference strategy; scoped recall-only managed policy |
-| 13 optional Guardrails | [infra/13_guardrails/app.py](../infra/13_guardrails/app.py) | Guardrail configuration and versions |
-| 20 Lambda | `infra/lambda_support/app.py` | Function, execution role, artifact assets and logs; authenticated invocation |
-| 20 Fargate | `infra/fargate_support/app.py` | Cluster/service/tasks, VPC/subnets, security groups, load balancer, ECR and logs; explicit public IPv4/network costs |
-| 20 AgentCore Runtime | `infra/agentcore_runtime/app.py` | Runtime/endpoint, role, package/image assets, logs and invocation permissions |
-| 21 full Copilot | `infra/agentcore_copilot/app.py` | Memory, Gateway/targets, booking Lambda, Cognito or JWT configuration, policy engine/policies, evaluation configuration/schedule, secrets and logs |
-| 21 managed tools | `infra/agentcore_tools/app.py` | Browser/Code Interpreter resources and active sessions, roles and logs |
-| Document capstone | `infra/document_pipeline/app.py` | DynamoDB table and scoped writer/reader permissions |
+| 07_knowledge_base | [app.py](../infra/07_knowledge_base/app.py) | [Costs and cleanup](../infra/07_knowledge_base/README.md) |
+| 09_memory | [app.py](../infra/09_memory/app.py) | [Costs and cleanup](../infra/09_memory/README.md) |
+| 09_sessions | [app.py](../infra/09_sessions/app.py) | [Costs and cleanup](../infra/09_sessions/README.md) |
+| 13_guardrails | [app.py](../infra/13_guardrails/app.py) | [Costs and cleanup](../infra/13_guardrails/README.md) |
+| 19_observability | [app.py](../infra/19_observability/app.py) | [Costs and cleanup](../infra/19_observability/README.md) |
+| 20_fargate | [app.py](../infra/20_fargate/app.py) | [Costs and cleanup](../infra/20_fargate/README.md) |
+| 20_lambda | [app.py](../infra/20_lambda/app.py) | [Costs and cleanup](../infra/20_lambda/README.md) |
+| 20_runtime | [app.py](../infra/20_runtime/app.py) | [Costs and cleanup](../infra/20_runtime/README.md) |
+| 21_agentcore | [app.py](../infra/21_agentcore/app.py) | [Costs and cleanup](../infra/21_agentcore/README.md) |
+| document_pipeline | [app.py](../infra/document_pipeline/app.py) | [Costs and cleanup](../infra/document_pipeline/README.md) |
 
-All infrastructure apps include a README, `cdk.json`, stack code, synth tests and a teardown command. Where CloudFormation lacks a needed operation, a narrowly scoped boto3 lifecycle script records resource IDs and implements symmetric create/delete. The exact supported resource coverage is verified before implementation.
+## Boundaries
 
-Tier 2 verification: [retrieval comparison](verification/tier2_retrieval_report.json), [AWS contracts and template tests](../tests/test_tier2_cloud.py), [checkpoint tests](../checkpoints/02_policy_preferences/test_policy_preferences.py), and [resource lifecycle guide](../infra/README.md).
+Voice uses stable BidiAgent; only recorded silent PCM is tested offline. The live adapter has an isolated lockfile because its AWS CRT version conflicts with the root toolkit. The archived agent-builder is replaced by typed source proposals and exact reviewed templates. AgentConfig is experimental and appears only in B4. TypeScript has its own equivalent provider factory with mock/Bedrock support.
 
-Tier 3 adds [batch interrupts](../modules/12_interrupts/examples/05_batch_interrupt.py), [boundary tests](../tests/test_tier3_boundaries.py), [real MCP integration](../tests/test_tier3_mcp.py), [Streamlit widget tests](../tests/test_tier3_ui.py), and the [Safe Support checkpoint](../checkpoints/03_safe_support/README.md). The current MCP server class is MCPServer; direct call names remain unprefixed.
+The flagship Runtime operation validates a Cognito token and composes policy retrieval, managed Memory, Gateway and a configured Guardrail. Durable local approval stays in the trusted host. Real payments and a production supervisor UI are outside this synthetic course. See [deployment parameters](../capstones/04_nimbus_support_copilot/DEPLOYMENT.md).
 
-Tier 4 verification: [coordination and approval tests](../tests/test_tier4_coordination.py), [real authenticated A2A and LangGraph tests](../tests/test_tier4_a2a.py), and [Trip Planning Crew](../checkpoints/04_trip_planning_crew/README.md). The workflow comparison executes metadata lifecycle only; A2A uses protocol 0.3.0 with the pinned compatible SDK.
-
-## Production implementation boundaries
-
-See the [production resource inventory](../infra/PRODUCTION.md). Gateway Lambda targets, local MCP and signed JWT validation are implemented. The OpenAPI lesson validates a real registration request for an existing IAM-protected API; it does not deploy another API server. The Browser mock checks lifecycle contracts and explicitly does not execute a browser engine. Full managed dashboard setup and partner OAuth registration are documented external prerequisites. The [Production Readiness checkpoint](../checkpoints/05_production_readiness/README.md) distinguishes local evidence from unverified live operations.
+[Glossary](GLOSSARY.md) · [Troubleshooting](TROUBLESHOOTING.md) · [Five printable sheets](../cheatsheets/README.md)

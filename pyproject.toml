@@ -55,7 +55,7 @@ default-groups = ["dev"]
 packages = ["common", "scripts"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests", "modules", "checkpoints"]
+testpaths = ["tests", "modules", "checkpoints", "capstones"]
 addopts = "-ra"
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"

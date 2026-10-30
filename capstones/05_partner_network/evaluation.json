@@ -1,0 +1,1 @@
+{"expected":{"flight_id":"FLT-0001","cents":7500,"currency":"USD","quote_only":true},"rejected_variants":[{"flight_id":"OTHER"},{"cents":7501},{"currency":"EUR"},{"quote_only":false}]}

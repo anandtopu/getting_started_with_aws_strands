@@ -12,13 +12,14 @@ from botocore.stub import Stubber
 from common.cloud_clients import client
 
 
-def invoke_runtime(settings, arn: str):
-    api = client("bedrock-agentcore", settings)
+def invoke_runtime(settings, arn: str, *, payload=None):
+    # The hosted copilot performs several bounded model calls before its final event.
+    api = client("bedrock-agentcore", settings, read_timeout=180)
     session_id = str(uuid.uuid4())  # Runtime requires at least 33 characters.
     request = dict(
         agentRuntimeArn=arn,
         runtimeSessionId=session_id,
-        payload=json.dumps({"prompt": "Refund processing time?"}).encode(),
+        payload=json.dumps(payload or {"prompt": "Refund processing time?"}).encode(),
         contentType="application/json",
         accept="text/event-stream",
     )

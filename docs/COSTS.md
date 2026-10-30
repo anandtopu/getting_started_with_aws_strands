@@ -149,3 +149,9 @@ and temporary token are closed after each example. No cloud teardown is required
 ## Delivered Tier 5 cost controls
 
 The [production cost inventory](PRODUCTION_COSTS.md) prices each added resource, separates always-running Fargate/ALB/IPv4 costs from usage-based hosting, and records the October 2026 Memory pricing change. Managed evaluations start disabled; tools have short session lifetimes; logs have seven-day retention. Follow [the production cleanup sequence](../infra/PRODUCTION.md).
+
+## Bonus modules and capstones
+
+All bonus and capstone `--mock` runs cost $0 in AWS/model charges. TypeScript uses the same token accounting assumptions as the first agent; B3 adds proposal and validation calls; B4 red-team cases multiply model calls. B1 live voice uses audio-token pricing and an isolated adapter environment: consult [Nova pricing](https://aws.amazon.com/bedrock/pricing/) for the selected model and region before a session.
+
+CloudOps performs read-only MCP reference queries; its reports show synthetic spend, not account savings. Trip Crew uses four bounded specialist agents and the free Open-Meteo endpoint. Document extraction uses image/model tokens plus optional [DynamoDB requests and storage](../infra/document_pipeline/README.md). The flagship combines [production resource costs](PRODUCTION_COSTS.md) and Guardrail charges. Partner Network is local by default; a live partner may have its own billing. Each [capstone guide](../capstones/README.md) states cleanup and limitations.

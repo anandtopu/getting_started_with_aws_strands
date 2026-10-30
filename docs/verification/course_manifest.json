@@ -1,5 +1,5 @@
 {
-  "status": "partially_delivered",
+  "status": "delivered_local_verification",
   "checked_on": "2026-10-29",
   "modules": [
     {
@@ -360,7 +360,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/07_rag/README.md",
+      "tests": "modules/07_rag/tests"
     },
     {
       "slug": "08_advanced_rag",
@@ -407,7 +409,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/08_advanced_rag/README.md",
+      "tests": "modules/08_advanced_rag/tests"
     },
     {
       "slug": "09_memory",
@@ -454,7 +458,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/09_memory/README.md",
+      "tests": "modules/09_memory/tests"
     },
     {
       "slug": "10_streaming",
@@ -489,7 +495,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/10_streaming/README.md",
+      "tests": "modules/10_streaming/tests"
     },
     {
       "slug": "11_hooks",
@@ -524,7 +532,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/11_hooks/README.md",
+      "tests": "modules/11_hooks/tests"
     },
     {
       "slug": "12_interrupts",
@@ -565,7 +575,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/12_interrupts/README.md",
+      "tests": "modules/12_interrupts/tests"
     },
     {
       "slug": "13_guardrails",
@@ -606,7 +618,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/13_guardrails/README.md",
+      "tests": "modules/13_guardrails/tests"
     },
     {
       "slug": "14_mcp",
@@ -647,7 +661,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/14_mcp/README.md",
+      "tests": "modules/14_mcp/tests"
     },
     {
       "slug": "15_agents_as_tools",
@@ -676,7 +692,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/15_agents_as_tools/README.md",
+      "tests": "modules/15_agents_as_tools/tests"
     },
     {
       "slug": "16_swarms",
@@ -711,7 +729,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/16_swarms/README.md",
+      "tests": "modules/16_swarms/tests"
     },
     {
       "slug": "17_graphs",
@@ -758,7 +778,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/17_graphs/README.md",
+      "tests": "modules/17_graphs/tests"
     },
     {
       "slug": "18_a2a",
@@ -793,7 +815,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/18_a2a/README.md",
+      "tests": "modules/18_a2a/tests"
     },
     {
       "slug": "19_observability",
@@ -846,7 +870,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/19_observability/README.md",
+      "tests": "modules/19_observability/tests"
     },
     {
       "slug": "20_deployment",
@@ -893,7 +919,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/20_deployment/README.md",
+      "tests": "modules/20_deployment/tests"
     },
     {
       "slug": "21_agentcore",
@@ -958,7 +986,9 @@
           "status": "delivered"
         }
       ],
-      "status": "delivered"
+      "status": "delivered",
+      "guide": "modules/21_agentcore/README.md",
+      "tests": "modules/21_agentcore/tests"
     },
     {
       "slug": "bonus/B1_voice",
@@ -971,19 +1001,25 @@
         {
           "path": "modules/bonus/B1_voice/examples/01_voice_session.py",
           "features": "Stable strands.bidi.BidiAgent and compatible Nova Sonic voice session",
-          "aws_required": "Yes for Nova; optional non-AWS voice provider"
+          "aws_required": "Yes for Nova; recorded Bidi events locally",
+          "status": "delivered"
         },
         {
           "path": "modules/bonus/B1_voice/examples/02_barge_in.py",
           "features": "Bidirectional audio, barge-in and cancellation boundaries",
-          "aws_required": "Yes for Nova; recorded audio events locally"
+          "aws_required": "Yes for Nova; recorded audio events locally",
+          "status": "delivered"
         },
         {
           "path": "modules/bonus/B1_voice/examples/03_voice_approval.py",
           "features": "Voice tool approval and session cleanup; Experimental OpenAI Live excluded from core",
-          "aws_required": "Yes for Nova; offline approval fixture"
+          "aws_required": "Yes for Nova; offline approval fixture",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered",
+      "guide": "modules/bonus/B1_voice/README.md",
+      "tests": "modules/bonus/B1_voice/tests"
     },
     {
       "slug": "bonus/B2_typescript",
@@ -996,19 +1032,25 @@
         {
           "path": "modules/bonus/B2_typescript/examples/01_first_agent.ts",
           "features": "TypeScript primer and first agent with environment model selection",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/bonus/B2_typescript/examples/02_typed_tool.ts",
           "features": "Typed Nimbus booking tools and validation",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/bonus/B2_typescript/examples/03_provider_and_result.ts",
           "features": "Provider choice, async invocation and result comparison with Python",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered",
+      "guide": "modules/bonus/B2_typescript/README.md",
+      "tests": "modules/bonus/B2_typescript/tests"
     },
     {
       "slug": "bonus/B3_self_extending",
@@ -1020,20 +1062,26 @@
       "examples": [
         {
           "path": "modules/bonus/B3_self_extending/examples/01_builder.py",
-          "features": "Current SDK tool-generation builder with constrained inventory; archived agent-builder explained as historical context",
-          "aws_required": "No"
+          "features": "Typed source proposals through Agent; archived builder replaced by reviewed templates",
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/bonus/B3_self_extending/examples/02_review_generated_tool.py",
           "features": "Generated source is untrusted; review, test and explicitly approve before loading",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/bonus/B3_self_extending/examples/03_trusted_reload.py",
-          "features": "Approved tools in an allow-listed directory, hot reload and audit history",
-          "aws_required": "No"
+          "features": "Exact reviewed source replacement through tool registry; digest-bound approval and audit history",
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered",
+      "guide": "modules/bonus/B3_self_extending/README.md",
+      "tests": "modules/bonus/B3_self_extending/tests"
     },
     {
       "slug": "bonus/B4_whats_new",
@@ -1046,25 +1094,32 @@
         {
           "path": "modules/bonus/B4_whats_new/examples/01_cancel_and_limits.py",
           "features": "agent.cancel and whole-agent-tree invocation limits",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/bonus/B4_whats_new/examples/02_public_middleware.py",
           "features": "Public middleware composition and behavior tests",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/bonus/B4_whats_new/examples/03_stable_redteam.py",
           "features": "Stable Evals red teaming and held-out attack corpus; replace experimental imports",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         },
         {
           "path": "modules/bonus/B4_whats_new/examples/04_experimental_config.py",
           "features": "Experimental AgentConfig opt-in demonstration, isolated from the core route",
-          "aws_required": "No"
+          "aws_required": "No",
+          "status": "delivered"
         }
-      ]
+      ],
+      "status": "delivered",
+      "guide": "modules/bonus/B4_whats_new/README.md",
+      "tests": "modules/bonus/B4_whats_new/tests"
     }
   ],
-  "delivered_phase": 7
+  "delivered_phase": 8
 }

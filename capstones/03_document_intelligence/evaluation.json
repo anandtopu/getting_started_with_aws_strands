@@ -1,0 +1,1 @@
+[{"file":"invoices/invoice_01.png","anomalies":[]},{"file":"invoices/invoice_02.png","anomalies":["total_mismatch"]},{"file":"receipts/receipt_01.png","anomalies":[]}]
