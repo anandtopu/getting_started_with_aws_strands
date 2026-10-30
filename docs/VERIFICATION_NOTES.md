@@ -651,3 +651,27 @@ The final default Python 3.12.13 run also passed 473 tests with 34 optional/live
 skips, matching Python 3.13.13. Its 110 installed distributions passed dependency
 consistency checks. The normal beginner installation is restored after the full
 optional checks. No optional-group skip is counted as a passing integration.
+
+The default Python 3.12 script sweep passed 142 entries and explicitly skipped
+31 optional entries, with no failures. All pre-commit hooks passed, including
+notebook normalization, lint, formatting, IAM and sample-credential contracts.
+The complete implementation was published as commit `0832d3e`; subsequent audit
+updates only record verification evidence and do not change executable code.
+
+### Public GitHub verification
+
+[Workflow run 40981632341](https://github.com/anandtopu/getting_started_with_aws_strands/actions/runs/40981632341) passed all seven jobs for
+implementation commit `0832d3e`. Ubuntu and Windows both passed their Python 3.12
+and 3.13 core jobs; macOS passed its Python 3.12 core job. The full optional Ubuntu
+and Windows jobs passed dependency checks, TypeScript checks, ten CDK syntheses,
+pytest, the Evals CLI, all 173 finite Python scripts and all 26 notebooks.
+
+The final audit commit updates only these verification documents. Executable
+sources remain identical to the implementation tested by CI; the documentation
+links and repository safety contracts are checked locally again. AWS deployment,
+live model quality, audio devices, Docker builds and timed onboarding remain the
+explicit open items in the definition of done.
+
+The final audit link sweep passed all 1,567 local and public links, including the
+published repository and CI evidence. The final documentation-only commit uses
+`[skip ci]` to avoid repeating the unchanged implementation's seven passing jobs.

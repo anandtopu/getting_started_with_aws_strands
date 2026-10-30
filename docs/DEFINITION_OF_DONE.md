@@ -7,8 +7,9 @@ commands, package versions and results. A mock score is not a model-quality clai
 - [x] Default Python 3.12 and 3.13 installations pass offline pytest: 473 tests
   pass with 34 explicit optional/live skips on each version.
 - [x] Ruff lint and formatting pass across all delivered sources and notebooks.
-- [ ] GitHub CI passes on Ubuntu/Windows for both supported Python versions:
-  workflow delivered; publication and remote results pending. macOS core job is also defined.
+- [x] [All seven GitHub CI jobs passed](https://github.com/anandtopu/getting_started_with_aws_strands/actions/runs/40981632341): Ubuntu/Windows core checks
+  on Python 3.12 and 3.13, macOS core on 3.12, and full optional checks on Ubuntu/Windows.
+  The verified implementation is `0832d3e`; the final audit update changes documentation only.
 - [x] All ten CDK apps synthesize locally without lookups. Synthesis does not deploy.
 - [x] Strands deprecation warnings fail pytest. Upstream AgentCore's separate
   Python datetime warning is recorded, not hidden as a Strands success.
@@ -16,8 +17,8 @@ commands, package versions and results. A mock score is not a model-quality clai
   bypass in .env.example. Scope-specific resource wildcards have explanatory comments.
 - [x] All 26 modules have guides, at least three examples, a use case, three
   exercises/solutions, quizzes, tests and cleared notebooks. TypeScript checks use Node.
-- [x] Feature-map paths, local links and public links pass: 1,564 links in the
-  final content sweep. The newly created repository URL is verified separately.
+- [x] Feature-map paths, local links and public links pass: 1,567 links in the
+  final sweep, including the published repository and successful CI run.
 - [ ] All Tiers 1-4 run on a live Ollama model: local adapters and offline contracts
   are tested; model downloads and live inference were not performed. Tool and vision
   capability requirements are explicit in the affected lessons.

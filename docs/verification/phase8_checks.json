@@ -18,25 +18,134 @@
     "printable_one_page_pdfs": 5
   },
   "tests": [
-    {"python": "3.12.13", "groups": "all", "passed": 505, "skipped": 1,
-     "scope": "Full suite before the final document-stack test and trip usage assertion"},
-    {"python": "3.12.13", "groups": "all", "passed": 10, "skipped": 0,
-     "scope": "Affected capstones, including the additional document-stack test"},
-    {"python": "3.12.13", "groups": "default", "passed": 473, "skipped": 34},
-    {"python": "3.13.13", "groups": "default", "passed": 473, "skipped": 34}
+    {
+      "python": "3.12.13",
+      "groups": "all",
+      "passed": 505,
+      "skipped": 1,
+      "scope": "Full suite before the final document-stack test and trip usage assertion"
+    },
+    {
+      "python": "3.12.13",
+      "groups": "all",
+      "passed": 10,
+      "skipped": 0,
+      "scope": "Affected capstones, including the additional document-stack test"
+    },
+    {
+      "python": "3.12.13",
+      "groups": "default",
+      "passed": 473,
+      "skipped": 34
+    },
+    {
+      "python": "3.13.13",
+      "groups": "default",
+      "passed": 473,
+      "skipped": 34
+    },
+    {
+      "python": "3.12",
+      "platform": "ubuntu-latest",
+      "groups": "all",
+      "passed": 506,
+      "skipped": 1,
+      "scope": "GitHub CI on the published implementation"
+    },
+    {
+      "python": "3.12",
+      "platform": "windows-latest",
+      "groups": "all",
+      "passed": 506,
+      "skipped": 1,
+      "scope": "GitHub CI on the published implementation"
+    }
   ],
-  "typescript": {"node": "24.18.0", "typecheck": "passed", "tests_passed": 5, "scripts_passed": 4},
-  "python_optional_scripts": {"passed": 173, "skipped": 0},
+  "typescript": {
+    "node": "24.18.0",
+    "typecheck": "passed",
+    "tests_passed": 5,
+    "scripts_passed": 4
+  },
+  "python_optional_scripts": {
+    "passed": 173,
+    "skipped": 0
+  },
+  "python_default_scripts": {
+    "passed": 142,
+    "skipped": 31
+  },
   "executed_notebooks": 26,
   "synthesized_cdk_apps": 10,
-  "links": {"count_before_repository_publication": 1564, "external": true, "failures": 0},
+  "links": {
+    "final_count": 1567,
+    "count_before_repository_publication": 1564,
+    "external": true,
+    "failures": 0
+  },
   "ruff": "passed",
   "format": "passed",
-  "dependency_consistency": {"optional_distributions": 302, "default_distributions": 110, "status": "passed"},
+  "dependency_consistency": {
+    "optional_distributions": 302,
+    "default_distributions": 110,
+    "status": "passed"
+  },
   "voice_adapter": "Isolated locked project; BedrockNovaSonicModel constructed offline with dummy credentials",
-  "flagship_local_tracing": {"exported_spans": 136, "otlp_batches": 136, "projection": "numeric only"},
+  "flagship_local_tracing": {
+    "exported_spans": 136,
+    "otlp_batches": 136,
+    "projection": "numeric only"
+  },
   "aws_deployed": false,
   "live_model_calls": false,
-  "pending": ["GitHub publication and remote CI", "Default Python example sweep completion"],
-  "unverified": ["Live Ollama/model quality", "Live AWS deployment/teardown", "Docker image builds", "Real microphone and speaker behavior", "Timed new-learner onboarding"]
+  "publication": {
+    "status": "published",
+    "implementation_commit": "0832d3e24210dbcb30984582693c2f578021b9b1"
+  },
+  "precommit": "all hooks passed",
+  "pending": [],
+  "unverified": [
+    "Live Ollama/model quality",
+    "Live AWS deployment/teardown",
+    "Docker image builds",
+    "Real microphone and speaker behavior",
+    "Timed new-learner onboarding"
+  ],
+  "remote_ci": {
+    "url": "https://github.com/anandtopu/getting_started_with_aws_strands/actions/runs/40981632341",
+    "run_id": 40981632341,
+    "implementation_commit": "0832d3e24210dbcb30984582693c2f578021b9b1",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "core (windows-latest, 3.13)",
+        "conclusion": "success"
+      },
+      {
+        "name": "core (macos-latest, 3.12)",
+        "conclusion": "success"
+      },
+      {
+        "name": "core (ubuntu-latest, 3.13)",
+        "conclusion": "success"
+      },
+      {
+        "name": "optional-adapters (ubuntu-latest)",
+        "conclusion": "success"
+      },
+      {
+        "name": "optional-adapters (windows-latest)",
+        "conclusion": "success"
+      },
+      {
+        "name": "core (windows-latest, 3.12)",
+        "conclusion": "success"
+      },
+      {
+        "name": "core (ubuntu-latest, 3.12)",
+        "conclusion": "success"
+      }
+    ],
+    "audit_commit_scope": "Documentation only; executable sources match the passing implementation commit."
+  }
 }
