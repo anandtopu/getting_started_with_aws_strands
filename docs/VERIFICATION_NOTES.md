@@ -707,3 +707,30 @@ logs remain in local caches or ignored `.nimbus/` paths. The user's selected Doc
 context and engine settings were unchanged. No AWS deployment or hosted inference
 occurred. ARM64 execution, managed voice, new-learner timing and the named live
 validation failures remain open.
+
+### Local validation repairs — 2026-10-29
+
+The seven previously failing commands each passed two repeats on local
+`qwen3:4b-instruct`: **14/14 successful executions**. The fixes retain citation,
+approval and quote validation; they use a provider-native structured-output retry,
+application-bound approval identity, one bounded missing-specialist follow-up, and
+validated A2A quote artifacts. The per-command record preserves the prior failures
+and the repeat timings. Aggregate local command evidence is now 94 completed and
+20 excluded; this is not a fresh full-course live sweep.
+
+Three complete optional Windows runs exited zero without an access violation:
+510 tests before the changes, 510 with the original repeating traceback diagnostic,
+and **517 tests on the final code with a fresh bytecode cache**. Each skipped the
+one explicit live-service test and reported two upstream AgentCore datetime warnings.
+The original Mem0/Qdrant-path native crash did not reproduce. Its cause remains
+unconfirmed, so no dependency downgrade, disabled test or claimed native-crash fix
+is justified by this evidence.
+
+All four affected notebooks (07, 12, 15 and 18) executed with scripted models.
+Default Python 3.12 and 3.13 each passed 484 tests with 34 optional/live skips.
+All 110 restored default dependencies are compatible. Lint, formatting, all
+pre-commit hooks and 1,576 local documentation-link checks passed. Manual review of
+live output still found incorrect prose about budgets, currency and cancellation
+timing. Passing typed contracts and exact citations does not certify answer quality.
+The task-owned Ollama process tree was stopped after the live checks. No AWS
+deployment or hosted model inference occurred during this repair work.

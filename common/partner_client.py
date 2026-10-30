@@ -46,7 +46,8 @@ def partner_process(settings, *, backend="strands"):
     if settings.provider == "mock":
         args.append("--mock")
     else:
-        env.pop("NIMBUS_OFFLINE", None)
+        if os.environ.get("NIMBUS_OFFLINE") != "1":
+            env.pop("NIMBUS_OFFLINE", None)
         # The local child reads the same course configuration. Never forward model keys in prompts.
         for key in ("MODEL_PROVIDER", "MODEL_ID", "AWS_PROFILE", "AWS_REGION", "OLLAMA_HOST"):
             if key in os.environ:
@@ -131,9 +132,7 @@ async def ask_partner(url, token, *, streaming=False):
                         result = event["result"]
             else:
                 result = await remote.invoke_async("Quote a seat upgrade on FLT-0001")
-            if result is None or result.stop_reason != "end_turn":
-                raise ValueError("Partner did not complete a quote")
-            offer = UpgradeOffer.model_validate_json(str(result))
+            offer = validated_partner_result(result)
         return {
             "card_name": card.name,
             "protocol_version": card.protocol_version,
@@ -141,3 +140,16 @@ async def ask_partner(url, token, *, streaming=False):
             "events": events,
             "usage": "Remote provider tokens are not supplied by this A2A response",
         }
+
+
+def validated_partner_result(result):
+    if (
+        result is None
+        or result.stop_reason != "end_turn"
+        or result.state.get("a2a_task_state") != "completed"
+    ):
+        raise ValueError("Partner did not complete a quote")
+    # AgentResult.__str__ joins blocks with newlines, corrupting streamed
+    # JSON when A2A artifact parts split inside a key or string value.
+    payload = "".join(block.get("text", "") for block in result.message["content"])
+    return UpgradeOffer.model_validate_json(payload)

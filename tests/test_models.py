@@ -104,6 +104,51 @@ def test_structured_output_validation_retry():
     assert model.index == 2
 
 
+@pytest.mark.parametrize("price", [75, -1])
+def test_ollama_forced_schema_retry_keeps_validation_and_usage(monkeypatch, price):
+    import ollama
+    from strands.types.exceptions import StructuredOutputException
+
+    class Quote(BaseModel):
+        price: int = Field(gt=0)
+
+    requests = []
+
+    async def chat(self, **request):
+        requests.append(request)
+
+        async def chunks():
+            yield ollama.ChatResponse(
+                message=ollama.Message(
+                    role="assistant",
+                    content=(f'{{"price":{price}}}' if "format" in request else "Quote(price=75)"),
+                ),
+                done=True,
+                done_reason="stop",
+                prompt_eval_count=10,
+                eval_count=5,
+                total_duration=1000000,
+            )
+
+        return chunks()
+
+    monkeypatch.setattr(ollama.AsyncClient, "chat", chat)
+    model = get_model(Settings(provider="ollama", model_id="local-test"), output_schema=Quote)
+    agent = Agent(model=model, structured_output_model=Quote, callback_handler=None)
+    if price < 0:
+        with pytest.raises(StructuredOutputException):
+            agent("Quote")
+    else:
+        result = agent("Quote")
+        assert result.structured_output.price == 75
+        assert result.metrics.accumulated_usage["totalTokens"] == 30
+    assert "format" not in requests[0] and requests[0]["tools"]
+    assert requests[1]["format"] == Quote.model_json_schema()
+    assert requests[1]["tools"] == []
+    assert requests[1]["options"]["num_predict"] == 512
+    assert "format" not in model.get_config()["additional_args"]
+
+
 def test_streamed_text_and_config_copy():
     model = ScriptedModel(["Hello Nimbus"])
     config = model.get_config()

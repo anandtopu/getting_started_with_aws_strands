@@ -51,8 +51,10 @@ Each tool has no model-selected arguments: the host has already validated a `Tri
 The flight, hotel and policy specialists get only a city and public catalog evidence. They
 have no booking, payment, shell or private-customer tools. A per-role guard marks a call
 before awaiting it, so simultaneous duplicate requests cannot start extra child models.
-Each child has a 15-second deadline and three model turns; the parent has three turns and
-a 30-second deadline. No prompts can raise those limits.
+Each child has a 15-second deadline and three model turns. The parent starts with three
+turns and can make one two-turn follow-up if it omitted a specialist. The same 30-second
+deadline covers both invocations, and failed/already attempted children cannot be retried.
+All three validated results remain required. No prompts can raise those limits.
 
 The child returns a Pydantic `SpecialistAnswer`. A valid schema still permits a plausible
 but invented price, so `validate_offer` compares role, reference and cents with the original

@@ -14,6 +14,7 @@ MODULES = (
     "__init__",
     "config",
     "models",
+    "ollama_structured",
     "data",
     "testing",
     "pretty",

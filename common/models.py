@@ -84,6 +84,7 @@ def get_model(
     provider: str | None = None,
     responses: Sequence[dict[str, Any] | str | Exception] | None = None,
     voice: bool = False,
+    output_schema=None,
 ) -> Model:
     cfg = settings or load_settings(provider=provider)
     if voice:
@@ -121,7 +122,14 @@ def get_model(
         if cfg.provider == "ollama":
             from strands.models.ollama import OllamaModel
 
-            return OllamaModel(
+            adapter = OllamaModel
+            schema_args = {}
+            if output_schema is not None:
+                from common.ollama_structured import StructuredOllamaModel
+
+                adapter = StructuredOllamaModel
+                schema_args["output_schema"] = output_schema
+            return adapter(
                 host=cfg.ollama_host,
                 model_id=cfg.model_id,
                 temperature=cfg.temperature,
@@ -129,6 +137,7 @@ def get_model(
                 ollama_client_args={"timeout": 120},
                 # Reasoning can consume the entire beginner lesson token budget.
                 additional_args={"think": cfg.ollama_think},
+                **schema_args,
             )
         if cfg.provider == "anthropic":
             from strands.models.anthropic import AnthropicModel

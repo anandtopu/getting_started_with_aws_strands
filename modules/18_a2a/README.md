@@ -70,6 +70,13 @@ ordinary local-model `data` text deltas. Example 02 prints event class names and
 final JSON artifact as `UpgradeOffer`. A remote agent can fail or return invalid content:
 completion status alone does not establish a valid price.
 
+The server buffers model prose and publishes a quote artifact only after an actual
+successful `seat_upgrade` call and normal agent completion. The application serializes
+that validated tool result, so the model cannot change an identifier or price while
+copying it. Task events still stream, but partial quote JSON is not published. The
+client preserves text fragments exactly and checks the A2A task state before validating
+the final artifact; Strands' `end_turn` alone can also represent a failed remote task.
+
 ### Authentication is enforced, not merely advertised
 
 The card advertises a bearer scheme, and the server's HTTP boundary checks the token for

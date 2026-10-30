@@ -61,6 +61,10 @@ flowchart TD
 
 The default CLI decision is reject. A refund strictly above $500 needs approval; exactly $500 may follow the local policy path. Any change to the seeded non-refundable fare also needs approval. The ledger validates ownership and remaining paid balance, stores the exact terms and expires requests after five minutes. This ledger is separate from the committed read-only bookings dataset.
 
+The application binds `apply_action()` to one request before the model runs. It takes
+no model-selected arguments, so a copied or invented request ID cannot redirect the
+action. The hook rejects extra arguments and the ledger rechecks authorization at commit.
+
 ```text
 uv run python modules/12_interrupts/examples/03_approval_cli.py --mock --decision approve
 uv run python modules/12_interrupts/examples/03_approval_cli.py --mock --decision expire

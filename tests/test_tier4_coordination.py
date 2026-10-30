@@ -30,6 +30,24 @@ async def test_delegation_totals_and_minimum_context(cfg):
     assert "no semantic quality score" in team["quality_evidence"]
 
 
+async def test_missing_specialist_gets_one_bounded_repair(cfg, monkeypatch):
+    from common import specialists
+    from common.testing import tool_message
+
+    real_worker = specialists.worker
+
+    def omit_policy(settings, name, responses, **kwargs):
+        if name == "concierge":
+            responses[0]["content"] = responses[0]["content"][:2]
+            responses += [tool_message("policy_specialist", {}), "All three sources checked."]
+        return real_worker(settings, name, responses, **kwargs)
+
+    monkeypatch.setattr(specialists, "worker", omit_policy)
+    result = await concierge(cfg)
+    assert {child["role"] for child in result["children"]} == {"flight", "hotel", "policy"}
+    assert result["usage"]["totalTokens"] == 840
+
+
 async def test_concurrent_duplicate_specialist_call_does_not_start_another_model(cfg, monkeypatch):
     from common import specialists
     from common.testing import tool_message

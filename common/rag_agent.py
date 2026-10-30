@@ -78,6 +78,7 @@ def answer_policy(
     agent = Agent(
         model=get_model(
             settings,
+            output_schema=PolicyAnswer,
             responses=[
                 tool_message("search_policies", {"query": question}),
                 tool_message("PolicyAnswer", mock_answer, "answer"),

@@ -47,6 +47,21 @@ def test_interrupt_response_alone_is_not_authorization(tmp_path):
         assert db.execute("SELECT refunded FROM bookings WHERE id='DEMO-001'").fetchone()[0] == 0
 
 
+def test_model_cannot_replace_the_application_bound_request(tmp_path):
+    ledger = ApprovalLedger(tmp_path / "a.db")
+    key = ledger.propose("CUS-001", "DEMO-001", "refund", 100)
+    other = ledger.propose("CUS-001", "DEMO-001", "refund", 200)
+    agent = approval_agent(load_settings(provider="mock"), ledger, key)
+    agent.model = get_model(
+        provider="mock",
+        responses=[tool_message("apply_action", {"request_id": other}), "Rejected."],
+    )
+    agent("Apply the request")
+    assert ledger.get(key, "CUS-001")["status"] == "approved"
+    assert ledger.get(other, "CUS-001")["status"] == "approved"
+    assert "not bound" in str(agent.messages)
+
+
 def test_owner_expiry_and_changed_balance(tmp_path):
     ledger = ApprovalLedger(tmp_path / "a.db")
     with pytest.raises(PermissionError):

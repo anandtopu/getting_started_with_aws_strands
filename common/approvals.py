@@ -153,7 +153,7 @@ class SupervisorGate(HookProvider):
     def check(self, event):
         if event.tool_use["name"] != "apply_action":
             return
-        if event.tool_use["input"].get("request_id") != self.request_id:
+        if event.tool_use["input"]:
             event.cancel_tool = "The action is not bound to this invocation"
             return
         request = self.ledger.get(self.request_id, self.owner)
@@ -167,11 +167,9 @@ class SupervisorGate(HookProvider):
 
 def approval_agent(settings, ledger, request_id, owner="CUS-001", *, hooks=(), tools=()):
     @tool
-    def apply_action(request_id: str) -> dict:
+    def apply_action() -> dict:
         """Apply the exact previously reviewed local request; checks approval again at commit."""
-        if request_id != bound_id:
-            raise PermissionError("Request is not bound to this invocation")
-        return ledger.apply(request_id, owner)
+        return ledger.apply(bound_id, owner)
 
     bound_id = request_id
     scripted = []
@@ -181,7 +179,7 @@ def approval_agent(settings, ledger, request_id, owner="CUS-001", *, hooks=(), t
         )
     scripted.extend(
         [
-            tool_message("apply_action", {"request_id": request_id}),
+            tool_message("apply_action", {}),
             "The tool result records the action outcome.",
         ]
     )
@@ -192,7 +190,8 @@ def approval_agent(settings, ledger, request_id, owner="CUS-001", *, hooks=(), t
         callback_handler=None,
         retry_strategy=None,
         system_prompt=(
-            "Process only the supplied request ID. A rejection is final. "
+            "Call apply_action without arguments for the application-bound request. "
+            "The application supplies its identity and approval checks. A rejection is final. "
             "Report tool errors honestly. If flight search is available, first search Porto "
             "for alternatives, then process the request. Never create a new booking."
         ),

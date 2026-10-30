@@ -140,7 +140,9 @@ cumulative-usage caveat, so those reports suppress dollar estimates. Remote A2A
 provider usage is unavailable in the response and must not be counted as zero.
 
 Each child has a three-turn budget; delegated tools are limited to one attempt per
-role. Swarms and graphs limit visits and node waiting. Swarm execution_timeout checks
+role. The concierge starts with three parent turns and may use one two-turn
+follow-up for missing specialists, within the same 30-second deadline. Its report
+includes those additional calls. Swarms and graphs limit visits and node waiting. Swarm execution_timeout checks
 between nodes; a host asyncio.timeout is needed for a strict whole-call deadline.
 Cancellation does not reverse completed remote actions or necessarily stop billing.
 The course's partner service only quotes synthetic upgrades. Its loopback process

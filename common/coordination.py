@@ -36,7 +36,9 @@ class ModelTurnBudget(HookProvider):
 def worker(settings, name, responses, *, tools=(), prompt=None, model_calls=3, **kwargs):
     return Agent(
         name=name,
-        model=get_model(settings, responses=responses),
+        model=get_model(
+            settings, responses=responses, output_schema=kwargs.get("structured_output_model")
+        ),
         tools=list(tools),
         system_prompt=prompt
         or f"You are Nimbus's {name}. Use synthetic facts only; never book or pay.",

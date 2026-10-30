@@ -10,9 +10,9 @@
   },
   "network": "Parent Python invocations use common.network.offline_network; Ollama host is loopback. Local MCP/A2A children use reviewed configuration. Model/runtime downloads precede checks.",
   "summary": {
-    "passed": 87,
+    "passed": 94,
     "excluded": 20,
-    "failed": 7
+    "failed": 0
   },
   "lessons": [
     {
@@ -344,10 +344,29 @@
     },
     {
       "path": "modules/07_rag/examples/04_cited_search.py",
-      "status": "failed",
-      "returncode": 1,
-      "seconds": 4.48,
-      "initial_status": "failed"
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 5.14,
+      "initial_status": "failed",
+      "before_boundary_repairs": {
+        "status": "failed",
+        "returncode": 1,
+        "seconds": 4.48
+      },
+      "repair_trials": [
+        {
+          "trial": 1,
+          "returncode": 0,
+          "seconds": 11.59,
+          "completed": true
+        },
+        {
+          "trial": 2,
+          "returncode": 0,
+          "seconds": 5.14,
+          "completed": true
+        }
+      ]
     },
     {
       "path": "modules/07_rag/examples/05_knowledge_base.py",
@@ -562,10 +581,29 @@
     },
     {
       "path": "modules/12_interrupts/examples/04_approval_web.py",
-      "status": "failed",
-      "returncode": 1,
-      "seconds": 5.38,
-      "initial_status": "failed"
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 3.05,
+      "initial_status": "failed",
+      "before_boundary_repairs": {
+        "status": "failed",
+        "returncode": 1,
+        "seconds": 5.38
+      },
+      "repair_trials": [
+        {
+          "trial": 1,
+          "returncode": 0,
+          "seconds": 3.39,
+          "completed": true
+        },
+        {
+          "trial": 2,
+          "returncode": 0,
+          "seconds": 3.05,
+          "completed": true
+        }
+      ]
     },
     {
       "path": "modules/12_interrupts/examples/05_batch_interrupt.py",
@@ -666,10 +704,29 @@
     },
     {
       "path": "modules/15_agents_as_tools/examples/01_specialist_tools.py",
-      "status": "failed",
-      "returncode": 1,
-      "seconds": 4.97,
-      "initial_status": "failed"
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 5.38,
+      "initial_status": "failed",
+      "before_boundary_repairs": {
+        "status": "failed",
+        "returncode": 1,
+        "seconds": 4.97
+      },
+      "repair_trials": [
+        {
+          "trial": 1,
+          "returncode": 0,
+          "seconds": 5.56,
+          "completed": true
+        },
+        {
+          "trial": 2,
+          "returncode": 0,
+          "seconds": 5.38,
+          "completed": true
+        }
+      ]
     },
     {
       "path": "modules/15_agents_as_tools/examples/02_context_boundaries.py",
@@ -680,17 +737,55 @@
     },
     {
       "path": "modules/15_agents_as_tools/examples/03_delegation_cost.py",
-      "status": "failed",
-      "returncode": 1,
-      "seconds": 6.58,
-      "initial_status": "failed"
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 6.41,
+      "initial_status": "failed",
+      "before_boundary_repairs": {
+        "status": "failed",
+        "returncode": 1,
+        "seconds": 6.58
+      },
+      "repair_trials": [
+        {
+          "trial": 1,
+          "returncode": 0,
+          "seconds": 7.34,
+          "completed": true
+        },
+        {
+          "trial": 2,
+          "returncode": 0,
+          "seconds": 6.41,
+          "completed": true
+        }
+      ]
     },
     {
       "path": "modules/15_agents_as_tools/use_case/nimbus_concierge.py",
-      "status": "failed",
-      "returncode": 1,
-      "seconds": 4.25,
-      "initial_status": "failed"
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 5.47,
+      "initial_status": "failed",
+      "before_boundary_repairs": {
+        "status": "failed",
+        "returncode": 1,
+        "seconds": 4.25
+      },
+      "repair_trials": [
+        {
+          "trial": 1,
+          "returncode": 0,
+          "seconds": 6.94,
+          "completed": true
+        },
+        {
+          "trial": 2,
+          "returncode": 0,
+          "seconds": 5.47,
+          "completed": true
+        }
+      ]
     },
     {
       "path": "modules/16_swarms/examples/01_handoffs.py",
@@ -789,17 +884,55 @@
     },
     {
       "path": "modules/18_a2a/examples/02_remote_agent.py",
-      "status": "failed",
-      "returncode": 1,
-      "seconds": 11.44,
-      "initial_status": "failed"
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 8.91,
+      "initial_status": "failed",
+      "before_boundary_repairs": {
+        "status": "failed",
+        "returncode": 1,
+        "seconds": 11.44
+      },
+      "repair_trials": [
+        {
+          "trial": 1,
+          "returncode": 0,
+          "seconds": 7.59,
+          "completed": true
+        },
+        {
+          "trial": 2,
+          "returncode": 0,
+          "seconds": 8.91,
+          "completed": true
+        }
+      ]
     },
     {
       "path": "modules/18_a2a/examples/03_authenticated_client.py",
-      "status": "failed",
-      "returncode": 1,
-      "seconds": 9.7,
-      "initial_status": "failed"
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 7.48,
+      "initial_status": "failed",
+      "before_boundary_repairs": {
+        "status": "failed",
+        "returncode": 1,
+        "seconds": 9.7
+      },
+      "repair_trials": [
+        {
+          "trial": 1,
+          "returncode": 0,
+          "seconds": 7.56,
+          "completed": true
+        },
+        {
+          "trial": 2,
+          "returncode": 0,
+          "seconds": 7.48,
+          "completed": true
+        }
+      ]
     },
     {
       "path": "modules/18_a2a/examples/04_framework_interop.py",
@@ -864,5 +997,61 @@
     },
     "precommit": "All hooks passed"
   },
-  "cleanup": "Task-owned Ollama/Jaeger processes stopped; all task-owned service containers and failed build helper removed. Images, downloads and logs retained locally; default Python groups restored."
+  "cleanup": "Task-owned Ollama/Jaeger processes stopped; all task-owned service containers and failed build helper removed. Images, downloads and logs retained locally; default Python groups restored.",
+  "validation_repair": {
+    "checked_on": "2026-10-29",
+    "scope": "Seven previously failing commands, two repeats each with real local Ollama; external Python networking blocked in parent and A2A child. Not a full live sweep or semantic quality benchmark.",
+    "passed_trials": 14,
+    "failed_trials": 0,
+    "windows_optional_runs": [
+      {
+        "kind": "unchanged baseline",
+        "passed": 510,
+        "skipped": 1,
+        "warnings": 2,
+        "returncode": 0,
+        "seconds": 137.52
+      },
+      {
+        "kind": "original repeating 45-second faulthandler diagnostic",
+        "passed": 510,
+        "skipped": 1,
+        "warnings": 2,
+        "returncode": 0,
+        "seconds": 85.31
+      },
+      {
+        "kind": "final code and fresh bytecode cache",
+        "passed": 517,
+        "skipped": 1,
+        "warnings": 2,
+        "returncode": 0,
+        "seconds": 135.91
+      }
+    ],
+    "windows_crash": "Not reproduced in three full optional runs; original native failure root cause remains unconfirmed. No speculative dependency change or test skip was used.",
+    "notebooks": [
+      "07_rag",
+      "12_interrupts",
+      "15_agents_as_tools",
+      "18_a2a"
+    ],
+    "semantic_limits": "Manual inspection still found incorrect budget/currency prose and a RAG answer that confused cancellation timing and did not answer refund-processing timing. Source/citation and typed child-result validation do not establish semantic correctness.",
+    "default_python312": {
+      "passed": 484,
+      "skipped": 34,
+      "returncode": 0
+    },
+    "default_python313": {
+      "passed": 484,
+      "skipped": 34,
+      "returncode": 0
+    },
+    "local_links": {
+      "checked": 1576,
+      "failures": 0
+    },
+    "lint_format": "Passed; 629 formatted sources/notebooks",
+    "cleanup": "Task-owned Ollama process tree stopped; default 110 compatible distributions restored after all optional checks. Ignored diagnostic logs/caches retained."
+  }
 }

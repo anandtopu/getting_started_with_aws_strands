@@ -5,7 +5,7 @@ Checked 2026-10-29. See [the verification record](VERIFICATION_NOTES.md) and the
 [local-service follow-up](LOCAL_SERVICES_CHECKS.md) for exact
 commands, package versions and results. A mock score is not a model-quality claim.
 
-- [x] Default offline pytest passes: the local-service follow-up passed 477 tests
+- [x] Default offline pytest passes: the validation-repair follow-up passed 484 tests
   with 34 optional/live skips on both Python 3.12 and 3.13.
 - [x] Ruff lint and formatting pass across all delivered sources and notebooks.
 - [x] [All seven GitHub CI jobs passed](https://github.com/anandtopu/getting_started_with_aws_strands/actions/runs/40981632341): Ubuntu/Windows core checks
@@ -21,8 +21,9 @@ commands, package versions and results. A mock score is not a model-quality clai
 - [x] Feature-map paths, local links and public links pass: 1,567 links in the
   final sweep, including the published repository and successful CI run.
 - [ ] All Tiers 1-4 run on a live Ollama model: the local-service sweep and targeted
-  reruns completed 87 commands, failed seven validation checks and excluded 20 branches.
-  Real text, tool, vision and embedding calls ran; this is not an all-lessons success.
+  reruns completed 94 commands and excluded 20 branches. All seven prior validation
+  failures passed two targeted repeats. Natural-language accuracy problems remain,
+  and the original successful commands were not all repeated after the latest fixes.
 - [x] Every delivered AWS lab has tagged resource code, costs and teardown instructions.
 - [ ] Actual AWS deployment, teardown and empty-leftover verification: intentionally
   unperformed because the user prohibited deploying resources during authoring.
@@ -59,6 +60,8 @@ commands, package versions and results. A mock score is not a model-quality clai
   Native AMD64 checks do not validate ARM64 execution. The user's bridge network
   also has an existing netavark/nftables failure; engine settings were not changed.
 - The optional full Windows regression run hit a native access violation during
-  the Mem0 import path. Isolated affected tests passed; the broad failure is unresolved.
+  the Mem0 import path. Three subsequent full runs passed, including the original
+  diagnostic setup and a final cold-cache run with 517 passing tests. The crash
+  has not reproduced; its root cause remains unconfirmed.
 
 Do not turn these open boxes into passing claims without running the named checks.

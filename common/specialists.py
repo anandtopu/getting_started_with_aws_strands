@@ -93,6 +93,16 @@ async def concierge(settings, *, delegated=True, request=None):
         result = await agent.invoke_async(
             "Plan this host-validated request: " + request.model_dump_json(), limits={"turns": 3}
         )
+        missing = {"flight", "hotel", "policy"} - attempted if delegated else set()
+        if missing:
+            # One bounded repair asks the model for missing evidence; it does not
+            # fabricate child results or retry specialists that already failed.
+            result = await agent.invoke_async(
+                "Required evidence is still missing. Call only these tools once: "
+                + ", ".join(f"{role}_specialist" for role in sorted(missing))
+                + ". Then summarize all validated results in under 100 words.",
+                limits={"turns": 2},
+            )
     usage = dict(result.metrics.accumulated_usage)
     if delegated and len(records) != 3:
         raise ValueError("Concierge did not obtain all three validated specialist answers")
