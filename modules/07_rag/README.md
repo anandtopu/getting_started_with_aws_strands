@@ -61,7 +61,7 @@ flowchart TD
 
 ### Local setup and the two kinds of embeddings
 
-Install `uv sync --group rag`. For real local embeddings run `ollama pull embeddinggemma`; keep the chat model (`qwen3:4b`) separate. `OLLAMA_EMBEDDING_MODEL_ID` selects the embedder and `MODEL_PROVIDER` selects chat inference. Leave `MODEL_ID` blank when switching chat providers. `common.models.get_embeddings()` is the shared embedding factory.
+Install `uv sync --group rag`. For real local embeddings run `ollama pull embeddinggemma`; keep the chat model (`qwen3:4b-instruct`) separate. `OLLAMA_EMBEDDING_MODEL_ID` selects the embedder and `MODEL_PROVIDER` selects chat inference. Leave `MODEL_ID` blank when switching chat providers. `common.models.get_embeddings()` is the shared embedding factory.
 
 Mock mode uses stable hashed word counts, explicitly labeled **lexical fixtures**. They test persistence and vector plumbing without downloading a model; they do not demonstrate semantic understanding. The real path calls Ollama's current `embed` API with `truncate=False`. Oversized text should fail instead of silently dropping evidence.
 

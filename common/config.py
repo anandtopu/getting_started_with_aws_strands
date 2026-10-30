@@ -34,6 +34,7 @@ class Settings(BaseModel):
     aws_region: str = "us-east-1"
     aws_profile: str = ""
     ollama_host: str = "http://localhost:11434"
+    ollama_think: bool = False
     max_tokens: int = Field(default=512, ge=1, le=32768)
     temperature: float = Field(default=0, ge=0, le=2)
     anthropic_key: str = Field(default="", repr=False)
@@ -72,6 +73,7 @@ def load_settings(
             aws_region=values.get("AWS_REGION") or "us-east-1",
             aws_profile=values.get("AWS_PROFILE") or "",
             ollama_host=values.get("OLLAMA_HOST") or "http://localhost:11434",
+            ollama_think=values.get("OLLAMA_THINK") or "false",
             max_tokens=values.get("MODEL_MAX_TOKENS") or 512,
             temperature=values.get("MODEL_TEMPERATURE") or 0,
             anthropic_key=values.get("ANTHROPIC_API_KEY") or "",

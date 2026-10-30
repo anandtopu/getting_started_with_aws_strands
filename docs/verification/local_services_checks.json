@@ -1,0 +1,868 @@
+{
+  "checked_on": "2026-10-29",
+  "scope": "Local Tier 1\u20134 command execution; not every command invokes a model, and exit success is not semantic correctness. No AWS deployment or hosted inference.",
+  "runtime": {
+    "ollama": "0.40.13",
+    "text": "qwen3:4b-instruct",
+    "vision": "qwen3-vl:4b",
+    "embedding": "embeddinggemma",
+    "gpu": "RTX 4070 Ti SUPER 16 GiB"
+  },
+  "network": "Parent Python invocations use common.network.offline_network; Ollama host is loopback. Local MCP/A2A children use reviewed configuration. Model/runtime downloads precede checks.",
+  "summary": {
+    "passed": 87,
+    "excluded": 20,
+    "failed": 7
+  },
+  "lessons": [
+    {
+      "path": "modules/00_setup/examples/01_agent_or_workflow.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 5.48,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/00_setup/examples/02_local_readiness.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 1.69,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/00_setup/examples/03_aws_readiness.py",
+      "status": "excluded",
+      "reason": "AWS branch",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/00_setup/examples/04_first_call_metrics.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.28,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/00_setup/use_case/orientation.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.23,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/01_first_agent/examples/01_hello_agent.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.44,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/01_first_agent/examples/02_result_and_messages.py",
+      "status": "passed",
+      "initial_status": "failed",
+      "recheck": "Passed after the documented local fixes.",
+      "initial_returncode": 1,
+      "initial_seconds": 5.16,
+      "returncode": 0
+    },
+    {
+      "path": "modules/01_first_agent/examples/03_callbacks.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 3.3,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/01_first_agent/examples/04_async_call.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.47,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/01_first_agent/examples/05_follow_the_loop.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.8,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/01_first_agent/use_case/faq_responder.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.72,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/02_model_providers/examples/01_bedrock_settings.py",
+      "status": "excluded",
+      "reason": "AWS branch",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/02_model_providers/examples/02_provider_switch.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.22,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/02_model_providers/examples/03_runtime_settings_and_cost.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.14,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/02_model_providers/examples/04_custom_model.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 1.92,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/02_model_providers/examples/05_prompt_cache.py",
+      "status": "excluded",
+      "reason": "AWS branch",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/02_model_providers/examples/06_reasoning.py",
+      "status": "excluded",
+      "reason": "Nova-specific reasoning settings",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/02_model_providers/use_case/provider_comparison.py",
+      "status": "excluded",
+      "reason": "Hosted-provider comparison",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/03_conversations/examples/01_multi_turn.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.8,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/03_conversations/examples/02_conversation_windows.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.92,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/03_conversations/examples/03_receipt_image.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 58.25,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/03_conversations/examples/04_policy_document.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 5.44,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/03_conversations/use_case/trip_chat.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 5.09,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/04_structured_output/examples/01_typed_ticket.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 4.45,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/04_structured_output/examples/02_nested_itinerary.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.69,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/04_structured_output/examples/03_validation_retry.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 3.25,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/04_structured_output/examples/04_structure_with_tools.py",
+      "status": "passed",
+      "initial_status": "failed",
+      "recheck": "Passed after the documented local fixes.",
+      "initial_returncode": 1,
+      "initial_seconds": 3.2,
+      "returncode": 0
+    },
+    {
+      "path": "modules/04_structured_output/use_case/ticket_triage.py",
+      "status": "passed",
+      "initial_status": "failed",
+      "recheck": "Passed after the documented local fixes.",
+      "initial_returncode": 1,
+      "initial_seconds": 4.88,
+      "returncode": 0
+    },
+    {
+      "path": "modules/05_building_tools/examples/01_typed_search.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 5.22,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/05_building_tools/examples/02_results_and_errors.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 3.12,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/05_building_tools/examples/03_tool_context.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.11,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/05_building_tools/examples/04_async_progress.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.16,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/05_building_tools/examples/05_resource_sharing.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.0,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/05_building_tools/examples/06_module_tools.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.09,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/05_building_tools/examples/07_tool_executors.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 3.23,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/05_building_tools/examples/08_tool_directory.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 1.97,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/05_building_tools/examples/09_manual_converse_loop.py",
+      "status": "excluded",
+      "reason": "AWS branch",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/05_building_tools/use_case/booking_assistant.py",
+      "status": "passed",
+      "initial_status": "failed",
+      "recheck": "Passed after the documented local fixes.",
+      "initial_returncode": 1,
+      "initial_seconds": 6.97,
+      "returncode": 0
+    },
+    {
+      "path": "modules/06_community_tools/examples/01_calculator_time_weather.py",
+      "status": "excluded",
+      "reason": "External weather service",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/06_community_tools/examples/02_files_and_consent.py",
+      "status": "excluded",
+      "reason": "Interactive consent demonstration",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/06_community_tools/examples/03_python_with_consent.py",
+      "status": "excluded",
+      "reason": "Interactive execution consent",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/06_community_tools/examples/04_tool_catalog.py",
+      "status": "excluded",
+      "returncode": 0,
+      "seconds": 6.92,
+      "initial_status": "passed",
+      "reason": "Interactive handoff requires a console; zero exit did not validate it."
+    },
+    {
+      "path": "modules/06_community_tools/examples/05_read_only_aws.py",
+      "status": "excluded",
+      "reason": "AWS branch",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/06_community_tools/use_case/travel_day_helper.py",
+      "status": "excluded",
+      "reason": "External weather service",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/07_rag/examples/01_load_and_chunk.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 0.78,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/07_rag/examples/02_embeddings_by_hand.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 7.23,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/07_rag/examples/03_local_index.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 37.27,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/07_rag/examples/04_cited_search.py",
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 4.48,
+      "initial_status": "failed"
+    },
+    {
+      "path": "modules/07_rag/examples/05_knowledge_base.py",
+      "status": "excluded",
+      "reason": "AWS branch",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/07_rag/examples/06_bedrock_embeddings.py",
+      "status": "excluded",
+      "reason": "AWS branch",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/07_rag/use_case/ask_nimbus.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 8.77,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/08_advanced_rag/examples/01_query_rewriting.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.56,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/08_advanced_rag/examples/02_hybrid_search.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 4.22,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/08_advanced_rag/examples/03_reranking.py",
+      "status": "excluded",
+      "returncode": 1,
+      "seconds": 0.89,
+      "initial_status": "failed",
+      "reason": "Unconditional Bedrock branch; local heuristic ran but cloud branch is excluded."
+    },
+    {
+      "path": "modules/08_advanced_rag/examples/04_filters_multihop.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 3.41,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/08_advanced_rag/examples/05_evaluate_retrieval.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 14.69,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/08_advanced_rag/examples/06_failure_gallery.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 1.92,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/08_advanced_rag/use_case/retrieval_comparison.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 5.58,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/09_memory/examples/01_state_and_messages.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 3.74,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/09_memory/examples/02_file_sessions.py",
+      "status": "passed",
+      "initial_status": "failed",
+      "recheck": "Passed after the documented local fixes.",
+      "initial_returncode": 1,
+      "initial_seconds": 5.44,
+      "returncode": 0
+    },
+    {
+      "path": "modules/09_memory/examples/03_s3_sessions.py",
+      "status": "excluded",
+      "reason": "AWS branch",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/09_memory/examples/04_local_preferences.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 1.84,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/09_memory/examples/05_agentcore_memory.py",
+      "status": "excluded",
+      "reason": "AWS branch",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/09_memory/examples/06_mem0_store.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 17.36,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/09_memory/use_case/preferences_assistant.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 3.38,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/10_streaming/examples/01_stream_events.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.47,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/10_streaming/examples/02_concurrency_and_cancel.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 9.94,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/10_streaming/examples/03_fastapi_sse.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 5.56,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/10_streaming/examples/04_streamlit_chat.py",
+      "status": "passed",
+      "initial_status": "failed",
+      "recheck": "Passed after the documented local fixes.",
+      "initial_returncode": 1,
+      "initial_seconds": 5.24,
+      "returncode": 0
+    },
+    {
+      "path": "modules/10_streaming/use_case/streaming_trip_planner.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 4.8,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/11_hooks/examples/01_lifecycle_hooks.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.45,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/11_hooks/examples/02_tool_hooks.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.19,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/11_hooks/examples/03_message_hooks.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.31,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/11_hooks/examples/04_audit_budget.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.58,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/11_hooks/use_case/audited_booking.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.64,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/12_interrupts/examples/01_hook_interrupt.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.58,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/12_interrupts/examples/02_tool_interrupt.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 4.41,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/12_interrupts/examples/03_approval_cli.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.91,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/12_interrupts/examples/04_approval_web.py",
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 5.38,
+      "initial_status": "failed"
+    },
+    {
+      "path": "modules/12_interrupts/examples/05_batch_interrupt.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.59,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/12_interrupts/use_case/refund_approval.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.67,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/13_guardrails/examples/01_local_guardrails.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.69,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/13_guardrails/examples/02_prompt_injection.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 3.11,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/13_guardrails/examples/03_least_privilege.py",
+      "status": "excluded",
+      "returncode": 1,
+      "seconds": 2.22,
+      "initial_status": "failed",
+      "reason": "Unconditional AWS discovery branch is excluded."
+    },
+    {
+      "path": "modules/13_guardrails/examples/04_limits.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.64,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/13_guardrails/examples/05_bedrock_guardrails.py",
+      "status": "excluded",
+      "reason": "AWS branch",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/13_guardrails/use_case/hardened_support.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 3.48,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/14_mcp/examples/01_stdio_client.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 4.84,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/14_mcp/examples/02_http_client.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 6.06,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/14_mcp/examples/03_booking_server.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 3.25,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/14_mcp/examples/04_aws_servers.py",
+      "status": "excluded",
+      "reason": "AWS Pricing service",
+      "initial_status": "excluded"
+    },
+    {
+      "path": "modules/14_mcp/examples/05_tool_filtering.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 5.67,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/14_mcp/use_case/mcp_booking_assistant.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 6.97,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/15_agents_as_tools/examples/01_specialist_tools.py",
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 4.97,
+      "initial_status": "failed"
+    },
+    {
+      "path": "modules/15_agents_as_tools/examples/02_context_boundaries.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 2.61,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/15_agents_as_tools/examples/03_delegation_cost.py",
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 6.58,
+      "initial_status": "failed"
+    },
+    {
+      "path": "modules/15_agents_as_tools/use_case/nimbus_concierge.py",
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 4.25,
+      "initial_status": "failed"
+    },
+    {
+      "path": "modules/16_swarms/examples/01_handoffs.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 7.8,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/16_swarms/examples/02_swarm_limits.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 10.14,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/16_swarms/examples/03_swarm_results.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 10.97,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/16_swarms/examples/04_itinerary_team.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 15.97,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/16_swarms/use_case/itinerary_swarm.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 24.08,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/17_graphs/examples/01_graph_basics.py",
+      "status": "passed",
+      "initial_status": "failed",
+      "recheck": "Passed after the documented local fixes.",
+      "initial_returncode": 1,
+      "initial_seconds": 6.23,
+      "returncode": 0
+    },
+    {
+      "path": "modules/17_graphs/examples/02_parallel_search.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 7.94,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/17_graphs/examples/03_conditional_budget.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 3.5,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/17_graphs/examples/04_nested_patterns.py",
+      "status": "passed",
+      "initial_status": "failed",
+      "recheck": "Passed after the documented local fixes.",
+      "initial_returncode": 1,
+      "initial_seconds": 7.09,
+      "returncode": 0
+    },
+    {
+      "path": "modules/17_graphs/examples/05_workflow_comparison.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 5.0,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/17_graphs/examples/06_approval_pipeline.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 4.28,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/17_graphs/use_case/group_trip_pipeline.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 5.64,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/18_a2a/examples/01_partner_server.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 20.42,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/18_a2a/examples/02_remote_agent.py",
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 11.44,
+      "initial_status": "failed"
+    },
+    {
+      "path": "modules/18_a2a/examples/03_authenticated_client.py",
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 9.7,
+      "initial_status": "failed"
+    },
+    {
+      "path": "modules/18_a2a/examples/04_framework_interop.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 15.73,
+      "initial_status": "passed"
+    },
+    {
+      "path": "modules/18_a2a/use_case/partner_upgrade.py",
+      "status": "passed",
+      "returncode": 0,
+      "seconds": 10.27,
+      "initial_status": "passed"
+    }
+  ],
+  "classification": {
+    "exact_category_and_urgency": 17,
+    "total": 20,
+    "note": "Prompt clarified after initial 4/20 measurement. This is a development rerun, not an untouched holdout benchmark."
+  },
+  "onboarding": {
+    "through_mock_seconds": 15.4724074,
+    "through_live_seconds": 18.3211893,
+    "cached_install_seconds": 12.9259995,
+    "scope": "Fresh virtual environment, cached packages, existing clone, installed Ollama and downloaded model; not a new-learner study"
+  },
+  "jaeger": {
+    "version": "2.22.0",
+    "implementation": "Native Windows collector, explicit loopback-only OTLP/HTTP and query ports",
+    "stored_spans": 6,
+    "redaction_verified": true,
+    "model": "mock; real Strands instrumentation and real collector"
+  },
+  "containers": {
+    "engine": "Podman 6.0.2 via Docker default context",
+    "native_architecture": "linux/amd64",
+    "lambda": "Build and HTTP Runtime Interface Emulator passed with MODEL_PROVIDER=mock and network=none",
+    "fargate": "Build, health, 401 without bearer, grounded SSE, UID 10001 passed with network=none",
+    "runtime": "Native build and grounded SSE passed with UID 10001 and network=none; required ARM64 build failed: Exec format error",
+    "bridge_network": "Existing netavark/nftables failure; builds used host networking and native builder. User engine settings unchanged."
+  },
+  "regression": {
+    "default_python312": {
+      "passed": 477,
+      "skipped": 34
+    },
+    "default_python313": {
+      "passed": 477,
+      "skipped": 34
+    },
+    "focused_optional": {
+      "passed": 69
+    },
+    "updated_notebooks": {
+      "passed": 5
+    },
+    "full_optional": "Unsuccessful: native Windows access violation while importing Mem0 dependency path after more than 70 percent progress; isolated checks later passed.",
+    "local_links": {
+      "checked": 1575,
+      "failures": 0
+    },
+    "precommit": "All hooks passed"
+  },
+  "cleanup": "Task-owned Ollama/Jaeger processes stopped; all task-owned service containers and failed build helper removed. Images, downloads and logs retained locally; default Python groups restored."
+}

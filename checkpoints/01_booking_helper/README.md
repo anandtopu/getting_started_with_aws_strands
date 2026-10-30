@@ -31,7 +31,7 @@ uv run pytest checkpoints/01_booking_helper
 
 Extend [starter.py](starter.py) before reading [solution.py](solution.py). The starter runs a useful search but intentionally does not satisfy the full project. The reference solution composes `common.assistant.booking_agent`, with the same four tools taught in module 05. Keep identity in `invocation_state`, never in model-selectable arguments. The tests validate the reusable application components and reference solution; add matching tests for your own composition.
 
-Remove `--mock` only after configuring a tool-capable model. For Ollama use the documented `qwen3:4b` route; for Bedrock complete the SSO/budget setup first. The demo identity is fixed for synthetic exercises; it is not a login system suitable for deployment.
+Remove `--mock` only after configuring a tool-capable model. For Ollama use the documented `qwen3:4b-instruct` route; for Bedrock complete the SSO/budget setup first. The demo identity is fixed for synthetic exercises; it is not a login system suitable for deployment.
 
 Expected output includes `traveler`, `legs`, `total_cents`, and `hotel_id`, followed by usage metrics. The scripted route deliberately picks the first matching fixture; it does not measure a model's planning quality. An inventory validation error is a rejected proposal, not a reason to silently change the source data.
 

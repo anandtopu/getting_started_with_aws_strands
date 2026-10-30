@@ -1,5 +1,6 @@
 """Readable output with honest token-cost estimates and safe error messages."""
 
+import sys
 from collections.abc import Callable
 from typing import Any
 
@@ -70,6 +71,10 @@ def friendly_error(exc: Exception) -> str:
 
 def run_cli(main: Callable[[], int | None]) -> None:
     """Keep expected provider failures readable without printing credentials."""
+    # Real model text may contain emoji even when a redirected Windows stream uses cp1252.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(errors="backslashreplace")
     try:
         status = main()
     except KeyboardInterrupt:

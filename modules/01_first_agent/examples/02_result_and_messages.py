@@ -20,7 +20,10 @@ def main() -> None:
         callback_handler=None,
         retry_strategy=None,
     )
-    result = agent("Help me plan a Nimbus trip.", limits={"turns": 2})
+    result = agent(
+        "Help me plan a Nimbus trip. Ask for my destination in one short sentence.",
+        limits={"turns": 2},
+    )
     # KEY IDEA: an AgentResult is more than the printable answer.
     console.print("stop_reason:", result.stop_reason)
     console.print("answer blocks:", result.message["content"])

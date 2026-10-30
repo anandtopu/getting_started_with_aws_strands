@@ -675,3 +675,35 @@ explicit open items in the definition of done.
 The final audit link sweep passed all 1,567 local and public links, including the
 published repository and CI evidence. The final documentation-only commit uses
 `[skip ci]` to avoid repeating the unchanged implementation's seven passing jobs.
+
+### Local-service follow-up — 2026-10-29
+
+The subsequent [local-service audit](LOCAL_SERVICES_CHECKS.md) records actual Ollama
+inference, three native container builds/HTTP checks, real Jaeger ingestion/readback,
+and a timed prepared-machine onboarding rehearsal. The [machine-readable record](verification/local_services_checks.json)
+contains 87 successful commands, seven unresolved live validation failures and
+20 exclusions. Counts combine an initial sweep with targeted reruns; they do not
+claim every lesson passes on the final model configuration.
+
+Live checks exposed a thinking-only moving model tag, overlong unconstrained
+answers, missing structured tool calls and redirected Windows Unicode handling.
+The source fixes, explicit instruction-model selection and updated notebooks are
+described in the audit. Model quality remains separate from successful execution:
+ticket classification reached 17/20 after a development prompt revision.
+
+The final default Python 3.12 and 3.13 installations each passed **477 tests with 34
+optional/live skips**. All 110 restored Python 3.12 distributions passed dependency consistency.
+Focused optional checks passed 69 tests, and all five affected notebooks executed.
+Ruff lint/formatting and 1,575 local link checks passed. All pre-commit hooks passed.
+The full optional Windows
+run hit a native access violation during the Mem0 import path; it is recorded as
+unsuccessful despite the later isolated checks passing.
+
+Final container images were rebuilt after the source changes and checked again
+through actual HTTP. All temporary application containers, Jaeger instances,
+Ollama processes and the failed build helper created by this task were stopped
+and removed where applicable. Downloaded runtimes/models, build images and diagnostic
+logs remain in local caches or ignored `.nimbus/` paths. The user's selected Docker
+context and engine settings were unchanged. No AWS deployment or hosted inference
+occurred. ARM64 execution, managed voice, new-learner timing and the named live
+validation failures remain open.

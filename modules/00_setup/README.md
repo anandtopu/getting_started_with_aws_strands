@@ -55,7 +55,7 @@ flowchart TD
 
 From the repository root run `uv sync`, copy `.env.example` to `.env` if it does not exist, then run `uv run python scripts/check_env.py`. Python/venv alternatives and Windows activation are in the [root quick start](../../README.md). The repository is local until public publication; use your actual checkout location rather than an invented clone URL.
 
-For local inference install Ollama, run `ollama pull qwen3:4b`, and change only `MODEL_PROVIDER=ollama` while `MODEL_ID` stays blank. This model supports tools; image examples require the separate `qwen3-vl:4b` download. A download's disk size is not its full RAM requirement.
+For local inference install Ollama, run `ollama pull qwen3:4b-instruct`, and change only `MODEL_PROVIDER=ollama` while `MODEL_ID` stays blank. This model supports tools; image examples require the separate `qwen3-vl:4b` download. A download's disk size is not its full RAM requirement.
 
 For AWS, follow [AWS setup](../../docs/AWS_SETUP.md) in order: Identity Center user/permission set, AWS CLI v2, named SSO profile, budget, region/model access, then a short probe. Identity/budget provisioning are necessary prerequisites to the budget-before-billing rule. Root is never a lesson identity. No module in this tier deploys infrastructure.
 

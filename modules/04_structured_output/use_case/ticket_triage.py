@@ -31,12 +31,16 @@ def main() -> None:
         agent = Agent(
             model=get_model(cfg, responses=[tool_message("TicketTriage", scripted)]),
             structured_output_model=TicketTriage,
+            system_prompt="Classify the supplied ticket by calling TicketTriage. "
+            "Use a summary of at most 200 characters. Omit booking_id when absent. "
+            "Urgency is normal unless the ticket explicitly says departure is within "
+            "the next 24 hours. A cancellation window or an upset tone does not make it high. "
+            "Submit the classification through the tool, not as prose or a JSON text block.",
             callback_handler=None,
             retry_strategy=None,
         )
         result = agent(
-            "Classify this Nimbus ticket. High urgency means departure within 24 hours. "
-            + item["input"],
+            "Classify this Nimbus ticket using the stated urgency rule: " + item["input"],
             limits={"turns": 3},
         )
         prediction = result.structured_output

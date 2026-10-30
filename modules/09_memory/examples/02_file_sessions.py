@@ -27,7 +27,7 @@ def main() -> None:
             callback_handler=None,
             session_manager=first_manager,
         )
-        first("I am planning Lisbon.", limits={"turns": 2})
+        first("I am planning Lisbon. Acknowledge in one short sentence.", limits={"turns": 2})
         # KEY IDEA: a new Agent restores history through the same scoped session ID.
         resumed = Agent(
             model=get_model(cfg, responses=["Lisbon."]),

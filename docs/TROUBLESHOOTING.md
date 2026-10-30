@@ -1,5 +1,15 @@
 # Troubleshooting
 
+## Local model reaches the token limit before answering
+
+Use `ollama pull qwen3:4b-instruct`, keep `MODEL_ID` blank and set
+`OLLAMA_MODEL_ID=qwen3:4b-instruct`. The moving `qwen3:4b` tag resolved to a
+thinking-only model during the live check; its reasoning exhausted the 512-token
+lesson budget. `OLLAMA_THINK=false` is the course default, but a thinking-only
+model cannot honor it. Use the explicit instruction-tuned variant for short lessons.
+Enable `OLLAMA_THINK=true` only with a compatible model and a suitable token budget.
+See [Ollama's thinking controls](https://docs.ollama.com/capabilities/thinking).
+
 Start with `uv run python scripts/check_env.py`. Add `--aws` or `--ollama` only when you intentionally want service checks. Errors may include provider-specific prefixes; the fragments below are the parts to match. Never paste credentials or customer data into a bug report.
 
 ## `AccessDeniedException`

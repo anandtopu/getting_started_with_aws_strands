@@ -26,7 +26,8 @@ def main() -> None:
     agent = booking_agent(cfg, replies)
     # KEY IDEA: the authenticated application supplies identity, outside model arguments.
     result = agent(
-        "Search Lisbon flights and hotels, check one flight's seats, then my BKG-0001 booking.",
+        "Search Lisbon flights and hotels, check one flight's seats, then my BKG-0001 booking. "
+        "Summarize one flight, one hotel and the booking status in at most 100 words.",
         invocation_state={"customer_id": "CUS-001"},
         limits={"turns": 6},
     )

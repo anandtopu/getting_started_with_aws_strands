@@ -8,14 +8,27 @@ from common.swarm_lessons import itinerary_swarm
 
 def basics(settings, *, nested=None):
     builder = GraphBuilder()
-    first = worker(settings, "research", ["Synthetic Porto evidence collected."])
+    first = worker(
+        settings,
+        "research",
+        ["Synthetic Porto evidence collected."],
+        prompt="Outline synthetic Porto trip research in at most 100 words. "
+        "Mark unknown dates and prices; never book or pay.",
+    )
     if nested == "swarm":
         first = itinerary_swarm(settings)
     elif nested == "graph":
         first = basics(settings)
     builder.add_node(first, "research")
     builder.add_node(
-        worker(settings, "writer", ["Draft only; verify dates and occupancy."]), "writer"
+        worker(
+            settings,
+            "writer",
+            ["Draft only; verify dates and occupancy."],
+            prompt="Write a trip draft in at most 100 words using the supplied research. "
+            "Keep unknown facts explicit. Never book or pay.",
+        ),
+        "writer",
     )
     builder.add_edge("research", "writer")
     builder.set_entry_point("research")

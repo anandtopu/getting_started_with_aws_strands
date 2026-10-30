@@ -37,12 +37,16 @@ def main() -> None:
         model=model,
         tools=[policy_lookup],
         structured_output_model=TicketTriage,
+        system_prompt="Read policy_lookup first, then call TicketTriage to submit the final "
+        "classification. Keep the summary under 200 characters. Do not answer in prose.",
         callback_handler=None,
         retry_strategy=None,
     )
     result = agent(
         "Read the refund policy, then classify: Please refund my booking.", limits={"turns": 4}
     )
+    if result.structured_output is None:
+        raise RuntimeError("Model did not submit TicketTriage within the turn budget")
     console.print(result.structured_output.model_dump(mode="json"))
     complete(result, cfg)
 

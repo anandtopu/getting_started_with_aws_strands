@@ -119,7 +119,11 @@ def demonstrate(settings, *, ledger=None):
     )
     with TestClient(app) as client:
         customer = {"Authorization": "Bearer offline-customer"}
-        response = client.post("/chat", json={"prompt": "Plan a Boston trip"}, headers=customer)
+        response = client.post(
+            "/chat",
+            json={"prompt": "Suggest a Boston trip in under 100 words."},
+            headers=customer,
+        )
         assert response.status_code == 200 and "event: done" in response.text
         if ledger:
             proposed = client.post("/requests", json={"cents": 60000}, headers=customer)

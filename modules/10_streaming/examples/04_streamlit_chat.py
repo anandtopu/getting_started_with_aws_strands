@@ -59,7 +59,12 @@ def main():
         import asyncio
 
         async def replay():
-            return [t async for t in text_chunks(planner(cfg), "Boston trip")]
+            return [
+                t
+                async for t in text_chunks(
+                    planner(cfg), "Suggest a Boston trip in under 100 words."
+                )
+            ]
 
         print(asyncio.run(replay()))
         complete()

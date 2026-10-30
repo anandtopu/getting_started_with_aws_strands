@@ -19,12 +19,16 @@ async def specialist(settings, role, request, records):
         role,
         [tool_message("SpecialistAnswer", expected)],
         structured_output_model=SpecialistAnswer,
-        prompt="Return the provided catalog evidence as SpecialistAnswer. No purchases.",
+        prompt="Call SpecialistAnswer with the provided evidence fields. Copy role, reference "
+        "and cents exactly: cents is already the complete total, so do not multiply it. "
+        "Use a brief summary. Submit through the tool, not prose. No purchases.",
     )
     # Only minimum task fields and public evidence cross this boundary, never parent messages.
     context = {"city": request.city, "evidence": expected}
     async with asyncio.timeout(15):
         result = await agent.invoke_async(json.dumps(context), limits={"turns": 3})
+    if result.structured_output is None:
+        raise ValueError("Specialist did not submit a structured answer within the turn budget")
     answer = validate_offer(result.structured_output.model_dump(), expected)
     records.append(
         {
@@ -81,7 +85,7 @@ async def concierge(settings, *, delegated=True, request=None):
         "concierge",
         [batch, "Compare the quoted flight, hotel and refund policy."],
         tools=tools,
-        prompt="Call each offered specialist or bundle once, then summarize. "
+        prompt="Call each offered specialist or bundle once, then summarize in under 100 words. "
         "Do not book, pay, or invent policy. The host already validated the request.",
     )
     started = time.monotonic()

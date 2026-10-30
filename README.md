@@ -105,7 +105,7 @@ The mock run uses the real Strands agent loop and a scripted model. It needs no 
 Install [Ollama](https://ollama.com/download), start its service, and download a model:
 
 ```text
-ollama pull qwen3:4b
+ollama pull qwen3:4b-instruct
 ```
 
 Edit just `MODEL_PROVIDER=ollama` in `.env`, leaving `MODEL_ID` blank. Then:

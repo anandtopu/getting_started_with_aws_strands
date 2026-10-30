@@ -1,15 +1,16 @@
 # Definition of done and verification gaps
 
 This checklist distinguishes delivered course content from live service evidence.
-Checked 2026-10-29. See [the verification record](VERIFICATION_NOTES.md) for exact
+Checked 2026-10-29. See [the verification record](VERIFICATION_NOTES.md) and the
+[local-service follow-up](LOCAL_SERVICES_CHECKS.md) for exact
 commands, package versions and results. A mock score is not a model-quality claim.
 
-- [x] Default Python 3.12 and 3.13 installations pass offline pytest: 473 tests
-  pass with 34 explicit optional/live skips on each version.
+- [x] Default offline pytest passes: the local-service follow-up passed 477 tests
+  with 34 optional/live skips on both Python 3.12 and 3.13.
 - [x] Ruff lint and formatting pass across all delivered sources and notebooks.
 - [x] [All seven GitHub CI jobs passed](https://github.com/anandtopu/getting_started_with_aws_strands/actions/runs/40981632341): Ubuntu/Windows core checks
   on Python 3.12 and 3.13, macOS core on 3.12, and full optional checks on Ubuntu/Windows.
-  The verified implementation is `0832d3e`; the final audit update changes documentation only.
+  This historical run verified `0832d3e`; later local-service fixes are checked separately.
 - [x] All ten CDK apps synthesize locally without lookups. Synthesis does not deploy.
 - [x] Strands deprecation warnings fail pytest. Upstream AgentCore's separate
   Python datetime warning is recorded, not hidden as a Strands success.
@@ -19,20 +20,26 @@ commands, package versions and results. A mock score is not a model-quality clai
   exercises/solutions, quizzes, tests and cleared notebooks. TypeScript checks use Node.
 - [x] Feature-map paths, local links and public links pass: 1,567 links in the
   final sweep, including the published repository and successful CI run.
-- [ ] All Tiers 1-4 run on a live Ollama model: local adapters and offline contracts
-  are tested; model downloads and live inference were not performed. Tool and vision
-  capability requirements are explicit in the affected lessons.
+- [ ] All Tiers 1-4 run on a live Ollama model: the local-service sweep and targeted
+  reruns completed 87 commands, failed seven validation checks and excluded 20 branches.
+  Real text, tool, vision and embedding calls ran; this is not an all-lessons success.
 - [x] Every delivered AWS lab has tagged resource code, costs and teardown instructions.
 - [ ] Actual AWS deployment, teardown and empty-leftover verification: intentionally
   unperformed because the user prohibited deploying resources during authoring.
 - [ ] Measured onboarding under 10 minutes locally and 20 minutes on AWS: not timed
-  with a new learner. Downloads, hardware, SSO provisioning and model access vary.
+  with a new learner. A prepared-machine rehearsal with cached packages, a fresh
+  environment and downloaded local models took 18.32 seconds. AWS timing remains untested.
 - [x] Reference solutions are runnable code. Exercise and capstone starters are
   explicitly unfinished learning tasks, with tests and complete solutions.
 - [x] All 173 Python scripts, four TypeScript scripts and 26 notebooks execute.
   The optional sweep has zero skips; TypeScript also passes five tests and type-checking.
 - [x] Five printable one-page PDFs, 90 glossary terms and a troubleshooting guide
   are delivered. PDFs are rendered and visually inspected.
+- [x] Native AMD64 container builds and actual HTTP requests pass for all three
+  adapters, including Lambda's emulator, Fargate authentication and Runtime streaming.
+  The application containers ran with external networking disabled and scripted models.
+- [x] A real local Jaeger collector stored six Strands spans; readback verified
+  the numeric-metrics projection excludes private prompt content.
 
 ## Scope limits that remain after offline verification
 
@@ -48,7 +55,10 @@ commands, package versions and results. A mock score is not a model-quality clai
   local ledger; production payments and a hosted supervisor UI are outside scope.
 - Document fixture extraction is not an OCR accuracy benchmark. Trip prices and
   inventory are synthetic; partner quotes cannot purchase travel.
-- Docker is installed but its engine was unavailable during authoring. Image
-  builds and a running Jaeger collector require a separate local check.
+- Runtime's required ARM64 build failed on the local engine with `Exec format error`.
+  Native AMD64 checks do not validate ARM64 execution. The user's bridge network
+  also has an existing netavark/nftables failure; engine settings were not changed.
+- The optional full Windows regression run hit a native access violation during
+  the Mem0 import path. Isolated affected tests passed; the broad failure is unresolved.
 
 Do not turn these open boxes into passing claims without running the named checks.

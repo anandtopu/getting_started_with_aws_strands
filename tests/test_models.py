@@ -1,6 +1,9 @@
 """Verify actual SDK model/tool/structured-output behavior without a network."""
 
 import asyncio
+import os
+import subprocess
+import sys
 
 import pytest
 from pydantic import BaseModel, Field
@@ -18,6 +21,39 @@ def test_one_line_provider_switch(tmp_path):
     cfg = load_settings(env, environ={})
     assert cfg.provider == "ollama" and cfg.model_id.startswith("qwen")
     assert load_settings(env, environ={"MODEL_ID": "my-model"}).model_id == "my-model"
+
+
+@pytest.mark.parametrize("value,expected", [("false", False), ("true", True)])
+def test_ollama_thinking_reaches_request(tmp_path, value, expected):
+    env = tmp_path / ".env"
+    env.write_text("MODEL_PROVIDER=ollama\n", encoding="utf-8")
+    cfg = load_settings(env, environ={"OLLAMA_THINK": value})
+    model = get_model(cfg)
+    assert model.get_config()["additional_args"] == {"think": expected}
+    assert model.get_config()["max_tokens"] == 512
+
+
+def test_ollama_default_preserves_short_lesson_budget(tmp_path):
+    cfg = load_settings(tmp_path / "absent.env", environ={}, provider="ollama")
+    assert cfg.ollama_think is False
+    with pytest.raises(CourseError, match="ollama_think"):
+        load_settings(tmp_path / "absent.env", environ={"OLLAMA_THINK": "maybe"})
+
+
+def test_cli_handles_unicode_on_a_legacy_redirected_stream():
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-c",
+            "from common.pretty import run_cli; run_cli(lambda: print(chr(0x1F60A)))",
+        ],
+        env={**os.environ, "PYTHONIOENCODING": "ascii:strict"},
+        capture_output=True,
+        timeout=15,
+        check=False,
+    )
+    assert result.returncode == 0, result.stderr
+    assert b"\\U0001f60a" in result.stdout
 
 
 @pytest.mark.parametrize(

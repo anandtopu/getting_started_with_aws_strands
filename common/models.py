@@ -127,6 +127,8 @@ def get_model(
                 temperature=cfg.temperature,
                 max_tokens=cfg.max_tokens,
                 ollama_client_args={"timeout": 120},
+                # Reasoning can consume the entire beginner lesson token budget.
+                additional_args={"think": cfg.ollama_think},
             )
         if cfg.provider == "anthropic":
             from strands.models.anthropic import AnthropicModel
